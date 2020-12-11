@@ -1,0 +1,264 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 11/12/2020
+# Versão: 0.01
+
+Hardware utilizados no Projeto-01 de Firewall pfSense
+
+01 (um) Appliance J1900
+01 (um) Link de WAN Vivo Fibra
+01 (um) Link de WAN NET
+
+Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
+
+#Configuração geral do pfSense
+System
+	General Setup
+		System
+			Hostname: srvfw
+			Domain: domain.local
+		DNS Server Settings
+			DNS Servers: 8.8.8.8
+						 8.8.4.4
+		DNS Server Override: OFF
+		Disable DNS Forwarder: OFF
+		Localization
+			Timezone: America/Sao_Paulo
+			Timerservers: a.st1.ntp.br
+			Language: English
+		webConfigurator
+			Theme: pfSense-dark
+			Top Navigation: Scroolls with page
+			Hostname in Menu: Fully Qualified Domain Name
+			Dashboard Columms: 3
+			Interfaces Sort: 
+				Sort Alphavetically: ON
+		Associated Panel Show/Hide:
+			Available Widgest: ON
+			Log Filter: ON
+			Manage Log: ON
+			Monitoring: ON
+		Require State Filter: 
+			Do not display state table without a filter: OFF
+		Left Columm Labels
+			ACtive: OFF
+		Alias Popups:
+			Disable details in alias popups: OFF
+		Disable dragging:
+			Disable dragging of firewall/nat rules: OFF
+		Login page color: Dark Blue
+		Login hostname 
+			Show hostname on login banner: ON
+	save
+Dashboard	
+	Available Widgest
+		System Information: ON
+		Interfaces: ON
+		Gateways: ON
+		NTP Status: ON
+		Service Status: ON
+		Load Balancer Status: ON
+		Traffic Graphs: ON
+		Firewall Logs: ON
+		Interface Statistics: ON
+		save
+
+#Configuração do da CA e do Certificado SSL do pfSense
+System
+	Certificate Manager
+		CAs
+			ADD
+				Create / Edit CA
+					Descriptive name: EMPRESA
+					Method: Create an internel Certificate Authority
+				Internal Certificate Authority
+					Key lenght (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa-ca
+					Country Code: BR 
+					Sate or Province: Sao Paulo
+					City: Sao Paulo 
+					Organization: Empresa XYZ
+					Organizational Unit: Matriz Sao Paulo
+			save
+		Certificates
+			Add/Sign 
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado EMPRESA Firewall
+				Internal Certificate 
+					Certificate authority: EMPRESA 
+					Key lenght: 2038
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa.local 
+					Country Code: BR
+					State or Province: Sao Paulo
+					City: Sao Paulo
+					Organization: EMPRESA
+					Organization Unit: Matriz Sao Paulo 
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: IP_SERVER
+						FQDN or Hostname: NAME_SERVER
+						FQDN or Hostname: NAME_FQDN_SERVER
+				save
+
+#Configuração do webConfigurator
+System
+	Advanced
+		Admin Access
+			webConfigurator
+				Protocol: HTTPS
+				SSL/TLS Certificate: Certificado EMPRESA Firewall
+				TCP port: Default
+				Max Processes: 2
+				WebGUI redirect: OFF
+				HTS: OFF
+				OCSP Must-Staple: OFF
+				WebGUI Login Autocomplete: ON
+				WebGUI login messages: OFF
+				Anti-lockout: OFF
+				DNS Rebind Check: OFF
+				Alternate Hostnames: OFF
+				Browser HTTP_REFERER enforcement: OFF
+				Browser tab text: OFF
+			Secure Shell
+				Secure Shell Server: ON
+				SSHd Key Only: Password or Public Key
+				Allow Agent Forwarding: OFF
+				SSH Port: 22
+			Login Protection
+				Threshold: 30
+				Blocktime: 120
+				Detection time: 1800
+				Whitelist: Default
+			Serial Communications
+				Serial Terminal: OFF
+				Serial Speed: 115200
+				Primary Console: Serial Console
+			Console Options
+				Console menu: ON
+			save
+
+#Configuração das Interfaces de WAN e LAN
+Interfaces
+	Assignments
+		Interface Assignments
+			LAN (em0)
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: Static IPv4
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				Static IPv4 Configuration
+					IPv4 Address: IPV4_GATEWAY/24
+					IPv4 Upstream Gateway: None
+				Reserved Networks
+					Block private networks and loopback addresses: OFF
+					Block bogon networks: OFF
+				save
+				Apply Changes
+			WAN1 (em1) VIVO
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: DHCP
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				DHCP Client Configuration
+					Options: OFF
+					Configuration Override: OFF
+					Hostname: OFF
+					Alias IPv4 address: OFF
+					Reject leases from: OFF
+				Reserved Networks
+					Block private networks and loopback addresses: ON
+					Block bogon networks: ON
+				save
+				Apply Changes
+			WAN2 (em2) NET
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: DHCP
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				DHCP Client Configuration
+					Options: OFF
+					Configuration Override: OFF
+					Hostname: OFF
+					Alias IPv4 address: OFF
+					Reject leases from: OFF
+				Reserved Networks
+					Block private networks and loopback addresses: ON
+					Block bogon networks: ON
+				save
+				Apply Changes
+
+#Configuração do recurso de Failover e Failback
+System
+    Advanced
+        Miscellaneous
+            Load Balancing
+                Load Balancing: ON
+        save
+    Routing
+        Gateway Groups
+            ADD
+                Edit Gateway Group Entry
+                    Group Name: HA_LB_Internet
+                    Gateway Priority
+                        WAN1_DHCP   Tier 1  Interface Address  Interface VIVO
+                        WAN1_DHCP   Tier 2  Interface Address  Interface NET
+                    Trigger Level: Packet Loss or High Latency
+                    Description: Grupo de Interfaces de Gateway Vivo e NET
+                save
+                Apply Changes
+        Gateways
+            Default Gateway
+                Default gateway IPv4: HA_LB_Internet
+                Default gateway IPv6: Automatic
+            save
+            Apply Changes
+        Gateways
+            WAN1_DHCP
+                Edit
+                    Edit Gateway
+                        Monitor IP: 8.8.8.8
+                        Description: Interface VIVO
+                    Display Advanced
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                    save
+                    Apply Changes
+            WAN2_DHCP
+                Edit
+                    Edit Gateway
+                        Monitor IP: 8.8.4.4
+                        Description: Interface NET
+                    Display Advanced
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                    save
+                    Apply Changes
+
+#Configuração do recurso de Load Balance
