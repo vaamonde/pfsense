@@ -6,18 +6,18 @@
 # Instagram: instagram.com/procedimentoem/
 # Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
 # Data de criação: 11/12/2020
-# Data de atualização: 11/12/2020
-# Versão: 0.01
+# Data de atualização: 18/12/2020
+# Versão: 0.02
 
 Hardware utilizados no Projeto-01 de Firewall pfSense
 
 01 (um) Appliance J1900
-01 (um) Link de WAN Vivo Fibra
-01 (um) Link de WAN NET
+01 (um) Link de WAN Vivo Fibra (Bridge Mode)
+01 (um) Link de WAN NET (Bridge Mode)
 
 Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
 
-#Configuração geral do pfSense
+#Configuração geral do webConfigurator do pfSense
 System
 	General Setup
 		System
@@ -29,7 +29,7 @@ System
 		DNS Server Override: OFF
 		Disable DNS Forwarder: OFF
 		Localization
-			Timezone: America/Sao_Paulo
+			Timezone: America/Recife (Resolve o problema do Horário de Verão)
 			Timerservers: a.st1.ntp.br
 			Language: English
 		webConfigurator
@@ -56,6 +56,8 @@ System
 		Login hostname 
 			Show hostname on login banner: ON
 	save
+
+#Configuração do Dashboard do pfSense
 Dashboard	
 	Available Widgest
 		System Information: ON
@@ -67,9 +69,12 @@ Dashboard
 		Traffic Graphs: ON
 		Firewall Logs: ON
 		Interface Statistics: ON
+        Dynamic DNS Status: ON
+        IPSec: ON
+        OpenVPN: ON
 		save
 
-#Configuração do da CA e do Certificado SSL do pfSense
+#Configuração do CA e do Certificado SSL do pfSense
 System
 	Certificate Manager
 		CAs
@@ -112,7 +117,7 @@ System
 						FQDN or Hostname: NAME_FQDN_SERVER
 				save
 
-#Configuração do webConfigurator
+#Configuração avançada do webConfigurator do pfSense
 System
 	Advanced
 		Admin Access
@@ -149,7 +154,7 @@ System
 				Console menu: ON
 			save
 
-#Configuração das Interfaces de WAN e LAN
+#Configuração das Interfaces de WAN e LAN do pfSense
 Interfaces
 	Assignments
 		Interface Assignments
@@ -214,7 +219,7 @@ Interfaces
 				save
 				Apply Changes
 
-#Configuração do recurso de Failover e Failback
+#Configuração do recurso de Failover e Failback das Interfaces de WAN do pfSense
 System
     Advanced
         Miscellaneous
@@ -261,4 +266,182 @@ System
                     save
                     Apply Changes
 
-#Configuração do recurso de Load Balance
+#Configuração do recurso de NTP Server do pfSense
+Services
+    NTP
+        Settings
+            NTP Server Configuration
+                Interface: LAN
+                Time Services:  a.st1.ntp.br is a Pool
+                                a.ntp.br is a Pool
+                Orphan Mode: DEFAULT
+                NTP Graphs: ON
+                Logging: ON
+                Statistics Logging: ON
+                Lep seconds: DEFAULT
+            save
+
+#Configuração do recurso de Dynamic DNS No-IP do pfSense
+Services
+    Dynamic DNS
+        Dynamic DNS Client
+            ADD
+                Disable: OFF
+                Service Type: No-IP (free)
+                Interface to monitor: GW Group HA_LB_Internet
+                Hostname: NOME_SERVIDOR_NOIP.ddns.net
+                MX: OFF
+                Wilcards: OFF
+                Verbose logging: ON
+                Username: EMPRESA
+                Password: SENHA_EMPRESA
+                Confirm: SENHA_EMPRESA
+                Description: No-IP Dynamic DNS
+            save
+
+#Configuração do recurso de DHCP Server do pfSense
+Services
+    DHCP Server
+        LAN
+            General Options
+                Enable: ON
+                BOOTP: ON
+                Deny unknown clients: OFF
+                Ignore denied clients: OFF
+                Ignore client identifiers: OFF
+                Subnet: PADRÃO DA INTERFACE LAN
+                Range: From IP_DE_INÍCIO To IP_DE_FIM
+            Additional Pools
+                Add: OFF
+            Servers
+                WINS servers: IPV4_GATEWAY
+                DNS servers: IPV4_GATEWAY
+            Other Options
+                Gateway: 172.16.10.254
+                Domain name: empresa.local
+                Domain search list: empresa.local
+                Default lease time: DEFAULT
+                Maximum lease time: DEFAULT
+                Failover peer IP: OFF
+                Static ARP: OFF
+                Time format change: OFF
+                Statistics graphs: ON
+                Ping check: OFF
+            Dynamic DNS: DEFAULT
+            MAC address control: DEFAULT
+            NTP:
+                NTP Server 1: IPV4_GATEWAY
+            TFTP: DEFAULT
+            LDAP: DEFAULT
+            Network Booting: DEFAULT
+            Additional BOOTP/DHCP Options: DEFAULT
+            DHCP Static Mappings for this Interface: DEFAULT
+        save
+
+#Configuração das regras de Firewall da LAN do pfSense
+Firewall
+    Rules 
+        LAN
+            Separator
+                Regras Padrão Desativas
+                    IPv4 LAN Net Disable
+                    IPv6 LAN Net Disable
+            Separator
+                Regras de Liberação dos Serviços para a Internet
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: ICMP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o ICMP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: UDP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From DNS (53) To DNS (53)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o DNS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTP (80) To HTTP (80)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTPS (443) To HTTPS (443)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTPS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From FTP (21) To HTTPS (21)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o FTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    Apply Changes
+
+#Configuração das regras de NAT Port Forwarder
