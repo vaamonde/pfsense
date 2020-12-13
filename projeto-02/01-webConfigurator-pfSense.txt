@@ -28,8 +28,8 @@ Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
 System
 	General Setup
 		System
-			Hostname: NOME_DO_FIREWALL
-			Domain: DOMÍNIO_DA_EMPRESA
+			Hostname: srvfw
+			Domain: domain.local
 		DNS Server Settings
 			DNS Servers: 8.8.8.8
 						 8.8.4.4
@@ -77,6 +77,7 @@ Dashboard
 		Firewall Logs: ON
 		Interface Statistics: ON
         Dynamic DNS Status: ON
+        IPSec: ON
         OpenVPN: ON
 	save
 
@@ -323,9 +324,9 @@ Services
                 WINS servers: IPV4_GATEWAY
                 DNS servers: IPV4_GATEWAY
             Other Options
-                Gateway: IPV4_GATEWAY
-                Domain name: DOMÍNIO_DA_EMPRESA
-                Domain search list: DOMÍNIO_DA_EMPRESA
+                Gateway: 172.16.10.254
+                Domain name: empresa.local
+                Domain search list: empresa.local
                 Default lease time: DEFAULT
                 Maximum lease time: DEFAULT
                 Failover peer IP: OFF
@@ -343,47 +344,6 @@ Services
             Additional BOOTP/DHCP Options: DEFAULT
             DHCP Static Mappings for this Interface: DEFAULT
         save
-
-#Configuração do recurso de DNS Resolver do pfSense
-Servers
-    DNS Resolver
-        General Settings
-            General DNS Resolver Options
-                Enable: ON
-                Port: 53
-                Enable SSL/TLS Service: OFF
-                SSL/TLS Certificate: DEFAULT
-                SSL/TLS Listen Port: DEFAULT
-                Network Interfaces: ALL
-                Outgoing Network Interfaces: WAN1 - WAN2
-                System Domain Local Zone Type: Transparent
-                DNSSEC: ON
-                Python Module: OFF
-                DNS Query Forwarding: OFF
-                DHCP Registration: ON
-                Static DHCP: ON
-                OpenVPN Clients: ON
-        save
-        Apply Changes
-            Host Overrides:
-                ADD
-                    Host Override Options
-                        Host: NOME_DO_FIREWALL
-                        Domain: DOMÍNIO_DA_EMPRESA
-                        IP Address: IPV4_DO_FIREWALL
-                        Description: FIREWALL EMPRESA
-                    save
-                    Apply Changes
-            Domain Overrides
-                ADD
-                    Domains to Override with Custom Lookup Servers
-                        Domain: DOMÍNIO_DA_EMPRESA
-                        IP Address: IPV4_DO_FIREWALL
-                        TLS Queries: OFF
-                        TLS Hostname: OFF
-                        Description: Servidor de DNS Local
-                    save
-                    Apply Changes
 
 #Configuração das regras de Firewall da LAN do pfSense
 Firewall
