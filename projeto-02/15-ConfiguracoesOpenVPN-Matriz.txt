@@ -27,13 +27,13 @@ VPN
                 Certificate Authority: CA_EMPRESA
                 Next
             Choose a Server Certificate
-                Certificate: CERTIFICADO_EMPRESA
+                Certificate: CERTIFICADO_SERVIDOR_EMPRESA
                 Next
             General OpenVPN Server Information
                 Interface: WAN1
                 Protocol: UDP on IPv4 only 
                 Local Port: 1194
-                Description: OpenVPN Client-to-Site Matriz
+                Description: OpenVPN Client-to-Site Matriz Home Office
             Cryptographic Settings
                 TLS Authentication: ON
                 Generate TLS Key: ON
