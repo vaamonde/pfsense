@@ -70,6 +70,28 @@ VPN
             Configuration Complete!
                 Finish
 
+#Configuração da Regra de Firewall do OpenVPN
+Firewall
+    Rules
+        OpenVPN
+            Separator
+                Liberação de todas as redes e protocolos do OpenVPN
+                    Edit
+                        Extra Options
+                            Log: ON
+                            Description: Liberação de todas as redes e protocolos no OpenVPN
+                    save
+                    Apply Changes
+        WAN
+            Separator
+                Liberação de todas as redes e protocolos do OpenVPN
+                    Edit
+                        Extra Options
+                            Log: ON
+                            Description: Liberação de todas as redes e protocolos no OpenVPN
+                    save
+                    Apply Changes
+
 #Exportação das configurações do Cliente do OpenVPN
 VPN
     OpenVPN
@@ -92,4 +114,9 @@ VPN
             Advanced
                 Additional configuration options
             OpenVPN Clients
-                Download Client.
+                Download Client
+
+#Verificando o Status das Conexões do OpenVPN
+Status
+    OpenVPN
+        OpenVPN Client-to-Site Matriz UDP4:1194 Client Connections

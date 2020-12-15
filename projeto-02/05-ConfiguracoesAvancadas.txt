@@ -16,7 +16,7 @@ System
 			webConfigurator
 				Protocol: HTTPS
 				SSL/TLS Certificate: Certificado EMPRESA Firewall
-				TCP port: Default
+				TCP port: 10443
 				Max Processes: 2
 				WebGUI redirect: OFF
 				HTS: OFF

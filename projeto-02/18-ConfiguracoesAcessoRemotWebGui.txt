@@ -1,0 +1,75 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 14/12/2020
+# Versão: 0.04
+
+#Configuração da liberação de acesso remoto ao WebGui do pfSense
+Firewall
+	Rules
+		WAN
+			+ Separator
+				Liberação do acesso remoto ao WebGui do pfSense
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+				Source
+					Source: any
+					Advanced: Default
+				Destination
+					Destination: WAN Address
+					Destination Port Range: From: 10443 To: 10443
+				Extra Options
+					Log: ON 
+					Description: Liberar acesso remoto ao WebGui do pfSense
+			save
+
+#Criação do novo usuário de administração do pfSense
+System
+	User Manager
+		Users
+			ADD
+				User Properties
+					Denined by: USER 
+					Disable: OFF
+					Username: NOVO_USUÁRIO_ADMIN
+					Password: SENHA_USUÁRIO_ADMIN
+					Confirm Password: SENHA_USUÁRIO_ADMIN
+					Full name: NOME_COMPLETO_USUÁRIO_ADMIN
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: OpenVPN, adminis
+					Certificate: ON
+				Certificate: Create Certificate for User
+					Descriptive name: Usuário Admin pfSense
+					Certificate authority: CA_EMPRESA
+					Key length: 2048 bits
+					Lifetime: 3650
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			save
+			Edit
+				Effective Privileges
+					ADD
+						WebCfg - All pages
+						User - System: Shell account access
+					save
+			save
+			
+#Desativação do usuário admin padrão do pfSense
+System
+	User Manager
+		Users
+			admin: Edit
+				Disabled: ON
+			save
