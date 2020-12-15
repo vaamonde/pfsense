@@ -10,7 +10,7 @@
 # Versão: 0.05
 
 Hardware utilizados no Projeto-01 de Firewall pfSense
-01 (um) Appliance J1900
+02 (dois) Appliance HardGet J1900 (Modelo: HG04-06408, 4 Portas GigabitEthernet, CPU Intel Quad Core 2.0Ghz, 8.0GB DDR-3, SSD 64GB) 
 01 (um) Link de WAN Vivo Fibra Matriz (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode)
 01 (um) Link de WAN NET Filial (Modelo: Humax HGA12R-02 - Bridge Mode)
 
