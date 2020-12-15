@@ -1,0 +1,56 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração do CA e do Certificado SSL do pfSense
+System
+	Certificate Manager
+		CAs
+			ADD
+				Create / Edit CA
+					Descriptive name: EMPRESA
+					Method: Create an internel Certificate Authority
+				Internal Certificate Authority
+					Key lenght (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa-ca
+					Country Code: BR 
+					Sate or Province: Sao Paulo
+					City: Sao Paulo 
+					Organization: Empresa XYZ
+					Organizational Unit: Matriz Sao Paulo
+			save
+		Certificates
+			Add/Sign 
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado EMPRESA Firewall
+				Internal Certificate 
+					Certificate authority: EMPRESA 
+					Key lenght: 2038
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa.local 
+					Country Code: BR
+					State or Province: Sao Paulo
+					City: Sao Paulo
+					Organization: EMPRESA
+					Organization Unit: Matriz Sao Paulo 
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: IP_LAN_SERVER
+						FQDN or Hostname: NAME_SERVER
+						FQDN or Hostname: NAME_FQDN_SERVER
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-01_VPN-IPSEC-HA-LB
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-02_VPN-OPENVPN-VIVO
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-03_VPN-OPENVPN-NET
+			save

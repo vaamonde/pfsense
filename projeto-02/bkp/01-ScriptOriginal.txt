@@ -1,0 +1,781 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+Hardware utilizados no Projeto-01 de Firewall pfSense
+01 (um) Appliance J1900
+01 (um) Link de WAN Vivo Fibra (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode)
+01 (um) Link de WAN NET (Modelo: Humax HGA12R-02 - Bridge Mode)
+
+Usuário VIVO Fibra de autenticação PPPoE
+Usuário: cliente@cliente - Senha: cliente
+Usuário: linkbr@linkbr.com.br - Senha: linkbr
+Usuário: vivo@vivo - Senha: vivo
+Usuário: speedy@speedy - Senha: speedy
+
+Servidores de DNS testados e configurados no pfSense
+DNS Google..............: Preferencial: 8.8.8.8 - Secundário: 8.8.4.4
+OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220.220
+OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
+CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
+CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+
+Servidores de DDNS testados e configurados no pfSense
+No-IP....: https://www.noip.com/pt-BR
+ClouDNS..: https://www.cloudns.net/wiki/article/268/
+Winco....: https://ddns.winco.com.br/dns-dinamico-free
+FreeDNS..: https://freedns.afraid.org/
+DuckDNS..: http://www.duckdns.org/
+
+Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
+
+#Configuração geral do webConfigurator do pfSense
+System
+	General Setup
+		System
+			Hostname: NOME_DO_FIREWALL
+			Domain: DOMÍNIO_DA_EMPRESA
+		DNS Server Settings
+			DNS Servers: 8.8.8.8
+            DNS Servers: 8.8.4.4
+		DNS Server Override: OFF
+		Disable DNS Forwarder: OFF
+		Localization
+			Timezone: America/Recife (Resolve o problema do Horário de Verão)
+			Timerservers: a.st1.ntp.br
+			Language: English
+		webConfigurator
+			Theme: pfSense-dark
+			Top Navigation: Scroolls with page
+			Hostname in Menu: Fully Qualified Domain Name
+			Dashboard Columms: 3
+			Interfaces Sort: 
+				Sort Alphavetically: ON
+		Associated Panel Show/Hide
+			Available Widgest: ON
+			Log Filter: ON
+			Manage Log: ON
+			Monitoring: ON
+		Require State Filter:
+			Do not display state table without a filter: OFF
+		Left Columm Labels
+			ACtive: OFF
+		Alias Popups
+			Disable details in alias popups: OFF
+		Disable dragging
+			Disable dragging of firewall/nat rules: OFF
+		Login page color: Dark Blue
+		Login hostname 
+			Show hostname on login banner: ON
+	save
+
+#Configuração do Dashboard do pfSense
+Dashboard	
+	Available Widgest
+		System Information: ON
+		Interfaces: ON
+		Gateways: ON
+		NTP Status: ON
+		Service Status: ON
+		Load Balancer Status: ON
+		Traffic Graphs: ON
+		Firewall Logs: ON
+		Interface Statistics: ON
+        Dynamic DNS Status: ON
+        OpenVPN: ON
+        IPSec: ON
+	save
+
+#Configuração do CA e do Certificado SSL do pfSense
+System
+	Certificate Manager
+		CAs
+			ADD
+				Create / Edit CA
+					Descriptive name: EMPRESA
+					Method: Create an internel Certificate Authority
+				Internal Certificate Authority
+					Key lenght (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa-ca
+					Country Code: BR 
+					Sate or Province: Sao Paulo
+					City: Sao Paulo 
+					Organization: Empresa XYZ
+					Organizational Unit: Matriz Sao Paulo
+			save
+		Certificates
+			Add/Sign 
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado EMPRESA Firewall
+				Internal Certificate 
+					Certificate authority: EMPRESA 
+					Key lenght: 2038
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: empresa.local 
+					Country Code: BR
+					State or Province: Sao Paulo
+					City: Sao Paulo
+					Organization: EMPRESA
+					Organization Unit: Matriz Sao Paulo 
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: IP_LAN_SERVER
+						FQDN or Hostname: NAME_SERVER
+						FQDN or Hostname: NAME_FQDN_SERVER
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-01_VPN-IPSEC-HA-LB
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-02_VPN-OPENVPN-VIVO
+                        FQDN or Hostname: ALIAS_DYNAMIC_DNS-03_VPN-OPENVPN-NET
+			save
+
+#Configuração avançada do webConfigurator do pfSense
+System
+	Advanced
+		Admin Access
+			webConfigurator
+				Protocol: HTTPS
+				SSL/TLS Certificate: Certificado EMPRESA Firewall
+				TCP port: Default
+				Max Processes: 2
+				WebGUI redirect: OFF
+				HTS: OFF
+				OCSP Must-Staple: OFF
+				WebGUI Login Autocomplete: ON
+				WebGUI login messages: OFF
+				Anti-lockout: OFF
+				DNS Rebind Check: OFF
+				Alternate Hostnames: OFF
+				Browser HTTP_REFERER enforcement: OFF
+				Browser tab text: OFF
+			Secure Shell
+				Secure Shell Server: ON
+				SSHd Key Only: Password or Public Key
+				Allow Agent Forwarding: OFF
+				SSH Port: 22
+			Login Protection
+				Threshold: 30
+				Blocktime: 120
+				Detection time: 1800
+				Whitelist: Default
+			Serial Communications
+				Serial Terminal: OFF
+				Serial Speed: 115200
+				Primary Console: Serial Console
+			Console Options
+				Console menu: ON
+		save
+
+#Configuração das Interfaces de WAN e LAN do pfSense
+Interfaces
+	Assignments
+		Interface Assignments
+			LAN (em0)
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: Static IPv4
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				Static IPv4 Configuration
+					IPv4 Address: IPV4_GATEWAY/24
+					IPv4 Upstream Gateway: None
+				Reserved Networks
+					Block private networks and loopback addresses: OFF
+					Block bogon networks: OFF
+			save
+			Apply Changes
+			WAN1 (em1) VIVO
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: PPPoE
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				PPPoE Configuration
+					Username: cliente@cliente
+					Password: cliente - Confirm: cliente
+					Service name: OFF
+					Dial on demand: OFF
+					Idle timeout: OFF
+					Periodic reset: Disabled
+					Advanced and MLPPP: Default
+				Reserved Networks
+					Block private networks and loopback addresses: ON
+					Block bogon networks: ON
+			save
+			Apply Changes
+			WAN2 (em2) NET
+				General Configuration
+					Enable: ON
+					Description: LAN
+					IPv4 Configuration Type: DHCP
+					IPv6 Configuration Type: None
+					MAC Address: OFF
+					MTU: OFF
+					MSS: OFF
+					Speed and Duplex: Default (no preference, typically autoselect)
+				DHCP Client Configuration
+					Options: OFF
+					Configuration Override: OFF
+					Hostname: OFF
+					Alias IPv4 address: OFF
+					Reject leases from: OFF
+				Reserved Networks
+					Block private networks and loopback addresses: ON
+					Block bogon networks: ON
+			save
+			Apply Changes
+
+#Configuração do recurso de Failover e Failback das Interfaces de WAN do pfSense
+System
+    Advanced
+        Miscellaneous
+            Load Balancing
+                Load Balancing: ON
+        save
+    Routing
+        Gateway Groups
+            ADD
+                Edit Gateway Group Entry
+                    Group Name: HA_LB_Internet
+                    Gateway Priority
+                        WAN1_DHCP   Tier 1  Interface Address  Interface VIVO
+                        WAN1_DHCP   Tier 2  Interface Address  Interface NET
+                    Trigger Level: Packet Loss or High Latency
+                    Description: Grupo de Interfaces de Gateway Vivo e NET
+                save
+                Apply Changes
+        Gateways
+            Default Gateway
+                Default gateway IPv4: HA_LB_Internet
+                Default gateway IPv6: Automatic
+            save
+            Apply Changes
+        Gateways
+            WAN1_DHCP
+                Edit
+                    Edit Gateway
+                        Monitor IP: 8.8.8.8
+                        Description: Interface VIVO
+                    Display Advanced
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                    save
+                    Apply Changes
+            WAN2_DHCP
+                Edit
+                    Edit Gateway
+                        Monitor IP: 1.1.1.1
+                        Description: Interface NET
+                    Display Advanced
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                    save
+                    Apply Changes
+
+#Configuração do recurso de NTP Server do pfSense
+Services
+    NTP
+        Settings
+            NTP Server Configuration
+                Interface: LAN
+                Time Services: a.st1.ntp.br is a Pool
+                Time Services: a.ntp.br is a Pool
+                Orphan Mode: DEFAULT
+                NTP Graphs: ON
+                Logging: ON
+                Statistics Logging: ON
+                Lep seconds: DEFAULT
+            save
+
+#Configuração do recurso de Dynamic DNS do pfSense
+Services
+    Dynamic DNS
+        Dynamic DNS Client
+            ADD
+                Disable: OFF
+                Service Type: Custom
+                Interface to monitor: GW Group HA_LB_Internet
+                Interface to send update from: GW Group HA_LB_Internet
+                Verbose logging: ON
+                HTTP API DNS Options: OFF
+                HTTP API SSL/TLS Options: OFF
+                Username: OFF
+                Password: OFF
+                Update URL: https://ipv4.cloudns.net/api/dynamicURL/URL_DO_HOST_DO_CLIENTE
+                Description: HA-VPN IPSec ClouDNS Dynamic DNS
+            save
+            ADD
+                Disable: OFF
+                Service Type: Custom
+                Interface to monitor: WAN1
+                Interface to send update from: WAN1
+                Verbose logging: ON
+                HTTP API DNS Options: OFF
+                HTTP API SSL/TLS Options: OFF
+                Username: OFF
+                Password: OFF
+                Update URL: https://ipv4.cloudns.net/api/dynamicURL/URL_DO_HOST_DO_CLIENTE
+                Description: VIVO-VPN OpenVPN ClouDNS Dynamic DNS
+            save
+            ADD
+                Disable: OFF
+                Service Type: Custom
+                Interface to monitor: WAN2
+                Interface to send update from: WAN2
+                Verbose logging: ON
+                HTTP API DNS Options: OFF
+                HTTP API SSL/TLS Options: OFF
+                Username: OFF
+                Password: OFF
+                Update URL: https://ipv4.cloudns.net/api/dynamicURL/URL_DO_HOST_DO_CLIENTE
+                Description: NET-VPN OpenVPN ClouDNS Dynamic DNS
+            save
+
+#Configuração das regras de Firewall da LAN do pfSense
+Firewall
+    Rules 
+        LAN
+            Separator
+                Regras Padrão Desativas
+                    IPv4 LAN Net Disable
+                    IPv6 LAN Net Disable
+            Separator
+                Regras de Liberação dos Serviços para a Internet
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: ICMP
+                            ICMP Subtypes: Echo Reply
+                                           Echo Request
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o ICMP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: UDP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From DNS (53) To DNS (53)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o DNS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTP (80) To HTTP (80)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTPS (443) To HTTPS (443)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTPS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From FTP (21) To HTTPS (21)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o FTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    Apply Changes
+
+#Configuração das regras de NAT Port Forwarder do pfSense
+Firewall
+    Alias
+        IP
+            ADD
+                Properties
+                    Name: NOME_DA_REGRA
+                    Description: DESCRIÇÃO_DA_REGRA
+                    Type: Host
+                Host(s)
+                    Hint 
+                        IP or FQDN: IP_DO_DESTINO - DESCRIÇÃO_DO_DESTINO
+            save
+            Apply Changes
+        Ports
+            ADD
+                Properties
+                    Name: NOME_DA_REGRA
+                    Description: DESCRIÇÃO_DA_REGRA
+                    Type: Port(s)
+                Host(s)
+                    Hint 
+                        Port: PORTA_DO_DESTINO - DESCRIÇÃO_PORTA_DO_DESTINO
+            save
+            Apply Changes
+Firewall
+    NAT
+        Port Forwarder
+            Separator
+                Regras de NAT das Câmeras e Alarme
+                    ADD
+                        Edit Redirect Entry
+                            Disabled: OFF
+                            No RDR (NOT): OFF
+                            Interface: WAN1 (Vivo)
+                            Protocol: TCP/UDP
+                            Source: DEFAULT
+                            Destination: WAN1 address
+                            Destination port range: From Port: Other - Custom: PORTA_DO_DESTINO - To Port: Other - Custom: PORTA_DO_DESTINO
+                            Redirect target IP: IP_DO_DESTINO
+                            Redirect target port: Port: Other - Custom: PORTA_DO_DESTINO
+                            Description: Redirecionamento de Porta do Alarme
+                            No XMLRPC Sync: OFF
+                            NAT reflection: Use system default
+                            Filter rule association: Add associated filter rule
+                    save
+                    Apply Changes
+Firewall
+    Rule
+        WAN1
+            Edit
+                Extra Options
+                    Log: ON
+                Advanced Options: ON
+                    Gateway: HA_LB_Internet
+            save
+            Apply Changes
+
+#Configuração da VPN IPSec Site-to-Site do pfSense Matriz
+VPN
+    IPSec
+        Tunnels
+            ADD P1 
+                General Information
+                    Disable: OFF
+                    Key Exchange version: IKEv2
+                    Internet Protocol: IPv4
+                    Interface: GW HA_LB_Internet
+                    Remote Gateway: FILIAL_DYNAMIC_DNS
+                    Description: Configuração da VPN IPSec Matriz
+                Phase 1 Proposal (Authentication)
+                    Authentication Method: Mutual PSK
+                    My identifier: My IP Address
+                    Peer identifier: Peer IP Address
+                    Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC
+                Phase 1 Proposal (Encryption Algorithm)
+                    Encryption Algorithm
+                        Algorithm: AES 
+                        Key length: 256 bits
+                        Hash: SHA256 
+                        DH Group: 14 (2048 bit)
+                        Lifetime (Seconds): 28800
+                Advanced Options
+                    Disable rekey: OFF
+                    Margintime (Seconds): OFF
+                    Disable Reauth: OFF
+                    Responder Only: OFF
+                    Child SA Close Action: Default
+                    NAT Traversal: Auto 
+                    MOBIKE: Disable
+                    Split connections: OFF
+                    Dead Peer Detection: ON
+                    Delay: 10 (request)
+                    Max failures: 5 (disconect)
+            save
+            Show Phase 2 Entries (0)
+                ADD P2 
+                    General Information
+                        Disabled: OFF
+                        Mode: Tunnels IPv4
+                        Local Network: LAN Subnet
+                        NAT/BINAT translation: None
+                        Remote Network: 
+                            Type: Network
+                            Address: SUB_REDE_DA_FILIAL/CIDR 
+                        Description: Configuração da Rede da Filial 
+                    Phase 2 Proposal (SA/Key Exchange): DEFAULT
+                    Advanced Configuration
+                        Automatically ping host: IP_DE_MONITORAMENTO_FILIAL
+            save
+            Apply Changes
+Firewall
+    Rules
+        IPSec
+            Separator
+                Liberação de todas as redes e protocolos da VPN
+                    ADD
+                        Edit Firewall Rule
+                            Action: Pass
+                            Disabled: OFF
+                            Interface: IPSec
+                            Address Family: IPv4
+                            Protocol: Any
+                        Source
+                            Source: Any
+                        Destination:
+                            Destination: Any
+                        Extra Options
+                            Log: ON
+                            Liberação de todos os protocolos na VPN
+                        Advanced Options: Default
+                    save
+                    Apply Changes
+
+#Configuração da VPN IPSec Site-to-Site do pfSense Filial
+VPN
+    IPSec
+        Tunnels
+            ADD P1 
+                General Information
+                    Disable: OFF
+                    Key Exchange version: IKEv2
+                    Internet Protocol: IPv4
+                    Interface: GW HA_LB_Internet
+                    Remote Gateway: FILIAL_DYNAMIC_DNS
+                    Description: Configuração da VPN IPSec Filial
+                Phase 1 Proposal (Authentication)
+                    Authentication Method: Mutual PSK
+                    My identifier: My IP Address
+                    Peer identifier: Peer IP Address
+                    Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC
+                Phase 1 Proposal (Encryption Algorithm)
+                    Encryption Algorithm
+                        Algorithm: AES 
+                        Key length: 256 bits
+                        Hash: SHA256 
+                        DH Group: 14 (2048 bit)
+                        Lifetime (Seconds): 28800
+                Advanced Options
+                    Disable rekey: OFF
+                    Margintime (Seconds): OFF
+                    Disable Reauth: OFF
+                    Responder Only: OFF
+                    Child SA Close Action: Default
+                    NAT Traversal: Auto 
+                    MOBIKE: Disable
+                    Split connections: OFF
+                    Dead Peer Detection: ON
+                    Delay: 10 (request)
+                    Max failures: 5 (disconect)
+            save
+            Show Phase 2 Entries (0)
+                ADD P2 
+                    General Information
+                        Disabled: OFF
+                        Mode: Tunnels IPv4
+                        Local Network: LAN Subnet
+                        NAT/BINAT translation: None
+                        Remote Network: 
+                            Type: Network
+                            Address: SUB_REDE_DA_MATRIZ/CIDR 
+                        Description: Configuração da Rede da Matriz 
+                    Phase 2 Proposal (SA/Key Exchange): DEFAULT
+                    Advanced Configuration
+                        Automatically ping host: IP_DE_MONITORAMENTO_MATRIZ
+            save
+            Apply Changes
+
+Firewall
+    Rules
+        IPSec
+            Separator
+                Liberação de todas as redes e protocolos da VPN
+                    ADD
+                        Edit Firewall Rule
+                            Action: Pass
+                            Disabled: OFF
+                            Interface: IPSec
+                            Address Family: IPv4
+                            Protocol: Any
+                        Source
+                            Source: Any
+                        Destination:
+                            Destination: Any
+                        Extra Options
+                            Log: ON
+                            Liberação de todos os protocolos na VPN
+                        Advanced Options: Default
+                    save
+                    Apply Changes
+
+#Configuração da VPN OpenVPN Site-to-Client do pfSense Matriz
+System
+    Package Manager
+        Available Packages
+            openvpn-client-export
+                Install: Confirm
+System
+    User Manager
+        Groups
+            ADD
+                Group Properties
+                    Group name: OpenVPN
+                    Scope: Local
+                    Description: Grupo Local de Usuários do OpenVPN
+            save
+System
+    User Manager
+        Users
+            ADD
+                User Properties
+                    Defined by: User
+                    Disabled: OFF
+                    Username: CPF_DO_USUÁRIO
+                    Password: SENHA_DO_USUÁRIO - Confirm: SENHA_DO_USUÁRIO
+                    Full name: Usuário NOME_DO_USUÁRIO Acesso a VPN
+                    Expiration date: Default
+                    Custom Settings: OFF
+                    Group membership: OpenVPN
+                        Move to "Member of" list
+                    Certificate: ON
+                    Descriptive name: CPF_DO_USUÁRIO
+                    Certificate authority: CA_EMPRESA
+                    Key length: 2048 bits
+                    Lifetime: 3650
+                Keys
+                    Authorized SSH Keys: Default
+                    IPsec Pre-Shared Key: Default
+            save
+VPN
+    OpenVPN
+        Wizards
+            Select an Authentication Backend Type
+                Type of Server: Local User Access
+                Next
+            Choose a Certificate Authority (CA)
+                Certificate Authority: CA_EMPRESA
+                Next
+            Choose a Server Certificate
+                Certificate: CERTIFICADO_EMPRESA
+                Next
+            General OpenVPN Server Information
+                Interface: WAN1
+                Protocol: UDP on IPv4 only 
+                Local Port: 1194
+                Description: OpenVPN Client-to-Site Matriz
+            Cryptographic Settings
+                TLS Authentication: ON
+                Generate TLS Key: ON
+                TLS Shared Key: Default
+                DH Parameters Length: 2048 bit
+                Encryption Algorithm: AES-128-GCM (128 bit key - 128 bit block)
+                Auth Digest Algorithm: SHA256 (256 bit)
+                Hardware Crypto: No Hardware Crypto Acceleration
+            Tunnel Settings
+                Tunnel Network: REDE_DO_TÚNEL_VPN/CIDR
+                Redirect Gateway: OFF
+                Local Network: REDE_LOCAL_DA_EMPRESA/CIDR
+                Concurrent Connections: 10
+                Compression: Disable Compression, retain compression packet framing [compress]
+                Type-of-Service: OFF
+                Inter-Client Communication: OFF
+                Duplicate Connections: OFF
+            Client Settings
+                Dynamic IP: ON
+                Topology: net30/ -- Isolated /30 network per client
+                DNS Default Domain: DOMÍNIO_DA_EMPRESA
+                DNS Server 1, 2, 3 or 3: Default
+                NTP Server 1 or 2: Default
+                NetBIOS Options: OFF
+                NetBIOS Node Type: none 
+                NetBIOS Scope ID: Default
+                WINS Server 1 or 2: Default
+                Next
+            Traffic from clients to server
+                Firewall Rule: ON
+            Traffic from clients through VPN
+                OpenVPN rule
+                Next
+            Configuration Complete!
+                Finish
+VPN
+    OpenVPN
+        Client Export Utility
+            OpenVPN Server
+                Remote Access Server: OpenVPN Client-to-Site Matriz UDP4:1194
+            Client Connection Behavior
+                Host Name Resolution: Default
+                Verify Server CN: Automatic - Use verify-x509-name where possible
+                Block Outside DNS: OFF
+                Legacy Client: OFF
+                Silent Installer: ON
+                Use Random Local Port: OFF
+            Certificate Export Options
+                PKCS#11 Certificate Storag: OFF
+                Microsoft Certificate Storage: OFF
+                Password Protect Certificate: OFF
+            Proxy Options
+                Use A Proxy: OFF
+            Advanced
+                Additional configuration options
+            OpenVPN Clients
+                Download Client.

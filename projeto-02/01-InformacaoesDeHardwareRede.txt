@@ -1,0 +1,43 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.05
+
+Hardware utilizados no Projeto-01 de Firewall pfSense
+01 (um) Appliance J1900
+01 (um) Link de WAN Vivo Fibra Matriz (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode)
+01 (um) Link de WAN NET Filial (Modelo: Humax HGA12R-02 - Bridge Mode)
+
+Usuário VIVO Fibra de autenticação PPPoE
+Usuário: cliente@cliente - Senha: cliente
+Usuário: linkbr@linkbr.com.br - Senha: linkbr
+Usuário: vivo@vivo - Senha: vivo
+Usuário: speedy@speedy - Senha: speedy
+
+Servidores de DNS testados e configurados no pfSense
+DNS Google..............: Preferencial: 8.8.8.8 - Secundário: 8.8.4.4
+OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220.220
+OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
+CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
+CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+
+Servidores de DDNS testados e configurados no pfSense
+No-IP....: https://www.noip.com/pt-BR
+ClouDNS..: https://www.cloudns.net/wiki/article/268/
+Winco....: https://ddns.winco.com.br/dns-dinamico-free
+FreeDNS..: https://freedns.afraid.org/
+DuckDNS..: http://www.duckdns.org/
+
+Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
+
+Rede Matriz: 10.41.0.0/16
+Gateway Matriz: 10.41.1.1
+
+Rede Filial: 10.42.0.0/16
+Gateway Filial: 10.42.1.1

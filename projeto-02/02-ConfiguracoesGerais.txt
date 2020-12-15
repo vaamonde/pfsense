@@ -1,0 +1,50 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração geral do webConfigurator do pfSense
+System
+	General Setup
+		System
+			Hostname: NOME_DO_FIREWALL
+			Domain: DOMÍNIO_DA_EMPRESA
+		DNS Server Settings
+			DNS Servers: 8.8.8.8
+            DNS Servers: 8.8.4.4
+		DNS Server Override: OFF
+		Disable DNS Forwarder: OFF
+		Localization
+			Timezone: America/Recife (Resolve o problema do Horário de Verão)
+			Timerservers: a.st1.ntp.br
+			Language: English
+		webConfigurator
+			Theme: pfSense-dark
+			Top Navigation: Scroolls with page
+			Hostname in Menu: Fully Qualified Domain Name
+			Dashboard Columms: 3
+			Interfaces Sort: 
+				Sort Alphavetically: ON
+		Associated Panel Show/Hide
+			Available Widgest: ON
+			Log Filter: ON
+			Manage Log: ON
+			Monitoring: ON
+		Require State Filter:
+			Do not display state table without a filter: OFF
+		Left Columm Labels
+			ACtive: OFF
+		Alias Popups
+			Disable details in alias popups: OFF
+		Disable dragging
+			Disable dragging of firewall/nat rules: OFF
+		Login page color: Dark Blue
+		Login hostname 
+			Show hostname on login banner: ON
+	save

@@ -1,0 +1,47 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração avançada do webConfigurator do pfSense
+System
+	Advanced
+		Admin Access
+			webConfigurator
+				Protocol: HTTPS
+				SSL/TLS Certificate: Certificado EMPRESA Firewall
+				TCP port: Default
+				Max Processes: 2
+				WebGUI redirect: OFF
+				HTS: OFF
+				OCSP Must-Staple: OFF
+				WebGUI Login Autocomplete: ON
+				WebGUI login messages: OFF
+				Anti-lockout: OFF
+				DNS Rebind Check: OFF
+				Alternate Hostnames: OFF
+				Browser HTTP_REFERER enforcement: OFF
+				Browser tab text: OFF
+			Secure Shell
+				Secure Shell Server: ON
+				SSHd Key Only: Password or Public Key
+				Allow Agent Forwarding: OFF
+				SSH Port: 22
+			Login Protection
+				Threshold: 30
+				Blocktime: 120
+				Detection time: 1800
+				Whitelist: Default
+			Serial Communications
+				Serial Terminal: OFF
+				Serial Speed: 115200
+				Primary Console: Serial Console
+			Console Options
+				Console menu: ON
+		save

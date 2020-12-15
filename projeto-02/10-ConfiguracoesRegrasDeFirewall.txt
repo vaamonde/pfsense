@@ -1,0 +1,117 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração das regras de Firewall da LAN do pfSense
+Firewall
+    Rules 
+        LAN
+            Separator
+                Regras Padrão Desativas
+                    IPv4 LAN Net Disable
+                    IPv6 LAN Net Disable
+            Separator
+                Regras de Liberação dos Serviços para a Internet
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: ICMP
+                            ICMP Subtypes: Echo Reply
+                                           Echo Request
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o ICMP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: UDP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From DNS (53) To DNS (53)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o DNS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTP (80) To HTTP (80)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From HTTPS (443) To HTTPS (443)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o HTTPS para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    ADD
+                        Edit File Rule
+                            Action: Pass
+                            Disable: OFF
+                            Interfaces: LAN
+                            Address Family: IPv4
+                            Protocol: TCP
+                            ICMP Subtypes: ALL
+                        Source
+                            Source: LAN Net
+                        Destination
+                            Destination: any
+                            Destination Port Range: From FTP (21) To HTTPS (21)
+                        Extra Options
+                            Log: ON
+                            Description: Liberação o FTP para toda a Rede LAN Net
+                        Advanced Options
+                            Gateway: HA_LB_Internet
+                    save
+                    Apply Changes
