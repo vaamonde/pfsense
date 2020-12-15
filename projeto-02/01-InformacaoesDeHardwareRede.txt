@@ -41,3 +41,5 @@ Gateway Matriz: 10.41.1.1
 
 Rede Filial: 10.42.0.0/16
 Gateway Filial: 10.42.1.1
+
+Rede OpenVPN: 172.16.100.0/24

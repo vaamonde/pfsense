@@ -79,7 +79,7 @@ VPN
                         PFS key group: 14 (2048 bit)
                         Lifetime: 3600
                     Advanced Configuration
-                        Automatically ping host: IP_DE_MONITORAMENTO_MATRIZ
+                        Automatically ping host: IP_DE_MONITORAMENTO_FIREWALL_MATRIZ
             save
             Apply Changes
 
