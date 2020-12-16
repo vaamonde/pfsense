@@ -13,11 +13,11 @@
 System
 	General Setup
 		System
-			Hostname: NOME_DO_FIREWALL
+			Hostname: NOME_DO_FIREWALL_MATRIZ_FILIAL
 			Domain: DOMÍNIO_DA_EMPRESA
 		DNS Server Settings
-			DNS Servers: 8.8.8.8
-            DNS Servers: 8.8.4.4
+			DNS Servers: 8.8.8.8 - DNS Hostname: None - Gateway: None
+            DNS Servers: 8.8.4.4 - DNS Hostname: None - Gateway: None
 		DNS Server Override: OFF
 		Disable DNS Forwarder: OFF
 		Localization
@@ -30,21 +30,16 @@ System
 			Hostname in Menu: Fully Qualified Domain Name
 			Dashboard Columms: 3
 			Interfaces Sort: 
-				Sort Alphavetically: ON
-		Associated Panel Show/Hide
-			Available Widgest: ON
-			Log Filter: ON
-			Manage Log: ON
-			Monitoring: ON
-		Require State Filter:
-			Do not display state table without a filter: OFF
-		Left Columm Labels
-			ACtive: OFF
-		Alias Popups
-			Disable details in alias popups: OFF
-		Disable dragging
-			Disable dragging of firewall/nat rules: OFF
-		Login page color: Dark Blue
-		Login hostname 
-			Show hostname on login banner: ON
+			Sort Alphavetically: ON
+		    Associated Panel Show/Hide
+			    Available Widgest: ON
+			    Log Filter: ON
+			    Manage Log: ON
+			    Monitoring: ON
+		    Require State Filter: OFF
+		    Left Columm Labels: OFF
+		    Alias Popups: OFF
+		    Disable dragging: OFF
+		    Login page color: Dark Blue
+		    Login hostname: ON
 	save

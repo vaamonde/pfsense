@@ -32,7 +32,7 @@ System
 				Secure Shell Server: ON
 				SSHd Key Only: Password or Public Key
 				Allow Agent Forwarding: OFF
-				SSH Port: 22
+				SSH Port: 22222
 			Login Protection
 				Threshold: 30
 				Blocktime: 120

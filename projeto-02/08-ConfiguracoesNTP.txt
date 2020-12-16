@@ -23,3 +23,11 @@ Services
                 Statistics Logging: ON
                 Lep seconds: DEFAULT
             save
+
+#Verificando o Serviço do NTP Server
+Status
+    NTP
+
+Status
+    System Logs
+        NTP

@@ -1,0 +1,83 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 16/12/2020
+# Versão: 0.06
+
+#Instalação do Netgear pfSense
+Copyright and distribution notice
+    Accept
+Welcome
+    Welcome to pfSense!
+        Install
+            OK
+    Keymap Selection
+        Brazilian (accent keys)
+        Continue with br.kdb keymap 
+            Select 
+    Partitioning
+        Auto (UFS)
+            OK 
+    Manual Configuration
+        No
+    Complete
+        Reboot
+
+#Configuração do Console do pfSense
+2) Set interface(s) IP address
+    Enter the number of the interface you wish to configure: 2
+    Enter the new LAN IPv4 address: IP_LAN_MATRIZ_OU_FILIAL
+    Enter the new LAN IPv4 subnet bit count (1 to 31): 16
+    For a LAN, press <Enter> for nome: none
+    Enter the new LAN IPv6 address press <Enter> for nome: none
+    Do you want to enable the DHCP server on LAN? (y/n): y 
+    Enter the start address of the IPv4 client address range: INICIO_FAIXA_IP
+    Enter the end address of the IPv4 client address range: FIM_FAIXA_IP
+    Do you want to revert to HTTP as the webConfigurator protocol? (y/n): y 
+
+#Configuração do Wizard do pfSense
+http://ENDEREÇO_IPV4_PFSENSE
+    Sign in
+        User: admin
+        Password: pfsense 
+        SIGN IN 
+    pfSense Setup
+        Welcome to pfSense software
+        Next
+    Netgate Global Support is available 24/7
+        Next
+    General Information
+        Hostname: HOSTNAME_FIREWALL_MATRIZ_FILIAL
+        Domain: NOME_DE_DOMÍNIO
+        Primary DNS Server: ENDEREÇO_IPV4_DNS_PÚBLICO
+        Secondary DNS Server: ENDEREÇO_IPV4_DNS_PÚBLICO
+        Override DNS: OFF
+        Next
+    Time Server Information
+        Time server hostname: a.st1.ntp.br
+        Timezone: America/Recife
+        Next
+    Configure WAN interface
+        Default
+        Next
+    Configure LAN interface
+        LAN IP Address: IP_LAN_MATRIZ_OU_FILIAL
+        Subnet Mask: 16
+        Next
+    Set Admin WebGUI Password
+        Admin Password: NOVO_PASSWORD
+        Admin Password AGAIN: NOVO_PASSWORD
+        Next
+    Reload configuration
+        Reload
+    Wizard completed
+        Finish
+    NO COMMERCIAL DISTRIBUTION OF THE PFSENSE CE SOFTWARE IS ALLOWED
+        Accept
+    Thank You 
+        Close

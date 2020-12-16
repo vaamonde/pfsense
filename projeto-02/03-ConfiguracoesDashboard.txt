@@ -12,16 +12,25 @@
 #Configuração do Dashboard do pfSense
 Dashboard	
 	Available Widgest
-		System Information: ON
-		Interfaces: ON
-		Gateways: ON
-		NTP Status: ON
-		Service Status: ON
-		Load Balancer Status: ON
-		Traffic Graphs: ON
-		Firewall Logs: ON
-		Interface Statistics: ON
-        Dynamic DNS Status: ON
-        OpenVPN: ON
-        IPSec: ON
+        #Configuração dos Widgest Esquerda
+		    System Information: ON - Left-01
+        #Configuração dos Widgest Centro
+		    Interfaces: ON - Center-01
+		    Gateways: ON - Center-02
+		    Interface Statistics: ON - Center-03
+		    Traffic Graphs: ON - Center-04
+		#Configuração dos Widgest Direita   
+            NTP Status: ON - Right-01
+            Dynamic DNS Status: ON - Right-02
+            IPSec: ON - Right-03
+            OpenVPN: ON - Right-04
+		    Firewall Logs: ON - Right-05
+                Edit
+                    Widgest: Firewall Logs 
+                    Number of entries: 15
+                    Filter actions: ON Pass, ON Block and ON Reject
+                    Filter interface: ALL 
+                    Update interval: 15 Seconds
+                    save
+		    Service Status: ON - Right-06
 	save

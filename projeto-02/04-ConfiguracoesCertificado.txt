@@ -11,28 +11,28 @@
 
 #Configuração do CA e do Certificado SSL do pfSense
 System
-	Certificate Manager
+	Cert. Manager
 		CAs
 			ADD
 				Create / Edit CA
-					Descriptive name: EMPRESA
-					Method: Create an internel Certificate Authority
+					Descriptive name: EMPRESA_MATRIZ_FILIAL
+					Method: Create an internal Certificate Authority
 				Internal Certificate Authority
 					Key lenght (bits): 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: empresa-ca
-					Country Code: BR 
-					Sate or Province: Sao Paulo
-					City: Sao Paulo 
-					Organization: Empresa XYZ
-					Organizational Unit: Matriz Sao Paulo
+					Country Code: PAÍS_EMPRESA
+					Sate or Province: ESTADO_EMPRESA
+					City: CIDADE_EMPRESA
+					Organization: NOME_EMPRESA_MATRIZ_FILIAL
+					Organizational Unit: MATRIZ_FILIAL_EMPRESA
 			save
 		Certificates
-			Add/Sign 
+			Add/Sign
 				Add/Sign a New Certificate
 					Method: Create an internal Certificate
-					Descriptive name: Certificado EMPRESA Firewall
+					Descriptive name: Certificado MATRIZ_FILIAL_EMPRESA Firewall
 				Internal Certificate 
 					Certificate authority: EMPRESA 
 					Key lenght: 2038

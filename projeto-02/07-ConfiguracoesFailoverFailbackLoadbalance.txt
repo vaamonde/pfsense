@@ -1,0 +1,120 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração do recurso de Failover, Failback e Loadbalance das Interfaces de WAN do pfSense
+System
+    Advanced
+        Miscellaneous
+            Load Balancing
+                Load Balancing: ON
+                Set the source tracking for sticky connections: Default
+        save
+ 
+ #Configuração das Interface de WAN
+ System
+    Routing
+        Gateways
+            WAN1_PPPoE
+                Edit
+                    Disable: OFF
+                    Interface: WAN1 
+                    Address: IPv4
+                    Name: WAN1_DHCP
+                    Gateway: dynamic
+                    Gateway Monitoring: OFF
+                    Gateway Action: OFF
+                    Monitor IP: 8.8.8.8
+                    Force state: OFF
+                    Description: Interface VIVO
+                    Display Advanced
+                        Weight: 1 (20%)
+                        Data Payload: Default
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                        Probe Interval: Default
+                        Loss Interval: Default
+                        Time Period: Default
+                        Alert interval: Default
+                        Use non-local gateway: OFF
+                save
+            WAN2_DHCP
+                Edit
+                    Disable: OFF
+                    Interface: WAN1 
+                    Address: IPv4
+                    Name: WAN1_DHCP
+                    Gateway: dynamic
+                    Gateway Monitoring: OFF
+                    Gateway Action: OFF
+                    Monitor IP: 1.1.1.1
+                    Force state: OFF
+                    Description: Interface NET
+                    Display Advanced
+                        Weight: 4 (80%)
+                        Data Payload: Default
+                        Latency thresholds: 400 600
+                        Packet Loss thresholds: 30% 40%
+                        Probe Interval: Default
+                        Loss Interval: Default
+                        Time Period: Default
+                        Alert interval: Default
+                        Use non-local gateway: OFF
+                save
+        Apply Changes
+ 
+ #Configuração dos Grupos de Gateways das Interfaces WAN
+        Gateway Groups
+            ADD
+                Edit Gateway Group Entry
+                    Group Name: HA_VPN_WAN
+                    Gateway Priority
+                        WAN1_DHCP   Tier 1  Interface Address  Interface VIVO
+                        WAN1_DHCP   Tier 2  Interface Address  Interface NET
+                    Trigger Level: Packet Loss or High Latency
+                    Description: Grupo de Gateways HA VPN Internet
+                save
+            ADD
+                Edit Gateway Group Entry
+                    Group Name: HA_LB_INTERNET
+                    Gateway Priority
+                        WAN1_DHCP   Tier 1  Interface Address  Interface VIVO
+                        WAN1_DHCP   Tier 1  Interface Address  Interface NET
+                    Trigger Level: Packet Loss or High Latency
+                    Description: Grupo de Gateways HA LB Internet
+                save
+            Apply Changes
+        Gateways
+            Default Gateway
+                Default gateway IPv4: HA_LB_INTERNET
+                Default gateway IPv6: Automatic
+                save
+            Apply Changes
+
+#Verificando o Serviço dos Gateways e status de conexão
+Status
+    Gateways
+    Gateways Groups
+
+Status
+    Interfaces
+
+Status
+    System Logs
+        System
+            Gateways
+
+Diagnostics
+    pfInfo
+    pfTop
+    Routes
+    Sockets
+    States
+    States Summary
