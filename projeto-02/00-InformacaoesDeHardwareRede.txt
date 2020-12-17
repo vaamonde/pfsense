@@ -10,9 +10,11 @@
 # Versão: 0.06
 
 Hardware utilizados no Projeto-01 de Firewall pfSense
-02 (dois) Appliance HardGet J1900 (Modelo: HG04-06408, 4 Portas GigabitEthernet, CPU Intel Quad Core 2.0Ghz, 8.0GB DDR-3, SSD 64GB) 
-01 (um) Link de WAN Vivo Fibra Matriz (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable)
-01 (um) Link de WAN NET Filial (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable)
+02 (dois) Appliance HardGet J1900 Matriz e Filial (Modelo: HG04-06408, 4 Portas GigabitEthernet, CPU Intel Quad Core 2.0Ghz, 8.0GB DDR-3, SSD 64GB) 
+01 (um) Link de WAN Vivo Fibra Matriz 100Mbps Download - 50Mbps Upload (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable)
+01 (um) Link de WAN NET Matriz 120Mbps Download - 10Mbps Upload (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable)
+01 (um) Link de WAN Vivo Fibra Filial 100Mbps Download - 50Mbps Upload (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable)
+01 (um) Link de WAN NET Filial 120Mbps Download - 10Mbps Upload (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable)
 
 Usuários da VIVO Fibra para autenticação PPPoE
 Usuário: cliente@cliente - Senha: cliente
