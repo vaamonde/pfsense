@@ -6,17 +6,40 @@
 # Instagram: instagram.com/procedimentoem/
 # Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
 # Data de criação: 11/12/2020
-# Data de atualização: 16/12/2020
-# Versão: 0.06
+# Data de atualização: 20/12/2020
+# Versão: 0.07
 
-Hardware utilizados no Projeto-01 de Firewall pfSense
-02 (dois) Appliance HardGet J1900 Matriz e Filial (Modelo: HG04-06408, 4 Portas GigabitEthernet, CPU Intel Quad Core 2.0Ghz, 8.0GB DDR-3, SSD 64GB) 
-01 (um) Link de WAN Vivo Fibra Matriz 100Mbps Download - 50Mbps Upload (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable)
-01 (um) Link de WAN NET Matriz 120Mbps Download - 10Mbps Upload (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable)
-01 (um) Link de WAN Vivo Fibra Filial 100Mbps Download - 50Mbps Upload (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable)
-01 (um) Link de WAN NET Filial 120Mbps Download - 10Mbps Upload (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable)
+Hardware utilizados no Projeto-02 de Firewall pfSense Matriz e Filial
+02 (dois) Appliance HardGet J1900 Matriz e Filial 
+(Modelo: HG04-06408, 4 Portas GigabitEthernet, CPU Intel Quad Core 2.0Ghz, 8.0GB DDR-3, SSD 64GB) 
 
-Usuários da VIVO Fibra para autenticação PPPoE
+Versão do pfSense testada e homologada no Appliance J1900
+Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
+
+Modem Internet Matriz
+01 (um) Link de WAN Vivo Fibra Matriz 100Mbps Download - 50Mbps Upload 
+(Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable - IP: 192.168.15.1 - User: admin - Password: Etiqueta)
+Obs: Esse modelo de Modem para funcionar como Bridge não pode ter nenhum serviço ativo ou configurado, principalmente
+o DHCP Server, pois no Firewall pfSense se o serviço estiver ativo e configurado ele não consegue fazer a autenticação PPPoE.
+
+01 (um) Link de WAN NET Matriz 120Mbps Download - 10Mbps Upload 
+(Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable - IP: 192.168.0.1 - User: NET_6UAA_MAC - Password: MAC_ADDRESS)
+Obs: Esse modelo de Modem depois que foi configurado como Bridge está fornecendo endereço IPv4 CGNAT (Carrier Grade Network 
+Address Translation) que impossibilita fazer VPN IPsec ou OpenVPN, sendo necessário solicitar para a NET a troca de configuração 
+de endereço.
+
+Modem Internet Filial
+01 (um) Link de WAN Vivo Fibra Filial 100Mbps Download - 50Mbps Upload 
+(Modelo: MitraStar GPT-2541GNAC-N1 - Bridge Mode - Wi-Fi Disable - IP: 192.168.15.1 - User: admin - Password: Etiqueta)
+
+01 (um) Link de WAN NET Filial 120Mbps Download - 10Mbps Upload 
+(Modelo: Arris TG1692A - Bridge Mode - Wi-Fi Disable - IP: 192.168.0.1 - User: NET_6UAA_MAC - Password: MAC_ADDRESS)
+Obs: Esse modelo de Modem trabalha com proteção de Endereço MAC quando resetado e configurado como Bridge, o MAC aprendido 
+será o único que pode obter o endereço IPv4 e navegar na Internet, recomendamos fazer a substituição do Modem, para o pfSense 
+funcionar é necessário utilizar o campo MAC Address Spoof Interface, esse Modem também trabalha com CGNAT, sendo necessário 
+solicitar para a NET a troca de configuração de endereço.
+
+Usuários da VIVO Fibra para autenticação PPPoE no pfSense
 Usuário: cliente@cliente - Senha: cliente
 Usuário: linkbr@linkbr.com.br - Senha: linkbr
 Usuário: vivo@vivo - Senha: vivo
@@ -29,23 +52,27 @@ OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220
 CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
 CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
 
-Servidores de DDNS testados e homologados no pfSense
+Servidores de Dynamic DNS testados e homologados no pfSense
 No-IP....: https://www.noip.com/pt-BR
 ClouDNS..: https://www.cloudns.net/wiki/article/268/
 Winco....: https://ddns.winco.com.br/dns-dinamico-free
 FreeDNS..: https://freedns.afraid.org/
 DuckDNS..: http://www.duckdns.org/
 
-Versão do pfSense testada e homologada
-Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
+Servidor de Dynamic DNS utilizado no projeto do pfSense
+ClouDNS..: https://www.cloudns.net/wiki/article/268/
+
+Criação do Domínio e Host no ClouDNS para o Dynamic DNS
+emprea.cloudns.cl 
+host.emprea.cloudns.cl
 
 Informações do Endereçamento IPv4 da Rede LAN e VPN
 Rede Matriz: 10.41.0.0/16
 Gateway Matriz: 10.41.1.1
-DNS W2K8: 10.41.1.11
+DNS W2K8: 10.41.2.11
 
 Rede Filial: 10.42.0.0/16
 Gateway Filial: 10.42.1.1
-DNS FW e W2K8: 10.42.1.1, 10.41.1.11
+DNS FW e W2K8: 10.42.1.1, 10.41.2.11
 
 Rede OpenVPN: 172.16.100.0/24
