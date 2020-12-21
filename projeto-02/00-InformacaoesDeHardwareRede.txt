@@ -6,8 +6,8 @@
 # Instagram: instagram.com/procedimentoem/
 # Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
 # Data de criação: 11/12/2020
-# Data de atualização: 20/12/2020
-# Versão: 0.07
+# Data de atualização: 21/12/2020
+# Versão: 0.08
 
 Hardware utilizados no Projeto-02 de Firewall pfSense Matriz e Filial
 02 (dois) Appliance HardGet J1900 Matriz e Filial 
@@ -65,6 +65,11 @@ ClouDNS..: https://www.cloudns.net/wiki/article/268/
 Criação do Domínio e Host no ClouDNS para o Dynamic DNS
 emprea.cloudns.cl 
 host.emprea.cloudns.cl
+
+Configurações das Interfaces dos Appliances do pfSense
+igb0 - VIVO
+igb1 - NET
+igb2 - LAN
 
 Informações do Endereçamento IPv4 da Rede LAN e VPN
 Rede Matriz: 10.41.0.0/16
