@@ -19,18 +19,22 @@ Netgear pfSense 2.4.5 (RELEASE-p1 - FreeBSD 11.3-STABLE)
 Modem Internet Matriz
 01 (um) Link de WAN Vivo Fibra Matriz 100Mbps Download - 50Mbps Upload 
 (Modelo: ASKEY RTF3505VW-N1 - Bridge Mode - Wi-Fi Disable - IP: 192.168.15.1 - User: admin - Password: Etiqueta)
-Obs: Esse modelo de Modem para funcionar como Bridge não pode ter nenhum serviço ativo ou configurado, principalmente
-o DHCP Server, pois no Firewall pfSense se o serviço estiver ativo e configurado ele não consegue fazer a autenticação PPPoE.
+Obs1: Esse modelo de Modem para funcionar como Bridge não pode ter nenhum serviço ativo ou configurado, principalmente
+o DHCP Server pois o Firewall pfSense se o serviço estiver ativo e configurado ele não consegue fazer a autenticação PPPoE.
+Obs2: Modem resetado para o modo de fabrica antes de configurar no pfSense
 
 01 (um) Link de WAN NET Matriz 120Mbps Download - 10Mbps Upload 
 (Modelo: Humax HGA12R-02 - Bridge Mode - Wi-Fi Disable - IP: 192.168.0.1 - User: NET_6UAA_MAC - Password: MAC_ADDRESS)
 Obs: Esse modelo de Modem depois que foi configurado como Bridge está fornecendo endereço IPv4 CGNAT (Carrier Grade Network 
 Address Translation) que impossibilita fazer VPN IPsec ou OpenVPN, sendo necessário solicitar para a NET a troca de configuração 
 de endereço.
+Obs2: Modem resetado para o modo de fabrica antes de configurar no pfSense
 
 Modem Internet Filial
 01 (um) Link de WAN Vivo Fibra Filial 100Mbps Download - 50Mbps Upload 
 (Modelo: MitraStar GPT-2541GNAC-N1 - Bridge Mode - Wi-Fi Disable - IP: 192.168.15.1 - User: admin - Password: Etiqueta)
+Obs1: procedimento de configuração do Modem igual ao modelo ASKEY RTF3505VW
+Obs2: Modem resetado para o modo de fabrica antes de configurar no pfSense
 
 01 (um) Link de WAN NET Filial 120Mbps Download - 10Mbps Upload 
 (Modelo: Arris TG1692A - Bridge Mode - Wi-Fi Disable - IP: 192.168.0.1 - User: NET_6UAA_MAC - Password: MAC_ADDRESS)
