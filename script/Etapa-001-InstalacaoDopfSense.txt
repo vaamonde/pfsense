@@ -1,0 +1,57 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+Data de criação: 23/01/2021
+Data de atualização: 23/01/2021
+Versão: 0.01
+Testado e homologado no Firewall NG Netgear pfSense 2.4.x
+
+Primeira etapa: Download da ISO do pfSense
+01. Link de download do pfSense: https://www.pfsense.org/download/
+02. Versão do download pfSense (23/01/2021): 2.4.5-p1
+03. Tipo do download do pfSense: AMD64 (64-bit) - CD Image (ISO) Installer
+04. Mirror padrão do download do pfSense: New York City, USA
+05. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
+06. Extrair o arquivo ISO do download do pfSense
+
+Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX
+01. Nome e Sistema Operacional:
+	Nome: pfSense
+	Tipo: BSD
+	Versão: FreeBSD (64-bit)
+02. Tamanho da memória:
+	Tamanho: 1024MB
+03. Disco Rígido:
+	Criar um novo disco rígido virtual agora
+	VDI (VirtualBOX Disk Image)
+	Dinamicamente alocado
+	Tamanho do disco: 16GB
+04. Configurações da Máquina Virtual
+	Sistema
+		Processador
+			Processadores: 02 CPUs
+			Recursos Estendidos: Habilitar PAE/NX
+	Monitor
+		Memória de Vídeo: 128MB
+		Aceleração: Habilitar Aceleração 3D
+	Áudio
+		Habilitar Áudio: Desabilitar
+	Rede
+		Adaptador 1 (WAN)
+			Conectado a: Placa em Modo Bridge
+		Adaptador 2 (LAN)
+			Conectado a: Rede Interna
+
+Terceira etapa: Instalação do pfSense
+01. Copyright and distribution notice: Accept
+02. Install (Install pfSense) - Enter
+03. Brazilian (accent keys) - Barra de Espaço
+04. Continue with br.kdb keymap - Enter
+05. Auto (UFS) Guided Disk Setup - Enter
+06. Manual Configuration: No - Enter
+07. Complete: Reboot - Enter
