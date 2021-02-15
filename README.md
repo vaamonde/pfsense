@@ -35,6 +35,8 @@ Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=N-Cbq1AaEyM
 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense.txt
+
 ## **CONHECENDO o console do UTM pfSENSE FIREWALL v2.4.4**
 
 Vídeo mostrando os procedimentos básicos para utilizar o Console do UTM pfSense
@@ -45,9 +47,11 @@ O console do UTM pfSense é a primeira etapa da configuração do sistema, raram
 
 Link da vídeo aula: https://www.youtube.com/watch?v=rKef7WePAk0
 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-002-ConsoleDopfSense.txt
+
 ## **CONHECENDO o WEBGUI WEBCONFIGURATOR do UTM pfSENSE FIREWALL v2.4.4**
 
-Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User Interface) WebConfigurator do UTM pfSensse Firewall
+Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User Interface) WebConfigurator do UTM pfSense Firewall
 
 A ferramenta de WebGUI - WebConfigurator do UTM pfSense permite fazer todas as configurações básicas e avançadas, toda a administração, gerenciamento, monitoramento, atualização e segurança será feita utilizando o WebGUI. Após a instalação do pfSense e suas configurações básicas via Console, precisamos acessar o WebGUI para finalizar a instalação.
 
@@ -57,16 +61,18 @@ Informações extras:
 PPPoE: https://pt.wikipedia.org/wiki/PPPoE
 PPP: https://pt.wikipedia.org/wiki/Point-to-Point_Protocol
 PPTP: https://pt.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol
-Obs: no vídeo falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz Túnel VPN, por-favor, desconsiderar, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP)
+Obs: no vídeo falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz Túnel VPN, por-favor, desconsiderar, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP
 RFC 1918: https://pt.wikipedia.org/wiki/Rede_privada
 Redes Bogon: https://en.wikipedia.org/wiki/Bogon_filtering
 Carrier Grade NAT: https://pt.wikipedia.org/wiki/Carrier_Grade_NAT
 
 Link da vídeo aula: https://www.youtube.com/watch?v=H6VLgpfXvmg
 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-003-WebconfiguratorDopfSense.txt
+
 ## **CONHECENDO o DASHBOARD do UTM pfSENSE FIREWALL v2.4.4**
 
-Vídeo mostrando os procedimentos básicos para utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfgiurator do UTM pfSensse Firewall v2.4.4
+Vídeo mostrando os procedimentos básicos para utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do UTM pfSense Firewall v2.4.4
 
 A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido da saúde do pfSense, analisando os principais recursos e desempenho da rede, monitorando o status de serviços de rede, trafego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
 
@@ -83,9 +89,11 @@ Obs: conceito utilizado no Widget de Gateways
 
 Link da vídeo aula: https://www.youtube.com/watch?v=REF3pCYIKnc&t
 
+Documentação da vídeo aula: 
+
 ## **EXPLORANDO o WebGUI do UTM pfSENSE FIREWALL v2.4.4**
 
-Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User Interface) do UTM pfSensse Firewall v2.4.4
+Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User Interface) do UTM pfSense Firewall v2.4.4
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, no pfSense o menu está dividido em várias áreas, facilitando a administração, todas as opções de configuração do pfSense são auto-explicativas e sempre tem uma ajuda escrita nos campos ou links para facilitar o entendimento da configuração.
 
@@ -101,11 +109,13 @@ Help (ajuda): Link de acesso a ajuda da ferramenta UTM pfSense
 
 Link da vídeo aula: https://www.youtube.com/watch?v=bbSvFvwQW7M&t
 
+Documentação da vídeo aula: 
+
 ## **COMO atualizar o UTM pfSENSE FIREWALL v2.4.4 para nova Versão**
 
 Vídeo mostrando os procedimentos básicos para atualizar a versão do UTM pfSENSE 2.4.4 para a nova versão 2.4.4.2
 
-O Appliance do pfSense sofre atualizações constante da comunidade, sempre é uma boa prática manter o sistema atualizado, mais infelizmente problemas na atualização pode acontecer, recomendo sempre fazer um Backup antes (vídeo será feito em breve) ou se você utiliza máquina virtual, fazer um Snapshoots, caso tenha alguma falha, você tem a possibilidade de voltar uma versão anterior sem erros.
+O Appliance do pfSense sofre atualizações constante da comunidade, sempre é uma boa prática manter o sistema atualizado, mais infelizmente problemas na atualização pode acontecer, recomendo sempre fazer um Backup antes (vídeo será feito em breve) ou se você utiliza máquina virtual, fazer um Snapshots, caso tenha alguma falha, você tem a possibilidade de voltar uma versão anterior sem erros.
 
 Informações extras:
 Backup: https://pt.wikipedia.org/wiki/C%C3%B3pia_de_seguran%C3%A7a
@@ -113,9 +123,11 @@ Snapshot: https://pt.wikipedia.org/wiki/C%C3%B3pia_instant%C3%A2nea_de_volume
 
 Link da vídeo aula: https://www.youtube.com/watch?v=79OOQOpT794&t
 
+Documentação da vídeo aula: 
+
 ## **CONFIGURANDO o Acesso Seguro do SSH e CONSOLE no UTM pfSENSE FIREWALL v2.4.4**
 
-Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o SSH e porta Console do UTM pfSensse Firewall v2.4.4
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o SSH e porta Console do UTM pfSense Firewall v2.4.4
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto utilize o console que é a forma mais simples e rápida de acesso, temos também a possibilidade de acessar o console e o shell do pfSense via conexão segura utilizando o OpenSSH Client.
 
@@ -140,6 +152,8 @@ Filezilla: https://filezilla-project.org/
 
 Link da vídeo aula: https://www.youtube.com/watch?v=t5gtSGaShn4&t
 
+Documentação da vídeo aula: 
+
 ## **CONFIGURANDO a CA e CERTIFICADOS no UTM pfSENSE FIREWALL v2.4.4**
 
 Vídeo mostrando os procedimentos básicos para configurar uma CA (Certification Authority - Autoridade de Certificação) e a geração de Certificados para trabalhar com o Serviço de HTTPS do UTM pfSENSE FIREWALL v2.4.4
@@ -155,3 +169,5 @@ Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%
 Criptografia: https://pt.wikipedia.org/wiki/Criptografia
 
 Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
+
+Documentação da vídeo aula: 
