@@ -57,13 +57,13 @@ A ferramenta de WebGUI - WebConfigurator do UTM pfSense permite fazer todas as c
 
 Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IPv4: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfsense.
 
-Informações extras:
-PPPoE: https://pt.wikipedia.org/wiki/PPPoE
-PPP: https://pt.wikipedia.org/wiki/Point-to-Point_Protocol
-PPTP: https://pt.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol
-Obs: no vídeo falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz Túnel VPN, por-favor, desconsiderar, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP
-RFC 1918: https://pt.wikipedia.org/wiki/Rede_privada
-Redes Bogon: https://en.wikipedia.org/wiki/Bogon_filtering
+Informações extras:<br>
+PPPoE: https://pt.wikipedia.org/wiki/PPPoE<br>
+PPP: https://pt.wikipedia.org/wiki/Point-to-Point_Protocol<br>
+PPTP: https://pt.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol<br>
+Obs: no vídeo falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz Túnel VPN, por-favor, desconsiderar, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP<br>
+RFC 1918: https://pt.wikipedia.org/wiki/Rede_privada<br>
+Redes Bogon: https://en.wikipedia.org/wiki/Bogon_filtering<br>
 Carrier Grade NAT: https://pt.wikipedia.org/wiki/Carrier_Grade_NAT
 
 Link da vídeo aula: https://www.youtube.com/watch?v=H6VLgpfXvmg
@@ -78,13 +78,13 @@ A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido 
 
 Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IP: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfsense, após a configuração do WebGUI via Wizard, utilizar a senha que foi configurada.
 
-Informações extras:
-Dashboard: https://pt.wikipedia.org/wiki/Painel_de_bordo
-Plug-in: https://pt.wikipedia.org/wiki/Plug-in
-Obs: no vídeo falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha com Dashboard, só desconsiderar a fala
-Widget: https://pt.wikipedia.org/wiki/Widget
-Drag-and-Drop: https://pt.wikipedia.org/wiki/Drag-and-drop
-Round Trip Time: https://pt.wikipedia.org/wiki/Round_Trip_Time
+Informações extras:<br>
+Dashboard: https://pt.wikipedia.org/wiki/Painel_de_bordo<br>
+Plug-in: https://pt.wikipedia.org/wiki/Plug-in<br>
+Obs: no vídeo falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha com Dashboard, só desconsiderar a fala<br>
+Widget: https://pt.wikipedia.org/wiki/Widget<br>
+Drag-and-Drop: https://pt.wikipedia.org/wiki/Drag-and-drop<br>
+Round Trip Time: https://pt.wikipedia.org/wiki/Round_Trip_Time<br>
 Obs: conceito utilizado no Widget de Gateways
 
 Link da vídeo aula: https://www.youtube.com/watch?v=REF3pCYIKnc&t
@@ -97,14 +97,14 @@ Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, no pfSense o menu está dividido em várias áreas, facilitando a administração, todas as opções de configuração do pfSense são auto-explicativas e sempre tem uma ajuda escrita nos campos ou links para facilitar o entendimento da configuração.
 
-Menu está dividido nas seguintes opções:
-System (sistema): Configurações gerais do sistema do UTM pfSense;
-Interfaces (placas de rede): Configurações gerais das interfaces de rede;
-Firewall: Configurações gerais das regras de firewall;
-Services (serviços): Configurações gerais dos serviços de rede;
-VPN (redes virtuais privadas): Configurações gerais dos serviços de Túnel VPN;
-Status (estado/condição): Condições gerais dos serviços de rede;
-Diagnostics (diagnóstico): Ferramentas de análise de falhas e diagnostico do sistema;
+Menu está dividido nas seguintes opções:<br>
+System (sistema): Configurações gerais do sistema do UTM pfSense;<br>
+Interfaces (placas de rede): Configurações gerais das interfaces de rede;<br>
+Firewall: Configurações gerais das regras de firewall;<br>
+Services (serviços): Configurações gerais dos serviços de rede;<br>
+VPN (redes virtuais privadas): Configurações gerais dos serviços de Túnel VPN;<br>
+Status (estado/condição): Condições gerais dos serviços de rede;<br>
+Diagnostics (diagnóstico): Ferramentas de análise de falhas e diagnostico do sistema;<br>
 Help (ajuda): Link de acesso a ajuda da ferramenta UTM pfSense
 
 Link da vídeo aula: https://www.youtube.com/watch?v=bbSvFvwQW7M&t
@@ -117,8 +117,8 @@ Vídeo mostrando os procedimentos básicos para atualizar a versão do UTM pfSEN
 
 O Appliance do pfSense sofre atualizações constante da comunidade, sempre é uma boa prática manter o sistema atualizado, mais infelizmente problemas na atualização pode acontecer, recomendo sempre fazer um Backup antes (vídeo será feito em breve) ou se você utiliza máquina virtual, fazer um Snapshots, caso tenha alguma falha, você tem a possibilidade de voltar uma versão anterior sem erros.
 
-Informações extras:
-Backup: https://pt.wikipedia.org/wiki/C%C3%B3pia_de_seguran%C3%A7a
+Informações extras:<br>
+Backup: https://pt.wikipedia.org/wiki/C%C3%B3pia_de_seguran%C3%A7a<br>
 Snapshot: https://pt.wikipedia.org/wiki/C%C3%B3pia_instant%C3%A2nea_de_volume
 
 Link da vídeo aula: https://www.youtube.com/watch?v=79OOQOpT794&t
@@ -131,23 +131,23 @@ Vídeo mostrando os procedimentos básicos para configurar o acesso remoto segur
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto utilize o console que é a forma mais simples e rápida de acesso, temos também a possibilidade de acessar o console e o shell do pfSense via conexão segura utilizando o OpenSSH Client.
 
-#Configuração da Porta Console
+#Configuração da Porta Console<br>
 adicionar o usuário aos Grupos: tty e dialout
 
-#Instalando o PuTTY e FileZilla
+#Instalando o PuTTY e FileZilla<br>
 sudo apt update && sudo apt install putty putty-tools filezilla
 
-#Gerando a Chave Pública do SSH
+#Gerando a Chave Pública do SSH<br>
 ssh-keygen
 
-#Localização padrão das Chaves Públicas e Privadas
+#Localização padrão das Chaves Públicas e Privadas<br>
 cd /home/vaamonde/.ssh/
 
-Informações extras:
-OpenSSH: https://pt.wikipedia.org/wiki/OpenSSH
-Console: https://pt.wikipedia.org/wiki/Interface_de_linha_de_comandos
-Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica
-Putty: https://www.putty.org/
+Informações extras:<br>
+OpenSSH: https://pt.wikipedia.org/wiki/OpenSSH<br>
+Console: https://pt.wikipedia.org/wiki/Interface_de_linha_de_comandos<br>
+Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica<br>
+Putty: https://www.putty.org/<br>
 Filezilla: https://filezilla-project.org/
 
 Link da vídeo aula: https://www.youtube.com/watch?v=t5gtSGaShn4&t
@@ -162,10 +162,10 @@ Toda a administração e configuração do UTM pfSense será feita utilizando o 
 
 OBSERVAÇÃO IMPORTANTE: 19:00 No Linux Mint, o navegador Google Chrome não usa a cadeia de CA padrão, devendo fazer o procedimento de instalação manual, acessando: Menu, Configurações, Pesquisando Gerenciador de Certificado, clicar na aba Autoridade, depois clicar em Importar, localizar o arquivo de CA, marcar as opções de Confiar em Website, Email e Software, clicar em: OK.
 
-Informações extras:
-CA: https://pt.wikipedia.org/wiki/Autoridade_de_certifica%C3%A7%C3%A3o
-Certificado: https://pt.wikipedia.org/wiki/Certificado_digital
-Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica
+Informações extras:<br>
+CA: https://pt.wikipedia.org/wiki/Autoridade_de_certifica%C3%A7%C3%A3o<br>
+Certificado: https://pt.wikipedia.org/wiki/Certificado_digital<br>
+Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica<br>
 Criptografia: https://pt.wikipedia.org/wiki/Criptografia
 
 Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
