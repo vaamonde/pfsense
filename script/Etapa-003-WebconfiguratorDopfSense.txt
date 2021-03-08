@@ -7,8 +7,8 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 Data de criação: 23/01/2021
-Data de atualização: 23/01/2021
-Versão: 0.01
-Testado e homologado no Firewall NG Netgear pfSense 2.4.x
+Data de atualização: 06/03/2021
+Versão: 0.02
+Testado e homologado no Firewall NG Netgear pfSense 2.4.x e 2.5.x
 
 Primeira etapa: 

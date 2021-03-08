@@ -33,6 +33,8 @@ O UTM pfSENSE e umas melhores soluções Open Source de Firewall, Proxy, Router,
 
 Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
 
+[![Instalação do pfSense](http://img.youtube.com/vi/N-Cbq1AaEyM/0.jpg)](http://www.youtube.com/watch?v=N-Cbq1AaEyM "Instalação do pfSense")
+
 Link da vídeo aula: https://www.youtube.com/watch?v=N-Cbq1AaEyM
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense.txt
@@ -44,6 +46,8 @@ Vídeo mostrando os procedimentos básicos para utilizar o Console do UTM pfSens
 A ferramenta de console do UTM pfSense permite fazer algumas configurações rápidas do sistema, principalmente a parte de atribuição (associação) das interfaces, configurações do endereçamento IPv4 ou IPv6 da WAN, LAN, etc, Reset de Senha e Configurações, Restore de Backup, atualização do sistema, monitoramento e acesso ao Bash/Shell do UTM pfSense.
 
 O console do UTM pfSense é a primeira etapa da configuração do sistema, raramente será utilizado com muita frequência, todas as configurações principais e administração são feitas no WebConfigurator (WebGUI).
+
+[![Console do pfSense](http://img.youtube.com/vi/rKef7WePAk0/0.jpg)](http://www.youtube.com/watch?v=rKef7WePAk0 "Console do pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=rKef7WePAk0
 
@@ -66,6 +70,8 @@ RFC 1918: https://pt.wikipedia.org/wiki/Rede_privada<br>
 Redes Bogon: https://en.wikipedia.org/wiki/Bogon_filtering<br>
 Carrier Grade NAT: https://pt.wikipedia.org/wiki/Carrier_Grade_NAT
 
+[![WebConfigurator do pfSense](http://img.youtube.com/vi/H6VLgpfXvmg/0.jpg)](http://www.youtube.com/watch?v=H6VLgpfXvmg "WebConfigurator do pfSense")
+
 Link da vídeo aula: https://www.youtube.com/watch?v=H6VLgpfXvmg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-003-WebconfiguratorDopfSense.txt
@@ -76,7 +82,7 @@ Vídeo mostrando os procedimentos básicos para utilizar o Dashboard (Painel de 
 
 A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido da saúde do pfSense, analisando os principais recursos e desempenho da rede, monitorando o status de serviços de rede, trafego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
 
-Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IP: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfsense, após a configuração do WebGUI via Wizard, utilizar a senha que foi configurada.
+Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IP: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfSense, após a configuração do WebGUI via Wizard, utilizar a senha que foi configurada.
 
 Informações extras:<br>
 Dashboard: https://pt.wikipedia.org/wiki/Painel_de_bordo<br>
@@ -86,6 +92,8 @@ Widget: https://pt.wikipedia.org/wiki/Widget<br>
 Drag-and-Drop: https://pt.wikipedia.org/wiki/Drag-and-drop<br>
 Round Trip Time: https://pt.wikipedia.org/wiki/Round_Trip_Time<br>
 Obs: conceito utilizado no Widget de Gateways
+
+[![Dashboard do pfSense](http://img.youtube.com/vi/REF3pCYIKnc/0.jpg)](http://www.youtube.com/watch?v=REF3pCYIKnc "Dashboard do pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=REF3pCYIKnc&t
 
@@ -107,6 +115,8 @@ Status (estado/condição): Condições gerais dos serviços de rede;<br>
 Diagnostics (diagnóstico): Ferramentas de análise de falhas e diagnostico do sistema;<br>
 Help (ajuda): Link de acesso a ajuda da ferramenta UTM pfSense
 
+[![WebGui do pfSense](http://img.youtube.com/vi/bbSvFvwQW7M/0.jpg)](http://www.youtube.com/watch?v=bbSvFvwQW7M "WebGui do pfSense")
+
 Link da vídeo aula: https://www.youtube.com/watch?v=bbSvFvwQW7M&t
 
 Documentação da vídeo aula: 
@@ -120,6 +130,8 @@ O Appliance do pfSense sofre atualizações constante da comunidade, sempre é u
 Informações extras:<br>
 Backup: https://pt.wikipedia.org/wiki/C%C3%B3pia_de_seguran%C3%A7a<br>
 Snapshot: https://pt.wikipedia.org/wiki/C%C3%B3pia_instant%C3%A2nea_de_volume
+
+[![Atualizando o pfSense](http://img.youtube.com/vi/79OOQOpT794/0.jpg)](http://www.youtube.com/watch?v=79OOQOpT794 "Atualizando o pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=79OOQOpT794&t
 
@@ -148,7 +160,9 @@ OpenSSH: https://pt.wikipedia.org/wiki/OpenSSH<br>
 Console: https://pt.wikipedia.org/wiki/Interface_de_linha_de_comandos<br>
 Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica<br>
 Putty: https://www.putty.org/<br>
-Filezilla: https://filezilla-project.org/
+FileZilla: https://filezilla-project.org/
+
+[![Habilitando o SSH do pfSense](http://img.youtube.com/vi/t5gtSGaShn4/0.jpg)](http://www.youtube.com/watch?v=t5gtSGaShn4 "Habilitando o SSH do pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=t5gtSGaShn4&t
 
@@ -167,6 +181,8 @@ CA: https://pt.wikipedia.org/wiki/Autoridade_de_certifica%C3%A7%C3%A3o<br>
 Certificado: https://pt.wikipedia.org/wiki/Certificado_digital<br>
 Chaves Privadas/Publicas: https://pt.wikipedia.org/wiki/Criptografia_de_chave_p%C3%BAblica<br>
 Criptografia: https://pt.wikipedia.org/wiki/Criptografia
+
+[![Configurando a CA do pfSense](http://img.youtube.com/vi/BvNAVlbdOdo/0.jpg)](http://www.youtube.com/watch?v=BvNAVlbdOdo "Configurando a CA do pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
 
