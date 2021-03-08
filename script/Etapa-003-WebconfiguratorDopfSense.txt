@@ -7,8 +7,55 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 Data de criação: 23/01/2021
-Data de atualização: 06/03/2021
-Versão: 0.02
-Testado e homologado no Firewall NG Netgear pfSense 2.4.x e 2.5.x
+Data de atualização: 08/03/2021
+Versão: 0.03
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Primeira etapa: 
+Primeira etapa: Acessando o pfSense via Navegador (recomendo o Firefox)
+01. Acessar o endereço IPv4: http://172.16.10.254
+	Sign In
+		Username: admin 
+		Password: pfsense
+		Sign In
+	pfSense Setup
+		Welcome to pfSense® software!
+		<Next>
+	Netgate® Global Support is available 24/7
+		<Next>
+	General Information
+		Hostname: firewall
+		Domain: pti.intra
+		Primary DNS Server: 8.8.8.8
+		Secondary DNS Server: 8.8.4.4
+		Override DNS: (Disable)
+		<Next>
+	Time Server Information
+		Time server hostname: a.st1.ntp.br
+		Timezone: America/Sao_Paulo
+		<Next>
+	Configure WAN Interface
+		SelectedType: DHCP
+		General configuration
+			MAC Address: (default)
+			MTU: (default)
+			MSS: (default)
+		RFC1918 Networks
+			Block RFC1918 Private Networks: (Disable)
+			Block bogon networks: (Disable)
+		<Next>
+	Configure LAN Interface
+		LAN IP Address: 172.16.10.254
+		Subnet Mask: 24
+		<Next>
+	Set Admin WebGUI Password
+		Admin Password: News_Password
+		Admin Password AGAIN: Renew_Password
+		<Next>
+	Reload configuration
+		<Reload>
+	Wizard completed.
+		<Finish>
+02. Copyright and Trademark Notices.
+	<Accept>
+	Thank you!
+	<Close>

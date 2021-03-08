@@ -19,6 +19,7 @@ Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pr�
 
 ## **Links Oficiais do Ubuntu, Mint, pfSense, Microsoft e VirtualBOX:**
 Linux Mint: https://www.linuxmint.com/<br>
+Netgate: https://www.netgate.com/<br>
 pfSense: https://www.pfsense.org/<br>
 Oracle VirtualBOX: https://www.virtualbox.org/
 
@@ -81,8 +82,6 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 Vídeo mostrando os procedimentos básicos para utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do UTM pfSense Firewall v2.4.4
 
 A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido da saúde do pfSense, analisando os principais recursos e desempenho da rede, monitorando o status de serviços de rede, trafego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
-
-Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IP: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfSense, após a configuração do WebGUI via Wizard, utilizar a senha que foi configurada.
 
 Informações extras:<br>
 Dashboard: https://pt.wikipedia.org/wiki/Painel_de_bordo<br>

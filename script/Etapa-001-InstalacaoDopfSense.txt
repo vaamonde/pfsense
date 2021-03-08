@@ -7,53 +7,89 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 Data de criação: 23/01/2021
-Data de atualização: 06/03/2021
+Data de atualização: 08/03/2021
 Versão: 0.02
-Testado e homologado no Firewall NG Netgear pfSense 2.4.x e 2.5.x
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Primeira etapa: Download da ISO do pfSense
+Primeira etapa: Download da ISO do Netgate UTM pfSense
 01. Link de download do pfSense: https://www.pfsense.org/download/
-02. Versão do download pfSense (23/01/2021): 2.4.5-p1 - (06/03/2021): 2.5.0
-03. Tipo do download do pfSense: AMD64 (64-bit) - CD Image (ISO) Installer
-04. Mirror padrão do download do pfSense: New York City, USA
-05. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
-06. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
+02. Versão do download pfSense: 2.5.0 (08/03/2021)
+03. Arquitetura do pfSense: AMD64 (64-bit)
+04. Tipo de instalação: DVD Image (ISO) Installer
+05. Mirror padrão do download: New York City, USA
+06. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
+07. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
 
-Segunda etapa: Criação da Máquina Virtual no Oracle VirtualBOX
-01. Nome e Sistema Operacional:
+Segunda etapa: Criação da Máquina Virtual e Configuração no Oracle VirtualBOX
+01. Ferramentas;
+	Novo
+02. Nome e Sistema Operacional:
 	Nome: pfSense
+	Pasta da Máquina: (deixar o padrão do sistema) 
 	Tipo: BSD
 	Versão: FreeBSD (64-bit)
-02. Tamanho da memória:
+	<Próximo>
+03. Tamanho da memória:
 	Tamanho: 1024MB
-03. Disco Rígido:
+	<Próximo>
+04. Disco Rígido:
 	Criar um novo disco rígido virtual agora
+	<Criar>
+05. Tipo de arquivo de disco rígido
 	VDI (VirtualBOX Disk Image)
+	<Próximo>
+06. Armazenamento em disco rígido físico
 	Dinamicamente alocado
+	<Próximo>
+07. Localização e tamanho do arquivo
+	Localização: (deixar o padrão do sistema)
 	Tamanho do disco: 16GB
-04. Configurações da Máquina Virtual
+	<Criar>
+04. Configurações da Máquina Virtual pfSense (Propriedades/Configurações)
 	Sistema
 		Processador
 			Processadores: 02 CPUs
 			Recursos Estendidos: Habilitar PAE/NX
 	Monitor
-		Memória de Vídeo: 128MB
-		Aceleração: Habilitar Aceleração 3D
+		Tela
+			Memória de Vídeo: 128MB
+			Aceleração: Habilitar Aceleração 3D
 	Áudio
 		Habilitar Áudio: Desabilitar
 	Rede
 		Adaptador 1 (WAN)
+			Habilitar Placa de Rede
 			Conectado a: Placa em Modo Bridge
+			Nome: (Interface padrão de acesso a Internet e Rede Local do Hospedeiro)
 		Adaptador 2 (LAN)
+			Habilitar Placa de Rede
 			Conectado a: Rede Interna
+			Nome: (deixar o padrão do sistema: intnet)
+<OK>
 
-Terceira etapa: Instalação do pfSense
-01. Copyright and distribution notice: Accept - <Enter>
-02. Install (Install pfSense) - <Enter>
-03. Brazilian (accent keys) - Barra de Espaço
-04. Continue with br.kdb keymap - <Enter>
-05. Auto (UFS) Guided Disk Setup - <Enter>
-06. Manual Configuration: No - <Enter>
-07. Complete: Reboot - <Enter>
+Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
+01. VM pfSense: Iniciar
+02. Selecione o disco rígido de boot
+	Selecionar um arquivo de disco óptico virtual
+03. Seletor de Discos Ópticos
+	Acrescentar
+	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	<Abrir>
+04. Not Attached
+	Selecionar: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	<Escolher>
+<Iniciar>
+
+01. Copyright and distribution notice: 
+	Accept - <Enter>
+02. Welcome to pfSense!
+	Install (Install pfSense) - <Enter>
+03. Keymap Selection
+	Brazilian (accent keys) - <Enter>
+	Continue with br.kdb keymap - <Enter>
+04. Partitioning
+	Auto (UFS) BIOS (Guided Disk Setup using BIOS boot method) - <Enter>
+05. Manual Configuration: No - <Enter>
+06. Complete: Reboot - <Enter>
 
 Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
