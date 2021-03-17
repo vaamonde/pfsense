@@ -106,7 +106,7 @@ VPN
                 Silent Installer: ON
                 Use Random Local Port: OFF
             Certificate Export Options
-                PKCS#11 Certificate Storag: OFF
+                PKCS#11 Certificate Storage: OFF
                 Microsoft Certificate Storage: OFF
                 Password Protect Certificate: OFF
             Proxy Options

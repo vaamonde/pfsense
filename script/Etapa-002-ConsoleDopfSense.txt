@@ -15,7 +15,7 @@ Opções do Console do Netgate pfSense
 	0) Logout (SSH only) - sair do acesso remoto via SSH
 	1) Assign Interfaces - ativação e atribuição de Interfaces de Rede
 	2) Set Interface(s) IP address - configuração do Endereço IPv4, IPv6 e DHCP Server
-	3) Reset WebConfigurator password - resetar para a senha padrão (pfsense) do usuário admin o acesso via WebGui
+	3) Reset WebConfigurator password - resetar para a senha padrão (pfSense) do usuário admin o acesso via WebGui
 	4) Reset to factory defaults - resetar para as configurações padrão do pfSense
 	5) Reboot system - reinicializar o pfSense
 	6) Halt system - desligar o pfSense

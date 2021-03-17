@@ -92,4 +92,5 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 05. Manual Configuration: No - <Enter>
 06. Complete: Reboot - <Enter>
 
-Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
+Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado no final da Instalação, 
+sendo necessário desmontar o CD-Room e rebotar a máquina virtual.

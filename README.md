@@ -11,16 +11,18 @@ Facebook Bora para Prática: https://www.facebook.com/boraparapratica<br>
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall NG Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
+Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall NG UTM Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
 Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pré-requisitos técnicos e práticos para Implementar Servidores GNU/Linux Ubuntu Server em cenários On-Premise ou Cloud.
 
 ## **Links Oficiais do Ubuntu, Mint, pfSense, Microsoft e VirtualBOX:**
-Linux Mint: https://www.linuxmint.com/<br>
 Netgate: https://www.netgate.com/<br>
 pfSense: https://www.pfsense.org/<br>
+Linux Mint: https://www.linuxmint.com/<br>
+Ubuntu: https://ubuntu.com/<br>
+Microsoft: https://www.microsoft.com/pt-br<br>
 Oracle VirtualBOX: https://www.virtualbox.org/
 
 ## **Playlist do YouTUBE com todos os Vídeos do pfSense:**
@@ -60,7 +62,7 @@ Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User
 
 A ferramenta de WebGUI - WebConfigurator do UTM pfSense permite fazer todas as configurações básicas e avançadas, toda a administração, gerenciamento, monitoramento, atualização e segurança será feita utilizando o WebGUI. Após a instalação do pfSense e suas configurações básicas via Console, precisamos acessar o WebGUI para finalizar a instalação.
 
-Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IPv4: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfsense.
+Recomendações: Recomendo utilizar o Navegador de Web Mozilla Firefox, que tem uma maior compatibilidade com soluções Open Source: https://www.mozilla.org/pt-BR/firefox/, em nosso exemplo, vamos acessar o servidor com endereço IPv4: http://172.16.10.254, nos próximos vídeos vou mostrar como configurar o ambiente para trabalhar com HTTPS, Usuário padrão do pfSense é: admin, e senha padrão é: pfSense.
 
 Informações extras:<br>
 PPPoE: https://pt.wikipedia.org/wiki/PPPoE<br>

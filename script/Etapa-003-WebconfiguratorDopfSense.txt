@@ -11,7 +11,7 @@ Data de atualização: 08/03/2021
 Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Primeira etapa: Acessando o pfSense via Navegador (recomendo o Firefox)
+Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Firefox)
 01. Acessar o endereço IPv4: http://172.16.10.254
 	Sign In
 		Username: admin 

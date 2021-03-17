@@ -39,7 +39,7 @@ System
 		Users
 			ADD
 				User Properties
-					Denined by: USER 
+					Denied by: USER 
 					Disable: OFF
 					Username: NOVO_USUÁRIO_ADMIN
 					Password: SENHA_USUÁRIO_ADMIN
@@ -47,7 +47,7 @@ System
 					Full name: NOME_COMPLETO_USUÁRIO_ADMIN
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: OpenVPN, adminis
+					Group membership: Member of: OpenVPN, admin
 					Certificate: ON
 				Certificate: Create Certificate for User
 					Descriptive name: Usuário Admin pfSense

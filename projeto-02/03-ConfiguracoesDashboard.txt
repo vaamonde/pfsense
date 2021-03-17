@@ -13,7 +13,8 @@
 Dashboard	
 	Available Widgest
         #Configuração dos Widgest Esquerda
-		    System Information: ON - Left-01
+		    Picture: - Left-01
+			System Information: ON - Left-02
         #Configuração dos Widgest Centro
 		    Interfaces: ON - Center-01
 		    Gateways: ON - Center-02
