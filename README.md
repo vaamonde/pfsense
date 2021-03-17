@@ -15,7 +15,7 @@ Esse curso tem como objetivo demonstrar a instalação e configuração do Firew
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
-Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pré-requisitos técnicos e práticos para Implementar Servidores GNU/Linux Ubuntu Server em cenários On-Premise ou Cloud.
+Ideal para Estudantes e Profissionais de Redes que desejam se aprofundar nos pré-requisitos técnicos e práticos para Implementar Servidores de Firewall/Proxy UTM pfSense em cenários On-Premise.
 
 ## **Links Oficiais do Ubuntu, Mint, pfSense, Microsoft e VirtualBOX:**
 Netgate: https://www.netgate.com/<br>
@@ -83,38 +83,28 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 
 Vídeo mostrando os procedimentos básicos para utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do UTM pfSense Firewall v2.4.4
 
-A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido da saúde do pfSense, analisando os principais recursos e desempenho da rede, monitorando o status de serviços de rede, trafego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
+A ferramenta de Dashboard do UTM pfSense permite fazer um monitoramento rápido da saúde do pfSense, analisando os principais recursos e desempenho da rede, monitorando o status de serviços de rede, tráfego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
 
 Informações extras:<br>
 Dashboard: https://pt.wikipedia.org/wiki/Painel_de_bordo<br>
 Plug-in: https://pt.wikipedia.org/wiki/Plug-in<br>
-Obs: no vídeo falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha com Dashboard, só desconsiderar a fala<br>
 Widget: https://pt.wikipedia.org/wiki/Widget<br>
 Drag-and-Drop: https://pt.wikipedia.org/wiki/Drag-and-drop<br>
 Round Trip Time: https://pt.wikipedia.org/wiki/Round_Trip_Time<br>
-Obs: conceito utilizado no Widget de Gateways
+Obs: no vídeo falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha<br>
+com Dashboard, só desconsiderar a fala no vídeo
 
 [![Dashboard do pfSense](http://img.youtube.com/vi/REF3pCYIKnc/0.jpg)](http://www.youtube.com/watch?v=REF3pCYIKnc "Dashboard do pfSense")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=REF3pCYIKnc&t
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-004-ConfiguracoesDoDashboard.txt
 
 ## **EXPLORANDO o WebGUI do UTM pfSENSE FIREWALL v2.4.4**
 
 Vídeo mostrando os procedimentos básicos para utilizar o WebGUI (Graphics User Interface) do UTM pfSense Firewall v2.4.4
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, no pfSense o menu está dividido em várias áreas, facilitando a administração, todas as opções de configuração do pfSense são auto-explicativas e sempre tem uma ajuda escrita nos campos ou links para facilitar o entendimento da configuração.
-
-Menu está dividido nas seguintes opções:<br>
-System (sistema): Configurações gerais do sistema do UTM pfSense;<br>
-Interfaces (placas de rede): Configurações gerais das interfaces de rede;<br>
-Firewall: Configurações gerais das regras de firewall;<br>
-Services (serviços): Configurações gerais dos serviços de rede;<br>
-VPN (redes virtuais privadas): Configurações gerais dos serviços de Túnel VPN;<br>
-Status (estado/condição): Condições gerais dos serviços de rede;<br>
-Diagnostics (diagnóstico): Ferramentas de análise de falhas e diagnostico do sistema;<br>
-Help (ajuda): Link de acesso a ajuda da ferramenta UTM pfSense
 
 [![WebGui do pfSense](http://img.youtube.com/vi/bbSvFvwQW7M/0.jpg)](http://www.youtube.com/watch?v=bbSvFvwQW7M "WebGui do pfSense")
 

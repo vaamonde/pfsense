@@ -1,0 +1,24 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+Data de criação: 23/01/2021
+Data de atualização: 08/03/2021
+Versão: 0.03
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/menuguide/index.html
+
+#Opções dos Menus do pfSense
+01. System (sistema): Configurações gerais do sistema do UTM pfSense;
+02. Interfaces (placas de rede): Configurações gerais das interfaces de rede;
+03. Firewall: Configurações gerais das regras de firewall;
+04. Services (serviços): Configurações gerais dos serviços de rede;
+05. VPN (redes virtuais privadas): Configurações gerais dos serviços de Túnel VPN;
+06. Status (estado/condição): Condições gerais dos serviços de rede;
+07. Diagnostics (diagnóstico): Ferramentas de análise de falhas e diagnostico do sistema;
+08. Help (ajuda): Link de acesso a ajuda da ferramenta UTM pfSense.
