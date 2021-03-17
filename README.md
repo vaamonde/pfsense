@@ -110,7 +110,7 @@ Toda a administração e configuração do UTM pfSense será feita utilizando o 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=bbSvFvwQW7M&t
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-005-ConhecendoOsMenus.txt
 
 ## **COMO atualizar o UTM pfSENSE FIREWALL v2.4.4 para nova Versão**
 
