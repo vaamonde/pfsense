@@ -10,6 +10,7 @@ Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi<br>
 Facebook Bora para Prática: https://www.facebook.com/boraparapratica<br>
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 
 Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall NG UTM Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
@@ -36,7 +37,9 @@ O UTM/NGFW pfSENSE é uma das melhores soluções Open Source de Firewall, Proxy
 
 Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
 
-Link da vídeo aula: 
+[![Instalação do pfSense 2.5](http://img.youtube.com/vi/igJku9tHcNo/0.jpg)](http://www.youtube.com/watch?v=igJku9tHcNo "Instalação do pfSense 2.5")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=igJku9tHcNo
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense-2.5.txt
 
@@ -48,7 +51,7 @@ O UTM pfSENSE e umas melhores soluções Open Source de Firewall, Proxy, Router,
 
 Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
 
-[![Instalação do pfSense](http://img.youtube.com/vi/N-Cbq1AaEyM/0.jpg)](http://www.youtube.com/watch?v=N-Cbq1AaEyM "Instalação do pfSense")
+[![Instalação do pfSense 2.4](http://img.youtube.com/vi/N-Cbq1AaEyM/0.jpg)](http://www.youtube.com/watch?v=N-Cbq1AaEyM "Instalação do pfSense 2.4")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=N-Cbq1AaEyM
 
