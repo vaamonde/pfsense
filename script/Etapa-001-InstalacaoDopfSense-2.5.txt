@@ -6,18 +6,17 @@ Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
 Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 24/03/2021
 Data de atualização: 24/03/2021
 Versão: 0.01
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.5.x
 
-Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
-
 Hardware Minímo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
 Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
-Orientação de dimensionamento de hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
-Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
-Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
+Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
+Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
+Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
 01. Link de download do pfSense: https://www.pfsense.org/download/
@@ -77,6 +76,8 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 			Nome: (deixar o padrão do sistema: intnet)
 <OK>
 
+Instalação do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
+
 Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 01. VM pfSense: Iniciar
 02. Selecione o disco rígido de boot
@@ -121,4 +122,3 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 
 Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado 
 no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
-

@@ -6,12 +6,13 @@ Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
 Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 08/03/2021
+Data de atualização: 24/03/2021
 Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
+Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
 
 Opções do Console do Netgate pfSense
 	0) Logout (SSH only) - sair do acesso remoto via SSH
@@ -37,6 +38,8 @@ Primeira etapa: Endereçamento das Interfaces do pfSense
 02. Interface LAN: Padrão de configuração de Endereço IP Estático
 03. Endereço IPv4 Padrão da Interface de LAN do pfSense: 192.168.1.1/24
 
+Atribuição de Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#assign-interfaces
+
 Segunda etapa: Atribuição das Interfaces do pfSense
 01. Atribuição das Interfaces de WAN e LAN
 	1) Assign Interfaces
@@ -47,6 +50,8 @@ Segunda etapa: Atribuição das Interfaces do pfSense
 		NOTE: this enables full Firewalling/NAT mode.
 			(em1 a or nothing if finished): em1 <Enter>
 		Do you want to proceed [y/n]? y <Enter>
+
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#set-interface-s-ip-address
 
 Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 01. Setando o Endereçamento IPv4 ou IPV6 das Interfaces de WAN e LAN
@@ -66,6 +71,8 @@ Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 		Enter the end address fo the IPv4 client address range: 172.16.10.150 <Enter>
 		Do you want to revert to HTTP as the WebConfigurator protocol? (y/n): y <Enter>	
 		Press <Enter> to continue.
+
+Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#ping-host
 
 Quarta Etapa: Verificação da conexão com a Internet na Interface WAN
 01. Testando a conectividade com a Internet

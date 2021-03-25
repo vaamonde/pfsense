@@ -6,12 +6,11 @@ Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
 Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 20/03/2021
-Versão: 0.03
+Data de atualização: 24/03/2021
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
-
-Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
 01. Link de download do pfSense: https://www.pfsense.org/download/
@@ -69,6 +68,8 @@ Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualB
 			Nome: (deixar o padrão do sistema: intnet)
 <OK>
 
+Instalação do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
+
 Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 01. VM pfSense: Iniciar
 02. Selecione o disco rígido de boot
@@ -94,5 +95,5 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 05. Manual Configuration: No - <Enter>
 06. Complete: Reboot - <Enter>
 
-Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado no final da Instalação, 
-sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
+Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado 
+no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
