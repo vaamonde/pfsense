@@ -28,6 +28,18 @@ Oracle VirtualBOX: https://www.virtualbox.org/
 ## **Playlist do YouTUBE com todos os Vídeos do pfSense:**
 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUN7vHnCDA2NF6rMfTBs-vAs
 
+## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5 no Oracle VirtualBOX**
+
+Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5 no Oracle VirtualBOX
+
+O UTM/NGFW pfSENSE é uma das melhores soluções Open Source de Firewall, Proxy, Router, etc do momento, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. Ele possui recursos que muitas vezes, só encontrada em Firewall comerciais caros, já que podemos realizar com o pfSense a imensa maioria das atividades que esperamos de sistemas com este título.
+
+Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense-2.5.txt
+
 ## **COMO instalar o UTM/NGFW pfSENSE FIREWALL v2.4.4 no Oracle VirtualBOX**
 
 Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management) pfSENSE Firewall v2.4.4 no Oracle VirtualBOX
@@ -40,7 +52,7 @@ Hoje o pfSense também pode ser considerado um NGFW (Next Generation Firewall), 
 
 Link da vídeo aula: https://www.youtube.com/watch?v=N-Cbq1AaEyM
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense-2.4.txt
 
 ## **CONHECENDO o console do UTM pfSENSE FIREWALL v2.4.4**
 

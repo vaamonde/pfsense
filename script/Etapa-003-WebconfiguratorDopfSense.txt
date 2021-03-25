@@ -7,11 +7,13 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 Data de criação: 23/01/2021
-Data de atualização: 08/03/2021
-Versão: 0.03
+Data de atualização: 20/03/2021
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Firefox)
+Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/config/setup-wizard.html
+
+Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navegador Firefox)
 01. Acessar o endereço IPv4: http://172.16.10.254
 	Sign In
 		Username: admin 

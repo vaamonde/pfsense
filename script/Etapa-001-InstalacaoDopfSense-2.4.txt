@@ -7,9 +7,11 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 Data de criação: 23/01/2021
-Data de atualização: 08/03/2021
-Versão: 0.02
+Data de atualização: 20/03/2021
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
 01. Link de download do pfSense: https://www.pfsense.org/download/
@@ -20,7 +22,7 @@ Primeira etapa: Download da ISO do Netgate UTM pfSense
 06. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
 07. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
 
-Segunda etapa: Criação da Máquina Virtual e Configuração no Oracle VirtualBOX
+Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX
 01. Ferramentas;
 	Novo
 02. Nome e Sistema Operacional:
