@@ -8,20 +8,27 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 24/03/2021
-Versão: 0.04
-Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+Data de atualização: 28/03/2021
+Versão: 0.05
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x
+
+Hardware Minímo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
+Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
+Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
+Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
+Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
-01. Link de download do pfSense: https://www.pfsense.org/download/
-02. Versão do download pfSense: 2.5.0 (08/03/2021)
+01. Link de download do pfSense: http://linorg.usp.br/pfsense/downloads/
+02. Versão do download pfSense: 2.4.3 (28/03/2021)
 03. Arquitetura do pfSense: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
-05. Mirror padrão do download: New York City, USA
-06. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
-07. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
+05. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
+06. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
+07. Dica: se você utiliza o Microsoft Windows recomendo instalar o 7Zip: https://www.7-zip.org/download.html
 
 Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX
+Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 01. Ferramentas;
 	Novo
 02. Nome e Sistema Operacional:
@@ -76,10 +83,10 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 	Selecionar um arquivo de disco óptico virtual
 03. Seletor de Discos Ópticos
 	Acrescentar
-	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.4.3-RELEASE-amd64.iso
 	<Abrir>
 04. Not Attached
-	Selecionar: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	Selecionar: pfSense-CE-2.4.3-RELEASE-amd64.iso
 	<Escolher>
 <Iniciar>
 

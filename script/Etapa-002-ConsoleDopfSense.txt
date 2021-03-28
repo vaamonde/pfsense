@@ -12,7 +12,7 @@ Data de atualização: 24/03/2021
 Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
-Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
+Opções do Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
 
 Opções do Console do Netgate pfSense
 	0) Logout (SSH only) - sair do acesso remoto via SSH

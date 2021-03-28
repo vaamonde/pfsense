@@ -2,13 +2,6 @@
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos gratuitos para o Canal, acessando o link de doação do PagSeguro: https://pag.ae/bjlSJcH
 
-<!-- blank line -->
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-<!-- blank line -->
-
-
 Robson Vaamonde<br>
 Procedimentos em TI: http://procedimentosemti.com.br<br>
 Bora para Prática: http://boraparapratica.com.br<br>
