@@ -83,10 +83,10 @@ Informações extras:<br>
 PPPoE: https://pt.wikipedia.org/wiki/PPPoE<br>
 PPP: https://pt.wikipedia.org/wiki/Point-to-Point_Protocol<br>
 PPTP: https://pt.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol<br>
-Obs: no vídeo falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz Túnel VPN, por-favor, desconsiderar, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP<br>
 RFC 1918: https://pt.wikipedia.org/wiki/Rede_privada<br>
 Redes Bogon: https://en.wikipedia.org/wiki/Bogon_filtering<br>
-Carrier Grade NAT: https://pt.wikipedia.org/wiki/Carrier_Grade_NAT
+Carrier Grade NAT: https://pt.wikipedia.org/wiki/Carrier_Grade_NAT<br>
+Observação: no vídeo eu falei de PPTP com referência a Fax-Modem, na qual usa o Protocolo PPP, o PPTP faz o Túnel VPN, por-favor, desconsiderar a fala, pois o PPTP pode trabalhar em conjunto com Dial-Up e PPP em ambos os casos
 
 [![WebConfigurator do pfSense](http://img.youtube.com/vi/H6VLgpfXvmg/0.jpg)](http://www.youtube.com/watch?v=H6VLgpfXvmg "WebConfigurator do pfSense")
 
@@ -106,8 +106,7 @@ Plug-in: https://pt.wikipedia.org/wiki/Plug-in<br>
 Widget: https://pt.wikipedia.org/wiki/Widget<br>
 Drag-and-Drop: https://pt.wikipedia.org/wiki/Drag-and-drop<br>
 Round Trip Time: https://pt.wikipedia.org/wiki/Round_Trip_Time<br>
-Obs: no vídeo falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha<br>
-com Dashboard, só desconsiderar a fala no vídeo
+Observação: no vídeo eu falo bastante sobre Plug-in, no pfSense o conceito correto e Widget quando se trabalha com Dashboard, só desconsiderar a fala no vídeo.
 
 [![Dashboard do pfSense](http://img.youtube.com/vi/REF3pCYIKnc/0.jpg)](http://www.youtube.com/watch?v=REF3pCYIKnc "Dashboard do pfSense")
 
@@ -141,25 +140,13 @@ Snapshot: https://pt.wikipedia.org/wiki/C%C3%B3pia_instant%C3%A2nea_de_volume
 
 Link da vídeo aula: https://www.youtube.com/watch?v=79OOQOpT794&t
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-006-AtualizandoOpfSense.txt
 
 ## **CONFIGURANDO o Acesso Seguro do SSH e CONSOLE no UTM pfSENSE FIREWALL v2.4.4**
 
 Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o SSH e porta Console do UTM pfSense Firewall v2.4.4
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto utilize o console que é a forma mais simples e rápida de acesso, temos também a possibilidade de acessar o console e o shell do pfSense via conexão segura utilizando o OpenSSH Client.
-
-#Configuração da Porta Console<br>
-adicionar o usuário aos Grupos: tty e dialout
-
-#Instalando o PuTTY e FileZilla<br>
-sudo apt update && sudo apt install putty putty-tools filezilla
-
-#Gerando a Chave Pública do SSH<br>
-ssh-keygen
-
-#Localização padrão das Chaves Públicas e Privadas<br>
-cd /home/vaamonde/.ssh/
 
 Informações extras:<br>
 OpenSSH: https://pt.wikipedia.org/wiki/OpenSSH<br>
@@ -172,7 +159,7 @@ FileZilla: https://filezilla-project.org/
 
 Link da vídeo aula: https://www.youtube.com/watch?v=t5gtSGaShn4&t
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-007-ConfgurandoConsole_SSH.txt
 
 ## **CONFIGURANDO a CA e CERTIFICADOS no UTM pfSENSE FIREWALL v2.4.4**
 
@@ -192,4 +179,4 @@ Criptografia: https://pt.wikipedia.org/wiki/Criptografia
 
 Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-008-ConfigurandoCA.txt
