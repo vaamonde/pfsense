@@ -167,7 +167,7 @@ Vídeo mostrando os procedimentos básicos para configurar uma CA (Certification
 
 Toda a administração e configuração do UTM pfSense será feita utilizando o WebGUI, para manter a segurança de acesso local ou externo, é recomendado a configuração do Protocolo HTTPS utilizando um Certificado Válido para permiti conexões seguras, para isso também é necessário a criação de uma CA que vai validar o certificado e permiti o acesso.
 
-OBSERVAÇÃO IMPORTANTE: 19:00 No Linux Mint, o navegador Google Chrome não usa a cadeia de CA padrão, devendo fazer o procedimento de instalação manual, acessando: Menu, Configurações, Pesquisando Gerenciador de Certificado, clicar na aba Autoridade, depois clicar em Importar, localizar o arquivo de CA, marcar as opções de Confiar em Website, Email e Software, clicar em: OK.
+OBSERVAÇÃO IMPORTANTE: 19:00 No Linux Mint, o navegador Google Chrome não usa a cadeia de CA padrão, sendo necessário fazer o procedimento de instalação manual, acessando: Menu, Configurações, Pesquisando Gerenciador de Certificado, clicar na aba Autoridade, depois clicar em Importar, localizar o arquivo de CA, marcar as opções de Confiar em Website, Email e Software, clicar em: OK.
 
 Informações extras:<br>
 CA: https://pt.wikipedia.org/wiki/Autoridade_de_certifica%C3%A7%C3%A3o<br>
