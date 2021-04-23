@@ -8,10 +8,119 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 24/03/2021
-Versão: 0.04
+Data de atualização: 23/04/2021
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
 CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
 
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+#Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
+System
+	Cert. Manager
+		CAs
+			ADD
+				Create / Edit CA
+					Descriptive name: BoraParaPratica
+					Method: Create an internal Certificate Authority
+				Internal Certificate Authority
+					Key lenght (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: internal-ca
+					Country Code: BR
+					Sate or Province: Guarulhos
+					City: Sao Paulo
+					Organization: Bora para Pratica
+					Organizational Unit: Matriz Bora para Pratica
+			save
+			Export CA
+				Salvar Arquivo: BoraParaPratica.crt
+		
+		Certificates
+			Add/Sign
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado do pfSense
+				Internal Certificate 
+					Certificate authority: BoraParaPratica
+					Key lenght: 2038
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: ptispo01fw01.pti.intra 
+					Country Code: BR
+					State or Province: Guarulhos
+					City: Sao Paulo
+					Organization: Bora para Pratica
+					Organization Unit: Matriz de Bora para Pratica
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: 172.16.1.254
+						FQDN or Hostname: ptispo01fw01
+						FQDN or Hostname: ptispo01fw01.pti.intra
+			save
+
+#Configuração do suporte ao HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			SSL Certificate: Certificado do pfSense
+		save
+
+#Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
+Firefox
+	Menu de Aplicativo
+		Preferências
+			Pesquisar em Preferências
+				Certificados
+					Ver Certificados...
+						Autoridades
+							Importar: BoraParaPratica.crt <Abrir>
+								Confiar nesta CA para identificar sites (yes)
+								Confiar nesta CA para identificar usuários de e-mail (yes)
+							<Ver>
+							<OK>
+
+#Instalação do CA (Certificate Authority) no Google Chrome (Linux)
+Google Chrome
+	Digite a URL: chrome://settings/certificates
+		Autoridade
+			Importar
+				BoraParaPratica.crt <Abrir>
+					Confiar neste certificado para identificar sites (yes)
+					Confiar neste certificado para identificar usuários de e-mail (yes)
+					Confiar neste certificado para identificar fabricantes de software (yes)
+				<OK>
+
+#Instalação do CA (Certificate Authority) no Windows
+BoraParaPratica.crt (clicar duas vezes em cima do certificado)
+	Abrir
+		Certificado
+			Geral
+				Instalar Certificado...
+					Assistente para Importação de Certificados
+						Máquina Local <Avançar>
+						Deseja permitir que este aplicativo faça alterações no seu dispositivo? <sim>
+						Colocar todos os certificados no repositório a seguir
+							Repositório de Certificados <Procurar>
+								Autoridades de Certificação Raiz Confiáveis <OK>
+						<Avançar>
+						<Concluir>
+						<OK>
+Pesquisa do Windows
+	Gerenciar Certificados de Computador <Sim>
+		Autoridades de Certificação Raiz Confiáveis
+			Certificados
+				internal-ca
+
+#Instalação do CA (Certificate Authority) no Linux
+BoraParaPratica.crt
+		Abrir como Root 
+			Copia: BoraParaPratica.crt
+			Colar: /usr/local/share/ca-certificates
+		Terminal
+			sudo update-ca-certificates
