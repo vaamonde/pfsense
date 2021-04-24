@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 23/04/2021
-Versão: 0.05
+Data de atualização: 24/04/2021
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
@@ -25,7 +25,10 @@ System
 				Create / Edit CA
 					Descriptive name: BoraParaPratica
 					Method: Create an internal Certificate Authority
+					Trust Store: (default)
+					Randomize Serial: (default)
 				Internal Certificate Authority
+					Key type: RSA
 					Key lenght (bits): 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
@@ -46,7 +49,8 @@ System
 					Descriptive name: Certificado do pfSense
 				Internal Certificate 
 					Certificate authority: BoraParaPratica
-					Key lenght: 2038
+					Key type: RSA
+					Key lenght: 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: ptispo01fw01.pti.intra 
