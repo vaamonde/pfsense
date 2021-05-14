@@ -1,0 +1,246 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 14/05/2021
+Data de atualização: 14/05/2021
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+#Instalação do Squid e LightSquid no pfSense
+#Obs: para a utilização do Squid com suporte ao I-CAP (Antivírus) é necessário no 
+#mínimo 2GB de RAM para o bom funcionamento do serviço e não causar travamento ou
+#falhas de inicialização do serviço do I-CAMP e do ClamD.
+
+Uma breve introdução aos proxies e relatórios da Web: Squid, SquidGuard e Lightsquid
+Site: https://docs.netgate.com/pfsense/en/latest/recipes/http-client-proxy.html?highlight=squid
+
+Cache e Proxy:
+https://docs.netgate.com/pfsense/en/latest/packages/cache-proxy/squidguard.html
+https://docs.netgate.com/pfsense/en/latest/packages/cache-proxy/tune.html
+https://docs.netgate.com/pfsense/en/latest/recipes/http-client-proxy-transparent.html?highlight=squid
+
+#Instalando os pacotes do Squid e do LightSquid
+System
+	Package Manager
+		Available Packages
+			Search term: squid <Search>
+				squid <Install>
+				Lightsquid <Install>
+
+#Configurando o Cache Local do Squid
+Service
+	Squid Proxy Server
+		Local Cache
+			Squid Cache General Settings
+				Disable Caching: <Default>
+				Cache Replacement Policy: Heap LFUDA <Default>
+				Low-Water Mark in %: 90 <Default>
+				High-Water Mark in %: 95 <Default>
+				Do Not Cache:
+					itau.com.br
+					satander.com.br
+					bb.com.br
+				Enable Offline Mode: <Default>
+				External Cache Managers: <Default>
+			Squid Hard Disk Cache Settings
+				Hard Disk Cache Size: 100 <Default>
+				Hard Disk Cache System: ufs <Default>
+				Level 1 Directories: 16 <Default>
+				Hard Disk Cache Location: /var/squid/cache <Default>
+				Minimum Object Size: 0 <Default>
+				Maximum Object Size: 4 <Default>
+			Squid Memory Cache Settings
+				Memory Cache Size: 64 <Default>
+				Maximum Object Size in RAM: 256 <Default>
+				Memory Replacement Policy: Headp GDSF <Default>
+			Dynamic and Update Content
+				Cache Dynamic Content: <Default>
+				Custom refresh_patterns: <Default>
+		<Save>
+
+#Configuração geral do Squid (Proxy Não Transparente)
+Service
+	Squid Proxy Server
+		General
+			Squid General Settings
+				Enable Squid Proxy: Yes
+				Keep Settings/Data: Yes <Default>
+				Listen IP Version: IPv4 <Default>
+				CARP Status VIP: none <Default>
+				Proxy Interface(s):
+					LAN 
+					Loopback
+				Outgoing Network Interface: LAN <Default>
+				Proxy Port: 3128 <Default>
+				ICP Port: <Default>
+				Allow Users on Interface: Yes <Default>
+				Resolve DNS IPv4 First: Yes
+				Disable ICMP: <Default>
+				Use Alternate DNS Servers for the Proxy Server: <Default>
+				Extra Trusted CA: none <Default>
+			Transparent Proxy Settings
+				Transparent HTTP Proxy: <Default>
+				Transparent Proxy Interface(s): LAN <Default>
+				Bypass Proxy for Private Address Destination: <Default>
+				Bypass Proxy for These Source IPs: <Default>
+				Bypass Proxy for These Destination IPs: <Default>
+			SSL Man In the Middle Filtering
+				HTTPS/SSL Interception: <Default>
+				SSL/MITM Mode: Splice Whitelist, Bump Otherwise <Default>
+				SSL Intercept Interface(s): LAN <Default>
+				SSL Proxy Port: <Default>
+				SSL Proxy Compatibility Mode: Modern <Default>
+				DHParams Key Size: 2048 <Default>
+				CA: nome <Default>
+				SSL Certificate Deamon Children: <Default>
+				Remote Cert Checks: <Default>
+				Certificate Adapt: <Default>
+			Logging Settings
+				Enable Access Logging: Yes
+				Log Store Directory: /var/squid/logs <Default>
+				Rotate Logs: 7
+				Log Pages Denied by SquidGuard: <Default>
+			Headers Handling, Language and Other Customizations
+				Visible Hostname: localhost <Default>
+				Administrator's Email: admin@vaamonde.intra
+				Error Language: pt-br
+				X-Forwarded Header Mode: on <Default>
+				Disable VIA Header: <Default>
+				URI Whitespace Characters Handling: strip <Default>
+				Suppress Squid Version: <Default>
+		<Save>
+
+#Configurando o C-ICAP ClamD Antivírus do Squid
+Service
+	Squid Proxy Server
+		Antivirus
+			ClamAV Anti-Virus Integration Using C-ICAP
+				Enable AV: Yes
+				Client Forward Options: Send both client username and IP info <Default>
+				Enable Manual Configuration: Disabled <Default>
+				Redirect URL: <Default>
+				Scan Type: All <Default>
+				Exclude Audio/Video Streams: Yes
+				Block PUA: Yes
+				ClamAV Database Update: every 1 hour
+				Regional ClamAV Database Update Mirror: United States
+				Optional ClamAV Database Update Servers: <Default>
+			Unofficial Signatures
+				URLhaus: <Default>
+				InterServer: <Default>
+				SecuriteInfo: <Default>
+				SecuriteInfo Premium: <Default>
+				SecuriteInfo ID <Default>
+		<Save>
+
+#Criando os usuários locais do Squid
+Service
+	Squid Proxy Server
+		Users
+			<Add>
+				Squid Local Users
+					Username: vaamonde
+					Password: vaamonde
+					Description: Usuário Robson vaamonde
+				<Save>
+
+#Configurando a autenticação local do Squid
+Service
+	Squid Proxy Server
+		Authentication
+			Squid Authentication General Settings
+				Authentication Method: Local
+				Authentication Server: <Default>
+				Authentication server port: <Default>
+				Authentication Prompt: Digite o seu usuario e senha da Internet
+				Authentication Processes: 5 <Default>
+				Authentication TTL: 5 <Default>
+				Authentication Max User IP Addresses: <Default>
+				Require Authentication for Unrestricted IPs: <Default>
+				Subnets That Don't Need Authentication: <Default>
+			<Save>
+
+#Configurando as ACL's do Squid
+Service
+	Squid Proxy Server
+		ACLs
+			Squid Access Control Lists
+				Allowed Subnets: 
+					172.16.10.0/24
+				Unrestricted IPs
+					172.16.10.10
+					172.16.10.20
+				Banned Hosts Addresses: <Default>
+				Whitelist: <Default>
+				Blacklist
+					professorramos.com
+					http://professorramos.com
+					joseassis.com.br
+					https://joseassis.com.br
+				Block User Agents: <Default>
+				Block MIME Types (Reply Only)
+					application/x-msdos-program
+					application/x-msdownload
+					application/msdos-windows
+					application/octet-stream
+					application/dos-exe
+					application/exe
+					application/x-exe
+					application/x-winexe
+			Squid Allowed Ports
+				ACL SafePorts: <Default>
+				ACL SSLPorts: <Default>
+			Squid Advanced Filtering
+				Google Accounts Domains> Default>
+				Youtube Restrictions: <Default>
+		<Save>
+
+#Configurando a interceptação SSL para bloqueios de Páginas HTTPS do Squid
+Service
+	Squid Proxy Server
+		Squid General Settings
+			Squid General Settings: 
+				Extra Trusted CA: vaamonde
+			SSL Man In the Middle Filtering
+				HTTPS/SSL Interception: Yes
+				SSL/MITM Mode: Splice Whitelist, Bump Otherwise <Default>
+				SSL Intercept Interface(s): LAN <Default>
+				SSL Proxy Port: <Default>
+				SSL Proxy Compatibility Mode: Modern <Default>
+				DHParams Key Size: 2048 <Default>
+				CA: Vaamonde
+				SSL Certificate Deamon Children: <Default>
+				Remote Cert Checks: 
+					Accept remote server certificate with errors
+				Certificate Adapt: 
+					Sets the "Not After" (setValidAfter)
+					Sets the "Not Before" (setValidBefore)
+					Sets CN property (setCommonName)
+		<save>
+
+#Configuração geral do Squid (Proxy Transparente)
+#Obs: Proxy transparente não funciona com autenticação
+
+#Desabilitando a autenticação local do Squid
+Service
+	Squid Proxy Server
+		Authentication
+			Squid Authentication General Settings
+				Authentication Method: none
+			<Save>
+
+#Configurando o Proxy Transparente no Squid
+Service
+	Squid Proxy Server
+		Squid General Settings
+			Transparent Proxy Settings
+				Transparent HTTP Proxy: Yes
+				Transparent Proxy Interface(s): LAN <Default>
+				Bypass Proxy for Private Address Destination: Yes
+		<Save>
