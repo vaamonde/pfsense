@@ -99,6 +99,7 @@ Google Chrome
 					Confiar neste certificado para identificar usuários de e-mail (yes)
 					Confiar neste certificado para identificar fabricantes de software (yes)
 				<OK>
+	Digite a URL: chrome://restart
 
 #Instalação do CA (Certificate Authority) no Windows
 BoraParaPratica.crt (clicar duas vezes em cima do certificado)
