@@ -1,0 +1,24 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 18/05/2021
+Data de atualização: 18/05/2021
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+#Instalando os pacotes do Squid e do LightSquid
+System
+	Package Manager
+		Available Packages
+			Search term: squid <Search>
+				squid <Install>
+				Lightsquid <Install>
+
+#Configurando o Cache Local do Squid
+Service

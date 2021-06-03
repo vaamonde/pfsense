@@ -9,6 +9,8 @@
 # Data de atualização: 14/12/2020
 # Versão: 0.04
 
+#https://docs.netgate.com/pfsense/en/latest/recipes/remote-firewall-administration.html
+
 #Configuração da liberação de acesso remoto ao WebGui do pfSense
 Firewall
 	Rules

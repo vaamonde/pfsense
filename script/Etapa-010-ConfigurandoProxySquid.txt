@@ -13,7 +13,7 @@ Versão: 0.01
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 #Instalação do Squid e LightSquid no pfSense
-#Obs: para a utilização do Squid com suporte ao I-CAP (Antivírus) é necessário no 
+#Obs: para a utilização do Squid com suporte ao C-ICAP (Antivírus) é necessário no 
 #mínimo 2GB de RAM para o bom funcionamento do serviço e não causar travamento ou
 #falhas de inicialização do serviço do I-CAMP e do ClamD.
 
@@ -138,6 +138,7 @@ Service
 				SecuriteInfo Premium: <Default>
 				SecuriteInfo ID <Default>
 		<Save>
+		<Update AV>
 
 #Criando os usuários locais do Squid
 Service
