@@ -180,3 +180,15 @@ Criptografia: https://pt.wikipedia.org/wiki/Criptografia
 Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-008-ConfigurandoCA.txt
+
+## **ATUALIZAÇÃO DOS VÍDEOS do Curso do pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos das atualizações dos Vídeos de: CONHECENDO o DASHBOARD, COMO atualizar o UTM pfSENSE, CONFIGURANDO o Acesso Seguro do SSH e CONFIGURANDO a CA e CERTIFICADOS.
+
+Esse vídeo também o objetivo de mostrar as atualizações de parâmetros em telas da nova versão do UTM pfSense 2.5.2, sendo a base para a gravação dos próximos vídeos do curso, mantendo todo a documentação atualizada e testes feitos na nova versão.
+
+[![Atualização do Curso](http://img.youtube.com/vi//0.jpg)]( "Atualização do Curso")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: 
