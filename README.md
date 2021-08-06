@@ -1,4 +1,4 @@
-# Curso GRÁTIS de Firewall e Proxy Netgate pfSense NG UTM 2.x
+# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.x
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos gratuitos para o Canal, acessando o link de doação do PagSeguro: https://pag.ae/bjlSJcH
 
@@ -12,7 +12,7 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall NG UTM Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
+Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
@@ -31,7 +31,7 @@ Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUN7vHnCDA2NF6
 
 ## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5 no Oracle VirtualBOX**
 
-Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5 no Oracle VirtualBOX
+Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management - Gerenciamento Unificado de Ameaças) / NGFW (Next Generation Firewall - Firewall de Última Geração) Firewall pfSENSE v2.5 no Oracle VirtualBOX
 
 O UTM/NGFW pfSENSE é uma das melhores soluções Open Source de Firewall, Proxy, Router, etc do momento, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. Ele possui recursos que muitas vezes, só encontrada em Firewall comerciais caros, já que podemos realizar com o pfSense a imensa maioria das atividades que esperamos de sistemas com este título.
 
@@ -181,7 +181,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=BvNAVlbdOdo&t
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-008-ConfigurandoCA.txt
 
-## **ATUALIZAÇÃO DOS VÍDEOS do Curso do pfSENSE FIREWALL v2.5.x**
+## **ATUALIZAÇÃO DOS VÍDEOS do Curso do UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
 Vídeo mostrando os procedimentos básicos das atualizações dos Vídeos de: CONHECENDO o DASHBOARD, COMO atualizar o UTM pfSENSE, CONFIGURANDO o Acesso Seguro do SSH e CONFIGURANDO a CA e CERTIFICADOS.
 
@@ -191,4 +191,4 @@ Esse vídeo também o objetivo de mostrar as atualizações de parâmetros em te
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-009-AtuaizacaoDoCurso.txt

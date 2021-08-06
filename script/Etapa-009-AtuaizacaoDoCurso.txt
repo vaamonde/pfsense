@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/07/2021
-Data de atualização: 11/07/2021
-Versão: 0.01
+Data de atualização: 17/07/2021
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -42,8 +42,8 @@ System
 		webConfigurator
 			The: pfSense-dark
 			Hostname in Menu: Full Qualified Domain Name
-			Dashboard Colummns: 3
-			Intefaces Sort: Sort Alphabetically (Enabled)
+			Dashboard Columns: 3
+			Interfaces Sort: Sort Alphabetically (Enabled)
 			Associated Panels Show/Hide
 				Available Widgets: Enabled
 				Log Filter: Enabled
@@ -58,23 +58,23 @@ Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/co
 
 #Configuração do Dashboard do pfSense
 01.	Dashboard
-	Available Widgest
-		#Configuração dos Widgest Esquerda
+	Available Widgets
+		#Configuração dos Widgets Esquerda
 			Picture: - Left-01
 			System Information: ON - Left-02
-		#Configuração dos Widgest Centro
+		#Configuração dos Widgets Centro
 			Interfaces: ON - Center-01
 			Gateways: ON - Center-02
 			Interface Statistics: ON - Center-03
 			Traffic Graphs: ON - Center-04
-		#Configuração dos Widgest Direita   
+		#Configuração dos Widgets Direita   
 			NTP Status: ON - Right-01
 			Dynamic DNS Status: ON - Right-02
 			IPSec: ON - Right-03
 			OpenVPN: ON - Right-04
 			Firewall Logs: ON - Right-05
 				Edit
-				Widgest: Firewall Logs 
+				Widgets: Firewall Logs 
 				Number of entries: 15
 				Filter actions: ON Pass, ON Block and ON Reject
 				Filter interface: ALL 
@@ -138,7 +138,7 @@ System
 					Randomize Serial: (default)
 				Internal Certificate Authority
 					Key type: RSA
-					Key lenght (bits): 2048
+					Key length (bits): 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: internal-ca
@@ -159,7 +159,7 @@ System
 				Internal Certificate 
 					Certificate authority: BoraParaPratica
 					Key type: RSA
-					Key lenght: 2048
+					Key length: 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: ptispo01fw01.pti.intra 
