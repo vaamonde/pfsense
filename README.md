@@ -183,12 +183,12 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 
 ## **ATUALIZAÇÃO DOS VÍDEOS do Curso do UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
-Vídeo mostrando os procedimentos básicos das atualizações dos Vídeos de: CONHECENDO o DASHBOARD, COMO atualizar o UTM pfSENSE, CONFIGURANDO o Acesso Seguro do SSH e CONFIGURANDO a CA e CERTIFICADOS.
+Vídeo mostrando os procedimentos básicos das atualizações dos Vídeos de: CONHECENDO o DASHBOARD, COMO atualizar o UTM pfSENSE, CONFIGURANDO o Acesso Seguro do SSH e CONFIGURANDO a CA e CERTIFICADOS do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX
 
-Esse vídeo também o objetivo de mostrar as atualizações de parâmetros em telas da nova versão do UTM pfSense 2.5.2, sendo a base para a gravação dos próximos vídeos do curso, mantendo todo a documentação atualizada e testes feitos na nova versão.
+Esse vídeo tem o objetivo de mostrar as atualizações de parâmetros em mudanças de telas da nova versão do UTM/NGFW pfSense v2.5.2, essa atualização será a base para á gravação dos novos vídeos do curso, mantendo todo a documentação atualizada no Github e testes feitos agora nessa na nova versão.
 
-[![Atualização do Curso](http://img.youtube.com/vi//0.jpg)]( "Atualização do Curso")
+[![Atualização do Curso](http://img.youtube.com/vi/sDqrFIFrgN8/0.jpg)](https://www.youtube.com/watch?v=sDqrFIFrgN8  "Atualização do Curso")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=sDqrFIFrgN8
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-009-AtuaizacaoDoCurso.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-009-AtualizacaoDoCurso.txt
