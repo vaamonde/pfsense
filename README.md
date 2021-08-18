@@ -192,3 +192,15 @@ Esse vídeo tem o objetivo de mostrar as atualizações de parâmetros em mudan�
 Link da vídeo aula: https://www.youtube.com/watch?v=sDqrFIFrgN8
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-009-AtualizacaoDoCurso.txt
+
+## **CONFIGURANDO O NAT PORT FORWARD do UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para configurar os Aliases (Apelidos) e regras de NAT (Network address translation) Port Forward e liberação da Interface WAN do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+Em redes de computadores, Network Address Translation (NAT), também conhecido como masquerading, é uma técnica que consiste em reescrever, utilizando-se de uma tabela hash, os endereços IP de origem de um pacote que passam por um router ou firewall de maneira que um computador de uma rede interna tenha acesso ao exterior ou Rede Mundial de Computadores.
+
+[![NAT Port Forward](http://img.youtube.com/vi/Don6WMYVLHo/0.jpg)](https://www.youtube.com/watch?v=Don6WMYVLHo "NAT Port Forward")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=Don6WMYVLHo
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-010-NAT-PortForwarding.txt
