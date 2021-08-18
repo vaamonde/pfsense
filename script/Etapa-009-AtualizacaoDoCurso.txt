@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/07/2021
-Data de atualização: 09/08/2021
-Versão: 0.03
+Data de atualização: 18/08/2021
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -17,10 +17,12 @@ Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/re
 
 Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 
+Atualização via console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
 #Atualizando o pfSense pelo Console
 13) Update from console
 	Proceed with upgrade? (y/N): y
-	
+
+Atualização via WebGUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-webgui
 #Atualizando o pfSense pela WebConfigurator
 System
 	Update
@@ -33,7 +35,6 @@ System
 			Branch: Latest stable version (2.5.x)
 			Confirm Update: Confirm
 
-
 Opções de Configurações Gerais: https://docs.netgate.com/pfsense/en/latest/config/general.html
 
 #Configurando as opções gerais do pfSense
@@ -41,6 +42,7 @@ System
 	General Setup
 		webConfigurator
 			The: pfSense-dark
+			Top Navigation: Fixed (Remains visible at top of page)
 			Hostname in Menu: Full Qualified Domain Name
 			Dashboard Columns: 3
 			Interfaces Sort: Sort Alphabetically (Enabled)

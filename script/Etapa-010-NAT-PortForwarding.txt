@@ -1,0 +1,94 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 18/08/2021
+Data de atualização: 18/08/2021
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+
+Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
+
+Apelidos: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Firewall
+	Aliases
+		IP
+			+ADD
+				Properties
+					Name: ucsunivention
+					Description: Servidor UCS Univention DC-01
+					Type: Host(s)
+				Host(s)
+					IP or FQDN: 172.16.1.10 - Description: IP UCS Core Free
+					IP or FQDN: ptispo01dc01  - Description: Hostname UCS Core Free
+					IP or FQDN: ptispo01dc01.pti.intra  - Description: FQDN UCS Core Free
+			Save
+	Apply Changes
+
+NAT Encaminhamento de Portas: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
+Firewall
+	NAT
+		Port Forward
+			ADD
+				Edit Redirect Entry
+					Disabled: Off
+					No RDR(NOT): Off
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+					Source: Default
+					Destination
+						Invert match: Off
+						WAN Address
+					Destination port range: 
+						From port: SSH
+						Custom: Default
+						To port: SSH
+						Custom: Default
+					Redirect target IP:
+						Type: Single host
+						Address: ucsunivention
+					Redirect target port: 
+						Port: SSH
+						Custom: Default
+					Description: Redirecionamento da Porta 22 SSH do UCS Univention
+					No XMLRPC Sync: Off
+					NAT reflection: Use system default
+					Filter rule association: Add association filter rule
+			Save
+		Apply Changes
+
+Firewall
+	NAT
+		Port Forward
+			+Separator
+				Enter a description: Regras de NAT do Servidor UCS Univention
+				Color: Blue
+			Save
+				Move
+			Save
+
+Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Firewall
+	Rules
+		WAN
+			Edit
+				Extra Options
+					Log: ON
+					Description: NAT Redirecionamento da Porta 22 SSH do UCS Univention
+			Save
+		Apply Changes
+			+Separator
+				Enter a description: Regras de NAT do Servidor UCS Univention
+				Color: Blue
+			Save
+				Move
+			Save
