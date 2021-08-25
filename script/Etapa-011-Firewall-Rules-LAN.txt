@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/08/2021
-Data de atualização: 23/08/2021
-Versão: 0.01
+Data de atualização: 25/08/2021
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -66,8 +66,12 @@ Liberação da regras básicas para navegação na Internet
 01_ ICMP: https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
 	Mensagens de controle: 0 até 255
 	Liberação padrão: Echo Reply e Echo Request
+	OBSERVAÇÃO IMPORTANTE: no vídeo não foi falado sobre o comando: traceroute no Linux, por padrão o
+	traceroute utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 até 33534, para resolver esse
+	problema é necessário criar uma Regra de Firewall liberando o IPV4, UDP e criar um Range de Portas, 
+	após a criação mover e deixar depois da regra do ICMP.
 
-02_	HTTP: https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+02_ HTTP: https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 	Porta padrão: TCP 80
 
 03_ HTTPS: https://pt.wikipedia.org/wiki/Hyper_Text_Transfer_Protocol_Secure
