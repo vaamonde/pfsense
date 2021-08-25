@@ -229,4 +229,4 @@ As regras de Firewall de Interface WAN são igual as regras de Firewall da Inter
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-011-Firewall-Rules-LAN.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-012-Firewall-Rules-WAN.txt
