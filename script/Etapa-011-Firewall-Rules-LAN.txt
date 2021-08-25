@@ -1,0 +1,80 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 23/08/2021
+Data de atualização: 23/08/2021
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Introdução à regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Firewall
+	Rules
+		LAN
+			Regras padrão do pfSense
+				Desabilitar as regras: IPv4 e IPv6
+					Default allow LAN to any rule
+						Edit
+							Edit Firewall Rule
+								Disable: On
+						Save
+					Default allow LAN IPv6 to any rule
+						Edit
+							Edit Firewall Rule
+								Disable: On
+						Save
+
+Criando a primeira regra de Firewall para Liberar a Resolução de DNS
+DNS Server: https://pt.wikipedia.org/wiki/Sistema_de_Nomes_de_Dom%C3%ADnio
+Portas padrão: UDP 53, TCP 53, DNS TLS 843, mDNS 5353
+Firewall
+	Rules
+		LAN
+			ADD (para baixo)
+				Edit Firewall Rule
+					Action: Pass
+					Disable: Off
+					Interface: LAN
+					Address Family: IPv4
+					Protocol: UDP
+				Source
+					Source Invert match: Off - LAN Net
+				Destination
+					Destination Invert match: Off - any
+					Destination Port Range: From DNS (53) - To DNS (53)
+				Extra Options
+					Log: On
+					Description: Liberação da Porta 53 DNS Server na Rede Local
+				Save
+			Apply Changes
+		+ Separator
+			Liberação das Portas Padrão da Rede Local
+		Save
+
+Liberação da regras básicas para navegação na Internet
+
+01_ ICMP: https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+	Mensagens de controle: 0 até 255
+	Liberação padrão: Echo Reply e Echo Request
+
+02_	HTTP: https://pt.wikipedia.org/wiki/Hypertext_Transfer_Protocol
+	Porta padrão: TCP 80
+
+03_ HTTPS: https://pt.wikipedia.org/wiki/Hyper_Text_Transfer_Protocol_Secure
+	Porta padrão: TCP 443
+
+04_ FTP: https://pt.wikipedia.org/wiki/File_Transfer_Protocol
+	Portas padrão: TCP 20 (conexão de dados), 21 (conexão de controle)
+
+05_ NTP: https://pt.wikipedia.org/wiki/Network_Time_Protocol
+	Porta padrão: UDP 123

@@ -204,3 +204,17 @@ Em redes de computadores, Network Address Translation (NAT), também conhecido c
 Link da vídeo aula: https://www.youtube.com/watch?v=Don6WMYVLHo
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-010-NAT-PortForwarding.txt
+
+## **CONFIGURANDO a REGRA DE FIREWALL na Interface LAN do UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface LAN (Local Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+Um dos principais objetivos do software pfSense® é atuar como um firewall, decidindo qual tráfego passar ou bloquear entre as redes. As regras de firewall controlam o tráfego que passa pelo firewall. 
+
+Os conjuntos de regras nas guias da Interface são avaliados em uma base de primeira correspondência pelo pfSense. Isso significa que ao ler o conjunto de regras de uma interface de cima para baixo, a primeira regra que corresponder será a usada pelo firewall. A avaliação é interrompida após atingir essa correspondência e, em seguida, o firewall executa a ação especificada por aquela regra. Sempre tenha isso em mente ao criar novas regras, especialmente ao elaborar regras para restringir o tráfego. As regras mais permissivas devem estar no final da lista, para que restrições ou exceções possam ser feitas acima delas.
+
+[![Rules LAN](http://img.youtube.com/vi//0.jpg)]("Rules LAN")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: 
