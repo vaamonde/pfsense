@@ -78,3 +78,29 @@ Liberação da regras básicas para navegação na Internet
 
 05_ NTP: https://pt.wikipedia.org/wiki/Network_Time_Protocol
 	Porta padrão: UDP 123
+
+Testando as liberações de regras no Linux Mint ou no Microsoft Windows
+
+01_ Testando a resolução de Nomes DNS
+	Linux: nslookup google.com
+	Windows: nslookup google.com
+
+02_ Testando o protocolo ICMP Ping
+	Linux: ping google.com
+	Windows: ping google.com
+
+03_ Testando o protocolo ICMP Tracert
+	Linux: traceroute google.com
+	Windows: tracert google.com
+
+04_ Testando os protocolos HTTP e HTTPS
+	Linux ou Windows: Navegadores Firefox, Google Chrome, Microsoft Edge, etc...
+
+05_ Testando o protocolo FTP
+	Linux: ftp
+			open ftp.unicamp.br
+			Name: anonymous
+			Password: guest
+			dir ou ls
+			close
+			quit
