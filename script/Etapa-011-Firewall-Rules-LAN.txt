@@ -63,6 +63,8 @@ Firewall
 
 Liberação da regras básicas para navegação na Internet
 
+00_ Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
+
 01_ ICMP: https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
 	Mensagens de controle: 0 até 255
 	Liberação padrão: Echo Reply e Echo Request

@@ -213,8 +213,20 @@ Um dos principais objetivos do software pfSense® é atuar como um firewall, dec
 
 Os conjuntos de regras nas guias da Interface são avaliados em uma base de primeira correspondência pelo pfSense. Isso significa que ao ler o conjunto de regras de uma interface de cima para baixo, a primeira regra que corresponder será a usada pelo firewall. A avaliação é interrompida após atingir essa correspondência e, em seguida, o firewall executa a ação especificada por aquela regra. Sempre tenha isso em mente ao criar novas regras, especialmente ao elaborar regras para restringir o tráfego. As regras mais permissivas devem estar no final da lista, para que restrições ou exceções possam ser feitas acima delas.
 
-[![Rules LAN](http://img.youtube.com/vi//0.jpg)]("Rules LAN")
+[![Rules LAN](http://img.youtube.com/vi/SdyV2qO_td0/0.jpg)](https://www.youtube.com/watch?v=SdyV2qO_td0 "Rules LAN")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=SdyV2qO_td0
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-011-Firewall-Rules-LAN.txt
+
+## **CONFIGURANDO a REGRA DE FIREWALL na Interface WAN do UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface WAN (Local Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações e necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
+
+[![Rules WAN](http://img.youtube.com/vi/SdyV2qO_td0/0.jpg)]( "Rules WAN")
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-011-Firewall-Rules-LAN.txt
