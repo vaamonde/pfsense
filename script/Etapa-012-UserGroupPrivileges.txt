@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 25/08/2021
-Data de atualização: 25/08/2021
-Versão: 0.01
+Data de atualização: 27/08/2021
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -19,6 +19,16 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Gerenciamento e autenticação de usuários: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
 
 Criação de grupos no pfSense
+System
+	User Manager
+		Groups
+			ADD
+				Group Properties
+					Group name: OpenVPN
+					Scope: Local
+					Description: Grupo de Usuários do OpenVPN
+					Group membership: Default
+			Save
 
 Criação do novo usuário de administração do pfSense
 System
@@ -26,37 +36,41 @@ System
 		Users
 			ADD
 				User Properties
-					Denied by: USER 
+					Defined USER 
 					Disable: OFF
-					Username: NOVO_USUÁRIO_ADMIN
-					Password: SENHA_USUÁRIO_ADMIN
-					Confirm Password: SENHA_USUÁRIO_ADMIN
-					Full name: NOME_COMPLETO_USUÁRIO_ADMIN
+					Username: vaamonde
+					Password: pti@2018
+					Confirm Password: pti@2018
+					Full name: Robson Vaamonde
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: OpenVPN, admin
-					Certificate: ON
-				Certificate: Create Certificate for User
-					Descriptive name: Usuário Admin pfSense
-					Certificate authority: CA_EMPRESA
-					Key length: 2048 bits
-					Lifetime: 3650
+					Group membership: Member of: admin
+					Certificate: OFF
 				Keys
 					Authorized SSH Keys: Default
 					IPsec Pre-Shared Key: Default
-			save
-			Edit
-				Effective Privileges
-					ADD
-						WebCfg - All pages
-						User - System: Shell account access
-					save
-			save
-			
-Desativação do usuário admin padrão do pfSense
+			Save
+
+Editando as configurações do novo usuário
 System
 	User Manager
 		Users
-			admin: Edit
+			Edit User
+				Effective Privileges
+					ADD
+						User Privileges
+							User: vaamonde (Robson Vaamonde)
+							Assigned Privileges:
+								User - System: Shell account access
+								WebCfg - All pages
+							Filter: Default	
+					Save
+			Save
+
+Desabilitando o usuário admin padrão do pfSense
+System
+	User Manager
+		Users
+			admin: Edit User
 				Disabled: ON
-			save
+			Save
