@@ -219,14 +219,26 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SdyV2qO_td0
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-011-Firewall-Rules-LAN.txt
 
+## **CRIANDO USUÁRIOS e GRUPOS no UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para criar e configurar Grupos Locais, Usuários Locais e Privilégios de Acesso no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+O gerenciamento de grupos locais no Firewall pfSense permite controlar e gerenciar melhor todos os usuários que tem permissão de acesso ao pfSense ou serviços de rede, a criação de usuários locais facilita o gerenciamento e integração de serviços, como por exemplo o recursos de VPN utilizando o OpenVPN.
+
+[![User and Groups](http://img.youtube.com/vi//0.jpg)]( "User and Groups")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-012-UserGroupPrivileges.txt
+
 ## **CONFIGURANDO a REGRA DE FIREWALL na Interface WAN do UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
 Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface WAN (Local Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
 As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações e necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
 
-[![Rules WAN](http://img.youtube.com/vi/SdyV2qO_td0/0.jpg)]( "Rules WAN")
+[![Rules WAN](http://img.youtube.com/vi//0.jpg)]( "Rules WAN")
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-012-Firewall-Rules-WAN.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-013-Firewall-Rules-WAN.txt

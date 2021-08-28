@@ -44,7 +44,7 @@ System
 					Full name: Robson Vaamonde
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: admin
+					Group membership: Member of: admin, OpenVPN
 					Certificate: OFF
 				Keys
 					Authorized SSH Keys: Default
