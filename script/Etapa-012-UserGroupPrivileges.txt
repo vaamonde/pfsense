@@ -41,17 +41,17 @@ System
 		Groups
 			+ADD
 				Group Properties
-					Group name: BoraParaPratica
+					Group name: boraparapratica
 					Scope: Local
-					Description: Grupo de Usuários do Bora para Pratica
+					Description: Grupo de Usuários Admin do pfSense
 					Group membership: Default
 			Save
 			
 			+ADD
 				Group Properties
-					Group name: OpenVPN
+					Group name: openvpn
 					Scope: Local
-					Description: Grupo de Usuários do OpenVPN
+					Description: Grupo de Usuários do OpenVPN do pfSense
 					Group membership: Default
 			Save
 
@@ -69,7 +69,7 @@ System
 					Full name: Robson Vaamonde
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: BoraParaPratica
+					Group membership: Member of: boraparapratica
 					Certificate: OFF
 				Keys
 					Authorized SSH Keys: Default
@@ -86,7 +86,7 @@ System
 					Full name: Usuário OpenVPN
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: OpenVPN
+					Group membership: Member of: openvpn
 					Certificate: OFF
 				Keys
 					Authorized SSH Keys: Default
@@ -120,7 +120,6 @@ System
 									 WebCfg - OpenVPN: Clients Edit Advanced
 									 WebCfg - Status: OpenVPN
 									 WebCfg - Status: System Logs: OpenVPN
-									 WebCfg - Status: Logs: VPN
 							Save
 				Save
 
@@ -131,6 +130,8 @@ System
 				Edit User
 					Effective Privileges
 						+ADD
+							User - System: Copy files (scp)
+							User - System: Copy files to home directory (chrooted scp)
 							User - System: Shell account access
 						Save
 				Save
@@ -140,8 +141,8 @@ System
 	sudo
 		User Privileges
 			+ADD
-				Group: BoraParaPratica	User: root	Command List: ALL
-				User: vaamonde			User: root	Command List: ALL
+				Group: BoraParaPratica - User: root - Command List: ALL
+				User: vaamonde         - User: root - Command List: ALL
 		Save
 
 Desabilitando o usuário admin padrão do pfSense
@@ -185,4 +186,5 @@ Acessando remotamente o pfSense utilizando o Protocolo SSH
 Terminal
 	ssh vaamonde@172.16.1.254
 	Are you sure want to continue connecting? yes <Enter>
+	Password: pti@2018
 	Password: pti@2018

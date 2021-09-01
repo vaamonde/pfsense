@@ -219,15 +219,15 @@ Link da vídeo aula: https://www.youtube.com/watch?v=SdyV2qO_td0
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-011-Firewall-Rules-LAN.txt
 
-## **CRIANDO USUÁRIOS e GRUPOS no UTM/NGFW pfSENSE FIREWALL v2.5.x**
+## **CRIANDO USUÁRIOS, GRUPOS e PRIVILÉGIOS no UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
 Vídeo mostrando os procedimentos básicos para criar e configurar Grupos Locais, Usuários Locais e Privilégios de Acesso no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
 O gerenciamento de grupos locais no Firewall pfSense permite controlar e gerenciar melhor todos os usuários que tem permissão de acesso ao pfSense ou serviços de rede, a criação de usuários locais facilita o gerenciamento e integração de serviços, como por exemplo o recursos de VPN utilizando o OpenVPN.
 
-[![User and Groups](http://img.youtube.com/vi//0.jpg)]( "User and Groups")
+[![User and Groups](http://img.youtube.com/vi/14DpdhR5Veo/0.jpg)](https://www.youtube.com/watch?v=14DpdhR5Veo "User and Groups")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=14DpdhR5Veo
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-012-UserGroupPrivileges.txt
 
