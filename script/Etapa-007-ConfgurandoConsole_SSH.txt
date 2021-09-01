@@ -8,14 +8,18 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 24/04/2021
-Versão: 0.05
+Data de atualização: 01/09/2021
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
 Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 
-#Configuração da Porta Serial no Oracle VirtualBOX
+Configuração da Porta Serial no Oracle VirtualBOX
 Configurações
 	Portas Seriais
 		Porta 1
@@ -24,7 +28,7 @@ Configurações
 			Modo da Porta: Dispositivo no Hospedeiro
 			Caminho/Endereço: /dev/ttyS0
 
-#Configuração do Serviço do SSH (Secure Shell) do pfSense
+Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
@@ -37,9 +41,9 @@ System
 			Blocktime: 120
 			Detection time: 1800
 			Pass list: (default)
-		save
+	Save
 
-#Configuração da Porta Serial (Console) do pfSense
+Configuração da Porta Serial (Console) do pfSense
 System
 	Advanced
 		Serial Communication
@@ -48,21 +52,21 @@ System
 			Primary Console: Serial Console
 		Console Options
 			Console menu (yes)
-		save
+	Save
 
-#Acessando remotamente o pfSense utilizando o Protocolo SSH
+Acessando remotamente o pfSense utilizando o Protocolo SSH
 Terminal
 	ssh admin@172.16.1.254
 	Are you sure want to continue connecting? (yes)
 	Password: pti@2018
 	0) Logout (SSH only)
 
-#Instalando os software PuTTY e FileZilla para o gerenciamento do pfSense
+Instalando os software PuTTY e FileZilla para o gerenciamento do pfSense
 Terminal 
 	sudo apt update
 	sudo apt install putty putty-tools filezilla
 
-#Geração da Chave Pública do SSH para autenticação do pfSense
+Geração da Chave Pública do SSH para autenticação do pfSense
 Terminal
 	ssh-keygen
 	Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): <Enter>
@@ -76,16 +80,17 @@ Terminal
 	Verificando o conteúdo da Chave Pública do SSH
 	cat id_rsa.pub
 
-#Configuração da Chave Pública do SSH no usuário Admin do pfSense
+Configuração da Chave Pública do SSH no usuário Admin do pfSense
 System
 	User Manager
 		Users
-			Admin (Edit)
-				Keys
-					Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
+			Admin 
+				Edit Users
+					Keys
+						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
 				Save
 
-#Verificação do acesso via SSH do pfSense
+Verificação do acesso via SSH do pfSense
 Status
 	System Logs
 		Geral
@@ -93,7 +98,7 @@ Status
 				Process: sshd 
 			Apply Filter
 
-#Configuração do usuário do Linux Mint para ter acesso a Porta Console
+Configuração do usuário do Linux Mint para ter acesso a Porta Console
 Menu
 	Usuários e Grupos
 		Usuários

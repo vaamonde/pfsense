@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 25/08/2021
-Data de atualização: 29/08/2021
-Versão: 0.03
+Data de atualização: 01/09/2021
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -19,6 +19,8 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Gerenciamento e autenticação de usuários: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
 Gerenciador de pacotes: https://docs.netgate.com/pfsense/en/latest/packages/manager.html
 Pacote Sudo: https://docs.netgate.com/pfsense/en/latest/packages/sudo.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 
 Instalação do pacote sudo (su "do")
 System
@@ -30,7 +32,6 @@ System
 		 Confirmation Required to install package pfSense-pkg-sudo. 
 		 	<Confirm>
 
-Verificando o pacote sudo
 System
 	sudo
 
@@ -38,7 +39,15 @@ Criação de grupos no pfSense
 System
 	User Manager
 		Groups
-			ADD
+			+ADD
+				Group Properties
+					Group name: BoraParaPratica
+					Scope: Local
+					Description: Grupo de Usuários do Bora para Pratica
+					Group membership: Default
+			Save
+			
+			+ADD
 				Group Properties
 					Group name: OpenVPN
 					Scope: Local
@@ -46,11 +55,11 @@ System
 					Group membership: Default
 			Save
 
-Criação de usuários no pfSense
+Criação dos usuários no pfSense
 System
 	User Manager
 		Users
-			ADD
+			+ADD
 				User Properties
 					Defined USER 
 					Disable: OFF
@@ -60,31 +69,120 @@ System
 					Full name: Robson Vaamonde
 					Expiration date: OFF
 					Custom Settings: OFF
-					Group membership: Member of: admin, OpenVPN
+					Group membership: Member of: BoraParaPratica
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			Save
+			
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: openvpn
+					Password: pti@2018
+					Confirm Password: pti@2018
+					Full name: Usuário OpenVPN
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: OpenVPN
 					Certificate: OFF
 				Keys
 					Authorized SSH Keys: Default
 					IPsec Pre-Shared Key: Default
 			Save
 
-Configuração de privilégios e atribuídos no pfSense
+Configuração dos privilégios e atribuídos no pfSense
 System
 	User Manager
 		Groups
-			Edit
+			BoraParaPratica
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									WebCfg - All pages
+							Save
+				Save
+			
+			OpenVPN
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									 Filter: OpenVPN <Filter>
+									 WebCfg - OpenVPN: Client Specific Override
+									 WebCfg - OpenVPN: Client Specific Override Edit Advanced
+									 WebCfg - OpenVPN: Clients
+									 WebCfg - OpenVPN: Clients Edit Advanced
+									 WebCfg - Status: OpenVPN
+									 WebCfg - Status: System Logs: OpenVPN
+									 WebCfg - Status: Logs: VPN
+							Save
+				Save
 
 System
 	User Manager
 		Users
-			Edit
+			vaamonde
+				Edit User
+					Effective Privileges
+						+ADD
+							User - System: Shell account access
+						Save
+				Save
 
+#Configurando os Grupos e Usuários do pfSense com direito ao SUDO
 System
 	sudo
-		
+		User Privileges
+			+ADD
+				Group: BoraParaPratica	User: root	Command List: ALL
+				User: vaamonde			User: root	Command List: ALL
+		Save
+
 Desabilitando o usuário admin padrão do pfSense
 System
 	User Manager
 		Users
-			admin: Edit User
-				Disabled: ON
-			Save
+			admin: 
+				Edit User
+					User Properties
+						Disabled: ON
+				Save
+
+Autenticando o usuário: vaamonde no Console do pfSense
+Login: vaamonde
+Password: pti@2018
+	Executando o script do console: sudo /etc/./rc.initial
+		Password: pti@2018
+	Criando o script de inicialização: echo "sudo /etc/./rc.initial" > .login
+
+Gerando a Chave Pública do SSH para a autenticação do usuário vaamonde no pfSense
+Terminal
+	ssh-keygen
+	Enter file in which to save the key (/home/Administrator/.ssh/id_rsa): /home/Administrator/.ssh/id_rsa_pfsense <Enter>
+	Enter passphrase (empty for no passphrase): <Enter>
+	Enter same passphrase again: <Enter>
+		cd /home/Administrator/.ssh/
+		ls -lh
+		cat id_rsa_pfsense.pub
+
+Configuração da Chave Pública do SSH no usuário vaamonde do pfSense
+System
+	User Manager
+		Users
+			vaamonde
+				Edit Users
+					Keys
+						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
+				Save
+
+Acessando remotamente o pfSense utilizando o Protocolo SSH
+Terminal
+	ssh vaamonde@172.16.1.254
+	Are you sure want to continue connecting? yes <Enter>
+	Password: pti@2018
