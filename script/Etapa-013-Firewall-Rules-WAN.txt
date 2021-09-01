@@ -21,7 +21,24 @@ Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/lates
 
 Permitindo acesso remoto ao GUI: https://docs.netgate.com/pfsense/en/latest/recipes/remote-firewall-administration.html
 Evitando que o tráfego RFC1918 saia de uma interface WAN: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 Conceder aos usuários acesso ao SSH: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#ssh-keys
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+Alterando a Porta do HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			Port: 10443
+		save
+
+Alterando a Porta do Serviço do SSH (Secure Shell) do pfSense
+System
+	Advanced
+		Secure Shell
+			SSH port: 10222
 
 Configurando a liberação de acesso remoto ao WebGui do pfSense utilizando o Protocolo HTTPS
 Firewall

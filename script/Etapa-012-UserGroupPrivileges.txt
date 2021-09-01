@@ -76,6 +76,7 @@ System
 System
 	User Manager
 		Users
+			Edit
 
 System
 	sudo
