@@ -233,7 +233,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 
 ## **CONFIGURANDO a REGRA DE FIREWALL na Interface WAN do UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
-Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface WAN (Local Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface WAN (Wide Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
 As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações e necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
 

@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 25/08/2021
-Data de atualização: 29/08/2021
-Versão: 0.03
+Data de atualização: 03/10/2021
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -32,13 +32,13 @@ System
 		webConfigurator
 			Protocol: HTTPS
 			Port: 10443
-		save
 
 Alterando a Porta do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
 			SSH port: 10222
+	Save
 
 Configurando a liberação de acesso remoto ao WebGui do pfSense utilizando o Protocolo HTTPS
 Firewall
@@ -89,3 +89,34 @@ Firewall
 		+ Separator
 			Liberação do acesso remoto do WebGui e Console do pfSense
 		Save
+
+Gerando a Chave Pública do SSH para a autenticação do usuário vaamonde no pfSense
+Terminal
+	ssh-keygen
+	Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/id_rsa_pfsense <Enter>
+	Enter passphrase (empty for no passphrase): <Enter>
+	Enter same passphrase again: <Enter>
+		cd /home/Administrator/.ssh/
+		ls -lh
+		cat id_rsa_pfsense.pub
+
+Criação do usuário de acesso remoto no pfSense
+System
+	User Manager
+		Users
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: robson
+					Password: pti@2018
+					Confirm Password: pti@2018
+					Full name: Robson Vaamonde
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: boraparapratica
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: (copiar e colocar a chave RSA do SSH)
+					IPsec Pre-Shared Key: Default
+			Save
