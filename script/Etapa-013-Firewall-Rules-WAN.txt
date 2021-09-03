@@ -40,6 +40,30 @@ System
 			SSH port: 10222
 	Save
 
+Configurando a liberação do Protocolo ICMP na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: ICMP
+					ICMP Subtypes:
+						Echo Reply
+						Echo Request
+				Source
+					Source: any
+				Destination
+					Destination: WAN Address
+				Extra Options
+					Log: ON 
+					Description: Liberação do Protocolo ICMP na Interface WAN
+			Save
+		Apply Changes
+
 Configurando a liberação de acesso remoto ao WebGui do pfSense utilizando o Protocolo HTTPS
 Firewall
 	Rules
