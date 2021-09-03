@@ -120,7 +120,7 @@ Terminal
 	Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/id_rsa_pfsense <Enter>
 	Enter passphrase (empty for no passphrase): <Enter>
 	Enter same passphrase again: <Enter>
-		cd /home/Administrator/.ssh/
+		cd /home/vaamonde/.ssh/
 		ls -lh
 		cat id_rsa_pfsense.pub
 
@@ -144,3 +144,7 @@ System
 					Authorized SSH Keys: (copiar e colocar a chave RSA do SSH)
 					IPsec Pre-Shared Key: Default
 			Save
+
+Testando o acesso remoto ao pfSense
+	Navegador: https://Endereço_IPv4_WAN:10443
+	SSH: ssh -p 10222 usuário@Endereço_IPv4_WAN

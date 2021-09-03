@@ -237,8 +237,8 @@ Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de 
 
 As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações e necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
 
-[![Rules WAN](http://img.youtube.com/vi//0.jpg)]( "Rules WAN")
+[![Rules WAN](http://img.youtube.com/vi/pfjmTcdT9W0/0.jpg)](https://www.youtube.com/watch?v=pfjmTcdT9W0 "Rules WAN")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=pfjmTcdT9W0
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-013-Firewall-Rules-WAN.txt
