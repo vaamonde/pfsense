@@ -1,0 +1,81 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 08/09/2021
+Data de atualização: 08/09/2021
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Menus Básicos do Console: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
+Atribuição de Interface: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+
+Atribuição da nova Interface WAN
+Interfaces
+	Assignments
+		Interface Assignments
+			Interface
+				Available network ports: ENDEREÇO_MAC +ADD
+			Save
+
+Configuração da Interface OPT1
+Interfaces
+	OPT1
+		General Configuration
+			Enable: ON
+			Description: WANNET
+			IPv4 Configuration Type: DHCP
+			IPv6 Configuration Type: None
+			MAC Address: Default
+			MTU: Default
+			MSS: Default
+			Speed and Duplex: Default
+		DHCP Client Configuration
+			Options
+				Advanced Configuration: OFF
+				Configuration Override: OFF
+			Hostname: Default
+			Alias IPv4 address: Default
+			Reject leases from: Default
+		Reserved Networks
+			Block private networks and loopback addresses: OFF
+			Block bogon networks: OFF
+	Save
+	Apply Changes
+
+Alterando o nome da Interface WAN
+Interfaces
+	WAN
+		General Configuration
+			Description: WANVIVO
+			IPv6 Configuration Type: None
+		Save
+		Apply Changes
+
+Alterando o Gateway padrão do pfSense
+System
+	Routing
+		Gateways
+			Default gateway
+				Default gateway IPv4: 
+				Default gateway IPv6: None
+		Save
+		Apply Changes
+
+Verificando os Status das Interfaces
+Status
+	Interfaces
+	Gateways
+
+Testando a saída dos Gateways
+Terminal
+	traceroute -n google.com
