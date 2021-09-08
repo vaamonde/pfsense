@@ -223,7 +223,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 
 Vídeo mostrando os procedimentos básicos para criar e configurar Grupos Locais, Usuários Locais e Privilégios de Acesso no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
-O gerenciamento de grupos locais no Firewall pfSense permite controlar e gerenciar melhor todos os usuários que tem permissão de acesso ao pfSense ou serviços de rede, a criação de usuários locais facilita o gerenciamento e integração de serviços, como por exemplo o recursos de VPN utilizando o OpenVPN.
+O gerenciamento de grupos locais no Firewall pfSense permite controlar e gerenciar melhor todos os usuários que tem permissão de acesso ao pfSense ou serviços de rede, a criação de usuários locais facilita o gerenciamento e integração de serviços, como por exemplo o recurso de VPN utilizando o OpenVPN.
 
 [![User and Groups](http://img.youtube.com/vi/14DpdhR5Veo/0.jpg)](https://www.youtube.com/watch?v=14DpdhR5Veo "User and Groups")
 
@@ -235,10 +235,22 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/scr
 
 Vídeo mostrando os procedimentos básicos para configurar as regras (Rules) de Firewall da Interface WAN (Wide Area Network) do UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
-As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações e necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
+As regras de Firewall de Interface WAN são igual as regras de Firewall da Interface LAN ou qualquer outra Interface, quando e feito a configuração do NAT Port Forward automaticamente e criado uma regra de Firewall na Interface WAN, em algumas situações é necessário criar regras para permitir o acesso a outras redes ou liberação de serviços.
 
 [![Rules WAN](http://img.youtube.com/vi/pfjmTcdT9W0/0.jpg)](https://www.youtube.com/watch?v=pfjmTcdT9W0 "Rules WAN")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=pfjmTcdT9W0
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-013-Firewall-Rules-WAN.txt
+
+## **ADICIONANDO uma NOVA Interface WAN No UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para adicionar e configurar uma nova Interface WAN (Wide Area Network) no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+A maioria das interfaces podem ser atribuídas como WAN, LAN ou uma interface OPT. Todas as interfaces atualmente definidas e detectadas são listadas diretamente em Interfaces, Atribuições ou na lista de interfaces disponíveis para atribuição. Por padrão, esta lista inclui apenas as interfaces físicas, mas as outras guias em Interfaces  Atribuições podem criar interfaces virtuais que podem ser atribuídas.
+
+[![Add WAN Interface](http://img.youtube.com/vi/pfjmTcdT9W0/0.jpg)]( "Add WAN Interface")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-014-Dual-WAN.txt

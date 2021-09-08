@@ -17,7 +17,7 @@ Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/re
 Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Menus Básicos do Console: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
-Atribuição de Interface: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Atribuição de Interface: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
 
 Atribuição da nova Interface WAN
 Interfaces
