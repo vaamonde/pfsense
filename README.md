@@ -249,8 +249,8 @@ Vídeo mostrando os procedimentos básicos para adicionar e configurar uma nova 
 
 A maioria das interfaces podem ser atribuídas como WAN, LAN ou uma interface OPT. Todas as interfaces atualmente definidas e detectadas são listadas diretamente em Interfaces, Atribuições ou na lista de interfaces disponíveis para atribuição. Por padrão, esta lista inclui apenas as interfaces físicas, mas as outras guias em Interfaces, Atribuições podem criar interfaces virtuais que podem ser atribuídas.
 
-[![Add WAN Interface](http://img.youtube.com/vi/pfjmTcdT9W0/0.jpg)]( "Add WAN Interface")
+[![Add WAN Interface](http://img.youtube.com/vi/v4mKSH2Mzgo/0.jpg)](https://www.youtube.com/watch?v=v4mKSH2Mzgo "Add WAN Interface")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=v4mKSH2Mzgo
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-014-Dual-WAN.txt
