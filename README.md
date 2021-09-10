@@ -243,11 +243,11 @@ Link da vídeo aula: https://www.youtube.com/watch?v=pfjmTcdT9W0
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-013-Firewall-Rules-WAN.txt
 
-## **ADICIONANDO uma NOVA Interface WAN No UTM/NGFW pfSENSE FIREWALL v2.5.x**
+## **ADICIONANDO uma NOVA Interface WAN no UTM/NGFW pfSENSE FIREWALL v2.5.x**
 
 Vídeo mostrando os procedimentos básicos para adicionar e configurar uma nova Interface WAN (Wide Area Network) no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
 
-A maioria das interfaces podem ser atribuídas como WAN, LAN ou uma interface OPT. Todas as interfaces atualmente definidas e detectadas são listadas diretamente em Interfaces, Atribuições ou na lista de interfaces disponíveis para atribuição. Por padrão, esta lista inclui apenas as interfaces físicas, mas as outras guias em Interfaces  Atribuições podem criar interfaces virtuais que podem ser atribuídas.
+A maioria das interfaces podem ser atribuídas como WAN, LAN ou uma interface OPT. Todas as interfaces atualmente definidas e detectadas são listadas diretamente em Interfaces, Atribuições ou na lista de interfaces disponíveis para atribuição. Por padrão, esta lista inclui apenas as interfaces físicas, mas as outras guias em Interfaces, Atribuições podem criar interfaces virtuais que podem ser atribuídas.
 
 [![Add WAN Interface](http://img.youtube.com/vi/pfjmTcdT9W0/0.jpg)]( "Add WAN Interface")
 
