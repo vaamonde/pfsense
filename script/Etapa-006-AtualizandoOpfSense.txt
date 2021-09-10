@@ -8,17 +8,21 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 24/03/2021
-Versão: 0.04
+Data de atualização: 10/09/2021
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 
-#Atualizando o pfSense pelo Console
+Atualizando o pfSense pelo Console
 13) Update from console
 	Proceed with upgrade? (y/N): y
 	
-#Atualizando o pfSense pela WebConfigurator
+Atualizando o pfSense pela WebConfigurator
 System
 	Update
 		System Update

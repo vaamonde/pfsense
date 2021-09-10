@@ -8,22 +8,32 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/07/2021
-Data de atualização: 18/08/2021
-Versão: 0.04
+Data de atualização: 10/09/2021
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 
 Atualização via console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
-#Atualizando o pfSense pelo Console
+Atualização via WebGUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-webgui
+Opções de Configurações Gerais: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Dashboard do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/dashboard.html
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
+CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+Atualizando o pfSense pelo Console
 13) Update from console
 	Proceed with upgrade? (y/N): y
 
-Atualização via WebGUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-webgui
-#Atualizando o pfSense pela WebConfigurator
+Atualizando o pfSense pela WebConfigurator
 System
 	Update
 		System Update
@@ -35,9 +45,7 @@ System
 			Branch: Latest stable version (2.5.x)
 			Confirm Update: Confirm
 
-Opções de Configurações Gerais: https://docs.netgate.com/pfsense/en/latest/config/general.html
-
-#Configurando as opções gerais do pfSense
+Configurando as opções gerais do pfSense
 System
 	General Setup
 		webConfigurator
@@ -55,11 +63,8 @@ System
 			Login hostname: Enabled
 		Save
 
-Dashboard do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/dashboard.html
-Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
-
-#Configuração do Dashboard do pfSense
-01.	Dashboard
+Configuração do Dashboard do pfSense
+Dashboard
 	Available Widgets
 		#Configuração dos Widgets Esquerda
 			Picture: - Left-01
@@ -83,12 +88,9 @@ Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/co
 				Update interval: 15 Seconds
 				save
 			Service Status: ON - Right-06
-save
+Save
 
-Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
-Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
-
-#Configuração da Porta Serial no Oracle VirtualBOX
+Configuração da Porta Serial no Oracle VirtualBOX
 Configurações
 	Portas Seriais
 		Porta 1
@@ -97,7 +99,7 @@ Configurações
 			Modo da Porta: Dispositivo no Hospedeiro
 			Caminho/Endereço: /dev/ttyS0
 
-#Configuração do Serviço do SSH (Secure Shell) do pfSense
+Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
@@ -110,9 +112,9 @@ System
 			Blocktime: 120
 			Detection time: 1800
 			Pass list: (default)
-		save
+	Save
 
-#Configuração da Porta Serial (Console) do pfSense
+Configuração da Porta Serial (Console) do pfSense
 System
 	Advanced
 		Serial Communication
@@ -121,12 +123,7 @@ System
 			Primary Console: Serial Console
 		Console Options
 			Console menu (yes)
-		save
-
-Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
-CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
-
-Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+	Save
 
 #Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
 System
@@ -149,7 +146,8 @@ System
 					City: Sao Paulo
 					Organization: Bora para Pratica
 					Organizational Unit: Matriz Bora para Pratica
-			save
+			Save
+			
 			Export CA
 				Salvar Arquivo: BoraParaPratica.crt
 		
@@ -176,17 +174,17 @@ System
 						IP Address: 172.16.1.254
 						FQDN or Hostname: ptispo01fw01
 						FQDN or Hostname: ptispo01fw01.pti.intra
-			save
+			Save
 
-#Configuração do suporte ao HTTPS do pfSense
+Configuração do suporte ao HTTPS do pfSense
 System
 	Advanced
 		webConfigurator
 			Protocol: HTTPS
 			SSL Certificate: Certificado do pfSense
-		save
+	Save
 
-#Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
+Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
 Firefox
 	Menu de Aplicativo
 		Preferências
@@ -200,7 +198,7 @@ Firefox
 							<Ver>
 							<OK>
 
-#Instalação do CA (Certificate Authority) no Google Chrome (Linux)
+Instalação do CA (Certificate Authority) no Google Chrome (Linux)
 Google Chrome
 	Digite a URL: chrome://settings/certificates
 		Autoridade
@@ -212,7 +210,7 @@ Google Chrome
 				<OK>
 	Digite a URL: chrome://restart
 
-#Instalação do CA (Certificate Authority) no Windows
+Instalação do CA (Certificate Authority) no Windows
 BoraParaPratica.crt (clicar duas vezes em cima do certificado)
 	Abrir
 		Certificado
@@ -233,7 +231,7 @@ Pesquisa do Windows
 			Certificados
 				internal-ca
 
-#Instalação do CA (Certificate Authority) no Linux
+Instalação do CA (Certificate Authority) no Linux
 BoraParaPratica.crt
 		Abrir como Root 
 			Copia: BoraParaPratica.crt

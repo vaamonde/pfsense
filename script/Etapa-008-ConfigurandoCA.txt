@@ -8,16 +8,19 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 24/04/2021
-Versão: 0.06
+Data de atualização: 10/09/2021
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
 CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
-
 Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
 
-#Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
+Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
 System
 	Cert. Manager
 		CAs
@@ -29,7 +32,7 @@ System
 					Randomize Serial: (default)
 				Internal Certificate Authority
 					Key type: RSA
-					Key lenght (bits): 2048
+					Key length (bits): 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: internal-ca
@@ -50,7 +53,7 @@ System
 				Internal Certificate 
 					Certificate authority: BoraParaPratica
 					Key type: RSA
-					Key lenght: 2048
+					Key length: 2048
 					Digest Algorithm: sha256
 					Lifetime (days): 3650
 					Common Name: ptispo01fw01.pti.intra 
@@ -67,7 +70,7 @@ System
 						FQDN or Hostname: ptispo01fw01.pti.intra
 			save
 
-#Configuração do suporte ao HTTPS do pfSense
+Configuração do suporte ao HTTPS do pfSense
 System
 	Advanced
 		webConfigurator
@@ -75,7 +78,7 @@ System
 			SSL Certificate: Certificado do pfSense
 		save
 
-#Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
+Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
 Firefox
 	Menu de Aplicativo
 		Preferências
@@ -89,7 +92,7 @@ Firefox
 							<Ver>
 							<OK>
 
-#Instalação do CA (Certificate Authority) no Google Chrome (Linux)
+Instalação do CA (Certificate Authority) no Google Chrome (Linux)
 Google Chrome
 	Digite a URL: chrome://settings/certificates
 		Autoridade
@@ -101,7 +104,7 @@ Google Chrome
 				<OK>
 	Digite a URL: chrome://restart
 
-#Instalação do CA (Certificate Authority) no Windows
+Instalação do CA (Certificate Authority) no Windows
 BoraParaPratica.crt (clicar duas vezes em cima do certificado)
 	Abrir
 		Certificado
@@ -122,7 +125,7 @@ Pesquisa do Windows
 			Certificados
 				internal-ca
 
-#Instalação do CA (Certificate Authority) no Linux
+Instalação do CA (Certificate Authority) no Linux
 BoraParaPratica.crt
 		Abrir como Root 
 			Copia: BoraParaPratica.crt

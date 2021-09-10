@@ -18,6 +18,8 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 
 Introdução à regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
 Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Configurando as regras de Firewall na Interface LAN do pfSense
 Firewall
 	Rules
 		LAN
@@ -61,7 +63,7 @@ Firewall
 			Liberação das Portas Padrão da Rede Local
 		Save
 
-Liberação da regras básicas para navegação na Internet
+Liberação das regras básicas para navegação na Internet
 
 00_ Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
 

@@ -68,8 +68,8 @@ Interfaces
 		General Configuration
 			Description: WANVIVO
 			IPv6 Configuration Type: None
-		Save
-		Apply Changes
+	Save
+	Apply Changes
 
 Alterando o Gateway padrão do pfSense
 System

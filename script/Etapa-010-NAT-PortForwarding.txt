@@ -8,16 +8,21 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 18/08/2021
-Data de atualização: 18/08/2021
+Data de atualização: 10/09/2021
 Versão: 0.01
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
 Link Oficial do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 
-Apelidos: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Criação de Apelidos: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+NAT Encaminhamento de Portas: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
+Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criando os apelidos no pfSense
 Firewall
 	Aliases
 		IP
@@ -33,7 +38,7 @@ Firewall
 			Save
 	Apply Changes
 
-NAT Encaminhamento de Portas: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
+Criando as regras de NAT no pfSense
 Firewall
 	NAT
 		Port Forward
@@ -66,17 +71,11 @@ Firewall
 			Save
 		Apply Changes
 
-Firewall
-	NAT
-		Port Forward
-			+Separator
-				Enter a description: Regras de NAT do Servidor UCS Univention
-				Color: Blue
-			Save
-				Move
-			Save
+		+Separator
+			Enter a description: Regras de NAT do Servidor UCS Univention - Color: Blue
+		Save
 
-Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Configurando as regras de Firewall na Interface WAN do pfSense
 Firewall
 	Rules
 		WAN
@@ -86,9 +85,7 @@ Firewall
 					Description: NAT Redirecionamento da Porta 22 SSH do UCS Univention
 			Save
 		Apply Changes
-			+Separator
-				Enter a description: Regras de NAT do Servidor UCS Univention
-				Color: Blue
-			Save
-				Move
-			Save
+		
+		+Separator
+				Enter a description: Regras de NAT do Servidor UCS Univention - Color: Blue
+		Save
