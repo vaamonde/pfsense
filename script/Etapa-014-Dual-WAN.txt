@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 08/09/2021
-Data de atualização: 08/09/2021
-Versão: 0.01
+Data de atualização: 10/09/2021
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -18,8 +18,18 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 
 Menus Básicos do Console: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
 Atribuição de Interface: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
+Configuração de Rede no VirtualBOX: https://www.virtualbox.org/manual/ch06.html
 
-Atribuição da nova Interface WAN
+Adicionando uma nova placa de rede no VirtualBOX
+Maquina Virtual: pfsense-2.5.x
+	Configurações
+		Rede 
+			Adaptador 3
+				Habilitar Placa de Rede
+					Conectada a: NAT
+	OK
+
+Atribuição da nova Interface WAN no pfSense
 Interfaces
 	Assignments
 		Interface Assignments
@@ -27,7 +37,7 @@ Interfaces
 				Available network ports: ENDEREÇO_MAC +ADD
 			Save
 
-Configuração da Interface OPT1
+Configuração da Interface OPT1 no pfSense
 Interfaces
 	OPT1
 		General Configuration
@@ -52,7 +62,7 @@ Interfaces
 	Save
 	Apply Changes
 
-Alterando o nome da Interface WAN
+Alterando o nome da Interface WAN no pfSense
 Interfaces
 	WAN
 		General Configuration
@@ -66,16 +76,17 @@ System
 	Routing
 		Gateways
 			Default gateway
-				Default gateway IPv4: 
+				Default gateway IPv4: Automatic
 				Default gateway IPv6: None
 		Save
 		Apply Changes
 
-Verificando os Status das Interfaces
+Verificando os Status das Interfaces do pfSense
 Status
 	Interfaces
 	Gateways
 
-Testando a saída dos Gateways
+Testando a saída dos Gateways no pfSense
 Terminal
 	traceroute -n google.com
+	ping google.com
