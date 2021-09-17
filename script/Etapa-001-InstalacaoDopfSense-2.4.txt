@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 10/09/2021
-Versão: 0.06
+Data de atualização: 17/09/2021
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -23,8 +23,8 @@ Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/l
 Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
-01. Link de download do pfSense: http://linorg.usp.br/pfsense/downloads/
-02. Versão do download pfSense: 2.4.3 (28/03/2021)
+01. Link de download do pfSense: http://linorg.usp.br/pfsense/downloads/ ou https://mirror.mahanserver.net/PfSense/2.4.5/
+02. Versão do download pfSense: 2.4.5-P1 (17/09/2021)
 03. Arquitetura do pfSense: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 05. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
@@ -87,10 +87,10 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 	Selecionar um arquivo de disco óptico virtual
 03. Seletor de Discos Ópticos
 	Acrescentar
-	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.4.3-RELEASE-amd64.iso
+	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.4.5-RELEASE-p1-amd64.iso
 	<Abrir>
 04. Not Attached
-	Selecionar: pfSense-CE-2.4.3-RELEASE-amd64.iso
+	Selecionar: pfSense-CE-2.4.5-RELEASE-p1-amd64.iso
 	<Escolher>
 <Iniciar>
 

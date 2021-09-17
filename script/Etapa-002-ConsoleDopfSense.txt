@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 10/09/2021
-Versão: 0.04
+Data de atualização: 17/09/2021
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -62,7 +62,7 @@ Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 	2) Set interface(s) IP address
 		Enter the number of the interface you wish to configure: 2 <Enter>
 		Enter the new LAN IPv4 address.
-			> 172.16.10.254 <Enter>
+			> 172.16.1.254 <Enter>
 		Enter the new LAN IPv4 subnet.
 			> 24 <Enter>
 		For a WAN, enter the new LAN IPv4 upstream gateway address
@@ -71,8 +71,8 @@ Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 		Enter the new LAN IPv6 address.
 			> <Enter>
 		Do you want to enable the DHCP server on LAN? (y/n): y <Enter>
-		Enter the start address of the IPv4 client address range: 172.16.10.100 <Enter>
-		Enter the end address fo the IPv4 client address range: 172.16.10.150 <Enter>
+		Enter the start address of the IPv4 client address range: 172.16.1.100 <Enter>
+		Enter the end address fo the IPv4 client address range: 172.16.1.150 <Enter>
 		Do you want to revert to HTTP as the WebConfigurator protocol? (y/n): y <Enter>	
 		Press <Enter> to continue.
 

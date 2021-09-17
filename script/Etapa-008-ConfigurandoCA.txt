@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 10/09/2021
-Versão: 0.07
+Data de atualização: 17/09/2021
+Versão: 0.08
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -24,7 +24,7 @@ Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
 System
 	Cert. Manager
 		CAs
-			ADD
+			+ADD
 				Create / Edit CA
 					Descriptive name: BoraParaPratica
 					Method: Create an internal Certificate Authority
@@ -41,12 +41,22 @@ System
 					City: Sao Paulo
 					Organization: Bora para Pratica
 					Organizational Unit: Matriz Bora para Pratica
-			save
+			Save
+
+Exportando a CA do BoraParaPratica do pfsense
+System
+	Cert. Manager
+		CAs
+		BoraParaPratica
 			Export CA
 				Salvar Arquivo: BoraParaPratica.crt
-		
+
+
+Configuração do Certificado SSL de Serviços do pfSense
+System
+	Cert. Manager
 		Certificates
-			Add/Sign
+			+Add/Sign
 				Add/Sign a New Certificate
 					Method: Create an internal Certificate
 					Descriptive name: Certificado do pfSense
@@ -65,18 +75,18 @@ System
 				Certificate Attributes
 					Certificate Type: Server Certificate
 					Alternative Names:
-						IP Address: 172.16.1.254
-						FQDN or Hostname: ptispo01fw01
+						IP Address: 172.16.1.254 +Add
+						FQDN or Hostname: ptispo01fw01 +Add
 						FQDN or Hostname: ptispo01fw01.pti.intra
-			save
+			Save
 
-Configuração do suporte ao HTTPS do pfSense
+Configurando o Suporte ao HTTPS do pfSense
 System
 	Advanced
 		webConfigurator
 			Protocol: HTTPS
-			SSL Certificate: Certificado do pfSense
-		save
+			SSL/TLS Certificate: Certificado do pfSense
+		Save
 
 Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
 Firefox

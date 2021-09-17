@@ -1,0 +1,163 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 16/09/2021
+Data de atualização: 17/09/2021
+Versão: 0.03
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
+
+Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Guia Diversos: https://docs.netgate.com/pfsense/en/latest/config/advanced-misc.html
+Grupo de Gateway: https://docs.netgate.com/pfsense/en/latest/routing/gateway-groups.html
+Múltiplas conexões WAN: https://docs.netgate.com/pfsense/en/latest/multiwan/index.html
+Configurações do Gateway: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
+
+OBSERVAÇÃO IMPORTANTE: FEITO VÁRIOS TESTES NAS CONFIGURAÇÕES DE Failover, Failback e Load Balancing do
+pfsense versão 2.5.x, infelizmente esse recurso não está funcionando perfeitamente em todos os testes 
+em relação a versão 2.4.x, conforme vários relatos no Fórum do pfsense
+
+Link1: https://redmine.pfsense.org/issues/10800
+Link2: https://forum.netgate.com/topic/155694/multi-wan-load-balancing-does-not-work-on-2-5-0
+
+Habilitando os Recursos de Load Balancing (Balanceamento de Carga) no pfSense
+System
+	Advanced
+		Miscellaneous
+			Load Balancing: ON
+			Set the source tracking for sticky connections: Default
+		Gateway Monitoring
+			State Killing on Gateway Failure: ON
+			Skip rules when gateway is down: ON
+	Save
+
+Criando o Grupo de Gateway das Interfaces WAN de Failover (Falha) e Failback (Retorno da Falha) no pfSense
+System
+	Routing
+		Gateway Groups
+			+ADD
+				Edit Gateway Group Entry
+					Group Name: HA_WAN
+					Gateway Priority
+						WANVIVO_DHCP Tier 1  Interface Address  Interface WANVIVO_DHCP
+						WANNET_DHCP  Tier 2  Interface Address  Interface WANNET_DHCP
+					Trigger Level: Packet Loss or High Latency
+					Description: Grupo de Gateways HA das Interfaces WAN Vivo e Net
+				Save
+			Apply Changes
+
+Configurando as opções avançadas dos Gateway
+System
+	Routing
+		Gateways
+			Edit gateway: WANVIVO_DHCP
+				Edit gateway
+					Disabled: Off
+					Interface: WANVIVO
+					Address Family: IPv4
+					Name: WANVIVO_DHCP
+					Gateway: dynamic
+					Gateway Monitoring: OFF
+					Gateway Action: Off
+					Monitor IP: 8.8.8.8 (DNS google.com)
+					Force state: OFF
+					Description: Interface WANVIVO_DHCP Gateway
+					Display Advanced
+						Advanced
+							Weight: Default
+							Data Payload: Default
+							Latency thresholds: 400 - 600 (alterar conforme necessidade)
+							Packet Loss thresholds: 20% - 40% (alterar conforme necessidade)
+							Probe Interval: Default
+							Loss Interval: Default
+							Time Period: Default
+							Alert interval: Default
+							Use non-local gateway: OFF
+			Save
+
+			Edit gateway: WANNET_DHCP
+				Edit gateway
+					Disabled: Off
+					Interface: WANNET
+					Address Family: IPv4
+					Name: WANNET_DHCP
+					Gateway: dynamic
+					Gateway Monitoring: OFF
+					Gateway Action: Off
+					Monitor IP: 1.1.1.1 (DNS cloudflare.com)
+					Force state: OFF
+					Description: Interface WANNET_DHCP Gateway
+					Display Advanced
+						Advanced
+							Weight: Default
+							Data Payload: Default
+							Latency thresholds: 400 - 600 (alterar conforme necessidade)
+							Packet Loss thresholds: 20% - 40% (alterar conforme necessidade)
+							Probe Interval: Default
+							Loss Interval: Default
+							Time Period: Default
+							Alert interval: Default
+							Use non-local gateway: OFF
+			Save
+		Apply Changes
+
+Configurando o Gateway Padrão do pfSense
+System
+	Routing
+		Gateways
+			Default Gateways
+				Default gateway IPv4: HA_WAN (Grupo de Gateways HA das Interfaces WAN Vivo e Net)
+			Save
+Apply Changes
+
+Verificando o Status de Serviço dos Gateways e Diagnosticos de Conexão
+Status
+    Gateways
+    	Gateways Groups
+    Interfaces
+    System Logs
+        System
+            Gateways
+Diagnostics
+    pfInfo
+    pfTop
+    Routes
+    Sockets
+    States
+    States Summary
+
+Testando a saída dos Gateways no pfSense
+Terminal
+	traceroute -n google.com
+	ping google.com
+
+Instalando o Cron no pfSense
+System
+	Package Manager
+		Available Packages
+			Search
+				Search term: cron <Search>
+					Cron <Install>
+					<Confirm>
+
+Criando uma regra para Reinicializar o Serviço do Dpinger dos Gateways
+Service
+	Cron
+		+ADD
+			Add A Cron Schedule
+				 Minute: */1
+				 Hour: *
+				 Day of the Month: *
+				 Month of the Year: *
+				 Day of the Week: *
+				 User: root
+				 Command: /usr/local/sbin/pfSsh.php playback svc restart dpinger
+			Save

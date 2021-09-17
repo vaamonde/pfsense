@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 01/09/2021
-Versão: 0.06
+Data de atualização: 17/09/2021
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -32,26 +32,26 @@ Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
-			Secure Shell Server (yes)
+			Secure Shell Server: ON
 			SSHd Key Only: Require Both Password and Public Key
-			Allow Agent Forwarding (default)
+			Allow Agent Forwarding: OFF
 			SSH port: 22
 		Login Protection
 			Threshold: 30
 			Blocktime: 120
 			Detection time: 1800
-			Pass list: (default)
+			Pass list (Whitlist): (default)
 	Save
 
 Configuração da Porta Serial (Console) do pfSense
 System
 	Advanced
 		Serial Communication
-			Serial Terminal (yes)
+			Serial Terminal: ON
 			Serial Speed: 115200
 			Primary Console: Serial Console
 		Console Options
-			Console menu (yes)
+			Console menu: ON
 	Save
 
 Acessando remotamente o pfSense utilizando o Protocolo SSH
@@ -90,11 +90,11 @@ System
 						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
 				Save
 
-Verificação do acesso via SSH do pfSense
+Verificando o acesso via SSH do pfSense
 Status
 	System Logs
 		Geral
-			Filter
+			Advanced Log Filter
 				Process: sshd 
 			Apply Filter
 

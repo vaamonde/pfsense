@@ -1,4 +1,4 @@
-# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.x
+# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.4.x e 2.5.x
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos gratuitos para o Canal, acessando o link de doação do PagSeguro: https://pag.ae/bjlSJcH
 
@@ -12,7 +12,7 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem<br>
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica<br>
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/<br>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
+Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.4.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
@@ -29,7 +29,7 @@ Oracle VirtualBOX: https://www.virtualbox.org/
 ## **Playlist do YouTUBE com todos os Vídeos do pfSense:**
 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUN7vHnCDA2NF6rMfTBs-vAs
 
-## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5 no Oracle VirtualBOX**
+## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5.x no Oracle VirtualBOX**
 
 Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management - Gerenciamento Unificado de Ameaças) / NGFW (Next Generation Firewall - Firewall de Última Geração) Firewall pfSENSE v2.5 no Oracle VirtualBOX
 
