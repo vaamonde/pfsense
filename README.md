@@ -254,3 +254,17 @@ A maioria das interfaces podem ser atribuídas como WAN, LAN ou uma interface OP
 Link da vídeo aula: https://www.youtube.com/watch?v=v4mKSH2Mzgo
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-014-Dual-WAN.txt
+
+## **FAILOVER e FAILBACK de Gateways de WAN no UTM/NGFW pfSENSE FIREWALL v2.5.x**
+
+Vídeo mostrando os procedimentos básicos para configurar os recursos de Failover (Falha) e Failback (Retorno da Falha) do Grupo de Gateways de WAN (Wide Area Network) no UTM (Unified Threat Management) / NGFW (Next Generation Firewall) Firewall pfSENSE v2.5.2 atualizado no Oracle VirtualBOX.
+
+O Failover é a capacidade de determinado sistema/serviço migrar automaticamente para um outro servidor, sistema ou rede redundante ou que está em standby quando acontece uma falha ou término anormal do serviço de rede.
+
+O Failback é o processo de restauração de um sistema/componente/serviço que se encontra em um estado de Failover (ou seja, aquela máquina onde estava rodando o serviço que apresentou problemas) de volta a seu estado original que estava antes da falha.
+
+[![HA Gateway](http://img.youtube.com/vi//0.jpg)]( "HA Gateway")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: 

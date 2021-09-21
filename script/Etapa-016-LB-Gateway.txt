@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 17/09/2021
-Data de atualização: 17/09/2021
-Versão: 0.01
+Data de atualização: 21/09/2021
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x e 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -21,9 +21,10 @@ Grupo de Gateway: https://docs.netgate.com/pfsense/en/latest/routing/gateway-gro
 Múltiplas conexões WAN: https://docs.netgate.com/pfsense/en/latest/multiwan/index.html
 Configurações do Gateway: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
 
-OBSERVAÇÃO IMPORTANTE: FEITO VÁRIOS TESTES NAS CONFIGURAÇÕES DE Failover, Failback e Load Balancing do
-pfsense versão 2.5.x, infelizmente esse recurso não está funcionando perfeitamente em todos os testes 
-em relação a versão 2.4.x, conforme vários relatos no Fórum do pfsense
+OBSERVAÇÃO IMPORTANTE: APÓS VÁRIOS TESTES NAS CONFIGURAÇÕES DE Failover, Failback e Load Balancing do
+pfSense utilizando a versão 2.5.x, infelizmente esse recurso não está funcionando CORRETAMENTE. Em 
+todos os testes feitos em comparação com a versão 2.4.x, o recurso de Failback não está voltando para 
+a Interface configurada como primária, existe vários relatos no Fórum do pfSense conforme os Links abaixo.
 
 Link1: https://redmine.pfsense.org/issues/10800
 Link2: https://forum.netgate.com/topic/155694/multi-wan-load-balancing-does-not-work-on-2-5-0
