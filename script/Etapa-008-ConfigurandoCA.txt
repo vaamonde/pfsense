@@ -43,7 +43,7 @@ System
 					Organizational Unit: Matriz Bora para Pratica
 			Save
 
-Exportando a CA do BoraParaPratica do pfsense
+Exportando a CA do BoraParaPratica do pfSense
 System
 	Cert. Manager
 		CAs

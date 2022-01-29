@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 24/03/2021
-Data de atualização: 10/09/2021
-Versão: 0.02
+Data de atualização: 28/01/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.5.x
 
 Atualização da versão do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
@@ -31,7 +31,7 @@ CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
 
 Primeira etapa: Download da ISO do Netgate UTM pfSense
 01. Link de download do pfSense: https://www.pfsense.org/download/
-02. Versão do download pfSense: 2.5.0 (08/03/2021)
+02. Versão do download pfSense: 2.5.2 (28/01/2022)
 03. Arquitetura do pfSense: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 05. Mirror padrão do download: New York City, USA
@@ -95,10 +95,10 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 	Selecionar um arquivo de disco óptico virtual
 03. Seletor de Discos Ópticos
 	Acrescentar
-	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.5.2-RELEASE-amd64.iso
 	<Abrir>
 04. Not Attached
-	Selecionar: pfSense-CE-2.5.0-RELEASE-amd64.iso
+	Selecionar: pfSense-CE-2.5.2-RELEASE-amd64.iso
 	<Escolher>
 <Iniciar>
 
