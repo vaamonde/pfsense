@@ -37,7 +37,7 @@ Primeira etapa: Download da ISO do Netgate UTM pfSense
 05. Mirror padrão do download: New York City, USA
 06. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
 07. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
-08. Dica: se você utiliza o Microsoft Windows recomendo instalar o 7Zip: https://www.7-zip.org/download.html
+08. Dica: se você utiliza o Microsoft Windows recomendo instalar o 7-Zip: https://www.7-zip.org/download.html
 
 Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
