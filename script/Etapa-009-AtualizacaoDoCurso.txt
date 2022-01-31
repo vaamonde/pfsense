@@ -74,6 +74,7 @@ Dashboard
 			Gateways: ON - Center-02
 			Interface Statistics: ON - Center-03
 			Traffic Graphs: ON - Center-04
+			Service Status: ON - Right-05
 		#Configuração dos Widgets Direita   
 			NTP Status: ON - Right-01
 			Dynamic DNS Status: ON - Right-02
@@ -87,7 +88,6 @@ Dashboard
 				Filter interface: ALL 
 				Update interval: 15 Seconds
 				save
-			Service Status: ON - Right-06
 Save
 
 Configuração da Porta Serial no Oracle VirtualBOX
@@ -112,6 +112,8 @@ System
 			Blocktime: 120
 			Detection time: 1800
 			Pass list: (default)
+		Console Options
+			Console menu: ON
 	Save
 
 Configuração da Porta Serial (Console) do pfSense
