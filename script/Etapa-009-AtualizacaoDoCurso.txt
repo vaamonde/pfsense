@@ -188,7 +188,7 @@ System
 
 Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
 Firefox
-	Menu de Aplicativo
+	Menu de Aplicativo (ou utilizar o atalho: about:preferences)
 		Preferências
 			Pesquisar em Preferências
 				Certificados
