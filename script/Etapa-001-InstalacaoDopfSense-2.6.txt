@@ -1,0 +1,138 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 15/02/2022
+Data de atualização: 15/02/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.5.x
+
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Hardware Mínimo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
+Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
+Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
+Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
+Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
+
+Servidores de DNS recomendados para serem utilizados no pfSense
+DNS Google..............: Preferencial: 8.8.8.8 - Secundário: 8.8.4.4
+OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220.220
+OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
+CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
+CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+
+Primeira etapa: Download da ISO do Netgate UTM pfSense
+01. Link de download do pfSense: https://www.pfsense.org/download/
+02. Versão do download pfSense: 2.5.2 (28/01/2022)
+03. Arquitetura do pfSense: AMD64 (64-bit)
+04. Tipo de instalação: DVD Image (ISO) Installer
+05. Mirror padrão do download: New York City, USA
+06. Arquivo compactado utilizando o GZ (GNU Zip - Gzip)
+07. Extrair o conteúdo do arquivo compactado para utilizar a ISO do pfSense
+08. Dica: se você utiliza o Microsoft Windows recomendo instalar o 7-Zip: https://www.7-zip.org/download.html
+
+Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualBOX
+Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
+01. Ferramentas;
+	Novo
+02. Nome e Sistema Operacional:
+	Nome: pfSense
+	Pasta da Máquina: (deixar o padrão do sistema) 
+	Tipo: BSD
+	Versão: FreeBSD (64-bit)
+	<Próximo>
+03. Tamanho da memória:
+	Tamanho: 1024MB
+	<Próximo>
+04. Disco Rígido:
+	Criar um novo disco rígido virtual agora
+	<Criar>
+05. Tipo de arquivo de disco rígido
+	VDI (VirtualBOX Disk Image)
+	<Próximo>
+06. Armazenamento em disco rígido físico
+	Dinamicamente alocado
+	<Próximo>
+07. Localização e tamanho do arquivo
+	Localização: (deixar o padrão do sistema)
+	Tamanho do disco: 16GB
+	<Criar>
+04. Configurações da Máquina Virtual pfSense (Propriedades/Configurações)
+	Sistema
+		Processador
+			Processadores: 02 CPUs
+			Recursos Estendidos: Habilitar PAE/NX
+	Monitor
+		Tela
+			Memória de Vídeo: 128MB
+			Aceleração: Habilitar Aceleração 3D
+	Áudio
+		Habilitar Áudio: Desabilitar
+	Rede
+		Adaptador 1 (WAN)
+			Habilitar Placa de Rede
+			Conectado a: Placa em Modo Bridge
+			Nome: (Interface padrão de acesso a Internet e Rede Local do Hospedeiro)
+		Adaptador 2 (LAN)
+			Habilitar Placa de Rede
+			Conectado a: Rede Interna
+			Nome: (deixar o padrão do sistema: intnet)
+<OK>
+
+Instalação do pfSense: https://docs.netgate.com/pfsense/en/latest/install/download-installer-image.html
+
+Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
+01. VM pfSense: Iniciar
+02. Selecione o disco rígido de boot
+	Selecionar um arquivo de disco óptico virtual
+03. Seletor de Discos Ópticos
+	Acrescentar
+	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.6.0-RELEASE-amd64.iso
+	<Abrir>
+04. Not Attached
+	Selecionar: pfSense-CE-2.6.0-RELEASE-amd64.iso
+	<Escolher>
+<Iniciar>
+
+01. Copyright and distribution notice: 
+	Accept - <Enter>
+02. Welcome to pfSense!
+	Install (Install pfSense) - <Enter>
+03. Keymap Selection
+	Brazilian (accent keys) - <Enter>
+	Continue with br.kdb keymap - <Enter>
+04. Partitioning
+	Auto (ZFS) Guided Root-on-ZFS - <Enter>
+	04.1 Configure Options:
+		>>> Install (Proceed with Installation) - <Enter>
+		T Pool Type/Disks:		stripe: 0 disks
+		- Rescan Devices		*
+		- Disk Info 			*
+		N Pool Name				pfsense
+		4 Force 4K Sectores?	YES
+		E Encrypt Disks?		NO
+		P Partition Scheme		GPT (BIOS)
+		S Swap Size				1g
+		M Mirror Swap?			NO
+		W Encrypt Swap?			NO
+	04.2 Select Virtual Device type:
+		stripe Stripe - No Redundancy <Enter>
+	04.3 Hard Disk Selection
+		[*] ada0 VBOX HARDDISK - <Space-Bar> - <Enter>
+	04.4 Last Chance! - <Yes> - <Enter>
+05. Manual Configuration: <No> - <Enter>
+06. Complete: <Reboot> - <Enter>
+
+Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado 
+no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
