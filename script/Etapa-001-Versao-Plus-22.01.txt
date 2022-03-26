@@ -1,0 +1,63 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 15/02/2022
+Data de atualização: 24/03/2022
+Versão: 0.02
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x, 2.5.x e 2.6.x
+
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Hardware Mínimo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
+Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
+Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
+Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
+Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
+
+Primeira etapa: 
+	Fazer a criação de uma conta no pfSense Store: https://shop.netgate.com/account/register
+
+Segunda etapa:
+	Fazer a assinatura do pfSense Plus: https://shop.netgate.com/products/pfsense-software-subscription
+		pfSense+ Software Subscription $0.00
+		Subscription Type: Lab (Non-commercial use)
+		ADD TO CART
+			CART
+			CHECKOUT
+				Preencher as informações de: Billing address
+				CONTINUE TO PAYMENT
+				COMPLETE ORDER
+
+Terceira etapa:
+	Acessar o email do pfSense com o Token do da versão Plus: pfSense Plus activation Token
+		Copiar a chave do Token
+
+Quarta etapa:
+	Ativar o Token no pfSense 2.6.0
+		System
+			Register
+				Register pfSense
+					Activation token: (colar o Token do pfSense Plus)
+				Register
+	
+Quinta etapa:
+	Atualizar para a versão do pfSense Plus
+		System
+			Update
+				System Update
+					Confirmation Required to update pfSense System
+						Branch: pfSense Plus Upgrade
+					Confirm
+
+	

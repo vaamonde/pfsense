@@ -31,6 +31,34 @@ Oracle VirtualBOX: https://www.virtualbox.org/
 ## **Playlist do YouTUBE com todos os Vídeos do pfSense:**
 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUN7vHnCDA2NF6rMfTBs-vAs
 
+## ** COMO INSTALAR a nova VERSÃO do pfSENSE FIREWALL v2.6.0 no Oracle VirtualBOX **
+
+Vídeo mostrando os procedimentos básicos para baixar a nova versão do Firewall/Proxy pfSense v2.6.0 e fazer a sua instalação no Oracle VirtualBOX
+
+Esta é uma versão agendada regularmente do software pfSense CE e pfSense Plus, incluindo novos recursos, suporte adicional de hardware e correções de bugs.
+
+O UTM/NGFW pfSENSE é uma das melhores soluções Open Source de Firewall, Proxy, Router, etc do momento, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. Ele possui recursos que muitas vezes, só encontrada em Firewall comerciais caros, já que podemos realizar com o pfSense a imensa maioria das atividades que esperamos de sistemas com este título.
+
+Hoje o pfSense também pode ser considerado um UTM (Unified Threat Management) e NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
+
+[![pfSense 2.6](http://img.youtube.com/vi/guyRA1hMLRg/0.jpg)](https://www.youtube.com/watch?v=guyRA1hMLRg "pfSense 2.6")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=guyRA1hMLRg
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-InstalacaoDopfSense-2.6.txt
+
+## **COMO HABILITAR a licença GRATUITA Home ou Lab do pfSENSE PLUS+ na versão 2.6.0 CE (Community)**
+
+Vídeo mostrando os procedimentos básicos para fazer uma conta no site do Netagate Store e adquirir uma licença GRATUITA da versão Plus+ do Firewall/Proxy/VPN pfSense e habilitar na versão 2.6.0
+
+O software pfSense® Plus é o firewall mais confiável do mundo. O software conquistou o respeito e a adoração de usuários em todo o mundo - instalado mais de três milhões de vezes. Tornado possível pela tecnologia de código aberto. Transformado em um produto robusto, confiável e confiável pela Netgate.
+
+[![pfSense Plus](http://img.youtube.com/vi/8kxlXUnHYM4/0.jpg)](https://www.youtube.com/watch?v=8kxlXUnHYM4 "pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=8kxlXUnHYM4
+
+Documentação da vídeo aula:
+
 ## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5.x no Oracle VirtualBOX**
 
 Vídeo mostrando os procedimentos básicos para instalar o UTM (Unified Threat Management - Gerenciamento Unificado de Ameaças) / NGFW (Next Generation Firewall - Firewall de Última Geração) Firewall pfSENSE v2.5 no Oracle VirtualBOX
