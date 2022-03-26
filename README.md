@@ -57,7 +57,7 @@ O software pfSense® Plus é o firewall mais confiável do mundo. O software con
 
 Link da vídeo aula: https://www.youtube.com/watch?v=8kxlXUnHYM4
 
-Documentação da vídeo aula:
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/script/Etapa-001-Versao-Plus-22.01.txt
 
 ## **COMO instalar o UTM/NGFW FIREWALL pfSENSE v2.5.x no Oracle VirtualBOX**
 
