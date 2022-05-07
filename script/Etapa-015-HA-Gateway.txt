@@ -121,7 +121,7 @@ System
 			Save
 Apply Changes
 
-Verificando o Status de Serviço dos Gateways e Diagnosticos de Conexão
+Verificando o Status de Serviço dos Gateways e Diagnósticos de Conexão
 Status
     Gateways
     	Gateways Groups

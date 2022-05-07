@@ -47,6 +47,7 @@ VPN
                     Delay: 10 (request)
                     Max failures: 5 (disconect)
             save
+
             #Configuração da Fase 2 do IPSec
             Show Phase 2 Entries (0)
                 ADD P2 

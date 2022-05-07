@@ -129,7 +129,7 @@ System
 			Save
 Apply Changes
 
-Verificando o Status de Serviço dos Gateways e Diagnosticos de Conexão
+Verificando o Status de Serviço dos Gateways e Diagnósticos de Conexão
 Status
     Gateways
     	Gateways Groups
@@ -149,3 +149,26 @@ Testando a saída dos Gateways no pfSense
 Terminal
 	traceroute -n google.com
 	ping google.com
+
+Instalando o Cron no pfSense
+System
+	Package Manager
+		Available Packages
+			Search
+				Search term: cron <Search>
+					Cron <Install>
+					<Confirm>
+
+Criando uma regra para Reinicializar o Serviço do Dpinger dos Gateways
+Service
+	Cron
+		+ADD
+			Add A Cron Schedule
+				 Minute: */1
+				 Hour: *
+				 Day of the Month: *
+				 Month of the Year: *
+				 Day of the Week: *
+				 User: root
+				 Command: /usr/local/sbin/pfSsh.php playback svc restart dpinger
+			Save
