@@ -37,6 +37,10 @@ Status
 			Skip URL(s): Default
 			Refresh Scheduler: 10min(!)
 	<Save>
+		Report Settings and Scheduler
+			Manual Refresh
+			Refresh Full
+			Refresh
 
 #Regra de Firewall para Acessar o LightSquid
 Firewall
