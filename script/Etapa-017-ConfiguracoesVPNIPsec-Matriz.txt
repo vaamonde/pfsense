@@ -1,0 +1,125 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Configuração da VPN IPSec Site-to-Site do pfSense Matriz
+VPN
+    IPSec
+        Tunnels
+            #Configuração da Fase 1 do IPSec
+            ADD P1 
+                General Information
+				    Description: Configuração da VPN IPSec Matriz Filial
+                    Disable: OFF
+				IKE Endpoint Configuration
+                    Key Exchange version: IKEv2
+                    Internet Protocol: IPv4
+                    Interface: VIVO
+                    Remote Gateway: ENDEREÇCO_IP_FILIAL
+                Phase 1 Proposal (Authentication)
+                    Authentication Method: Mutual PSK
+                    My identifier: My IP Address
+                    Peer identifier: Peer IP Address
+                    Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC
+                Phase 1 Proposal (Encryption Algorithm)
+                    Encryption Algorithm
+                        Algorithm: AES 
+                        Key length: 256 bits
+                        Hash: SHA256 
+                        DH Group: 14 (2048 bit)
+                Expiration and Replacement
+					 	Lifetime (Seconds): 28800
+						Rekey Time: Default
+						Reauth Time: Default
+						Rand Time: Default
+                Advanced Options
+                    Child SA Start Action: Default
+					Child SA Close Action: Default
+                    NAT Traversal: Auto
+                    MOBIKE: Disable
+					Gateway duplicates: OFF
+                    Split connections: OFF
+					PRF Selection: OFF
+					Custom IKE/NAT-T Ports: Default
+                    Dead Peer Detection: ON
+                    Delay: 10 (request)
+                    Max failures: 5 (disconect)
+            Save
+
+            #Configuração da Fase 2 do IPSec
+            Show Phase 2 Entries (0)
+                ADD P2 
+                    General Information
+						Description: Configuração das Redes da Matriz e Filial 
+                        Disabled: OFF
+                        Mode: Tunnels IPv4
+					Network
+                        Local Network: LAN Subnet
+                        NAT/BINAT translation: None
+                        Remote Network: 
+                            Type: Network
+                            Address: SUB_REDE_DA_FILIAL/CIDR 
+                    Phase 2 Proposal (SA/Key Exchange)
+                        Protocol: ESP
+                        Encryption Algorithms:
+                            ON - AES 128 bits
+                            ON - AES128-GCM - 128 bits
+                            OFF - AES192-GCM
+                            OFF - AES256-GCM
+                            OFF - Blowfish
+                            OFF - 3DES
+                            OFF - CAST128
+                        Hash Algorithms
+                            OFF - MD5
+                            OFF - SHA1
+                            ON - SHA256
+                            OFF - SHA384
+                            OFF - SHA512
+                            OFF - AES-XCBC
+                        PFS key group: 14 (2048 bit)
+                    Expiration and Replacement
+					    Lifetime: 3600
+						Rekey Time: Default
+						Rand Time: Default
+					Keep Alive
+                        Automatically ping host: IP_DE_MONITORAMENTO_FIREWALL_FILIAL
+						Keep Alive: OFF
+            save
+            Apply Changes
+
+#Configuração da Regra de Firewall para liberação dos protocolos da Matriz e Firewall
+Firewall
+    Rules
+        IPSec
+            Separator
+                Liberação de todas as redes e protocolos da VPN IPSec
+                    ADD
+                        Edit Firewall Rule
+                            Action: Pass
+                            Disabled: OFF
+                            Interface: IPSec
+                            Address Family: IPv4
+                            Protocol: Any
+                        Source
+                            Source: Any
+                        Destination:
+                            Destination: Any
+                        Extra Options
+                            Log: ON
+                            Description: Liberação de todas as redes e protocolos na VPN
+                        Advanced Options: Default
+                    save
+                    Apply Changes
+
+#Verificando o Status da Conexão da VPN IPSec
+Status
+    IPSec
+        Overview
+            IPSec Status
