@@ -1,0 +1,128 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Instalação do pacote de Exportação das configurações do Cliente do OpenVPN
+System
+    Package Manager
+        Available Packages
+            openvpn-client-export
+                Install: Confirm
+
+#Configuração da VPN OpenVPN Site-to-Client do pfSense Matriz
+VPN
+    OpenVPN
+        Wizards
+            Select an Authentication Backend Type
+                Type of Server: Local User Access
+                Next
+            Choose a Certificate Authority (CA)
+                Certificate Authority: CA_EMPRESA
+                Next
+            Choose a Server Certificate
+                Certificate: CERTIFICADO_SERVIDOR_EMPRESA
+                Next
+            General OpenVPN Server Information
+                Interface: WAN1
+                Protocol: UDP on IPv4 only 
+                Local Port: 1194
+                Description: OpenVPN Client-to-Site Matriz Home Office
+            Cryptographic Settings
+                TLS Authentication: ON
+                Generate TLS Key: ON
+                TLS Shared Key: Default
+                DH Parameters Length: 2048 bit
+				Data Encryption Negation: ON
+                Data Encryption Algorithm: AES-128-GCM 
+				Fallback Data Encryption Algorithm: AES-128-GCM (128 bit key - 128 bit block)
+                Auth Digest Algorithm: SHA256 (256 bit)
+                Hardware Crypto: No Hardware Crypto Acceleration
+            Tunnel Settings
+                Tunnel Network: REDE_DO_TÚNEL_VPN/CIDR
+                Redirect Gateway: OFF
+                Local Network: REDE_LOCAL_DA_EMPRESA/CIDR
+                Concurrent Connections: 10
+				Allow Compression: Refuse any non-stub compression (Most secure)
+                Compression: Disable Compression, retain compression packet framing [compress]
+                Type-of-Service: OFF
+                Inter-Client Communication: OFF
+                Duplicate Connections: OFF
+            Client Settings
+                Dynamic IP: ON
+                Topology: net30/ -- Isolated /30 network per client
+                DNS Default Domain: DOMÍNIO_DA_EMPRESA
+                DNS Server 1, 2, 3 or 3: Default
+                NTP Server 1 or 2: Default
+                NetBIOS Options: OFF
+                NetBIOS Node Type: none 
+                NetBIOS Scope ID: Default
+                WINS Server 1 or 2: Default
+                Next
+            Traffic from clients to server
+                Firewall Rule: ON
+            Traffic from clients through VPN
+                OpenVPN rule: ON
+                Next
+            Configuration Complete!
+                Finish
+
+#Configuração da Regra de Firewall do OpenVPN
+Firewall
+    Rules
+        OpenVPN
+            Separator
+                Liberação de todas as redes e protocolos do OpenVPN
+                    Edit
+                        Extra Options
+                            Log: ON
+                            Description: Liberação de todas as redes e protocolos no OpenVPN
+                    save
+                    Apply Changes
+        WAN
+            Separator
+                Liberação de todas as redes e protocolos do OpenVPN
+                    Edit
+                        Extra Options
+                            Log: ON
+                            Description: Liberação de todas as redes e protocolos no OpenVPN
+                    save
+                    Apply Changes
+
+#Exportação das configurações do Cliente do OpenVPN
+VPN
+    OpenVPN
+        Client Export Utility
+            OpenVPN Server
+                Remote Access Server: OpenVPN Client-to-Site Matriz UDP4:1194
+            Client Connection Behavior
+                Host Name Resolution: Interface IP Address
+                Verify Server CN: Automatic - Use verify-x509-name where possible
+                Block Outside DNS: OFF
+                Legacy Client: OFF
+                Silent Installer: ON
+				Bind Mode: Do not bind to the local port
+            Certificate Export Options
+                PKCS#11 Certificate Storage: OFF
+                Microsoft Certificate Storage: OFF
+                Password Protect Certificate: OFF
+            Proxy Options
+                Use A Proxy: OFF
+            Advanced
+                Additional configuration options
+            OpenVPN Clients
+                Download Client
+
+#Verificando o Status das Conexões do OpenVPN
+Status
+    OpenVPN
+        OpenVPN Client-to-Site Matriz UDP4:1194 Client Connections
+
+#Usando o OpenVPN Client Connection
+https://openvpn.net/client-connect-vpn-for-windows/

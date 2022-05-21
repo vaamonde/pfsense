@@ -1,0 +1,45 @@
+# Autor: Robson Vaamonde
+# Site: www.vaamonde.com.br
+# Facebook: facebook.com/ProcedimentosEmTI
+# Facebook: facebook.com/BoraParaPratica
+# YouTube: youtube.com/BoraParaPratica
+# Instagram: instagram.com/procedimentoem/
+# Linkedin: linkedin.com/in/robson-vaamonde-0b029028/
+# Data de criação: 11/12/2020
+# Data de atualização: 15/12/2020
+# Versão: 0.02
+
+#Criação de Usuários e Grupos para utilização da VPN Site-to-Client OpenVPN
+System
+    User Manager
+        Groups
+            ADD
+                Group Properties
+                    Group name: OpenVPN
+                    Scope: Local
+                    Description: Grupo Local de Usuários do OpenVPN
+            save
+
+System
+    User Manager
+        Users
+            ADD
+                User Properties
+                    Defined by: User
+                    Disabled: OFF
+                    Username: CPF_DO_USUÁRIO
+                    Password: SENHA_DO_USUÁRIO - Confirm: SENHA_DO_USUÁRIO
+                    Full name: Usuário NOME_DO_USUÁRIO Acesso a VPN
+                    Expiration date: Default
+                    Custom Settings: OFF
+                    Group membership: OpenVPN
+                        Move to "Member of" list
+                    Certificate: ON
+                    Descriptive name: CPF_DO_USUÁRIO
+                    Certificate authority: CA_EMPRESA
+                    Key length: 2048 bits
+                    Lifetime: 3650
+                Keys
+                    Authorized SSH Keys: Default
+                    IPsec Pre-Shared Key: Default
+            save
