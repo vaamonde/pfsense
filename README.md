@@ -57,7 +57,7 @@ Hoje o pfSense também pode ser considerado um UTM (Unified Threat Management) e
 
 Link da vídeo aula: https://www.youtube.com/watch?v=guyRA1hMLRg
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-001-InstalacaoDopfSense-2.6.txt
 
 ## **COMO HABILITAR a licença GRATUITA Home ou Lab do pfSENSE PLUS+ 22.01 na versão 2.6.0 CE (Community)**
 
@@ -69,4 +69,4 @@ O software pfSense® Plus é o firewall mais confiável do mundo. O software con
 
 Link da vídeo aula: https://www.youtube.com/watch?v=8kxlXUnHYM4
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-002-InstalacaoDopfSense-Plus-22.01.txt
