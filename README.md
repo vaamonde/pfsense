@@ -59,6 +59,10 @@ Link da vídeo aula: https://www.youtube.com/watch?v=guyRA1hMLRg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-001-InstalacaoDopfSense-2.6.txt
 
+Documentação da vídeo da aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-002-ConsoleDopfSense.txt
+
+Documentação da vídeo da aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-003-WebconfiguratorDopfSense.txt
+
 ## **COMO HABILITAR a licença GRATUITA Home ou Lab do pfSENSE PLUS+ 22.01 na versão 2.6.0 CE (Community)**
 
 Vídeo mostrando os procedimentos básicos para fazer uma conta no site do Netgate Store e adquirir uma licença GRATUITA da versão Plus+ 22.01 do Firewall/Proxy/VPN pfSense e habilitar na versão 2.6.0
