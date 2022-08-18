@@ -33,10 +33,12 @@ Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install
 Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 
 Primeira etapa: Atualizando o pfSense pelo Console
+
 13) Update from console
 	Proceed with upgrade? (y/N): y
 	
 Segunda etapa: Atualizando o pfSense pela WebConfigurator
+
 System
 	Update
 		System Update
