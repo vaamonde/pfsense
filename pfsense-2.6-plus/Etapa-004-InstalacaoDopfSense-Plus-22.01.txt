@@ -41,7 +41,7 @@ Segunda etapa:
 				COMPLETE ORDER
 
 Terceira etapa:
-	Acessar o email do pfSense com o Token do da versão Plus: pfSense Plus activation Token
+	Acessar o email do pfSense com o Token da versão Plus: pfSense Plus activation Token
 		Copiar a chave do Token
 
 Quarta etapa:
@@ -53,7 +53,7 @@ Quarta etapa:
 				Register
 	
 Quinta etapa:
-	Atualizar para a versão do pfSense Plus
+	Atualizar para a versão do pfSense Plus 22.x
 		System
 			Update
 				System Update

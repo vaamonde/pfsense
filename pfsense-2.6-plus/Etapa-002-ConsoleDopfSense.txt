@@ -41,7 +41,7 @@ Opções do Console do Netgate pfSense
 
 Primeira etapa: Endereçamento das Interfaces do pfSense
 
-01. Interface WAN: Padrão de configuração via DHCP
+01. Interface WAN: Padrão de configuração de Endereço IP Dinâmico via DHCP
 02. Interface LAN: Padrão de configuração de Endereço IP Estático
 03. Endereço IPv4 Padrão da Interface de LAN do pfSense: 192.168.1.1/24
 
