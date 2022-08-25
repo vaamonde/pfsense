@@ -74,3 +74,17 @@ O software pfSense® Plus é o firewall mais confiável do mundo. O software con
 Link da vídeo aula: https://www.youtube.com/watch?v=8kxlXUnHYM4
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-002-InstalacaoDopfSense-Plus-22.01.txt
+
+## **COMO ATUALIZAR a versão do pfSENSE PLUS+ 22.01 para a NOVA versão PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 22.01 para a nova versão 22.05 lançada em Junho/2022
+
+Novos recursos e atualizações da Versão 22.05: https://docs.netgate.com/pfsense/en/latest/releases/22-05.html
+
+O software pfSense® Plus é o firewall mais confiável do mundo. O software conquistou o respeito e a adoração de usuários em todo o mundo - instalado mais de três milhões de vezes. Tornado possível pela tecnologia de código aberto. Transformado em um produto robusto, confiável e confiável pela Netgate.
+
+[![Upgrade pfSense Plus](http://img.youtube.com/vi/-87sqR6csqM/0.jpg)](https://www.youtube.com/watch?v=-87sqR6csqM "Upgrade pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=-87sqR6csqM
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-005-AtualizandoOpfSense-Plus-22.05.txt
