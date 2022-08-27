@@ -26,10 +26,10 @@ Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com
 Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
 Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
 
-Primeira etapa: 
+Primeira etapa: Criação da conta no pfSense Store
 	Fazer a criação de uma conta no pfSense Store: https://shop.netgate.com/account/register
 
-Segunda etapa:
+Segunda etapa: Assinatura do pfSense Plus
 	Fazer a assinatura do pfSense Plus: https://shop.netgate.com/products/pfsense-software-subscription
 		pfSense+ Software Subscription $0.00
 		Subscription Type: Lab (Non-commercial use)
@@ -40,18 +40,20 @@ Segunda etapa:
 				CONTINUE TO PAYMENT
 				COMPLETE ORDER
 
-Terceira etapa:
+Terceira etapa: Verificação do Token
 	Acessar o email do pfSense com o Token da versão Plus: pfSense Plus activation Token
 		Copiar a chave do Token
 
-Quarta etapa:
+Registro e Migração: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Quarta etapa: Ativação do Token
 	Ativar o Token no pfSense 2.6.0
 		System
 			Register
 				Register pfSense
 					Activation token: (colar o Token do pfSense Plus)
 				Register
-	
+
+Performance e Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 Quinta etapa:
 	Atualizar para a versão do pfSense Plus 22.x
 		System

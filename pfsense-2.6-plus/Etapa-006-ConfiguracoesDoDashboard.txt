@@ -1,0 +1,79 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 23/01/2021
+Data de atualização: 27/08/2022
+Versão: 0.09
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Dashboard do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/dashboard.html
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Configurações de Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
+
+Primeira etapa: Configurações Gerais do Dashboard do pfSense
+System
+	General Setup
+		webConfigurator
+			Theme: pfsense-dark
+			Top Navigation: Scroll with pages
+			Hostname in Menu: Fully Qualified Domain Name
+			Dashboard Columns: 3
+			Interfaces Sort: ON
+			Associated Panels Show/Hide
+				Available Widgets: ON
+				Log Filter: ON
+				Manage Log: ON
+				Monitoring Settings: ON
+			Login page color: Dark Blue
+			Login hostname: ON
+	Save
+
+Segunda etapa: Desativar verificação de atualização no Dashboard
+System
+	Update
+		Update Settings
+			Updates
+				Dashboard check: ON
+		Save
+
+Terceira etapa: Configuração do Dashboard do pfSense
+Dashboard
+	Available Widget
+		#Configuração dos Widget Lado Esquerdo
+				New pictures: image.png
+				(OBSERVAÇÃO: Caso a imagem não seja compatível, um erro de restaure será apresentado)
+				Save
+			System Information: ON - Left-02
+		#Configuração dos Widget Centro
+			Interfaces: ON - Center-01
+			Gateways: ON - Center-02
+			Interface Statistics: ON - Center-03
+			Traffic Graphs: ON - Center-04
+			Service Status: ON - Center-05
+		#Configuração dos Widget Lado Direito
+			NTP Status: ON - Right-01
+			Dynamic DNS Status: ON - Right-02
+			IPSec: ON - Right-03
+			OpenVPN: ON - Right-04
+			Firewall Logs: ON - Right-05
+				Edit
+				Widget: Firewall Logs 
+				Number of entries: 15
+				Filter actions: ON Pass, ON Block and ON Reject
+				Filter interface: ALL 
+				Update interval: 1 Seconds
+				Save
+Save

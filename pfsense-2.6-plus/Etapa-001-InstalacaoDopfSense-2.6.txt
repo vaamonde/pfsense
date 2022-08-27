@@ -48,30 +48,30 @@ Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualB
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 01. Ferramentas;
-	Novo
+		Novo
 02. Nome e Sistema Operacional:
-	Nome: pfSense
-	Pasta da Máquina: (deixar o padrão do sistema) 
-	Tipo: BSD
-	Versão: FreeBSD (64-bit)
-	<Próximo>
+		Nome: pfSense
+		Pasta da Máquina: (deixar o padrão do sistema) 
+		Tipo: BSD
+		Versão: FreeBSD (64-bit)
+		<Próximo>
 03. Tamanho da memória:
-	Tamanho: 1024MB
-	<Próximo>
+		Tamanho: 1024MB
+		<Próximo>
 04. Disco Rígido:
-	Criar um novo disco rígido virtual agora
-	<Criar>
+		Criar um novo disco rígido virtual agora
+		<Criar>
 05. Tipo de arquivo de disco rígido
-	VDI (VirtualBOX Disk Image)
-	<Próximo>
+		VDI (VirtualBOX Disk Image)
+		<Próximo>
 06. Armazenamento em disco rígido físico
-	Dinamicamente alocado
-	<Próximo>
+		Dinamicamente alocado
+		<Próximo>
 07. Localização e tamanho do arquivo
-	Localização: (deixar o padrão do sistema)
-	Tamanho do disco: 16GB
-	<Criar>
-04. Configurações da Máquina Virtual pfSense (Propriedades/Configurações)
+		Localização: (deixar o padrão do sistema)
+		Tamanho do disco: 16GB
+		<Criar>
+08. Configurações da Máquina Virtual pfSense (Propriedades/Configurações)
 	Sistema
 		Processador
 			Processadores: 02 CPUs
@@ -99,44 +99,46 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 
 01. VM pfSense: Iniciar
 02. Selecione o disco rígido de boot
-	Selecionar um arquivo de disco óptico virtual
+		Selecionar um arquivo de disco óptico virtual
 03. Seletor de Discos Ópticos
-	Acrescentar
-	Selecione o arquivo de disco óptico virtual: pfSense-CE-2.6.0-RELEASE-amd64.iso
-	<Abrir>
+		Acrescentar
+		Selecione o arquivo de disco óptico virtual: pfSense-CE-2.6.0-RELEASE-amd64.iso
+		<Abrir>
 04. Not Attached
-	Selecionar: pfSense-CE-2.6.0-RELEASE-amd64.iso
-	<Escolher>
+		Selecionar: pfSense-CE-2.6.0-RELEASE-amd64.iso
+		<Escolher>
 <Iniciar>
 
 01. Copyright and distribution notice: 
-	Accept - <Enter>
+		Accept - <Enter>
 02. Welcome to pfSense!
-	Install (Install pfSense) - <Enter>
+		Install (Install pfSense) - <Enter>
 03. Keymap Selection
-	Brazilian (accent keys) - <Enter>
-	Continue with br.kdb keymap - <Enter>
+		Brazilian (accent keys) - <Enter>
+		Continue with br.kdb keymap - <Enter>
 04. Partitioning
-	Auto (ZFS) Guided Root-on-ZFS - <Enter>
-	04.1 Configure Options:
-		>>> Install (Proceed with Installation) - <Enter>
-		T Pool Type/Disks:		stripe: 0 disks
-		- Rescan Devices		*
-		- Disk Info 			*
-		N Pool Name				pfsense
-		4 Force 4K Sectores?	YES
-		E Encrypt Disks?		NO
-		P Partition Scheme		GPT (BIOS)
-		S Swap Size				1g
-		M Mirror Swap?			NO
-		W Encrypt Swap?			NO
-	04.2 Select Virtual Device type:
-		stripe Stripe - No Redundancy <Enter>
-	04.3 Hard Disk Selection
-		[*] ada0 VBOX HARDDISK - <Space-Bar> - <Enter>
-	04.4 Last Chance! - <Yes> - <Enter>
-05. Manual Configuration: <No> - <Enter>
-06. Complete: <Reboot> - <Enter>
+		Auto (ZFS) Guided Root-on-ZFS - <Enter>
+			04.1 Configure Options:
+				>>> Install (Proceed with Installation) - <Enter>
+				T Pool Type/Disks:		stripe: 0 disks
+				- Rescan Devices		*
+				- Disk Info 			*
+				N Pool Name				pfsense
+				4 Force 4K Sectores?	YES
+				E Encrypt Disks?		NO
+				P Partition Scheme		GPT (BIOS)
+				S Swap Size				1g
+				M Mirror Swap?			NO
+				W Encrypt Swap?			NO
+			04.2 Select Virtual Device type:
+				stripe Stripe - No Redundancy <Enter>
+			04.3 Hard Disk Selection
+				[*] ada0 VBOX HARDDISK - <Space-Bar> - <Enter>
+			04.4 Last Chance! - <Yes> - <Enter>
+05. Manual Configuration:
+		<No> - <Enter>
+06. Complete: 
+		<Reboot> - <Enter>
 
 Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado 
 no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
