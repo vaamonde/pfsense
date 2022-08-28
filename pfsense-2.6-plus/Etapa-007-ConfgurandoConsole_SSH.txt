@@ -61,19 +61,19 @@ System
 	Save
 
 Quarta etapa: Acessando remotamente o pfSense utilizando o Protocolo SSH
-Terminal
+Terminal (Ctrl + Alt + T)
 	ssh admin@172.16.1.254
 		Are you sure want to continue connecting? (yes)
 		Password: pti@2018
 	0) Logout (SSH only)
 
 Quinta etapa: Instalando os software PuTTY e FileZilla para gerenciar o pfSense
-Terminal 
+Terminal (Ctrl + Alt + T)
 	sudo apt update
 	sudo apt install putty putty-tools filezilla minicom
 
 Sexta etapa: Geração da Chave Pública do SSH para autenticação do pfSense
-Terminal
+Terminal (Ctrl + Alt + T)
 	ssh-keygen
 		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): <Enter>
 		Enter passphrase (empty for no passphrase): <Enter>
@@ -109,5 +109,6 @@ Menu
 	Usuários e Grupos
 		Usuários
 			Adicionar o usuário aos Grupos: tty e dialout
-				#opção do comando usermod: -a (append), -G (groups)
-				sudo usermod -a -G tty dialout vaamonde 
+				Terminal (Ctrl + Alt + T)
+					#opção do comando usermod: -a (append), -G (groups)
+					sudo usermod -a -G tty dialout vaamonde
