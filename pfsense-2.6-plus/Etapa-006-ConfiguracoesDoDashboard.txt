@@ -53,35 +53,36 @@ System
 Terceira etapa: Configuração do Dashboard do pfSense
 Dashboard
 	Available Widgets
+		
 		#Configuração dos Widgets Lado Esquerdo
-				New pictures: image.png
-				(OBSERVAÇÃO: Caso a imagem não seja compatível, um erro de restaure será apresentado)
-				Save
-			System Information: ON - Left-02
-			Disks: ON - Left-03
-			ZFS: ON - Left-04
+		New pictures: image.png
+			(OBSERVAÇÃO: Caso a imagem não seja compatível, um erro de restaure será apresentado)
+			Save
+		System Information: ON - Left-02
+		Disks: ON - Left-03
+		ZFS: ON - Left-04
 		
 		#Configuração dos Widgets Centro
-			Interfaces: ON - Center-01
-			Gateways: ON - Center-02
-				Edit
-					Display: Both
-					Save
-			Interface Statistics: ON - Center-03
-			Traffic Graphs: ON - Center-04
-			Service Status: ON - Center-05
+		Interfaces: ON - Center-01
+		Gateways: ON - Center-02
+			Edit
+				Display: Both
+				Save
+		Interface Statistics: ON - Center-03
+		Traffic Graphs: ON - Center-04
+		Service Status: ON - Center-05
 		
 		#Configuração dos Widgets Lado Direito
-			NTP Status: ON - Right-01
-			Dynamic DNS Status: ON - Right-02
-			IPSec: ON - Right-03
-			OpenVPN: ON - Right-04
-			Firewall Logs: ON - Right-05
-				Edit
-					Widget: Firewall Logs 
-					Number of entries: 20
-					Filter actions: ON Pass, ON Block and ON Reject
-					Filter interface: ALL 
-					Update interval: 1 Seconds
-					Save
+		NTP Status: ON - Right-01
+		Dynamic DNS Status: ON - Right-02
+		IPSec: ON - Right-03
+		OpenVPN: ON - Right-04
+		Firewall Logs: ON - Right-05
+			Edit
+				Widget: Firewall Logs 
+				Number of entries: 20
+				Filter actions: ON Pass, ON Block and ON Reject
+				Filter interface: ALL 
+				Update interval: 1 Seconds
+				Save
 Save
