@@ -1,0 +1,113 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 23/01/2021
+Data de atualização: 27/08/2022
+Versão: 0.10
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Configuração do Console e SSH: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+
+Primeira etapa: Configuração da Porta Serial no Oracle VirtualBOX
+Configurações
+	Portas Seriais
+		Porta 1
+			Habilitar Porta Serial (yes)
+			Número da Porta: COM3 - IRQ: 4 Endereço I/O: 0x3E8
+			Modo da Porta: Dispositivo no Hospedeiro
+			Caminho/Endereço: /dev/ttyS0
+
+Segunda etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
+System
+	Advanced
+		Secure Shell
+			Secure Shell Server: ON
+			SSHd Key Only: Require Both Password and Public Key
+			Allow Agent Forwarding: OFF
+			SSH port: 22
+		Login Protection
+			Threshold: 30
+			Blocktime: 120
+			Detection time: 1800
+			Pass list (Whitelist): (default)
+		Console Options
+			Console menu: ON
+	Save
+
+Terceira etapa: Configuração da Porta Serial (Console) do pfSense
+System
+	Advanced
+		Serial Communication
+			Serial Terminal: ON
+			Serial Speed: 115200
+			Primary Console: Serial Console
+		Console Options
+			Console menu: ON
+	Save
+
+Quarta etapa: Acessando remotamente o pfSense utilizando o Protocolo SSH
+Terminal
+	ssh admin@172.16.1.254
+		Are you sure want to continue connecting? (yes)
+		Password: pti@2018
+	0) Logout (SSH only)
+
+Quinta etapa: Instalando os software PuTTY e FileZilla para gerenciar o pfSense
+Terminal 
+	sudo apt update
+	sudo apt install putty putty-tools filezilla minicom
+
+Sexta etapa: Geração da Chave Pública do SSH para autenticação do pfSense
+Terminal
+	ssh-keygen
+		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): <Enter>
+		Enter passphrase (empty for no passphrase): <Enter>
+		Enter same passphrase again: <Enter>
+
+	Localização padrão das Chaves Públicas e Privadas do SSH
+	cd /home/vaamonde/.ssh/
+		ls -lh
+
+	Verificando o conteúdo da Chave Pública do SSH
+	cat id_rsa.pub
+
+Sétima etapa: Configuração da Chave Pública do SSH no usuário Admin do pfSense
+System
+	User Manager
+		Users
+			Admin 
+				Edit Users
+					Keys
+						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
+				Save
+
+Oitava etapa: Verificando o acesso via SSH do pfSense
+Status
+	System Logs
+		Geral
+			Advanced Log Filter
+				Process: sshd 
+			Apply Filter
+
+Nona etapa: Configuração do usuário do Linux Mint para ter acesso a Porta Console
+Menu
+	Usuários e Grupos
+		Usuários
+			Adicionar o usuário aos Grupos: tty e dialout
+				#opção do comando usermod: -a (append), -G (groups)
+				sudo usermod -a -G tty dialout vaamonde 
