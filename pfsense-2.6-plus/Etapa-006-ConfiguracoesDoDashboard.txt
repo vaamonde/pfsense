@@ -53,7 +53,6 @@ System
 Terceira etapa: Configuração do Dashboard do pfSense
 Dashboard
 	Available Widgets
-		
 		#Configuração dos Widgets Lado Esquerdo
 		New pictures: image.png
 			(OBSERVAÇÃO: Caso a imagem não seja compatível, um erro de restaure será apresentado)
@@ -67,7 +66,7 @@ Dashboard
 		Gateways: ON - Center-02
 			Edit
 				Display: Both
-				Save
+			Save
 		Interface Statistics: ON - Center-03
 		Traffic Graphs: ON - Center-04
 		Service Status: ON - Center-05
@@ -84,5 +83,5 @@ Dashboard
 				Filter actions: ON Pass, ON Block and ON Reject
 				Filter interface: ALL 
 				Update interval: 1 Seconds
-				Save
-Save
+			Save
+	Save
