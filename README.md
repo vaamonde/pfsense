@@ -114,7 +114,7 @@ Link da vídeo aula:
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-007-ConfgurandoConsole_SSH.txt
 
 
-## **COMO CONFIGURAR a Unidade Certificadora CA e Certificado no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR a Unidade Certificadora CA e o Certificado HTTPS no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar uma CA (Certification Authority - Autoridade de Certificação) e a geração do Certificado Assinado do pfSENSE PLUS+ 22.05 que possibilita a configuração do Protocolo HTTPS (Hyper Text Transfer Protocol Secure) no acesso remoto via WebConfigurator.
 
@@ -124,4 +124,4 @@ Toda a administração e configuração dopfSENSE PLUS+ 22.05 é feita utilizand
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-008-ConfigurandoCA-Certificado.txt
