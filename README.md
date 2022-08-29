@@ -101,7 +101,7 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-006-ConfiguracoesDoDashboard.txt
 
-## **COMO CONFIGURAR o Acesso Seguro do SSH e Console do pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR o Acesso Seguro via SSH e Console do pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e porta Console do pfSENSE PLUS+ 22.05.
 
@@ -112,3 +112,16 @@ Toda a administração e configuração do pfSENSE PLUS+ 22.05 será feita utili
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-007-ConfgurandoConsole_SSH.txt
+
+
+## **COMO CONFIGURAR a Unidade Certificadora CA e Certificado no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar uma CA (Certification Authority - Autoridade de Certificação) e a geração do Certificado Assinado do pfSENSE PLUS+ 22.05 que possibilita a configuração do Protocolo HTTPS (Hyper Text Transfer Protocol Secure) no acesso remoto via WebConfigurator.
+
+Toda a administração e configuração dopfSENSE PLUS+ 22.05 é feita utilizando o WebGUI/WebConfigurator, para aumentar  a segurança de acesso local ou externo, é recomendado a configuração do Protocolo HTTPS utilizando um Certificado Válido/Assinado para permitir conexões seguras, para isso é necessário a criação de uma CA que vai validar o certificado e permitir o acesso remoto seguro via HTTPS.
+
+[![CA pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "CA pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: 

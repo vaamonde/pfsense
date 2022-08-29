@@ -1,0 +1,147 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 23/01/2021
+Data de atualização: 27/08/2022
+Versão: 0.10
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
+Configurando a CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+Primeira etapa: Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
+System
+	Cert. Manager
+		CAs
+			+ADD
+				Create / Edit CA
+					Descriptive name: BoraParaPratica
+					Method: Create an internal Certificate Authority
+					Trust Store: (default)
+					Randomize Serial: (default)
+				Internal Certificate Authority
+					Key type: RSA
+					Key length (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: ca-pfsense
+					Country Code: BR
+					Sate or Province: Guarulhos
+					City: Sao Paulo
+					Organization: Bora para Pratica
+					Organizational Unit: Matriz Bora para Pratica
+			Save
+
+Segunda etapa: Exportando a CA do BoraParaPratica do pfSense
+System
+	Cert. Manager
+		CAs
+		BoraParaPratica
+			Export CA
+				Salvar Arquivo: BoraParaPratica.crt
+
+Terceira etapa: Configuração do Certificado SSL de Serviços do pfSense
+System
+	Cert. Manager
+		Certificates
+			+Add/Sign
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado do pfSense
+				Internal Certificate 
+					Certificate authority: BoraParaPratica
+					Key type: RSA
+					Key length: 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: ptispo01fw01.pti.intra 
+					Country Code: BR
+					State or Province: Guarulhos
+					City: Sao Paulo
+					Organization: Bora para Pratica
+					Organization Unit: Matriz de Bora para Pratica
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: 172.16.1.254 +Add
+						FQDN or Hostname: ptispo01fw01 +Add
+						FQDN or Hostname: ptispo01fw01.pti.intra
+			Save
+
+Quarta etapa: Configurando o Suporte ao HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			SSL/TLS Certificate: Certificado do pfSense
+		Save
+
+Quinta etapa: Instalação da CA nos Navegadores e Sistemas Operacional
+Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
+Firefox
+	Menu de Aplicativo
+		Preferências
+			Pesquisar em Preferências
+				Certificados
+					Ver Certificados...
+						Autoridades
+							Importar: BoraParaPratica.crt <Abrir>
+								Confiar nesta CA para identificar sites (yes)
+								Confiar nesta CA para identificar usuários de e-mail (yes)
+							<Ver>
+							<OK>
+
+Instalação do CA (Certificate Authority) no Google Chrome (Linux)
+Google Chrome
+	Digite a URL: chrome://settings/certificates
+		Autoridade
+			Importar
+				BoraParaPratica.crt <Abrir>
+					Confiar neste certificado para identificar sites (yes)
+					Confiar neste certificado para identificar usuários de e-mail (yes)
+					Confiar neste certificado para identificar fabricantes de software (yes)
+				<OK>
+	Digite a URL: chrome://restart
+
+Instalação do CA (Certificate Authority) no Windows
+BoraParaPratica.crt (clicar duas vezes em cima do certificado)
+	Abrir
+		Certificado
+			Geral
+				Instalar Certificado...
+					Assistente para Importação de Certificados
+						Máquina Local <Avançar>
+						Deseja permitir que este aplicativo faça alterações no seu dispositivo? <sim>
+						Colocar todos os certificados no repositório a seguir
+							Repositório de Certificados <Procurar>
+								Autoridades de Certificação Raiz Confiáveis <OK>
+						<Avançar>
+						<Concluir>
+						<OK>
+Pesquisa do Windows
+	Gerenciar Certificados de Computador <Sim>
+		Autoridades de Certificação Raiz Confiáveis
+			Certificados
+				internal-ca
+
+Instalação do CA (Certificate Authority) no Linux
+BoraParaPratica.crt
+		Abrir como Root 
+			Copia: BoraParaPratica.crt
+			Colar: /usr/local/share/ca-certificates
+		Terminal
+			sudo update-ca-certificates
