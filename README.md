@@ -77,7 +77,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## **COMO ATUALIZAR a versão do pfSENSE PLUS+ 22.01 para a NOVA versão PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 22.01 para a nova versão 22.05 lançada em Junho/2022
+Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 22.01 para a nova versão 22.05 lançada em Junho/2022.
 
 Novos recursos e atualizações da Versão 22.05: https://docs.netgate.com/pfsense/en/latest/releases/22-05.html
 
@@ -88,3 +88,27 @@ O software pfSense® Plus é o firewall mais confiável do mundo. O software con
 Link da vídeo aula: https://www.youtube.com/watch?v=-87sqR6csqM
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-005-AtualizandoOpfSense-Plus-22.05.txt
+
+## **COMO CONFIGURAR o Dashboard do pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar e utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do pfSENSE PLUS+ 22.05.
+
+A ferramenta de Dashboard do pfSENSE PLUS+ 22.05 permite fazer um monitoramento rápido da saúde do servidor, analisar os principais recursos e desempenho de rede, monitorar status de serviços, tráfego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
+
+[![Dashboard pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Dashboard pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-006-ConfiguracoesDoDashboard.txt
+
+## **COMO CONFIGURAR o Acesso Seguro do SSH e Console do pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e porta Console do pfSENSE PLUS+ 22.05.
+
+Toda a administração e configuração do pfSENSE PLUS+ 22.05 será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto o console é a forma mais simples e rápida de acesso ao pfSENSE PLUS+ 22.05, temos também a possibilidade de acessar o console remotamente via shell do pfSENSE PLUS+ 22.05 utilizando uma conexão segura do OpenSSH.
+
+[![Console SSH pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Console SSH pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-007-ConfgurandoConsole_SSH.txt
