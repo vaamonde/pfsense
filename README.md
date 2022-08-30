@@ -95,9 +95,9 @@ Vídeo mostrando os procedimentos básicos para configurar e utilizar o Dashboar
 
 A ferramenta de Dashboard do pfSENSE PLUS+ 22.05 permite fazer um monitoramento rápido da saúde do servidor, analisar os principais recursos e desempenho de rede, monitorar status de serviços, tráfego de rede e muito mais, facilitando bastante a analise de erros e provendo soluções rápidas.
 
-[![Dashboard pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Dashboard pfSense Plus")
+[![Dashboard pfSense Plus](http://img.youtube.com/vi/UNTJCZpN_-4/0.jpg)](https://www.youtube.com/watch?v=UNTJCZpN_-4 "Dashboard pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=UNTJCZpN_-4
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-006-ConfiguracoesDoDashboard.txt
 
