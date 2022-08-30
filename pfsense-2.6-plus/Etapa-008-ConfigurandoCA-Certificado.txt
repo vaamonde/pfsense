@@ -136,12 +136,12 @@ Pesquisa do Windows
 	Gerenciar Certificados de Computador <Sim>
 		Autoridades de Certificação Raiz Confiáveis
 			Certificados
-				internal-ca
+				ca-pfsense
 
 Instalação do CA (Certificate Authority) no Linux
 BoraParaPratica.crt
 		Abrir como Root 
-			Copia: BoraParaPratica.crt
+			Copiar: BoraParaPratica.crt
 			Colar: /usr/local/share/ca-certificates
 		Terminal
 			sudo update-ca-certificates
