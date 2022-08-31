@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 27/08/2022
-Versão: 0.10
+Data de atualização: 31/08/2022
+Versão: 0.11
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -28,9 +28,12 @@ Configurações
 	Portas Seriais
 		Porta 1
 			Habilitar Porta Serial (yes)
-			Número da Porta: COM3 - IRQ: 4 Endereço I/O: 0x3E8
-			Modo da Porta: Dispositivo no Hospedeiro
-			Caminho/Endereço: /dev/ttyS0
+			Número da Porta: COM1 - IRQ: 4 Endereço I/O: 0x3F8
+			Modo da Porta: Arquivo de Saída
+			Conectar a pipe/socket existente OFF
+			Caminho/Endereço: /tmp/pfsense
+Terminal (Ctrl+Alt+T)
+	tail -f /tmp/pfsense
 
 Segunda etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
