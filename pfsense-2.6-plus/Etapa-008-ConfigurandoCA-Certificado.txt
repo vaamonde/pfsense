@@ -79,7 +79,9 @@ System
 					Alternative Names:
 						IP Address: 172.16.1.254 +Add
 						FQDN or Hostname: ptispo01fw01 +Add
-						FQDN or Hostname: ptispo01fw01.pti.intra
+						FQDN or Hostname: ptispo01fw01.pti.intra +Add
+						FQDN or Hostname: fw.pti.intra +Add
+						FQDN or Hostname: firewall.pti.intra
 			Save
 
 Quarta etapa: Configurando o Suporte ao HTTPS do pfSense
