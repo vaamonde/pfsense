@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 31/08/2022
-Versão: 0.11
+Data de atualização: 03/09/2022
+Versão: 0.12
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -23,24 +23,12 @@ Configuração do Console e SSH: https://docs.netgate.com/pfsense/en/latest/conf
 Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
 Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 
-Primeira etapa: Configuração da Porta Serial no Oracle VirtualBOX
-Configurações
-	Portas Seriais
-		Porta 1
-			Habilitar Porta Serial (yes)
-			Número da Porta: COM1 - IRQ: 4 Endereço I/O: 0x3F8
-			Modo da Porta: Arquivo de Saída
-			Conectar a pipe/socket existente OFF
-			Caminho/Endereço: /tmp/pfsense
-Terminal (Ctrl+Alt+T)
-	tail -f /tmp/pfsense
-
-Segunda etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
+Primeira etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
 			Secure Shell Server: ON
-			SSHd Key Only: Require Both Password and Public Key
+			SSHd Key Only: Password or Public Key
 			Allow Agent Forwarding: OFF
 			SSH port: 22
 		Login Protection
@@ -48,11 +36,9 @@ System
 			Blocktime: 120
 			Detection time: 1800
 			Pass list (Whitelist): (default)
-		Console Options
-			Console menu: ON
 	Save
 
-Terceira etapa: Configuração da Porta Serial (Console) do pfSense
+Segunda etapa: Configuração da Porta Serial (Console) do pfSense
 System
 	Advanced
 		Serial Communication
@@ -63,22 +49,22 @@ System
 			Console menu: ON
 	Save
 
-Quarta etapa: Acessando remotamente o pfSense utilizando o Protocolo SSH
+Terceira etapa: Acessando remotamente o pfSense utilizando o Protocolo SSH
 Terminal (Ctrl + Alt + T)
 	ssh admin@172.16.1.254
 		Are you sure want to continue connecting? (yes)
 		Password: pti@2018
 	0) Logout (SSH only)
 
-Quinta etapa: Instalando os software PuTTY e FileZilla para gerenciar o pfSense
+Quarta etapa: Instalando os software PuTTY e FileZilla para gerenciar o pfSense
 Terminal (Ctrl + Alt + T)
 	sudo apt update
 	sudo apt install putty putty-tools filezilla minicom
 
-Sexta etapa: Geração da Chave Pública do SSH para autenticação do pfSense
+Quinta etapa: Geração da Chave Pública do SSH para autenticação do pfSense
 Terminal (Ctrl + Alt + T)
 	ssh-keygen
-		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): <Enter>
+		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/pfsense <Enter>
 		Enter passphrase (empty for no passphrase): <Enter>
 		Enter same passphrase again: <Enter>
 
@@ -87,9 +73,9 @@ Terminal (Ctrl + Alt + T)
 		ls -lh
 
 	Verificando o conteúdo da Chave Pública do SSH
-	cat id_rsa.pub
+	cat pfsense.pub
 
-Sétima etapa: Configuração da Chave Pública do SSH no usuário Admin do pfSense
+Sexta etapa: Configuração da Chave Pública do SSH no usuário Admin do pfSense
 System
 	User Manager
 		Users
@@ -99,7 +85,22 @@ System
 						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
 				Save
 
-Oitava etapa: Verificando o acesso via SSH do pfSense
+Terminal (Ctrl + Alt + T)
+	ssh admin@172.16.1.254
+	0) Logout (SSH only)
+
+System
+	Advanced
+		Secure Shell
+			SSHd Key Only: Require Both Password and Public Key
+Save
+
+Terminal (Ctrl + Alt + T)
+	ssh admin@172.16.1.254
+		Password: pti@2018
+	0) Logout (SSH only)
+
+Sétima etapa: Verificando o acesso via SSH do pfSense
 Status
 	System Logs
 		Geral
@@ -107,11 +108,23 @@ Status
 				Process: sshd 
 			Apply Filter
 
-Nona etapa: Configuração do usuário do Linux Mint para ter acesso a Porta Console
+Oitava etapa: Configuração do usuário do Linux Mint para ter acesso a Porta Console
 Menu
 	Usuários e Grupos
 		Usuários
 			Adicionar o usuário aos Grupos: tty e dialout
 				Terminal (Ctrl + Alt + T)
 					#opção do comando usermod: -a (append), -G (groups)
-					sudo usermod -a -G tty dialout vaamonde
+					sudo usermod -a -G tty dialout $USER
+
+Nona etapa: Configuração da Porta Serial no Oracle VirtualBOX
+Configurações
+	Portas Seriais
+		Porta 1
+			Habilitar Porta Serial (yes)
+			Número da Porta: COM1 - IRQ: 4 Endereço I/O: 0x3F8
+			Modo da Porta: Arquivo de Saída
+			Conectar a pipe/socket existente OFF
+			Caminho/Endereço: /tmp/pfsense
+Terminal (Ctrl+Alt+T)
+	tail -f /tmp/pfsense
