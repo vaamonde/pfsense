@@ -22,6 +22,8 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Configuração do Console e SSH: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
 Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
 Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+Log do Sistema: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+Estatus do Serviço: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
 Primeira etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
