@@ -146,4 +146,4 @@ BoraParaPratica.crt
 			Copiar: BoraParaPratica.crt
 			Colar: /usr/local/share/ca-certificates
 		Terminal
-			sudo update-ca-certificates
+			update-ca-certificates
