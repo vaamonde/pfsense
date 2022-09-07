@@ -1,0 +1,32 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 06/09/2022
+Data de atualização: 06/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+DHCP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html
+Configuração do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/services/dhcp/ipv4.html
+Status do Serviço do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/status/dhcp-ipv4.html
+Monitoramento do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/dhcp.html
+
+Primeira etapa: Configuração do Serviço do DHCP Server IPv4 do pfSense
+Services
+	DHCP Server
+		LAN
+			General Options
+				

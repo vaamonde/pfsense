@@ -31,7 +31,7 @@ System
 				Create / Edit CA
 					Descriptive name: BoraParaPratica
 					Method: Create an internal Certificate Authority
-					Trust Store: (default)
+					Trust Store: ON
 					Randomize Serial: (default)
 				Internal Certificate Authority
 					Key type: RSA
@@ -40,8 +40,8 @@ System
 					Lifetime (days): 3650
 					Common Name: ca-pfsense
 					Country Code: BR
-					Sate or Province: Guarulhos
-					City: Sao Paulo
+					Sate or Province: Sao Paulo
+					City: Guarulhos
 					Organization: Bora para Pratica
 					Organizational Unit: Matriz Bora para Pratica
 			Save
@@ -70,8 +70,8 @@ System
 					Lifetime (days): 3650
 					Common Name: ptispo01fw01.pti.intra 
 					Country Code: BR
-					State or Province: Guarulhos
-					City: Sao Paulo
+					State or Province: Sao Paulo
+					City: Guarulhos
 					Organization: Bora para Pratica
 					Organization Unit: Matriz de Bora para Pratica
 				Certificate Attributes
