@@ -47,7 +47,7 @@ Services
 			Servers
 				WINS server: 172.16.1.10
 				DNS servers: 172.16.1.254
-			OMAPI ()
+			OMAPI (Object Management Application Programming Interface)
 				OMAPI Port: (Default)
 				OMAPI Key: (Default) - Generate New Key: OFF (Default)
 				Key Algorithm: HMAC-SHA256 (current bind9 default)

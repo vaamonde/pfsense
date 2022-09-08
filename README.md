@@ -119,8 +119,8 @@ Vídeo mostrando os procedimentos básicos para configurar uma CA (Certification
 
 Toda a administração e configuração dopfSENSE PLUS+ 22.05 é feita utilizando o WebGUI/WebConfigurator, para aumentar  a segurança de acesso local ou externo, é recomendado a configuração do Protocolo HTTPS utilizando um Certificado Válido/Assinado para permitir conexões seguras, para isso é necessário a criação de uma CA que vai validar o certificado e permitir o acesso remoto seguro via HTTPS.
 
-[![CA pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "CA pfSense Plus")
+[![CA pfSense Plus](http://img.youtube.com/vi/ipZGGmEJVRg/0.jpg)](https://www.youtube.com/watch?v=ipZGGmEJVRg "CA pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=ipZGGmEJVRg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-008-ConfigurandoCA-Certificado.txt
