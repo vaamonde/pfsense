@@ -18,6 +18,8 @@ Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/re
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
 Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.htm
 
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
 Opções do Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
 
 Opções do Console do Netgate pfSense

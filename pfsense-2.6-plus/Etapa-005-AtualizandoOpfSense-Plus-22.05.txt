@@ -28,6 +28,8 @@ Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/l
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
 
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
 Guia de atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html?highlight=update
 Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
 Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui

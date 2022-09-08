@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 06/09/2022
-Versão: 0.01
+Data de atualização: 08/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -19,14 +19,99 @@ Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/re
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
 Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
 DHCP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html
 Configuração do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/services/dhcp/ipv4.html
 Status do Serviço do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/status/dhcp-ipv4.html
 Monitoramento do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/dhcp.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+Tabela ARP do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/arp.html
 
 Primeira etapa: Configuração do Serviço do DHCP Server IPv4 do pfSense
 Services
 	DHCP Server
 		LAN
 			General Options
-				
+				Enable: ON
+				BOOTP: OFF (Default)
+				Deny unknown clients: Allow all clients
+				Ignore denied clients: OFF (Default)
+				Ignore clients identifiers: OFF (Default)
+				Subnet: 172.16.1.0
+				Subnet mask: 255.255.255.0
+				Available range: 172.16.1.1 - 172.16.1.254
+				Range: From: 172.16.1.100 - To: 172.16.1.200
+			Additional Pools
+				Default
+			Servers
+				WINS server: 172.16.1.10
+				DNS servers: 172.16.1.254
+			OMAPI ()
+				OMAPI Port: (Default)
+				OMAPI Key: (Default) - Generate New Key: OFF (Default)
+				Key Algorithm: HMAC-SHA256 (current bind9 default)
+			Other Options
+				Gateway: 172.16.1.254
+				Domain name: pti.intra
+				Domain search list: pti.intra
+				Default lease time: 28800 (8 horas)
+				Maximum lease time: 43200 (12 horas)
+				Failover peer IP: Default
+				Static ARP: OFF (Default)
+				Time format change: ON
+				Statistics graphs: ON
+				Ping check: OFF (Default)
+				Dynamic DNS: Default
+				MAC address control: Default
+				NTP: Display Advanced
+					NTP Server 1: 172.16.1.254
+				TFTP Server: Default
+				LDAP: Default
+				Network Booting: Default
+				Additional BOOTP/DHCP Options: Default
+		<Save>
+
+Segunda etapa: Configuração do DHCP Client nos Desktop GNU/Linux e Microsoft Windows
+
+Linux Mint Gráfico: NetworkManager - Ícone da Placa de Rede
+
+Linux Mint Terminal: Ctrl+Alt+T
+ 	sudo NetworkManager --print-config (network management daemon)
+ 	sudo nmcli device status (command-line tool for controlling NetworkManager)
+ 	sudo nmcli device show enp0s3 (command-line tool for controlling NetworkManager)
+ 	sudo networkctl status enp0s3 (Query the status of network links)
+ 	sudo ifconfig enp0s3 (configure a network interface)
+ 	sudo ip address show enp0s3 (show / manipulate routing, network devices, interfaces and tunnels)
+ 	sudo route -n (show/manipulate IP routing table)
+ 	sudo resolvectl (Resolve domain names, IPV4 and IPv6 addresses, DNS resource records, and services)
+ 	sudo dhclient -v -r enp0s3 (Dynamic Host Configuration Protocol Client)
+ 	sudo dhclient -v enp0s3 (Dynamic Host Configuration Protocol Client)
+ 	sudo cat /var/lib/dhcp/dhclient.leases (DHCP client lease database)
+	sudo hostnamectl (Control the system hostname)	
+
+Microsoft Windows: Gerenciamento da Placa de Rede
+
+Microsoft Windows Powershell: 
+	getmac
+	ipconfig /all
+	ipconfig /release
+	ipconfig /renew
+	route print
+	netsh interface show interface
+	netsh interface ip show interface
+	netsh interface ip show config
+
+Terceira etapa: Monitoramento do DHCP Server no pfSense
+Status
+	DHCP Leases
+
+Status
+	System Logs
+		DHCP
+
+Status
+	Services
+
+Diagnostics
+	ARP Table
