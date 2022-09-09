@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 08/09/2022
-Versão: 0.02
+Data de atualização: 09/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -21,6 +21,9 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Configurações das Interfaces: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
+Configuração da Interface LAN: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
 DHCP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html
 Configuração do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/services/dhcp/ipv4.html
 Status do Serviço do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/status/dhcp-ipv4.html
@@ -28,7 +31,34 @@ Monitoramento do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/mo
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Tabela ARP do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/arp.html
 
-Primeira etapa: Configuração do Serviço do DHCP Server IPv4 do pfSense
+Primeira etapa: Configurações Gerais DHCP Server do pfSense
+System
+	General Setup
+		System
+			Hostname: ptispo01fw01
+			Domain: pti.intra
+		DNS Server Settings
+			DNS Server 01: 8.8.8.8
+			DNS Server 02: 8.8.4.4
+			DNS Server Override: OFF
+			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers
+		Localization
+			Timezone: America/Sao_Paulo
+			Timeservers: a.st1.ntp.br
+	Save
+
+Segunda etapa: Configurações da Placa de Rede LAN
+Interface
+	LAN (em1)
+		General Configuration
+			Enable: ON
+			IPv4 Configuration Type: Static IPv4
+		Static IPv4 Configuration
+			IPv4 Address: 172.16.1.254/24
+			IPv4 Upstream Gateway: None
+	Save
+
+Terceira etapa: Configuração do Serviço do DHCP Server IPv4 do pfSense
 Services
 	DHCP Server
 		LAN
@@ -70,9 +100,9 @@ Services
 				LDAP: Default
 				Network Booting: Default
 				Additional BOOTP/DHCP Options: Default
-		<Save>
+		Save
 
-Segunda etapa: Configuração do DHCP Client nos Desktop GNU/Linux e Microsoft Windows
+Quarta etapa: Configuração do DHCP Client nos Desktop GNU/Linux e Microsoft Windows
 
 Linux Mint Gráfico: NetworkManager - Ícone da Placa de Rede
 
@@ -90,7 +120,7 @@ Linux Mint Terminal: Ctrl+Alt+T
  	sudo cat /var/lib/dhcp/dhclient.leases (DHCP client lease database)
 	sudo hostnamectl (Control the system hostname)	
 
-Microsoft Windows: Gerenciamento da Placa de Rede
+Microsoft Windows: Gerenciamento da Placa de Rede - Ícone da Placa de Rede
 
 Microsoft Windows Powershell: 
 	getmac
