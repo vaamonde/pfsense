@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 16/08/2022
-Versão: 0.02
+Data de atualização: 10/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -35,9 +35,9 @@ Opções do Console do Netgate pfSense
 	9) pfTop - software de monitoramento de protocolo de conexões de rede LAN ou WAN do pfSense
 	10) Filter Logs - filtros dos logs referente as regras de Firewall de LAN ou WAN do pfSense
 	11) Restart WebConfigurator - reinicializar o WebConfigurator após uma falha de acesso via navegador
-	12) PHP Shell + pfSense tools - acesso ao PHP Shell e conjunto de ferramentas de desenvolvedor do pfSense
+	12) PHP Shell + Netgate pfSense Plus tools - acesso ao PHP Shell e conjunto de ferramentas de desenvolvedor do pfSense
 	13) Update from console - atualização do pfSense via console
-	14) Enable Secure Shell (sshd) - habilitar ou desabilitar o acesso seguro via SSH via console
+	14) Enable/Disable Secure Shell (sshd) - habilitar ou desabilitar o acesso seguro via SSH via console
 	15) Restore recent configuration - restauração da última configuração válida do pfSense via console
 	16) Restart PHP-FPM - reinicializar o serviço do PHP-FPM (FastCGI Process Manager) do WebConfigurator
 

@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 09/09/2022
-Versão: 0.04
+Data de atualização: 10/09/2022
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -108,20 +108,20 @@ Quarta etapa: Configuração do DHCP Client nos Desktop GNU/Linux e Microsoft Wi
 Linux Mint Gráfico: NetworkManager - Ícone da Placa de Rede
 
 Linux Mint Terminal: Ctrl+Alt+T
- 	sudo NetworkManager --print-config (network management daemon)
- 	sudo nmcli device status (command-line tool for controlling NetworkManager)
- 	sudo nmcli device show enp0s3 (command-line tool for controlling NetworkManager)
- 	sudo networkctl status enp0s3 (Query the status of network links)
- 	sudo ifconfig enp0s3 (configure a network interface)
- 	sudo ip address show enp0s3 (show / manipulate routing, network devices, interfaces and tunnels)
- 	sudo ip route (routing table management)
+	sudo NetworkManager --print-config (network management daemon)
+	sudo nmcli device status (command-line tool for controlling NetworkManager)
+	sudo nmcli device show enp0s3 (command-line tool for controlling NetworkManager)
+	sudo networkctl status enp0s3 (Query the status of network links)
+	sudo ifconfig enp0s3 (configure a network interface)
+	sudo ip address show enp0s3 (show / manipulate routing, network devices, interfaces and tunnels)
+	sudo ip route (routing table management)
 	sudo route -n (show/manipulate IP routing table)
- 	sudo resolvectl (Resolve domain names, IPV4 and IPv6 addresses, DNS resource records, and services)
- 	sudo dhclient -v -r enp0s3 (Dynamic Host Configuration Protocol Client)
- 	sudo dhclient -v enp0s3 (Dynamic Host Configuration Protocol Client)
- 	sudo cat /var/lib/dhcp/dhclient.leases (DHCP client lease database)
+	sudo resolvectl (Resolve domain names, IPV4 and IPv6 addresses, DNS resource records, and services)
+	sudo dhclient -v -r enp0s3 (Dynamic Host Configuration Protocol Client - v (verbose), -r (release))
+	sudo dhclient -v enp0s3 (Dynamic Host Configuration Protocol Client - v (verbose))
+	sudo cat /var/lib/dhcp/dhclient.leases (DHCP client lease database)
 	sudo hostnamectl (Control the system hostname)
-	ping 172.16.1.254
+	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)
 	ping 8.8.8.8
 	ping google.com
 
