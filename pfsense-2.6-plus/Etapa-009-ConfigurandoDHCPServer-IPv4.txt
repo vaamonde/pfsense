@@ -32,7 +32,7 @@ Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/moni
 Tabela ARP do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/arp.html
 Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
-Primeira etapa: Configurações Gerais DHCP Server do pfSense
+Primeira etapa: Configurações Gerais do DHCP Server do pfSense
 System
 	General Setup
 		System
@@ -140,7 +140,7 @@ Microsoft Windows Powershell:
 	ping 8.8.8.8
 	ping google.com
 	
-Terceira etapa: Monitoramento do DHCP Server no pfSense
+Quinta etapa: Monitoramento do DHCP Server no pfSense
 Status
 	DHCP Leases
 

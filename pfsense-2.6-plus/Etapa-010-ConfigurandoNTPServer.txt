@@ -1,0 +1,165 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 11/09/2022
+Data de atualização: 11/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Site Oficial do NTP Server do Brasil: https://ntp.br/
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+NTP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/index.html
+Configuração do NTP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/server.html
+Configuração do Serial GPS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/gps.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+Log dos Ser do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
+Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+
+Primeira etapa: Configurações Gerais do NTP Server do pfSense
+System
+	General Setup
+		Localization
+			Timezone: America/Sao_Paulo
+			Timeservers: a.st1.ntp.br
+	Save
+
+Segunda etapa: Configuração do NTP Server do pfSense
+Services
+	NTP
+		Settings
+			NTP Server configuration
+				Enable: ON
+				Interface (Ctrl): LAN and Localhost
+				Time Servers: a.st1.ntp.br - Prefer: ON - No Select: OFF - Type: Server 
+				Time Servers: a.ntp.br - Prefer: ON - No Select: OFF - Type: Server
+				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server
+				Max candidate pool peers: Default
+				Orphan Mode: 12 (Default)
+				Minimum Poll Interval: Default
+				Maximum Poll Interval: Default
+				NTP Graphs: ON
+				Logging: Log peer messages: ON - Log system messages: ON
+				Statistics Logging: Display Advanced
+					Log reference clock statistics: ON
+					Log clock discipline statistics: ON
+					Log NTP peer statistics: ON
+				Leap seconds: Default
+				DNS Resolution: Auto
+				Enable NTP Server Authentication: OFF
+		Save
+		
+		ACLs
+			Default Access Restrictions
+				Kiss-o'-death: ON
+				Modifications: ON
+				Queries: OFF
+				Service: OFF
+				Peer Association: ON
+				Trap Service: ON
+			Custom Access Restrictions
+				Network: Default
+		Save
+
+		Serial GPS
+			NTP Serial GPS Configuration
+				GPS Type: Default
+				Serial Port: None (Default) - 4800 (Default) - Check baud rate: OFF (Default)
+				NMEA Sentences: All (Default)
+				Fudge Time 1: 0.155 (Default)
+				Fudge Time 2: 0 (Default)
+				Stratum (0 - 16): Default
+				Minimum Poll Interval: Default
+				Maximum Poll Interval: Default
+				Flags:
+					Prefer this clock: ON
+					Do not use this clock, display for reference only: OFF
+					Enable PPS signal processing: ON
+					Enable falling edge PPS signal processing: OFF
+					Enable kernel PPS clock discipline: ON
+					Obscure location in timestamp: OFF
+					Log the sub-second fraction of the received time stamp: OFF
+					Display extended GPS status: OFF
+				Clock ID: Default
+				GPS Initialization: Default
+		Save
+
+		PPS
+			NTP Serial PPS Configuration
+				Serial Port: None (Default)
+				Fudge Time: 0 (Default)
+				Stratum: 0 (Default)
+				Minimum Poll Interval: Default
+				Maximum Poll Interval: Default
+				Flags:
+					Enable falling edge PPS signal processing: OFF
+					Enable kernel PPS clock discipline: OFF
+					Record a timestamp once for each second, useful for construction Allan deviation plots: OFF
+				Clock ID: Default
+		Save
+
+Terceira etapa: Configuração do NTP Client nos Desktop GNU/Linux e Microsoft Windows
+
+Linux Mint Terminal: Ctrl+Alt+T
+	sudo apt install ntpdate ntpstat vim
+ 	sudo ntpdate -s 172.16.1.254 (set the date and time via NTP)
+	sudo ntpdate -dquv 172.16.1.254 (update date and time via NTP)
+	sudo ntpq -pn (standard NTP query program)
+	sudo ntpq -c sysinfo (standard NTP query program)
+	sudo vim /etc/systemd/timesyncd.conf (Network Time Synchronization configuration files)
+		[Time]
+		NTP=172.16.1.254
+	sudo systemctl restart systemd-timesyncd (Daemon for synchronizing the system clock across the network)
+	sudo timedatectl (Control the system time and date)
+	sudo timedatectl show (Control the system time and date)
+	sudo timedatectl set-ntp true (Controls whether network time synchronization is active and enabled)
+	sudo timedatectl status (Show current settings of the system clock and RTC)
+	sudo timedatectl timesync-status (Show current status)
+	sudo timedatectl show-timesync (Show the same information as timesync-status)
+	sudo date (print or set the system date and time)
+	sudo hwclock (time clocks utility)
+
+Ambiente Gráfico do Windows: 
+	Painel de Controle, Relógio e Região, Data e Hora, Horário de Internet
+		Alterar Configurações
+			Servidor: 172.16.1.254 <Atualizar Agora>
+
+Microsoft Windows Powershell:
+	date
+	time (somente no CMD - PowerShell não funciona)
+	net time \\172.16.1.254 /set /yes (funciona somente com Controlador de Domínio NetBIOS/SMB)
+	w32tm /query /status
+	w32tm /query /configuration
+	w32tm /config /syncfromflags:manual /manualpeerlist:”172.16.1.254” /reliable:yes /update
+
+Quarta etapa: Monitoramento do DHCP Server no pfSense
+Status
+	NTP
+
+Status
+	System Logs
+		NTP
+
+Status
+	Services
+
+Status
+	Monitoring
+		Default
+			Settings
+				Left Axis: Category: NTP - Graph: NTP
+		Update Graphs
