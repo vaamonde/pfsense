@@ -1,0 +1,171 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 11/09/2022
+Data de atualização: 11/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configurações Avançadas do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/resolver.html
+Configuração das Proteções de religação de DNS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/rebinding.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
+Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+
+Primeira etapa: Configurações Gerais do DNS Resolver do pfSense
+System
+	General Setup
+		System
+			Hostname: ptispo01fw01
+			Domain: pti.intra
+		DNS Server Settings
+			DNS Server 01: 8.8.8.8
+			DNS Server 02: 8.8.4.4
+			DNS Server Override: OFF
+			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers
+	Save
+
+Segunda etapa: Configuração do DNS Resolver do pfSense
+Service
+	DNS Resolver
+		General Settings
+			General DNS Resolver Options
+				Enable: ON
+				Listen Port: 53 (Default)
+				Enable SSL/TLS Service: OFF
+				SSL/TLS Certificate: Default
+				SSL/TLS Listen Port: 853 (Default)
+				Network Interfaces: (Ctrl)
+					LAN
+					LAN IPv6 Link-Local
+					Localhost
+				Outgoing Network Interface
+					WAN
+					WAN IPv6 Link-Local
+					Localhost
+				Strict Outgoing Network Interface Binding: OFF
+				System Domain Local Zone Type: Transparent (Default)
+				DNSSEC: ON
+				Python Module: OFF
+				DNS Query Forwarding: OFF
+				DHCP Registration: ON
+				Static DHCP: ON
+				OpenVPN Clients: OFF
+				Display Custom Options: Default
+		Save
+		Apply Changes
+
+		Host Overrides: +ADD
+			Host Override Options
+				Host: ptispo01fw01
+				Domain: pti.intra
+				IP Address: 172.16.1.254
+				Description: Servidor de Firewall pfSense
+			Additional Names for this Host
+				Hostname: firewall - Domain: pti.intra - Description: CNAME do pfSense - +Add Host Name
+				Hostname: fw - Domain: pti.intra - Description: CNAME do pfSense
+		Save
+		Apply Changes
+
+		Domain Override: +ADD
+			Domains to Override with Custom Lookup Servers
+				Domain: pti.intra
+				IP Address: 172.16.1.254
+				TLS Queries: OFF
+				TLS Hostname: Default
+				Description: Dominio pti.intra no pfSense
+		Save
+		Apply Changes
+
+		Advanced Settings
+			Advanced Privacy Options
+				Hide Identify: ON
+				Hide Version: ON
+				Query Name Minimization: OFF
+				Strict Query Name Minimization: OFF
+			Advanced Resolver Options
+				Prefetch Support: OFF
+				Prefetch DNS Key Support: OFF
+				Harden DNSSEC Data: ON
+				Server Expired: OFF
+				Aggressive NSEC: OFF
+				Message Cache Size: 4MB (Default)
+				Outgoing TCP Buffers: 10 (Default)
+				Incoming TCP Buffers: 10 (Default)
+				EDNS Buffer Size: Automatic value based on active interface MTUs (Default)
+				Number of Queries per Thread: 512 (Default)
+				Jostle Timeout: 200 (Default)
+				Maximum TTL for RRsets and Messages: 86400 (Default)
+				Minimum TTL for RRsets and Messages: 0 (Default)
+				Keep Probing: ON
+				TTL for Host Cache Entries: 15 minutes (Default)
+				Number of Hosts to Cache: 10000 (Default)
+				Unwanted Reply Threshold: Disable (Default)
+				Log Level: Level 1: Base operational information (Default)
+				Disable Auto-added Access Control: OFF
+				Disable Auto-added Host Entries: OFF
+				Experimental Bit 0x20 Support: OFF
+				DNS64 Support: OFF
+		Save
+		Apply Changes
+
+		Access Lists
+			Default
+
+Terceira etapa: Configuração do DNS Client nos Desktop GNU/Linux e Microsoft Windows
+
+Linux Mint Terminal: Ctrl+Alt+T
+	nslookup ptispo01fw01 (query Internet name servers interactively)
+		nslookup ptispo01fw01.pti.intra
+		nslookup firewall.pti.intra
+		nslookup fw.pti.intra
+		nslookup 172.16.1.254
+	dig pti.intra (DNS lookup utility)
+	host ptispo01fw01 (DNS lookup utility)
+	ping ptispo01fw01 (send ICMP ECHO_REQUEST to network hosts)
+
+Microsoft Windows Powershell:
+	nslookup 172.16.1.20
+	nslookup ptispo01fw01
+	nslookup ptispo01fw01.pti.intra
+	ipconfig /displaydns
+	ping ptispo01fw01
+	Resolve-DnsName ptispo01fw01.pti.intra
+	Test-Connection ptispo01fw01.pti.intra
+
+Quarta etapa: Configuração das Proteções de Religação do DNS
+System
+	Advanced
+		Alternate Hostnames: firewall.pti.intra fw.pti.intra
+	Save
+
+Quarta etapa: Monitoramento do DNS Resolver no pfSense
+Status
+	DNS Resolver
+
+Status
+	System Logs
+		DNS Resolver
+
+Status
+	Services
+		unbound: DNS Resolver
+
+Diagnostics
+	DNS Lookup

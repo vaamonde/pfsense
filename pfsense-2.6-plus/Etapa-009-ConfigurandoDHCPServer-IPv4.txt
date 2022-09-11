@@ -150,6 +150,7 @@ Status
 
 Status
 	Services
+		dhcpd: DHCP Service 
 
 Status
 	Monitoring

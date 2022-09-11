@@ -26,7 +26,7 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/pfsense/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/pfsense?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.4.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
+Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.6.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
@@ -125,15 +125,42 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ipZGGmEJVRg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-008-ConfigurandoCA-Certificado.txt
 
-
 ## **COMO CONFIGURAR o DHCP Server IPv4 no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar o DHCP (Dynamic Host Configuration Protocol) IPv4 no pfSENSE PLUS+ 22.05.
 
 O DHCP Server IPv4 do pfSense Plus+ permite que um dispositivo aloque dinamicamente endereços IP para clientes de um conjunto predefinido de endereços. O DHCP também envia informações de configuração para clientes, como gateway, servidores DNS, nome de domínio e outras configurações úteis.
 
-[![CA pfSense Plus](http://img.youtube.com/vi/wlEZYq1Pq6Y/0.jpg)](https://www.youtube.com/watch?v=wlEZYq1Pq6Y "CA pfSense Plus")
+[![DHCP-IPv4 pfSense Plus](http://img.youtube.com/vi/wlEZYq1Pq6Y/0.jpg)](https://www.youtube.com/watch?v=wlEZYq1Pq6Y "DHCP-IPv4 pfSense Plus")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=wlEZYq1Pq6Y
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-009-ConfigurandoDHCPServer-IPv4.txt
+
+## **COMO CONFIGURAR o NTP Server e Client no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o NTP (Network Time Protocol) Server e Client no pfSENSE PLUS+ 22.05.
+
+O NTP é um protocolo para sincronização dos relógios dos computadores baseado no protocolo UDP sob a porta 123. É utilizado para sincronização do relógio de um conjunto de computadores e dispositivos em redes de dados com latência variável. 
+
+O projeto NTP.br tem por objetivo oferecer condições para que os servidores de Internet no Brasil estejam sincronizados com a Horal Legal Brasileira. Para isso foi firmado um acordo entre o Observatório Nacional (ON) e o NIC.br. 
+
+[![NTP pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTP pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-010-ConfigurandoNTPServer.txt
+
+## **COMO CONFIGURAR o DNS Resolver e Client no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o DNS (Network Time Protocol) Resolver e Client no pfSENSE PLUS+ 22.05.
+
+O DNS Resolver no software pfSense® utiliza unbound, que é um resolvedor de DNS de validação, recursivo e com cache que suporta DNSSEC, DNS sobre TLS e uma ampla variedade de opções. Ele pode atuar em uma função de resolvedor de DNS ou encaminhador.
+
+No modo de resolução (padrão), o DNS Resolver contata os servidores DNS raiz e outros servidores autorizados diretamente em busca de respostas às consultas enviadas pelos clientes. Isso elimina problemas normalmente encontrados por usuários com configuração de DNS local ausente ou incorreta, pois não requer o encaminhamento de servidores DNS para operar. O modo de resolução também permite o uso de Extensões de Segurança do Sistema de Nomes de Domínio (DNSSEC), o que torna os resultados do DNS mais confiáveis ​​e verificáveis.
+
+[![DNS pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "DNS pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-011-ConfigurandoDNSResolver.txt

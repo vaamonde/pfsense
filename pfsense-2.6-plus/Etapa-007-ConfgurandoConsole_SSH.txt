@@ -97,20 +97,24 @@ System
 	Advanced
 		Secure Shell
 			SSHd Key Only: Require Both Password and Public Key
-Save
+	Save
 
 Terminal (Ctrl + Alt + T)
 	ssh admin@172.16.1.254
 		Password: pti@2018
 	0) Logout (SSH only)
 
-Sétima etapa: Verificando o acesso via SSH do pfSense
+Sétima etapa: Monitoramento do SSH Server no pfSense
 Status
 	System Logs
 		Geral
 			Advanced Log Filter
 				Process: sshd 
 			Apply Filter
+
+Status
+	Services
+		sshd: Secure Shell Daemon
 
 Oitava etapa: Configuração do usuário do Linux Mint para ter acesso a Porta Console
 Menu
