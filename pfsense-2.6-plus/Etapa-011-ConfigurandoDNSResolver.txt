@@ -26,7 +26,7 @@ Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/
 Configuração das Proteções de religação de DNS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/rebinding.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
-Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
 Primeira etapa: Configurações Gerais do DNS Resolver do pfSense
 System

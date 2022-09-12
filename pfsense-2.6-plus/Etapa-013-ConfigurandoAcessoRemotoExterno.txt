@@ -1,0 +1,130 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 12/09/2022
+Data de atualização: 12/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+Permitindo acesso remoto ao WebGUI do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/remote-firewall-administration.html
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
+Gerenciamento e autenticação dos Usuários e Grupos do pfSense: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
+Configuração do Console e SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+
+Primeira etapa: Alterando a Porta Padrão do Protocolo HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			Port: 10443
+	Save
+
+Segunda etapa: Alterando a Porta Padrão do Protocolo SSH do pfSense
+System
+	Advanced
+		Secure Shell
+			SSH port: 10222
+	Save
+
+Terceira etapa: Configurando a Liberação do Protocolo ICMP (Internet Control Message Protocol) na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: ICMP
+					ICMP Subtypes:
+						Echo Reply
+						Echo Request
+				Source
+					Source: any
+				Destination
+					Destination: WAN Address
+				Extra Options
+					Log: ON 
+					Description: Liberação do Protocolo ICMP na Interface WAN
+			Save
+		Apply Changes
+
+Quarta etapa: Configurando a Liberação do Protocolo HTTPS (Hyper Text Transfer Protocol Secure) na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+				Source
+					Source: any
+					Advanced: Default
+				Destination
+					Destination: WAN Address
+					Destination Port Range: From: 10443 To: 10443
+				Extra Options
+					Log: ON 
+					Description: Liberação do Protocolo HTTPS do WebGUI do pfSense
+			Save
+		Apply Changes
+
+Quinta etapa: Configurando a Liberação do Protocolo SSH (Secure Shell) na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+				Source
+					Source: any
+					Advanced: Default
+				Destination
+					Destination: WAN Address
+					Destination Port Range: From: 10222 To: 10222
+				Extra Options
+					Log: ON 
+					Description: Liberação do Protocolo SSH do Console do pfSense
+			Save
+		Apply Changes
+
+Sexta etapa: Configuração do Separador de Regras de Firewall
++ Separator
+	Liberação do Acesso Remoto ao WebGui, SSH e Console do pfSense
+Save
+
+Sexta etapa: Testando o acesso remoto ao pfSense
+	Navegador: https://Endereço_IPv4_WAN:10443
+	SSH: ssh -p 10222 usuário@Endereço_IPv4_WAN

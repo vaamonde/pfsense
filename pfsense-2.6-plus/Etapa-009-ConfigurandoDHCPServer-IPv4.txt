@@ -22,15 +22,15 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
-Configurações das Interfaces: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
-Configuração da Interface LAN: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
+Configurações das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
+Configuração da Interface LAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
 DHCP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dhcp/index.html
-Configuração do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/services/dhcp/ipv4.html
-Status do Serviço do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/status/dhcp-ipv4.html
-Monitoramento do DHCP Server IPv4: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/dhcp.html
+Configuração do DHCP Server IPv4 do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dhcp/ipv4.html
+Status do Serviço do DHCP Server IPv4 do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/dhcp-ipv4.html
+Monitoramento do DHCP Server IPv4 do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/dhcp.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Tabela ARP do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/arp.html
-Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
 Primeira etapa: Configurações Gerais do DHCP Server do pfSense
 System

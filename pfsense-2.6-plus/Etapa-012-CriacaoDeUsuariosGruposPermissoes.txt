@@ -1,0 +1,198 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 12/09/2022
+Data de atualização: 12/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Gerenciamento e autenticação dos Usuários e Grupos do pfSense: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
+Gerenciador de pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/manager.html
+Pacote Sudo do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/sudo.html
+Configuração do Console e SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+
+Primeira etapa: Criação dos Grupos do pfSense
+System
+	User Manager
+		Groups
+			+ADD
+				Group Properties
+					Group name: boraparapratica
+					Scope: Local
+					Description: Grupo de Usuários Admin do pfSense
+					Group membership: Default
+			Save
+			
+			+ADD
+				Group Properties
+					Group name: openvpn
+					Scope: Local
+					Description: Grupo de Usuários do OpenVPN do pfSense
+					Group membership: Default
+			Save
+
+Segunda etapa: Criação dos Usuários do pfSense
+System
+	User Manager
+		Users
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: vaamonde
+					Password: pti@2018
+					Confirm Password: pti@2018
+					Full name: Robson Vaamonde
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: boraparapratica
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			Save
+			
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: openvpn
+					Password: pti@2018
+					Confirm Password: pti@2018
+					Full name: Usuário OpenVPN
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: openvpn
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			Save
+
+Terceira etapa: Configuração dos Privilégios Atribuídos dos Grupos e Usuários do pfSense
+System
+	User Manager
+		Groups
+			BoraParaPratica
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									WebCfg - All pages
+							Save
+				Save
+			
+			OpenVPN
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									 Filter: OpenVPN <Filter>
+									 WebCfg - OpenVPN: Client Specific Override
+									 WebCfg - OpenVPN: Client Specific Override Edit Advanced
+									 WebCfg - OpenVPN: Clients
+									 WebCfg - OpenVPN: Clients Edit Advanced
+									 WebCfg - Status: OpenVPN
+									 WebCfg - Status: System Logs: OpenVPN
+							Save
+				Save
+
+System
+	User Manager
+		Users
+			vaamonde
+				Edit User
+					Effective Privileges
+						+ADD
+							User - System: Copy files (scp)
+							User - System: Copy files to home directory (chrooted scp)
+							User - System: Shell account access
+						Save
+				Save
+
+Quarta etapa: Configuração dos Grupos e Usuários do pfSense com direito ao SUDO
+System
+	Packages Manager
+		Available Packages
+			Search
+				Search term: sudo <Search>
+			+Install
+		 Confirmation Required to install package pfSense-pkg-sudo. 
+		 	<Confirm>
+
+System
+	sudo
+		User Privileges
+			+ADD
+				Group: BoraParaPratica - User: root - Command List: ALL
+				User: vaamonde         - User: root - Command List: ALL
+		Save
+
+Quinta etapa: Desabilitando o usuário padrão: admin do pfSense
+System
+	User Manager
+		Users
+			admin: 
+				Edit User
+					User Properties
+						Disabled: ON
+				Save
+
+Sexta etapa: Testando a autenticando do usuário: vaamonde no Console do pfSense
+Login: vaamonde
+Password: pti@2018
+	Executando o script do console: sudo /etc/./rc.initial
+		Password: pti@2018
+	Criando o script de inicialização: echo "sudo /etc/./rc.initial" > .login
+
+Sétima etapa: Geração da Chave Pública do SSH para autenticação do SSH no pfSense
+Terminal (Ctrl + Alt + T)
+	ssh-keygen
+		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/vaamonde <Enter>
+		Enter passphrase (empty for no passphrase): <Enter>
+		Enter same passphrase again: <Enter>
+
+	Localização padrão das Chaves Públicas e Privadas do SSH
+	cd /home/vaamonde/.ssh/
+		ls -lh
+
+	Verificando o conteúdo da Chave Pública do SSH
+	cat vaamonde.pub
+
+Oitava etapa: Configuração da Chave Pública do SSH no usuário: vaamonde do pfSense
+System
+	User Manager
+		Users
+			vaamonde 
+				Edit Users
+					Keys
+						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
+				Save
+
+Nona etapa: Testando o acesso remoto via SSH do pfSense
+Terminal (Ctrl + Alt + T)
+	ssh vaamonde@172.16.1.254
+	Are you sure want to continue connecting? yes <Enter>
+	Password: pti@2018
+	Password: pti@2018

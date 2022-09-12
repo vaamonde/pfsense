@@ -28,7 +28,7 @@ Configuração do NTP Server do pfSense: https://docs.netgate.com/pfsense/en/lat
 Configuração do Serial GPS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/gps.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
-Monitoramento Gráfico: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
 Primeira etapa: Configurações Gerais do NTP Server do pfSense
 System
