@@ -125,9 +125,9 @@ Link da vídeo aula: https://www.youtube.com/watch?v=ipZGGmEJVRg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-008-ConfigurandoCA-Certificado.txt
 
-## **COMO CONFIGURAR o DHCP Server IPv4 no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR o DHCP Server IPv4 e Client no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o DHCP (Dynamic Host Configuration Protocol) IPv4 no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o DHCP (Dynamic Host Configuration Protocol) Server IPv4 e Client no pfSENSE PLUS+ 22.05.
 
 O DHCP Server IPv4 do pfSense Plus+ permite que um dispositivo aloque dinamicamente endereços IP para clientes de um conjunto predefinido de endereços. O DHCP também envia informações de configuração para clientes, como gateway, servidores DNS, nome de domínio e outras configurações úteis.
 
@@ -164,3 +164,27 @@ No modo de resolução (padrão), o DNS Resolver contata os servidores DNS raiz 
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-011-ConfigurandoDNSResolver.txt
+
+## **COMO CONFIGURAR Usuários, Grupos e Privilégios no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar Usuários, Grupos e Privilégios de Acesso no pfSENSE PLUS+ 22.05. 
+
+O User Manager no software pfSense® oferece a capacidade de criar e gerenciar várias contas de usuário. Essas contas podem ser usadas para acessar a GUI, usar serviços VPN como IPsec e OpenVPN e usar o Captive Portal. A partir daí, usuários, grupos, servidores podem ser gerenciados e as configurações que regem o comportamento do Gerenciador de Usuários podem ser alteradas.
+
+O User Manager também pode ser usado para definir fontes de autenticação externas, como RADIUS e LDAP.
+
+[![User and Group pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "User and Group pfSense Plus")
+
+Link da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-012-CriacaoDeUsuariosGruposPermissoes.txt
+
+## **COMO CONFIGURAR o Acesso Remoto Externo do WebGUI, SSH e Console no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto externo do WebGUI (WebConfigurator), SSH (Secure Shell) e Console no pfSENSE PLUS+ 22.05. 
+
+Existem várias maneiras de administrar remotamente um firewall executando o software pfSense® que vem com vários níveis de recomendação. Todos eles funcionam, mas seu uso pode variar por vários motivos (restrições do cliente, políticas corporativas etc.)
+
+Se a porta webGUI precisar ser acessível à Internet, restrinja-a o máximo possível por endereço/intervalo IP. Idealmente, se houver um endereço IP estático no local para gerenciar, permita o tráfego desse endereço IP ou sub-rede e de nenhum outro lugar. Os aliases também ajudam e podem incluir nomes de domínio totalmente qualificados. Se os clientes de gerenciamento remoto tiverem um endereço DNS dinâmico, adicione-o a um alias de gerenciamento.
+
+[![Remote Access pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Remote Access pfSense Plus")
+
+Link da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-013-ConfigurandoAcessoRemotoExterno.txt
