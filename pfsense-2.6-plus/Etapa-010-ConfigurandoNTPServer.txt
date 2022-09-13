@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/09/2022
-Data de atualização: 11/09/2022
-Versão: 0.01
+Data de atualização: 13/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -48,7 +48,7 @@ Services
 				Time Servers: a.st1.ntp.br - Prefer: ON - No Select: OFF - Type: Server 
 				Time Servers: a.ntp.br - Prefer: ON - No Select: OFF - Type: Server
 				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server
-				Max candidate pool peers: Default
+				Max candidate pool peers: 5 (Default)
 				Orphan Mode: 12 (Default)
 				Minimum Poll Interval: Default
 				Maximum Poll Interval: Default
@@ -75,7 +75,7 @@ Services
 				Network: Default
 		Save
 
-		Serial GPS
+		Serial GPS (Global Positioning System)
 			NTP Serial GPS Configuration
 				GPS Type: Default
 				Serial Port: None (Default) - 4800 (Default) - Check baud rate: OFF (Default)
@@ -98,7 +98,7 @@ Services
 				GPS Initialization: Default
 		Save
 
-		PPS
+		PPS (Pulse Per Second)
 			NTP Serial PPS Configuration
 				Serial Port: None (Default)
 				Fudge Time: 0 (Default)
