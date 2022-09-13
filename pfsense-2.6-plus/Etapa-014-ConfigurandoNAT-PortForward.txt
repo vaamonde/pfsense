@@ -48,17 +48,17 @@ Firewall
 	Apply Changes
 
 Segunda etapa: Levantamento dos Protocolos e Portas para serem redirecionadas no pfSense
-	Protocolo: TCP	Serviço: Apache HTTP 		Porta: 80
-	Protocolo: TCP	Serviço: Apache HTTPS 		Porta: 443
-	Protocolo: TCP	Serviço: VSFTPd FTP 		Porta: 21
-	Protocolo: TCP	Serviço: VSFTPd FTP 		Porta: 990
-	Protocolo: TCP	Serviço: OpenSSH SSH 		Porta: 22
-	Protocolo: TCP	Serviço: ShellInBox HTTPS 	Porta: 4200
-	Protocolo: TCP	Serviço: MySQL 				Porta: 3306
-	Protocolo: TCP	Serviço: TomCAT HTTP 		Porta: 8080
-	Protocolo: TCP	Serviço: TomCAT HTTPS 		Porta: 8443
-	Protocolo: TCP	Serviço: Webmin HTTPS 		Porta: 10000
-	Protocolo: TCP	Serviço: Usermin HTTPS 		Porta: 20000
+	Protocolo: TCP	Serviço: Apache HTTP        Porta: 80
+	Protocolo: TCP	Serviço: Apache HTTPS       Porta: 443
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 21
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 990
+	Protocolo: TCP	Serviço: OpenSSH SSH        Porta: 22
+	Protocolo: TCP	Serviço: ShellInBox HTTPS   Porta: 4200
+	Protocolo: TCP	Serviço: MySQL              Porta: 3306
+	Protocolo: TCP	Serviço: TomCAT HTTP        Porta: 8080
+	Protocolo: TCP	Serviço: TomCAT HTTPS       Porta: 8443
+	Protocolo: TCP	Serviço: Webmin HTTPS       Porta: 10000
+	Protocolo: TCP	Serviço: Usermin HTTPS      Porta: 20000
 
 Terceira etapa: Criando as regras de Redirecionamento de Portas NAT no pfSense
 Firewall
