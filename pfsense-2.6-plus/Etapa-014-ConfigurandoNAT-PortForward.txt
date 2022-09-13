@@ -41,8 +41,8 @@ Firewall
 					Type: Host(s)
 				Host(s)
 					IP or FQDN: 172.16.1.20 - Description: IP Web Site Ubuntu Server
-					IP or FQDN: ptispo01ws01  - Description: Hostname Web Site Ubuntu Server
-					IP or FQDN: ptispo01ws01.pti.intra  - Description: FQDN Web Site Ubuntu Server
+					IP or FQDN: ptispo01ws01 - Description: Hostname Web Site Ubuntu Server
+					IP or FQDN: ptispo01ws01.pti.intra - Description: FQDN Web Site Ubuntu Server
 			Save
 	Apply Changes
 
