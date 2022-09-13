@@ -196,3 +196,15 @@ Terminal (Ctrl + Alt + T)
 	Are you sure want to continue connecting? yes <Enter>
 	Password: pti@2018
 	Password: pti@2018
+
+Décima etapa: Monitoramento do SSH Server no pfSense
+Status
+	System Logs
+		Geral
+			Advanced Log Filter
+				Process: sshd 
+			Apply Filter
+
+	System Logs
+		Authentication
+			Geral
