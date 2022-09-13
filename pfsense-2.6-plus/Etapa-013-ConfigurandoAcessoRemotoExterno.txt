@@ -61,7 +61,7 @@ Firewall
 					Interface: WAN
 					Address Family: IPv4
 					Protocol: ICMP
-					ICMP Subtypes:
+					ICMP Subtypes: (Ctrl)
 						Echo Reply
 						Echo Request
 				Source
