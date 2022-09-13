@@ -29,7 +29,6 @@ NAT Encaminhamento de Portas do pfSense: https://docs.netgate.com/pfsense/en/lat
 Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
 Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
-Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
 Primeira etapa: Criando os apelidos no pfSense
 Firewall
@@ -111,3 +110,7 @@ Firewall
 		+Separator
 				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue
 		Save
+
+Quinta etapa: Monitoramento do Firewall no pfSense
+Status
+	System Logs
