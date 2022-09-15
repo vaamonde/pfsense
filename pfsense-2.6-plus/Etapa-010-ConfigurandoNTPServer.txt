@@ -118,11 +118,12 @@ Linux Mint Terminal: Ctrl+Alt+T
 	sudo apt install ntpdate ntpstat vim
  	sudo ntpdate -s 172.16.1.254 (set the date and time via NTP)
 	sudo ntpdate -dquv 172.16.1.254 (update date and time via NTP)
-	sudo ntpq -pn (standard NTP query program)
-	sudo ntpq -c sysinfo (standard NTP query program)
 	sudo vim /etc/systemd/timesyncd.conf (Network Time Synchronization configuration files)
-		[Time]
-		NTP=172.16.1.254
+		INSERT
+			[Time]
+			NTP=172.16.1.254
+			FallbackNTP=a.st1.ntp.br
+		ESC SHIFT : x <Enter>
 	sudo systemctl restart systemd-timesyncd (Daemon for synchronizing the system clock across the network)
 	sudo timedatectl (Control the system time and date)
 	sudo timedatectl show (Control the system time and date)

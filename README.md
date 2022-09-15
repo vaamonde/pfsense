@@ -145,9 +145,9 @@ O NTP é um protocolo para sincronização dos relógios dos computadores basead
 
 O projeto NTP.br tem por objetivo oferecer condições para que os servidores de Internet no Brasil estejam sincronizados com a Horal Legal Brasileira. Para isso foi firmado um acordo entre o Observatório Nacional (ON) e o NIC.br. 
 
-[![NTP pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTP pfSense Plus")
+[![NTP pfSense Plus](http://img.youtube.com/vi/3Ar-hg8QVeA/0.jpg)](https://www.youtube.com/watch?v=3Ar-hg8QVeA "NTP pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=3Ar-hg8QVeA
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-010-ConfigurandoNTPServer.txt
 
