@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/09/2022
-Data de atualização: 13/09/2022
-Versão: 0.02
+Data de atualização: 15/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -116,8 +116,8 @@ Terceira etapa: Configuração do NTP Client nos Desktop GNU/Linux e Microsoft W
 
 Linux Mint Terminal: Ctrl+Alt+T
 	sudo apt install ntpdate ntpstat vim
- 	sudo ntpdate -s 172.16.1.254 (set the date and time via NTP)
-	sudo ntpdate -dquv 172.16.1.254 (update date and time via NTP)
+ 	sudo ntpdate -s 172.16.1.254 (set the date and time via NTP: -s (standard))
+	sudo ntpdate -dquv 172.16.1.254 (update date and time via NTP: -d (debug), -q (query), -u (unprivileged), -v (verbose))
 	sudo vim /etc/systemd/timesyncd.conf (Network Time Synchronization configuration files)
 		INSERT
 			[Time]
