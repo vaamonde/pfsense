@@ -103,7 +103,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## **COMO CONFIGURAR o Acesso Seguro via SSH e a Porta Console do pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e porta Console do pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e a porta Console do pfSENSE PLUS+ 22.05.
 
 Toda a administração e configuração do pfSENSE PLUS+ 22.05 será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto o console é a forma mais simples e rápida de acesso ao pfSENSE PLUS+ 22.05, temos também a possibilidade de acessar o console remotamente via shell do pfSENSE PLUS+ 22.05 utilizando uma conexão segura do OpenSSH.
 
@@ -153,15 +153,15 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## **COMO CONFIGURAR o DNS Resolver e Client no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o DNS (Network Time Protocol) Resolver e Client no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o DNS (Domain Name System) Resolver e Client no pfSENSE PLUS+ 22.05.
 
 O DNS Resolver no software pfSense® utiliza unbound, que é um resolvedor de DNS de validação, recursivo e com cache que suporta DNSSEC, DNS sobre TLS e uma ampla variedade de opções. Ele pode atuar em uma função de resolvedor de DNS ou encaminhador.
 
 No modo de resolução (padrão), o DNS Resolver contata os servidores DNS raiz e outros servidores autorizados diretamente em busca de respostas às consultas enviadas pelos clientes. Isso elimina problemas normalmente encontrados por usuários com configuração de DNS local ausente ou incorreta, pois não requer o encaminhamento de servidores DNS para operar. O modo de resolução também permite o uso de Extensões de Segurança do Sistema de Nomes de Domínio (DNSSEC), o que torna os resultados do DNS mais confiáveis ​​e verificáveis.
 
-[![DNS pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "DNS pfSense Plus")
+[![DNS pfSense Plus](http://img.youtube.com/vi/Xdas8TYfMjs/0.jpg)](https://www.youtube.com/watch?v=Xdas8TYfMjs "DNS pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=Xdas8TYfMjs
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-011-ConfigurandoDNSResolver.txt
 
@@ -175,7 +175,9 @@ O User Manager também pode ser usado para definir fontes de autenticação exte
 
 [![User and Group pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "User and Group pfSense Plus")
 
-Link da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-012-CriacaoDeUsuariosGruposPermissoes.txt
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-012-CriacaoDeUsuariosGruposPermissoes.txt
 
 ## **COMO CONFIGURAR o Acesso Remoto Externo do WebGUI, SSH e Console no pfSENSE PLUS+ 22.05**
 
@@ -187,4 +189,6 @@ Se a porta webGUI precisar ser acessível à Internet, restrinja-a o máximo pos
 
 [![Remote Access pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Remote Access pfSense Plus")
 
-Link da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-013-ConfigurandoAcessoRemotoExterno.txt
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-013-ConfigurandoAcessoRemotoExterno.txt
