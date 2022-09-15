@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 10/09/2022
-Versão: 0.05
+Data de atualização: 15/09/2022
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -31,6 +31,8 @@ Monitoramento do DHCP Server IPv4 do pfSense: https://docs.netgate.com/pfsense/e
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Tabela ARP do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/arp.html
 Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
+
+Parâmetros do DHCP e BOOTP: https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml
 
 Primeira etapa: Configurações Gerais do DHCP Server do pfSense
 System
@@ -118,7 +120,7 @@ Linux Mint Terminal: Ctrl+Alt+T
 	sudo route -n (show/manipulate IP routing table)
 	sudo resolvectl (Resolve domain names, IPV4 and IPv6 addresses, DNS resource records, and services)
 	sudo dhclient -v -r enp0s3 (Dynamic Host Configuration Protocol Client - v (verbose), -r (release))
-	sudo dhclient -v enp0s3 (Dynamic Host Configuration Protocol Client - v (verbose))
+	sudo dhclient -v enp0s3 (Dynamic Host Configuration Protocol Client - v (verbose), (renew))
 	sudo cat /var/lib/dhcp/dhclient.leases (DHCP client lease database)
 	sudo hostnamectl (Control the system hostname)
 	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)

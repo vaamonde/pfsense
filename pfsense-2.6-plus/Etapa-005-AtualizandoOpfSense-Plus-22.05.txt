@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 17/08/2022
-Data de atualização: 17/08/2022
-Versão: 0.01
+Data de atualização: 15/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -34,13 +34,12 @@ Guia de atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrad
 Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
 Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 
-Primeira etapa: Atualizando o pfSense pelo Console
+Primeira etapa: Atualizando o pfSense pelo Console (Não recomendado)
 
 13) Update from console
 	Proceed with upgrade? (y/N): y
 	
-Segunda etapa: Atualizando o pfSense pela WebConfigurator
-
+Segunda etapa: Atualizando o pfSense pelo WebConfigurator (Recomendado)
 System
 	Update
 		System Update

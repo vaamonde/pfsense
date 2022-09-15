@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 16/08/2022
-Versão: 0.03
+Data de atualização: 15/09/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -27,6 +27,8 @@ Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/har
 Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
 Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
 Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
+Registro e Migração: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Performance e Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 
 Primeira etapa: Criação da conta no pfSense Store
 	Fazer a criação de uma conta no pfSense Store: https://shop.netgate.com/account/register
@@ -42,25 +44,21 @@ Segunda etapa: Assinatura do pfSense Plus
 				CONTINUE TO PAYMENT
 				COMPLETE ORDER
 
-Terceira etapa: Verificação do Token
+Terceira etapa: Verificando o Token do pfSense Plus
 	Acessar o email do pfSense com o Token da versão Plus: pfSense Plus activation Token
 		Copiar a chave do Token
 
-Registro e Migração: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
-Quarta etapa: Ativação do Token
-	Ativar o Token no pfSense 2.6.0
-		System
-			Register
-				Register pfSense
-					Activation token: (colar o Token do pfSense Plus)
-				Register
+Quarta etapa: Registrando e Ativando o Token do pfSense Plus
+System
+	Register
+		Register pfSense
+			Activation token: (colar o Token do pfSense Plus)
+		Register
 
-Performance e Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
-Quinta etapa:
-	Atualizar para a versão do pfSense Plus 22.x
-		System
-			Update
-				System Update
-					Confirmation Required to update pfSense System
-						Branch: pfSense Plus Upgrade
-					Confirm
+Quinta etapa: Atualizando o pfSense 2.6.x para a versão do pfSense Plus 22.x
+System
+	Update
+		System Update
+			Confirmation Required to update pfSense System
+				Branch: pfSense Plus Upgrade
+			Confirm

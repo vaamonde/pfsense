@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 10/09/2022
-Versão: 0.03
+Data de atualização: 15/09/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -21,6 +21,9 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Opções do Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
+Atribuição de Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#assign-interfaces
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#set-interface-s-ip-address
+Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#ping-host
 
 Opções do Console do Netgate pfSense
 	0) Logout (SSH only) - sair do acesso remoto via SSH
@@ -47,8 +50,6 @@ Primeira etapa: Endereçamento das Interfaces do pfSense
 02. Interface LAN: Padrão de configuração de Endereço IP Estático
 03. Endereço IPv4 Padrão da Interface de LAN do pfSense: 192.168.1.1/24
 
-Atribuição de Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#assign-interfaces
-
 Segunda etapa: Atribuição das Interfaces do pfSense
 
 01. Atribuição das Interfaces de WAN e LAN
@@ -60,8 +61,6 @@ Segunda etapa: Atribuição das Interfaces do pfSense
 		NOTE: this enables full Firewalling/NAT mode.
 			(em1 a or nothing if finished): em1 <Enter>
 		Do you want to proceed [y/n]? y <Enter>
-
-Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#set-interface-s-ip-address
 
 Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 
@@ -82,8 +81,6 @@ Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 		Enter the end address fo the IPv4 client address range: 172.16.1.150 <Enter>
 		Do you want to revert to HTTP as the WebConfigurator protocol? (y/n): y <Enter>	
 		Press <Enter> to continue.
-
-Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#ping-host
 
 Quarta Etapa: Verificação da conexão com a Internet na Interface WAN
 
