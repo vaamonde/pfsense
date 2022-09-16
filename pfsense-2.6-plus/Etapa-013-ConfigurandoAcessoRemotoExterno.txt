@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 12/09/2022
-Versão: 0.01
+Data de atualização: 16/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -59,7 +59,7 @@ Firewall
 					Action: Pass
 					Disabled: OFF
 					Interface: WAN
-					Address Family: IPv4
+					Address Family: IPv4+IPv6
 					Protocol: ICMP
 					ICMP Subtypes: (Ctrl)
 						Echo Reply
@@ -71,6 +71,7 @@ Firewall
 				Extra Options
 					Log: ON 
 					Description: Liberação do Protocolo ICMP na Interface WAN
+				Advanced Options: Default
 			Save
 		Apply Changes
 
@@ -87,13 +88,14 @@ Firewall
 					Protocol: TCP
 				Source
 					Source: any
-					Advanced: Default
+					Display Advanced: Default
 				Destination
 					Destination: WAN Address
 					Destination Port Range: From: 10443 To: 10443
 				Extra Options
 					Log: ON 
 					Description: Liberação do Protocolo HTTPS do WebGUI do pfSense
+				Advanced Options: Default
 			Save
 		Apply Changes
 
@@ -110,21 +112,33 @@ Firewall
 					Protocol: TCP
 				Source
 					Source: any
-					Advanced: Default
+					Display Advanced: Default
 				Destination
 					Destination: WAN Address
 					Destination Port Range: From: 10222 To: 10222
 				Extra Options
 					Log: ON 
 					Description: Liberação do Protocolo SSH do Console do pfSense
+				Advanced Options: Default
 			Save
 		Apply Changes
 
 Sexta etapa: Configuração do Separador de Regras de Firewall
 + Separator
-	Liberação do Acesso Remoto ao WebGui, SSH e Console do pfSense
+	Liberação do Acesso Remoto ao WebGui, SSH e Console do pfSense <Save>
 Save
 
 Sexta etapa: Testando o acesso remoto ao pfSense
 	Navegador: https://Endereço_IPv4_WAN:10443
+		OBSERVAÇÃO: Vai acontecer o erro do Certificado, adicionar a exceção no Firefox/Chrome
+
 	SSH: ssh -p 10222 usuário@Endereço_IPv4_WAN
+		OBSERVAÇÃO: Vai acontecer o erro da Chave Pública
+
+	Copiar as chaves públicas/privadas para enviar para um host remoto
+		Arquivos
+			Pasta Pessoal
+				Botão direito do mouse, selecionar: Exibir arquivos ocultos
+					Acessar o diretório: .ssh
+						Copiar os arquivos: vaamonde* e enviar por email
+						Salvar os arquivos no mesmo diretório no host remoto.
