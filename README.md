@@ -179,7 +179,7 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-012-CriacaoDeUsuariosGruposPermissoes.txt
 
-## **COMO CONFIGURAR o Acesso Remoto Externo do WebGUI, SSH e Console no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR o Acesso Remoto EXTERNO do WebGUI, SSH e Console no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar o acesso remoto externo do WebGUI (WebConfigurator), SSH (Secure Shell) e Console no pfSENSE PLUS+ 22.05. 
 
@@ -192,3 +192,17 @@ Se a porta webGUI precisar ser acessível à Internet, restrinja-a o máximo pos
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-013-ConfigurandoAcessoRemotoExterno.txt
+
+## **COMO CONFIGURAR o SNMP no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o SNMP (Simple Network Management Protocol) no pfSENSE PLUS+ 22.05.
+
+O daemon Simple Network Management Protocol (SNMP) permite o monitoramento remoto de determinados parâmetros do software pfSense®. O daemon SNMP oferece suporte ao monitoramento de tráfego de rede, fluxos de rede, filas pf e informações gerais do sistema, como CPU, memória e uso de disco.
+
+A implementação do SNMP é bsnmpd, que por padrão possui apenas as bases de informações de gerenciamento (MIBs) mais básicas disponíveis e é estendida por módulos carregáveis. Além de atuar como um daemon SNMP, ele também pode enviar traps para um servidor SNMP para determinados eventos. Estes variam de acordo com os módulos carregados. Por exemplo, alterações no estado do link de rede gerarão uma armadilha se o módulo MIB II for carregado.
+
+[![SNMP pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "SNMP pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-014-ConfigurandoDoSNMP.txt
