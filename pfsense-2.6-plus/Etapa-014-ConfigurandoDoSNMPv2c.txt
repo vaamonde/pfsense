@@ -61,7 +61,7 @@ Segunda etapa: Testando o SNMP do pfSense nos Desktop GNU/Linux e Microsoft Wind
 Linux Mint Terminal: Ctrl+Alt+T
 	sudo apt install snmp snmp-mibs-downloader
 	sudo snmpwalk -v2c -c vaamonde 172.16.1.254
-	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 ifOperStatus
+	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 .1.3.6.1.2.1.2.2.1.2
 
 Ambiente Gráfico do Windows: 
 	Download do software SNMP Tester: https://www.paessler.com/br/tools/snmptester
