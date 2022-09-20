@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 20/09/2022
 Data de atualização: 20/09/2022
-Versão: 0.01
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -61,11 +61,37 @@ Segunda etapa: Testando o SNMP do pfSense nos Desktop GNU/Linux e Microsoft Wind
 Linux Mint Terminal: Ctrl+Alt+T
 	sudo apt install snmp snmp-mibs-downloader
 	sudo snmpwalk -v2c -c vaamonde 172.16.1.254
+	
 	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 .1.3.6.1.2.1.2.2.1.2
+	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 .1.3.6.1.2.1.31.1.1.1.1
+	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 .1.3.6.1.2.1.4.20.1.1
 
 Ambiente Gráfico do Windows: 
 	Download do software SNMP Tester: https://www.paessler.com/br/tools/snmptester
 	Download do software SNMP Walk: https://support.solarwinds.com/SuccessCenter/s/article/Run-SolarWinds-SNMPWALK?language=en_US
+
+	Paessler SNMP Tester
+		1. Set SNMP Settings
+			Local IP: Any
+			Device IP/Port: 172.16.1.254 - 161 - v4
+			SNMP Version: SNMP v2c
+			Community: vaamonde
+		2. Select Request Type
+			Scan Interfaces: ON
+	<Start>
+
+	SNMPWalk
+		Preferences
+			Agent Address os DNS name: 172.16.1.254
+			Port: 161
+			SNMP Timeout (ms): 2500
+			SNMP Version: Version 2c
+			Requests: 20
+		Options
+			Community: vaamonde
+		Zip output file: ON
+		Get multiple: Never
+	<Scan>
 
 Terceira etapa: Monitoramento do SNMP no pfSense
 Status
