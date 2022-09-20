@@ -1,0 +1,72 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 20/09/2022
+Data de atualização: 20/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configuração do SNMP do pfSense: https://docs.netgate.com/pfsense/en/latest/services/snmp.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+
+Software para o Monitoramento do SNMP do pfSense:
+Zabbix: https://www.zabbix.com/
+Cacti: https://www.cacti.net/
+ChekMk: https://checkmk.com/
+PRTG: https://www.paessler.com/br/prtg
+SolarWinds: https://www.solarwinds.com/network-performance-monitor/use-cases/snmp-monitoring
+OpManager: https://www.manageengine.com/br/network-monitoring/
+PandoraFMS: https://pandorafms.com/en/
+
+Primeira etapa: Configurando o Serviço do SNMP do pfSense
+Services 
+	SNMP
+		SNMP Daemon
+			Enable: ON
+		SNMP Daemon Settings
+			Polling Port: 161 (Default)
+			System Location: Bora para Pratica 
+			System Contact: Robson Vaamonde 
+			Read Community String: vaamonde
+		SNMP Traps Enable
+			Enable: OFF (Default)
+		SNMP Modules
+			Mibil: ON
+			Netgraph: ON
+			PF: ON
+			Host Resources: ON
+			UCD: ON
+			Regex: ON
+		Interface Binding
+			Bind Interfaces: LAN
+	<Save>
+
+Segunda etapa: Testando o SNMP do pfSense nos Desktop GNU/Linux e Microsoft Windows
+
+Linux Mint Terminal: Ctrl+Alt+T
+	sudo apt install snmp snmp-mibs-downloader
+	sudo snmpwalk -v2c -c vaamonde 172.16.1.254
+	sudo snmpwalk -v2c -c vaamonde 172.16.1.254 ifOperStatus
+
+Ambiente Gráfico do Windows: 
+	Download do software SNMP Tester: https://www.paessler.com/br/tools/snmptester
+	Download do software SNMP Walk: https://support.solarwinds.com/SuccessCenter/s/article/Run-SolarWinds-SNMPWALK?language=en_US
+
+Terceira etapa: Monitoramento do SNMP no pfSense
+Status
+	NTP
