@@ -166,7 +166,7 @@ Password: pti@2018
 Sexta etapa: Geração da Chave Pública/Privada do SSH para autenticação remota no pfSense
 Terminal (Ctrl + Alt + T)
 	ssh-keygen
-		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/vaamonde <Enter>
+		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/vaamondefw <Enter>
 		Enter passphrase (empty for no passphrase): <Enter>
 		Enter same passphrase again: <Enter>
 
@@ -175,7 +175,7 @@ Terminal (Ctrl + Alt + T)
 		ls -lh
 
 	Verificando o conteúdo da Chave Pública do SSH
-	cat vaamonde.pub
+	cat vaamondefw.pub
 
 Sétima etapa: Configuração da Chave Pública do SSH no usuário: vaamonde do pfSense
 System
@@ -195,8 +195,8 @@ Terminal (Ctrl + Alt + T)
 	Criando o script de inicialização do menu do console para o usuário: vaamonde 
 		echo "sudo /etc/./rc.initial" > .login
 	Desabilitando o Usuário padrão: admin do pfSense se logar via console:
-		sudo pw lock admin
 		sudo pw user show admin
+		sudo pw lock admin
 
 Nona etapa: Desabilitando o Usuário padrão: admin do pfSense se logar via WebGUI
 System
@@ -211,7 +211,7 @@ System
 Décima etapa: Monitoramento do SSH Server no pfSense
 Status
 	System Logs
-		Geral
+		General
 			Advanced Log Filter
 				Process: sshd 
 			Apply Filter

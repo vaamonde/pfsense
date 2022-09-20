@@ -140,5 +140,5 @@ Sexta etapa: Testando o acesso remoto ao pfSense
 			Pasta Pessoal
 				Botão direito do mouse, selecionar: Exibir arquivos ocultos
 					Acessar o diretório: .ssh
-						Copiar os arquivos: vaamonde* e enviar por email
+						Copiar os arquivos: vaamondefw* e enviar por email
 						Salvar os arquivos no mesmo diretório no host remoto.

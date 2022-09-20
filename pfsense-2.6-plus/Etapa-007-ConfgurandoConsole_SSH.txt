@@ -107,7 +107,7 @@ Terminal (Ctrl + Alt + T)
 Sétima etapa: Monitoramento do SSH Server no pfSense
 Status
 	System Logs
-		Geral
+		General
 			Advanced Log Filter
 				Process: sshd 
 			Apply Filter
@@ -115,7 +115,7 @@ Status
 Status
 	System Logs
 			Authentication
-				Geral
+				General
 Status
 	Services
 		sshd: Secure Shell Daemon
