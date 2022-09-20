@@ -139,5 +139,5 @@ Configurações
 			Conectar a pipe/socket existente OFF
 			Caminho/Endereço: /tmp/pfsense
 
-Terminal (Ctrl+Alt+T)
+Terminal Máquina Física (Ctrl+Alt+T)
 	tail -f /tmp/pfsense

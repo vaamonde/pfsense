@@ -69,4 +69,5 @@ Ambiente Gráfico do Windows:
 
 Terceira etapa: Monitoramento do SNMP no pfSense
 Status
-	NTP
+	Service
+		bsnmpd: SNMP Service

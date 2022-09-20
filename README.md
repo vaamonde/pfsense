@@ -181,7 +181,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## **COMO CONFIGURAR o Acesso Remoto EXTERNO do WebGUI, SSH e Console no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o acesso remoto externo do WebGUI (WebConfigurator), SSH (Secure Shell) e Console no pfSENSE PLUS+ 22.05. 
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto externo do WebGUI (WebConfigurator), SSH (Secure Shell) e Console (Porta Serial DB9 RS232) no pfSENSE PLUS+ 22.05. 
 
 Existem várias maneiras de administrar remotamente um firewall executando o software pfSense® que vem com vários níveis de recomendação. Todos eles funcionam, mas seu uso pode variar por vários motivos (restrições do cliente, políticas corporativas etc.)
 
@@ -193,9 +193,9 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-013-ConfigurandoAcessoRemotoExterno.txt
 
-## **COMO CONFIGURAR o SNMP no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR o SNMP Service V2C no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o SNMP (Simple Network Management Protocol) no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o SNMP (Simple Network Management Protocol) Service v2c no pfSENSE PLUS+ 22.05.
 
 O daemon Simple Network Management Protocol (SNMP) permite o monitoramento remoto de determinados parâmetros do software pfSense®. O daemon SNMP oferece suporte ao monitoramento de tráfego de rede, fluxos de rede, filas pf e informações gerais do sistema, como CPU, memória e uso de disco.
 
@@ -205,4 +205,4 @@ A implementação do SNMP é bsnmpd, que por padrão possui apenas as bases de i
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-014-ConfigurandoDoSNMP.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-014-ConfigurandoDoSNMPv2c.txt
