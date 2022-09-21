@@ -1,0 +1,89 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 21/09/2022
+Data de atualização: 21/09/2022
+Versão: 0.02
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configuração das Notificações do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-notifications.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+
+Em 2022, o Google começou a eliminar gradualmente o acesso ao envio SMTP e outros serviços semelhantes usando 
+o nome de usuário e a senha da conta diretamente. Para acessar esses serviços que o Google considerou "menos 
+seguros" após a alteração, o usuário deve ativar a verificação em duas etapas para sua conta do Google e, em 
+seguida, criar uma senha de aplicativo que possa se autenticar nesses serviços.
+
+Link de verificação em duas etapas do Google: https://support.google.com/accounts/answer/185839
+Link de senhas de aplicativos do Google: https://support.google.com/accounts/answer/185833
+Link Microsoft Office365: https://learn.microsoft.com/en-us/Exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365
+
+Primeira etapa: Habilitando a autenticação de duas etapas do Google:
+	#01_ se autenticar no gmail.com com a sua conta e senha.
+	#02_ copiar e colar a URL no seu navegador: https://support.google.com/accounts/answer/185833
+		a) Ative a verificação em duas etapas nesta conta.
+
+Segunda etapa: Habilitando a senha de Aplicativo do Google
+	#01_ copiar e colar a URL no seu navegador: https://security.google.com/settings/security/apppasswords
+		a) Crie uma senha de aplicativo.
+		b) Selecione o aplicativo Gmail e o tipo de dispositivo: Outro.
+		c) Nomeia o dispositivo para: pfSense.
+		d) Clique no botão Gerar e anote a senha gerada aleatoriamente.
+
+	#02_ copiar e colar a URL no seu navegador: https://accounts.google.com/DisplayUnlockCaptcha
+		a) Clique no botão Continuar para habilitar o acesso externo à sua conta do Google.
+
+Terceira etapa: Configurando as Notificações por Email do pfSense
+System
+	Advanced
+		Notification
+			E-Mail
+				
+				#Bloco de Configuração do Gmail
+				Disable SMTP: OFF (Default)
+				E-Mail server: smtp.gmail.com
+				SMTP Port fo E-Mail server: 465
+				Connection timeout to E-Mail server: 20s (Default)
+				Secure SMTP Connection: ON
+				Validate SSL/TLS: ON (Default)
+				From e-mail address: @gmail.com
+				Notification E-Mail address: @gmail.com
+				Notification E-Mail auth username (optional): @gmail.com
+				Notification E-Mail auth password:  passowrd_gmail - Confirm: passowrd_gmail
+				Notification E-Mail auth mechanism: PLAIN
+			<Test SMTP Settings>
+
+				#Bloco de Configuração do Office365
+				Disable SMTP: OFF (Default)
+				E-Mail server: smtp.office365.com
+				SMTP Port fo E-Mail server: 587
+				Connection timeout to E-Mail server: 20s (Default)
+				Secure SMTP Connection: ON
+				Validate SSL/TLS: ON (Default)
+				From e-mail address: @office365.com
+				Notification E-Mail address: @office365.com
+				Notification E-Mail auth username (optional): @office365.com
+				Notification E-Mail auth password:  passowrd_office365.com - Confirm: office365.com
+				Notification E-Mail auth mechanism: PLAIN
+			<Test SMTP Settings>
+		<Save>
+
+Quarta etapa: Gerando notificações para o Envio do E-mail do pfSense
+	#01_ Desativar a Placa de Rede LAN do VirtualBOX
+	#02_ Rebootar o Firewall pelo Console
