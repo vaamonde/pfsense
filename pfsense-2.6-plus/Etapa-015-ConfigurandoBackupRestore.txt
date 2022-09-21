@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 21/09/2022
 Data de atualização: 21/09/2022
-Versão: 0.01
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -39,7 +39,8 @@ Diagnostics
 			Skip RRD data: ON (Default)
 			Include extra data: OFF (Default)
 			Backup SSH keys: ON (Default)
-			Encryption: OFF (Default)
+			Encryption: ON
+				Password: pti@2018 - Confirm: pti@2018
 		<Download configuration as XML>
 
 Segunda etapa: Restaurando o Backup Manual do pfSense
@@ -49,7 +50,8 @@ Diagnostics
 			Restore area: ALL (Default)
 			Configuration file: <Procurar>
 				Backup: config-ptispo01fw01.pti.intra-*.xml
-			Encryption: OFF (Default)
+			Encryption: ON
+				Password: pti@2018
 		<Restore Configuration> - <OK>
 		OBSERVAÇÃO IMPORTANTE: após restaurar o Backup o pfSense será reiniciado, será necessário,
 		caso você tenha instalado algum pacote extra do pfSense fazer a reinstalação dos pacotes.
@@ -59,6 +61,10 @@ Diagnostics
 		Package Functions
 			<Reinstall Packages>
 				<Confirm>
+
+System 
+	Package Manager
+		Installed Packages
 
 Terceira etapa: Comparando uma Configuração de Backup do pfSense
 Diagnostics
@@ -72,30 +78,33 @@ Quarta etapa: Restaurando uma Configuração mais Antiga do pfSense
 Diagnostics
 	Backup & Restore
 		Config History
+			Configuration Backup Cache Settings
+				Backup Count: Default
+			<Save>
 			Date: 16/09/2022 16:45:41 (Exemplo) - <Download Config>
 			Date: 16/09/2022 16:45:41 (Exemplo) - <Revert Config> - <OK>
 		OBSERVAÇÃO IMPORTANTE: fazer a restauração das configurações utilizando o recurso de histórico
 		de versões não irá reinicializar o servidor, apenas atualizar o arquivo config.xml para a nova
-		versão.
+		versão, muitas vezes e indicado fazer um reboot para testar as configurações.
 
 Console
 	15) Restore recent configuration
 		1) List Backups
-			OBSERVAÇÃO IMPORTANTE: a lista dos backup são mostradas reduzidas, o primeiro backup é a última
-			configuração válida do pfSense.
+			OBSERVAÇÃO IMPORTANTE: a lista dos backup são mostradas reduzidas, o primeiro backup é a 
+			última configuração válida do pfSense.
 		2) Restore Backup
 			1 <Enter>
 			Y/N: Y <Enter>
 	5) Reboot system
 		Y/y: y <Enter>
 
-Quinta etapa: Copiando o Arquivo de Configuração do pfSense
+Quinta etapa: Copiando o Arquivo de Configuração config.xml do pfSense
 
 Linux Mint Terminal: Ctrl+Alt+T
 	scp -P 10222 vaamonde@172.16.1.254:/cf/conf/config.xml .
 	ls -lh
-	OBSERVAÇÃO IMPORTANTE: esse arquivo pode ser utilizado no momento da instalação do pfSense, nesse
-	cenário após a instalação do pfSense ele já aplica as configurações do backup.
+	OBSERVAÇÃO IMPORTANTE: esse arquivo pode ser utilizado no momento da instalação do pfSense, 
+	nesse cenário após a instalação do pfSense ele já aplica as configurações do backup.
 
 Sexta etapa: Configuração do ACB Auto Configuration Backup do pfSense
 Services
@@ -115,7 +124,11 @@ Services
 				 Hint/Identifier: BoraParaPratica
 				 Manual backups to keep: 10
 			<Save>
+			OBSERVAÇÃO IMPORTANTE: o sistema automático de backup do pfSense não possui Log,
+			todas as mensagens de erro será mostrada nas opções de Notificações (Notices) do
+			pfSense.
 
+Sétima etapa: Restaurando o Backup do ACB Auto Configuration Backup do pfSense
 Services
 	Auto Configuration Backup
 		Backup now
@@ -123,12 +136,30 @@ Services
 				Revision Reason: TesteBackup
 			Device key
 				Device key: Default
-				OBSERVAÇÃO IMPORTANTE: a chave do dispositivo SSH do pfSense é utilizada
-				para enviar e restaurar os backup do pfSense, recomendo fazer um backup
-				dessa chave para não ter problemas futuro de backup/restore do pfSense.
+				OBSERVAÇÃO IMPORTANTE: a chave do dispositivo SSH do pfSense é utilizada para enviar 
+				e restaurar os backup do pfSense, recomendo fazer um backup dessa chave para não ter 
+				problemas futuro de backup/restore do pfSense.
 		<Backup>
 
 Services
 	Auto Configuration Backup
 		Restore
 			Device key: <Submit>
+		Automatic Configuration Backups
+			Date: Show Info
+				Revision
+					Backup Details
+						Revision date/time: Data e Hora do Backup
+						Revision Reason: Motivo da Revisão
+						SHA256 summary: Chave de Criptografia
+						Encrypted config.xml: Arquivo config.xml criptografado
+						Decrypted config.xml: Arquivo config.xml descriptografado
+					<Install this revision>
+			Date: Restore this revision - <OK>
+				Reboot the firewall to full activate changes? <Yes>
+					Diagnostics
+						Reboot
+							Select reboot method
+								Boot Environment: default (Active)
+								Reboot method: Normal Reboot
+							<Submit>

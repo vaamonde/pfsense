@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 16/09/2022
-Versão: 0.02
+Data de atualização: 21/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -26,7 +26,7 @@ Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsen
 
 Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
 Permitindo acesso remoto ao WebGUI do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/remote-firewall-administration.html
-Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Evitando que o tráfego RFC1918 saída de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
 Interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
 Gerenciamento e autenticação dos Usuários e Grupos do pfSense: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
 Configuração do Console e SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
@@ -34,6 +34,7 @@ Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hard
 Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
+Diagnósticos do pfSense: https://docs.netgate.com/pfsense/en/latest/menuguide/diagnostics.html
 
 Primeira etapa: Alterando a Porta Padrão do Protocolo HTTPS do pfSense
 System
@@ -125,10 +126,10 @@ Firewall
 
 Sexta etapa: Configuração do Separador de Regras de Firewall
 + Separator
-	Liberação do Acesso Remoto ao WebGui, SSH e Console do pfSense <Save>
+	Liberação do Acesso Remoto ao WebGui, SSH, Console e Ping do pfSense <Save>
 Save
 
-Sexta etapa: Testando o acesso remoto ao pfSense
+Sétima etapa: Testando o acesso remoto ao pfSense
 	Navegador: https://Endereço_IPv4_WAN:10443
 		OBSERVAÇÃO: Vai acontecer o erro do Certificado, adicionar a exceção no Firefox/Chrome
 
@@ -142,3 +143,36 @@ Sexta etapa: Testando o acesso remoto ao pfSense
 					Acessar o diretório: .ssh
 						Copiar os arquivos: vaamondefw* e enviar por email
 						Salvar os arquivos no mesmo diretório no host remoto.
+
+Oitava etapa: Monitoramento do Acesso Remoto do pfSense
+Status
+	System Logs
+		General
+			Advanced Log Filter
+				Process: sshd 
+			Apply Filter
+
+Status
+	System Logs
+			Authentication
+				General
+Status
+	System Logs
+		Firewall
+			Normal View
+
+Status
+	Services
+		sshd: Secure Shell Daemon
+
+Diagnostics
+	States
+		States
+
+Diagnostics
+	States
+		Summary
+
+Diagnostics
+	Sockets
+		<Show all socket connections>

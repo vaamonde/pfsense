@@ -103,7 +103,7 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## **COMO CONFIGURAR o Acesso Seguro via SSH e a Porta Console do pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e a porta Console do pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o acesso remoto seguro utilizando o protocolo SSH (Secure Shell) e a porta Console (Porta Serial DB9 RS232) do pfSENSE PLUS+ 22.05.
 
 Toda a administração e configuração do pfSENSE PLUS+ 22.05 será feita utilizando o WebGUI, algumas configurações iniciais são feitas utilizando o Console, caso tenha alguma falha de acesso remoto o console é a forma mais simples e rápida de acesso ao pfSENSE PLUS+ 22.05, temos também a possibilidade de acessar o console remotamente via shell do pfSENSE PLUS+ 22.05 utilizando uma conexão segura do OpenSSH.
 
@@ -201,8 +201,22 @@ Existem várias maneiras de administrar remotamente um firewall executando o sof
 
 Se a porta webGUI precisar ser acessível à Internet, restrinja-a o máximo possível por endereço/intervalo IP. Idealmente, se houver um endereço IP estático no local para gerenciar, permita o tráfego desse endereço IP ou sub-rede e de nenhum outro lugar. Os aliases também ajudam e podem incluir nomes de domínio totalmente qualificados. Se os clientes de gerenciamento remoto tiverem um endereço DNS dinâmico, adicione-o a um alias de gerenciamento.
 
-[![Remote Access pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Remote Access pfSense Plus")
+[![Remote Access pfSense Plus](http://img.youtube.com/vi/205gyISTXUs/0.jpg)](https://www.youtube.com/watch?v=205gyISTXUs "Remote Access pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=205gyISTXUs
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-014-ConfigurandoAcessoRemotoExterno.txt
+
+## **COMO CONFIGURAR o Backup Restore e Auto Configuration Backup ACB no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para fazer o Backup e Restore via WebGUI (WebConfigurator), SSH (Secure Shell) e Console (Porta Serial DB9 RS232) e configurar o Backup Automático ACB no pfSENSE PLUS+ 22.05. 
+
+Graças ao arquivo de configuração baseado em XML usado pelo software pfSense®, os backups são muito fáceis. Todas as configurações do sistema são mantidas em um único arquivo (consulte Arquivo de configuração XML). Na grande maioria dos casos, esse arquivo pode ser usado para restaurar um sistema para um estado totalmente funcional idêntico ao que estava sendo executado anteriormente. Não há necessidade de fazer um backup completo do sistema, pois os arquivos básicos do sistema não são modificados por um sistema normal em execução.
+
+O Backup Automático de Configuração (AutoConfigBackup, ou ACB abreviado) está disponível como um componente central do software pfSense®. O serviço é gratuito para todos os usuários do software pfSense, tanto Plus quanto CE (Community Edition).
+
+[![Backup pfSense Plus](http://img.youtube.com/vi/_qIMmXuJ_Aw/0.jpg)](https://www.youtube.com/watch?v=_qIMmXuJ_Aw "Backup pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=_qIMmXuJ_Aw
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-015-ConfigurandoBackupRestore.txt
