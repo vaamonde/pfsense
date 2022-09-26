@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 21/09/2022
 Data de atualização: 26/09/2022
-Versão: 0.04
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -22,6 +22,7 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Configuração das Notificações do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-notifications.html
+Lista de Pacotes: https://docs.netgate.com/pfsense/en/latest/packages/list.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
@@ -47,7 +48,9 @@ Segunda etapa: Habilitando a senha de Aplicativo do Google.
 	#03_ clicar no lado esquerdo em: Segurança;
 	#04_ na opção: Como fazer login no Google ative: Senhas de app
 		a) será necessário se autenticar novamente com a sua conta e senha.
-	#05_ 
+	#05_ na tela de Senha de app, no campo: selecionar app selecione a opção: Outro nome personalizado;
+	#06_ criar com o nome: ptispo01fw01 clicar em: <Gerar>
+	#07_ copiar a senha de 16 caracteres criadas pela Gmail e colar nas configurações do pfSense.
 
 Terceira etapa: Configurando as Notificações por Email do pfSense
 System
@@ -97,7 +100,7 @@ Status
 					Skip If No Content: OFF (Default)
 				Schedule
 					Frequency: Daily (Default)
-					Day of the Week: Sunday (Default)
+					Day of the Week:
 					Day of the Month: (Default)
 					Time of Quarter: (Default)
 					Month of the Year: (Default)
@@ -114,7 +117,7 @@ Status
 					<+Add New Log>
 						Log Settings
 							Log: Authentication (General)
-							Rows: 50
+							Rows: 20
 							Filter: sshd
 						<Save>
 			<Save>
@@ -127,7 +130,7 @@ Status
 				Included Commands
 					<+Add New Command>
 						Command Settings
-							Name: Hard Disk
+							Name: Espaco Utilizado em Hard Disk
 							Command: df -Th
 						<Save>
 			<Save>

@@ -220,3 +220,17 @@ O Backup Automático de Configuração (AutoConfigBackup, ou ACB abreviado) est�
 Link da vídeo aula: https://www.youtube.com/watch?v=_qIMmXuJ_Aw
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-015-ConfigurandoBackupRestore.txt
+
+## **COMO CONFIGURAR a Notificação por EMAIL e o MAILREPORTS no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar as Notificações por E-mail e instalar e configurar o serviço de envio de Relatórios por E-mail o MailReports no pfSENSE PLUS+ 22.05. 
+
+O firewall pode notificar os administradores sobre eventos e erros importantes exibindo um alerta na barra de menu, indicado pelo ícone do sino. 
+
+As notificações por e-mail são entregues por uma conexão SMTP direta a um servidor de e-mail. O servidor deve ser configurado para permitir a retransmissão do firewall ou aceitar conexões SMTP autenticadas. O aplicativo MailReports gerencia relatórios periódicos de e-mail contendo saída de comando e conteúdo do arquivo de log.
+
+[![Notifications pfSense Plus](http://img.youtube.com/vi/4uXc1HRTRnk/0.jpg)](https://www.youtube.com/watch?v=4uXc1HRTRnk "Notifications pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=4uXc1HRTRnk
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-016-ConfigurandoNotificacaoPorEmail.txt
