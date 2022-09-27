@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
 Data de atualização: 27/09/2022
-Versão: 0.02
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -27,6 +27,8 @@ Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsen
 Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
 NAT Encaminhamento de Portas do pfSense: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
 Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Solução de problemas de encaminhamento de porta NAT: https://docs.netgate.com/pfsense/en/latest/troubleshooting/nat-port-forwards.html#port-forward-troubleshooting
+Introdução à tela Regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
 Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
 Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/resolver.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
@@ -71,7 +73,7 @@ Terceira etapa: Criando as regras de Redirecionamento de Portas NAT no pfSense
 Firewall
 	NAT
 		Port Forward
-			ADD
+			+ADD
 				Edit Redirect Entry
 					Disabled: OFF (Default)
 					No RDR(NOT): OFF (Default)
@@ -122,3 +124,37 @@ Firewall
 Quinta etapa: Monitoramento do Log do Firewall no pfSense
 Status
 	System Logs
+		Firewall
+			Normal View
+				Advanced Log Filter
+					Destination IP Address: 172.16.1.20
+				<Apply Filter>
+
+Status
+	System Logs
+		Firewall
+			Dynamic View
+				Advanced Log Filter
+					Destination IP Address: 172.16.1.20
+				<Apply Filter>
+
+Status
+	System Logs
+		Firewall
+			Summary View
+
+Diagnostics
+	pfInfo
+
+Diagnostics
+	pfTop
+
+Diagnostics
+	Sockets
+		<Show all socket connections>
+
+Diagnostics
+	States
+
+Diagnostics
+	States Summary

@@ -26,7 +26,7 @@ Github Procedimentos em TI: https://github.com/vaamonde<br>
 <a href="https://github.com/vaamonde/pfsense/blob/master/LICENSE"><img src="https://img.shields.io/github/license/vaamonde/pfsense?color=2b9348" alt="License Badge"/></a>
 </div>
 
-Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.6.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
+Esse curso tem como objetivo demonstrar a instalação e configuração do Firewall UTM/NGFW Netgate pfSense (versões superiores a 2.6.x e Plus 22.x) em máquina Virtual utilizando o Oracle VirtualBOX para simular um ambiente corporativo de Pequeno e Médio Porta, utilizando os principais recursos de Firewall, Proxy, VPN, etc...
 
 O pfSense é open source, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes.
 
@@ -234,3 +234,15 @@ As notificações por e-mail são entregues por uma conexão SMTP direta a um se
 Link da vídeo aula: https://www.youtube.com/watch?v=4uXc1HRTRnk
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-016-ConfigurandoNotificacaoPorEmail.txt
+
+## **COMO CONFIGURAR o NAT Port Forward (Encaminhamento de Porta) no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar os Aliases (Apelidos) e as Regras de NAT (Network address Translation) Port Forward (Encaminhamento de Portas) no pfSENSE PLUS+ 22.05.
+
+Em redes de computadores, Network Address Translation (NAT), também conhecido como masquerading (Mascarado), é uma técnica que consiste em reescrever, utilizando-se de uma tabela hash, os endereços IP de origem de um pacote que passam por um router ou firewall de maneira que um computador de uma rede interna tenha acesso ao exterior ou Rede Mundial de Computadores (Internet).
+
+[![NAT Port Forward pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NAT Port Forward pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-017-ConfigurandoNAT-PortForward.txt
