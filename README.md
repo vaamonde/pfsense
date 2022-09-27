@@ -241,8 +241,8 @@ Vídeo mostrando os procedimentos básicos para configurar os Aliases (Apelidos)
 
 Em redes de computadores, Network Address Translation (NAT), também conhecido como masquerading (Mascarado), é uma técnica que consiste em reescrever, utilizando-se de uma tabela hash, os endereços IP de origem de um pacote que passam por um router ou firewall de maneira que um computador de uma rede interna tenha acesso ao exterior ou Rede Mundial de Computadores (Internet).
 
-[![NAT Port Forward pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NAT Port Forward pfSense Plus")
+[![NAT Port Forward pfSense Plus](http://img.youtube.com/vi/05RS1mWlcRk/0.jpg)](https://www.youtube.com/watch?v=05RS1mWlcRk "NAT Port Forward pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=05RS1mWlcRk
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-017-ConfigurandoNAT-PortForward.txt

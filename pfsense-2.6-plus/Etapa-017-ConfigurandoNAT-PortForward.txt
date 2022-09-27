@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
 Data de atualização: 27/09/2022
-Versão: 0.03
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -57,17 +57,19 @@ Firewall
 		<Apply Changes>
 
 Segunda etapa: Levantamento dos Protocolos e Portas para serem redirecionadas no pfSense
-	Protocolo: TCP	Serviço: Apache HTTP        Porta: 80
-	Protocolo: TCP	Serviço: Apache HTTPS       Porta: 443
-	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 21
-	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 990
-	Protocolo: TCP	Serviço: OpenSSH SSH        Porta: 22
-	Protocolo: TCP	Serviço: ShellInBox HTTPS   Porta: 4200
-	Protocolo: TCP	Serviço: MySQL              Porta: 3306
-	Protocolo: TCP	Serviço: TomCAT HTTP        Porta: 8080
-	Protocolo: TCP	Serviço: TomCAT HTTPS       Porta: 8443
-	Protocolo: TCP	Serviço: Webmin HTTPS       Porta: 10000
-	Protocolo: TCP	Serviço: Usermin HTTPS      Porta: 20000
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 21       Target pfSense: FTP
+	Protocolo: TCP	Serviço: OpenSSH SSH        Porta: 22       Target pfSense: SSH
+	Protocolo: TCP	Serviço: Apache HTTP        Porta: 80       Target pfSense: HTTP
+	Protocolo: TCP	Serviço: Apache HTTPS       Porta: 443      Target pfSense: HTTPS
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 990      Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: MySQL              Porta: 3306     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Windows 10 RDP     Porta: 3389     Target pfSense: MS RDP 
+	Protocolo: TCP	Serviço: ShellInBox HTTPS   Porta: 4200     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: TomCAT HTTP        Porta: 8080     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: TomCAT HTTPS       Porta: 8443     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Webmin HTTPS       Porta: 10000    Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Usermin HTTPS      Porta: 20000    Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Netdata HTTPS      Porta: 19999    Target pfSense: Other (Custom)
 
 Terceira etapa: Criando as regras de Redirecionamento de Portas NAT no pfSense
 Firewall
@@ -103,8 +105,13 @@ Firewall
 		<Apply Changes>
 
 		+Separator
-			Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue - <Save>
+			Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Red - <Save>
 		<Save>
+
+		<Add a new NAT based on this one>
+			OBSERVAÇÃO IMPORTANTE: alterar o endereço do serviço de destino e porta conforme a sua necessidade
+			<Save>
+		<Apply Changes>
 
 Quarta etapa: Habilitando os Logs das regras de Firewall do NAT na Interface WAN do pfSense
 Firewall
@@ -112,13 +119,13 @@ Firewall
 		WAN
 			Edit
 				Extra Options
-					Log: ON
+					Log: ON (Enable)
 					Description: NAT Redirecionamento da Porta 22 SSH do Web Site Ubuntu Server
 			<Save>
 		<Apply Changes>
 		
 		+Separator
-				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue - <Save>
+				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Red - <Save>
 		<Save>
 
 Quinta etapa: Monitoramento do Log do Firewall no pfSense
