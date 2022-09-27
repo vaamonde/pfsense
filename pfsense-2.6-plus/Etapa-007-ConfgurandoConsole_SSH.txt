@@ -27,57 +27,65 @@ Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/
 Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configuração do Serviço do SSH (Secure Shell) do pfSense
 System
 	Advanced
 		Secure Shell
-			Secure Shell Server: ON
-			SSHd Key Only: Password or Public Key
-			Allow Agent Forwarding: OFF
-			SSH port: 22
+			Secure Shell Server: ON (Enable)
+			SSHd Key Only: Password or Public Key (Default)
+			Allow Agent Forwarding: OFF (Default)
+			SSH port: 22 (Default)
 		Login Protection
-			Threshold: 30
-			Blocktime: 120
-			Detection time: 1800
-			Pass list (Whitelist): (default)
-	Save
+			Threshold: 30 (Default)
+			Blocktime: 120 (Default)
+			Detection time: 1800 (Default)
+			Pass list (Whitelist): OFF (Default)
+	<Save>
 
 Segunda etapa: Configuração da Porta Serial (Console) do pfSense
 System
 	Advanced
 		Serial Communication
-			Serial Terminal: ON
-			Serial Speed: 115200
-			Primary Console: Serial Console
+			Serial Terminal: ON (Enable)
+			Serial Speed: 115200 (Default)
+			Primary Console: Serial Console (Default)
 		Console Options
-			Console menu: ON
-	Save
+			Console menu: ON (Enable)
+	<Save>
 
 Terceira etapa: Acessando remotamente o pfSense utilizando o Protocolo SSH
 Terminal (Ctrl + Alt + T)
-	ssh admin@172.16.1.254
-		Are you sure want to continue connecting? (yes)
-		Password: pti@2018
+	ssh admin@172.16.1.254 <Enter>
+		Are you sure want to continue connecting? yes <Enter>
+		Password: pti@2018 <Enter>
 	0) Logout (SSH only)
 
 Quarta etapa: Instalando os software PuTTY e FileZilla para gerenciar o pfSense
 Terminal (Ctrl + Alt + T)
-	sudo apt update
-	sudo apt install putty putty-tools filezilla minicom
+	sudo apt update <Enter>
+	sudo apt install putty putty-tools filezilla minicom <Enter>
 
 Quinta etapa: Geração da Chave Pública do SSH para autenticação do pfSense
 Terminal (Ctrl + Alt + T)
-	ssh-keygen
+	ssh-keygen <Enter>
 		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/pfsense <Enter>
 		Enter passphrase (empty for no passphrase): <Enter>
 		Enter same passphrase again: <Enter>
 
 	Localização padrão das Chaves Públicas e Privadas do SSH
-	cd /home/vaamonde/.ssh/
-		ls -lh
+	cd /home/vaamonde/.ssh/ <Enter>
+		ls -lh <Enter>
 
 	Verificando o conteúdo da Chave Pública do SSH
-	cat pfsense.pub
+	cat pfsense.pub <Enter>
+		Copiar o conteúdo da cache pública de sha até o = (igual)
 
 Sexta etapa: Configuração da Chave Pública do SSH no usuário Admin do pfSense
 System
@@ -87,21 +95,21 @@ System
 				Edit Users
 					Keys
 						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
-				Save
+				<Save>
 
 Terminal (Ctrl + Alt + T)
-	ssh admin@172.16.1.254
+	ssh admin@172.16.1.254 <Enter>
 	0) Logout (SSH only)
 
 System
 	Advanced
 		Secure Shell
-			SSHd Key Only: Require Both Password and Public Key
-	Save
+			SSHd Key Only: Require Both Password and Public Key (Enable)
+	<Save>
 
 Terminal (Ctrl + Alt + T)
-	ssh admin@172.16.1.254
-		Password: pti@2018
+	ssh admin@172.16.1.254 <Enter>
+		Password: pti@2018 <Enter>
 	0) Logout (SSH only)
 
 Sétima etapa: Monitoramento do SSH Server no pfSense
@@ -110,7 +118,7 @@ Status
 		General
 			Advanced Log Filter
 				Process: sshd 
-			Apply Filter
+			<Apply Filter>
 
 Status
 	System Logs
@@ -127,7 +135,7 @@ Menu
 			Adicionar o usuário aos Grupos: tty e dialout
 				Terminal (Ctrl + Alt + T)
 					#opção do comando usermod: -a (append), -G (groups)
-					sudo usermod -a -G tty dialout $USER
+					sudo usermod -a -G tty dialout $USER <Enter>
 
 Nona etapa: Configuração da Porta Serial no Oracle VirtualBOX
 Configurações
@@ -138,6 +146,9 @@ Configurações
 			Modo da Porta: Arquivo de Saída
 			Conectar a pipe/socket existente OFF
 			Caminho/Endereço: /tmp/pfsense
+<OK>
 
-Terminal Máquina Física (Ctrl+Alt+T)
-	tail -f /tmp/pfsense
+Terminal Máquina Física do Hospedeiro do VirtualBOX
+Terminal (Ctrl + Alt + T)
+	#opção do comando tail: -f (flush)
+	tail -f /tmp/pfsense <Enter>

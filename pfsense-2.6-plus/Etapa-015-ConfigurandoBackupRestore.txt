@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 21/09/2022
-Data de atualização: 21/09/2022
-Versão: 0.03
+Data de atualização: 27/09/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -30,6 +30,13 @@ Opções do Console do pfSense: https://docs.netgate.com/pfsense/en/latest/confi
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Criando o Backup Manual do pfSense
 Diagnostics
 	Backup & Restore
@@ -39,7 +46,7 @@ Diagnostics
 			Skip RRD data: ON (Default)
 			Include extra data: OFF (Default)
 			Backup SSH keys: ON (Default)
-			Encryption: ON
+			Encryption: ON (Enable)
 				Password: pti@2018 - Confirm: pti@2018
 		<Download configuration as XML>
 
@@ -50,7 +57,7 @@ Diagnostics
 			Restore area: ALL (Default)
 			Configuration file: <Procurar>
 				Backup: config-ptispo01fw01.pti.intra-*.xml
-			Encryption: ON
+			Encryption: ON (Enable)
 				Password: pti@2018
 		<Restore Configuration> - <OK>
 		OBSERVAÇÃO IMPORTANTE: após restaurar o Backup o pfSense será reiniciado, será necessário,
@@ -85,12 +92,12 @@ Diagnostics
 			Date: 16/09/2022 16:45:41 (Exemplo) - <Revert Config> - <OK>
 		OBSERVAÇÃO IMPORTANTE: fazer a restauração das configurações utilizando o recurso de histórico
 		de versões não irá reinicializar o servidor, apenas atualizar o arquivo config.xml para a nova
-		versão, muitas vezes e indicado fazer um reboot para testar as configurações.
+		versão, após essa restauração recomendo fazer um reboot para testar as configurações.
 
 Console
 	15) Restore recent configuration
 		1) List Backups
-			OBSERVAÇÃO IMPORTANTE: a lista dos backup são mostradas reduzidas, o primeiro backup é a 
+			OBSERVAÇÃO IMPORTANTE: a lista dos backup são mostradas reduzida, o primeiro backup é a 
 			última configuração válida do pfSense.
 		2) Restore Backup
 			1 <Enter>
@@ -100,9 +107,10 @@ Console
 
 Quinta etapa: Copiando o Arquivo de Configuração config.xml do pfSense
 
-Linux Mint Terminal: Ctrl+Alt+T
-	scp -P 10222 vaamonde@172.16.1.254:/cf/conf/config.xml .
-	ls -lh
+Linux Mint Terminal: (Ctrl + Alt + T)
+	#opção do comando scp: -P (port), : (dois pontos - path), . (ponto - local file name)
+	scp -P 10222 vaamonde@172.16.1.254:/cf/conf/config.xml . <Enter>
+		ls -lh <Enter>
 	OBSERVAÇÃO IMPORTANTE: esse arquivo pode ser utilizado no momento da instalação do pfSense, 
 	nesse cenário após a instalação do pfSense ele já aplica as configurações do backup.
 
@@ -111,22 +119,22 @@ Services
 	Auto Configuration Backup
 		Settings
 			Auto Config Backup
-				Enable ACB: ON
+				Enable ACB: ON (Enable)
 				Backup Frequency: 
-					Automatically backup on a regular schedule: ON
+					Automatically backup on a regular schedule: ON (Enable)
 						Schedule:
-							Minute (0-59): 0
-							Hours (0-23): 12
-							Day (1-31): *
-							Month (1-12): *
-							Day of week (0-6): *
+							Minute (0-59): 0 (Enable)
+							Hours (0-23): 12 (Enable)
+							Day (1-31): * (Enable)
+							Month (1-12): * (Enable)
+							Day of week (0-6): * (Enable)
 				 Encryption Password: pti@2018 - Confirm: pti@2018
 				 Hint/Identifier: BoraParaPratica
-				 Manual backups to keep: 10
+				 Manual backups to keep: 10 (Enable)
 			<Save>
 			OBSERVAÇÃO IMPORTANTE: o sistema automático de backup do pfSense não possui Log,
-			todas as mensagens de erro será mostrada nas opções de Notificações (Notices) do
-			pfSense.
+			todas as mensagens de erro será mostrada nas opções de Notificações (Notices) de
+			alertas do pfSense.
 
 Sétima etapa: Restaurando o Backup do ACB Auto Configuration Backup do pfSense
 Services

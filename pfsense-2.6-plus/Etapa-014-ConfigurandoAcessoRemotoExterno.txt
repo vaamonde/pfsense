@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 21/09/2022
-Versão: 0.03
+Data de atualização: 27/09/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -36,20 +36,27 @@ Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitorin
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 Diagnósticos do pfSense: https://docs.netgate.com/pfsense/en/latest/menuguide/diagnostics.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Alterando a Porta Padrão do Protocolo HTTPS do pfSense
 System
 	Advanced
 		webConfigurator
 			Protocol: HTTPS
-			Port: 10443
-	Save
+			Port: 10443 (Enable)
+	<Save>
 
 Segunda etapa: Alterando a Porta Padrão do Protocolo SSH do pfSense
 System
 	Advanced
 		Secure Shell
-			SSH port: 10222
-	Save
+			SSH port: 10222 (Enable)
+	<Save>
 
 Terceira etapa: Configurando a Liberação do Protocolo ICMP (Internet Control Message Protocol) na Interface WAN do pfSense
 Firewall
@@ -57,24 +64,24 @@ Firewall
 		WAN
 			ADD
 				Edit Firewall Rule
-					Action: Pass
-					Disabled: OFF
-					Interface: WAN
-					Address Family: IPv4+IPv6
-					Protocol: ICMP
-					ICMP Subtypes: (Ctrl)
+					Action: Pass (Default)
+					Disabled: OFF (Default)
+					Interface: WAN (Default)
+					Address Family: IPv4+IPv6 (Enable)
+					Protocol: ICMP (Enable)
+					ICMP Subtypes: (Ctrl) (Enable)
 						Echo Reply
 						Echo Request
 				Source
-					Source: any
+					Source: any (Default)
 				Destination
-					Destination: WAN Address
+					Destination: WAN Address (Enable)
 				Extra Options
-					Log: ON 
+					Log: ON (Enable)
 					Description: Liberação do Protocolo ICMP na Interface WAN
 				Advanced Options: Default
-			Save
-		Apply Changes
+			<Save>
+		<Apply Changes>
 
 Quarta etapa: Configurando a Liberação do Protocolo HTTPS (Hyper Text Transfer Protocol Secure) na Interface WAN do pfSense
 Firewall
@@ -82,23 +89,23 @@ Firewall
 		WAN
 			ADD
 				Edit Firewall Rule
-					Action: Pass
-					Disabled: OFF
-					Interface: WAN
-					Address Family: IPv4
-					Protocol: TCP
+					Action: Pass (Default)
+					Disabled: OFF (Default)
+					Interface: WAN (Default)
+					Address Family: IPv4 (Enable)
+					Protocol: TCP (Default)
 				Source
-					Source: any
+					Source: any (Default)
 					Display Advanced: Default
 				Destination
-					Destination: WAN Address
-					Destination Port Range: From: 10443 To: 10443
+					Destination: WAN Address (Enable)
+					Destination Port Range: From: 10443 To: 10443 (Enable)
 				Extra Options
-					Log: ON 
+					Log: ON (Enable)
 					Description: Liberação do Protocolo HTTPS do WebGUI do pfSense
 				Advanced Options: Default
-			Save
-		Apply Changes
+			<Save>
+		<Apply Changes>
 
 Quinta etapa: Configurando a Liberação do Protocolo SSH (Secure Shell) na Interface WAN do pfSense
 Firewall
@@ -106,30 +113,30 @@ Firewall
 		WAN
 			ADD
 				Edit Firewall Rule
-					Action: Pass
-					Disabled: OFF
-					Interface: WAN
-					Address Family: IPv4
-					Protocol: TCP
+					Action: Pass (Default)
+					Disabled: OFF (Default)
+					Interface: WAN (Default)
+					Address Family: IPv4 (Enable)
+					Protocol: TCP (Default)
 				Source
-					Source: any
+					Source: any (Default)
 					Display Advanced: Default
 				Destination
-					Destination: WAN Address
-					Destination Port Range: From: 10222 To: 10222
+					Destination: WAN Address (Enable)
+					Destination Port Range: From: 10222 To: 10222 (Enable)
 				Extra Options
-					Log: ON 
+					Log: ON (Enable)
 					Description: Liberação do Protocolo SSH do Console do pfSense
 				Advanced Options: Default
-			Save
-		Apply Changes
+			<Save>
+		<Apply Changes>
 
 Sexta etapa: Configuração do Separador de Regras de Firewall
 + Separator
 	Liberação do Acesso Remoto ao WebGui, SSH, Console e Ping do pfSense <Save>
-Save
+<Save>
 
-Sétima etapa: Testando o acesso remoto ao pfSense
+Sétima etapa: Testando o acesso remoto externo do pfSense
 	Navegador: https://Endereço_IPv4_WAN:10443
 		OBSERVAÇÃO: Vai acontecer o erro do Certificado, adicionar a exceção no Firefox/Chrome
 
@@ -150,7 +157,7 @@ Status
 		General
 			Advanced Log Filter
 				Process: sshd 
-			Apply Filter
+			<Apply Filter>
 
 Status
 	System Logs

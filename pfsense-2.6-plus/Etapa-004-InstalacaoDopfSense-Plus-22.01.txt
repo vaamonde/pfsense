@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 15/09/2022
-Versão: 0.04
+Data de atualização: 27/09/2022
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -30,6 +30,13 @@ Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/l
 Registro e Migração: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
 Performance e Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Criação da conta no pfSense Store
 	Fazer a criação de uma conta no pfSense Store: https://shop.netgate.com/account/register
 
@@ -44,7 +51,7 @@ Segunda etapa: Assinatura do pfSense Plus
 				CONTINUE TO PAYMENT
 				COMPLETE ORDER
 
-Terceira etapa: Verificando o Token do pfSense Plus
+Terceira etapa: Verificando o Token enviado por Email do pfSense Plus
 	Acessar o email do pfSense com o Token da versão Plus: pfSense Plus activation Token
 		Copiar a chave do Token
 
@@ -53,7 +60,7 @@ System
 	Register
 		Register pfSense
 			Activation token: (colar o Token do pfSense Plus)
-		Register
+		<Register>
 
 Quinta etapa: Atualizando o pfSense 2.6.x para a versão do pfSense Plus 22.x
 System
@@ -61,4 +68,4 @@ System
 		System Update
 			Confirmation Required to update pfSense System
 				Branch: pfSense Plus Upgrade
-			Confirm
+			<Confirm>

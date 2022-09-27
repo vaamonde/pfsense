@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 12/09/2022
-Versão: 0.01
+Data de atualização: 27/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -28,7 +28,15 @@ Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/fir
 NAT Encaminhamento de Portas do pfSense: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
 Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
 Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/resolver.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
 
 Primeira etapa: Criando os apelidos no pfSense
 Firewall
@@ -43,8 +51,8 @@ Firewall
 					IP or FQDN: 172.16.1.20 - Description: IP Web Site Ubuntu Server
 					IP or FQDN: ptispo01ws01 - Description: Hostname Web Site Ubuntu Server
 					IP or FQDN: ptispo01ws01.pti.intra - Description: FQDN Web Site Ubuntu Server
-			Save
-	Apply Changes
+			<Save>
+		<Apply Changes>
 
 Segunda etapa: Levantamento dos Protocolos e Portas para serem redirecionadas no pfSense
 	Protocolo: TCP	Serviço: Apache HTTP        Porta: 80
@@ -65,38 +73,38 @@ Firewall
 		Port Forward
 			ADD
 				Edit Redirect Entry
-					Disabled: OFF
-					No RDR(NOT): OFF
-					Interface: WAN
-					Address Family: IPv4
-					Protocol: TCP
+					Disabled: OFF (Default)
+					No RDR(NOT): OFF (Default)
+					Interface: WAN (Default)
+					Address Family: IPv4 (Enable)
+					Protocol: TCP (Default)
 					Source: Default
 					Destination
-						Invert match: OFF
-						WAN Address
+						Invert match: OFF (Default)
+						WAN Address (Default)
 					Destination port range: 
-						From port: SSH
+						From port: SSH (Enable)
 						Custom: Default
-						To port: SSH
+						To port: SSH (Enable)
 						Custom: Default
 					Redirect target IP:
-						Type: Single host
+						Type: Single host (Default)
 						Address: ptispo01ws01
 					Redirect target port: 
-						Port: SSH
+						Port: SSH (Enable)
 						Custom: Default
 					Description: Redirecionamento da Porta 22 SSH do Web Site Ubuntu Server
-					No XMLRPC Sync: Off
-					NAT reflection: Use system default
-					Filter rule association: Add association filter rule
-			Save
-		Apply Changes
+					No XMLRPC Sync: Off (Default)
+					NAT reflection: Use system default (Default)
+					Filter rule association: Add association filter rule (Default)
+			<Save>
+		<Apply Changes>
 
 		+Separator
-			Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue
-		Save
+			Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue - <Save>
+		<Save>
 
-Quarta etapa: Configurando as regras de Firewall na Interface WAN do pfSense
+Quarta etapa: Habilitando os Logs das regras de Firewall do NAT na Interface WAN do pfSense
 Firewall
 	Rules
 		WAN
@@ -104,13 +112,13 @@ Firewall
 				Extra Options
 					Log: ON
 					Description: NAT Redirecionamento da Porta 22 SSH do Web Site Ubuntu Server
-			Save
-		Apply Changes
+			<Save>
+		<Apply Changes>
 		
 		+Separator
-				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue
-		Save
+				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Blue - <Save>
+		<Save>
 
-Quinta etapa: Monitoramento do Firewall no pfSense
+Quinta etapa: Monitoramento do Log do Firewall no pfSense
 Status
 	System Logs

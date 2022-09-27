@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 27/08/2022
-Versão: 0.10
+Data de atualização: 27/09/2022
+Versão: 0.11
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -25,6 +25,13 @@ Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.c
 Configurando a CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
 Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
 System
 	Cert. Manager
@@ -33,27 +40,27 @@ System
 				Create / Edit CA
 					Descriptive name: BoraParaPratica
 					Method: Create an internal Certificate Authority
-					Trust Store: ON
-					Randomize Serial: (default)
+					Trust Store: ON (Enable)
+					Randomize Serial: OFF (Default)
 				Internal Certificate Authority
-					Key type: RSA
-					Key length (bits): 2048
-					Digest Algorithm: sha256
-					Lifetime (days): 3650
+					Key type: RSA (Default)
+					Key length (bits): 2048 (Default)
+					Digest Algorithm: sha256 (Default)
+					Lifetime (days): 3650 (Default)
 					Common Name: ca-pfsense
 					Country Code: BR
 					Sate or Province: Sao Paulo
 					City: Guarulhos
 					Organization: Bora para Pratica
 					Organizational Unit: Matriz Bora para Pratica
-			Save
+			<Save>
 
 Segunda etapa: Exportando a CA do BoraParaPratica do pfSense
 System
 	Cert. Manager
 		CAs
 		BoraParaPratica
-			Export CA
+			<Export CA>
 				Salvar Arquivo: BoraParaPratica.crt
 
 Terceira etapa: Configuração do Certificado SSL de Serviços do pfSense
@@ -62,14 +69,14 @@ System
 		Certificates
 			+Add/Sign
 				Add/Sign a New Certificate
-					Method: Create an internal Certificate
+					Method: Create an internal Certificate (Default)
 					Descriptive name: Certificado do pfSense
 				Internal Certificate 
 					Certificate authority: BoraParaPratica
-					Key type: RSA
-					Key length: 2048
-					Digest Algorithm: sha256
-					Lifetime (days): 3650
+					Key type: RSA (Default)
+					Key length: 2048 (Default)
+					Digest Algorithm: sha256 (Default)
+					Lifetime (days): 3650 (Default)
 					Common Name: ptispo01fw01.pti.intra 
 					Country Code: BR
 					State or Province: Sao Paulo
@@ -84,15 +91,15 @@ System
 						FQDN or Hostname: ptispo01fw01.pti.intra +Add
 						FQDN or Hostname: fw.pti.intra +Add
 						FQDN or Hostname: firewall.pti.intra
-			Save
+			<Save>
 
 Quarta etapa: Configurando o Suporte ao HTTPS do pfSense
 System
 	Advanced
 		webConfigurator
-			Protocol: HTTPS
-			SSL/TLS Certificate: Certificado do pfSense
-		Save
+			Protocol: HTTPS (Enable)
+			SSL/TLS Certificate: Certificado do pfSense (Enable)
+		<Save>
 
 Quinta etapa: Instalação da CA nos Navegadores e Sistemas Operacional
 Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
@@ -143,9 +150,9 @@ Pesquisa do Windows
 				ca-pfsense
 
 Instalação do CA (Certificate Authority) no Linux
-BoraParaPratica.crt
-		Abrir como Root 
-			Copiar: BoraParaPratica.crt
-			Colar: /usr/local/share/ca-certificates
-		Terminal
-			update-ca-certificates
+Acessar o diretório de Download do certificado BoraParaPratica.crt
+	Botão direito do mouse e selecionar: Abrir como Root 
+		Copiar o certificado: BoraParaPratica.crt
+		Colar no diretório: /usr/local/share/ca-certificates
+	Botão direito do nouse e selecionar: Abrir no Terminal
+		update-ca-certificates <Enter>

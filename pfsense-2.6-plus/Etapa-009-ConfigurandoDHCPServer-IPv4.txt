@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 15/09/2022
-Versão: 0.06
+Data de atualização: 27/09/2022
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -34,6 +34,13 @@ Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/mo
 
 Parâmetros do DHCP e BOOTP: https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configurações Gerais do DHCP Server do pfSense
 System
 	General Setup
@@ -48,27 +55,27 @@ System
 		Localization
 			Timezone: America/Sao_Paulo
 			Timeservers: a.st1.ntp.br
-	Save
+	<Save>
 
-Segunda etapa: Configurações da Placa de Rede LAN
+Segunda etapa: Configurações da Placa de Rede LAN do pfSense
 Interface
 	LAN (em1)
 		General Configuration
-			Enable: ON
-			IPv4 Configuration Type: Static IPv4
+			Enable: ON (Default)
+			IPv4 Configuration Type: Static IPv4 (Default)
 		Static IPv4 Configuration
 			IPv4 Address: 172.16.1.254/24
-			IPv4 Upstream Gateway: None
-	Save
+			IPv4 Upstream Gateway: None (Default)
+	<Save>
 
 Terceira etapa: Configuração do Serviço do DHCP Server IPv4 do pfSense
 Services
 	DHCP Server
 		LAN
 			General Options
-				Enable: ON
+				Enable: ON (Default)
 				BOOTP: OFF (Default)
-				Deny unknown clients: Allow all clients
+				Deny unknown clients: Allow all clients (Default)
 				Ignore denied clients: OFF (Default)
 				Ignore clients identifiers: OFF (Default)
 				Subnet: 172.16.1.0
@@ -76,14 +83,14 @@ Services
 				Available range: 172.16.1.1 - 172.16.1.254
 				Range: From: 172.16.1.100 - To: 172.16.1.200
 			Additional Pools
-				Default
+				OFF (Default)
 			Servers
 				WINS server: 172.16.1.10
 				DNS servers: 172.16.1.254
 			OMAPI (Object Management Application Programming Interface)
 				OMAPI Port: (Default)
 				OMAPI Key: (Default) - Generate New Key: OFF (Default)
-				Key Algorithm: HMAC-SHA256 (current bind9 default)
+				Key Algorithm: HMAC-SHA256 (current bind9 default) (Default)
 			Other Options
 				Gateway: 172.16.1.254
 				Domain name: pti.intra
@@ -103,13 +110,13 @@ Services
 				LDAP: Default
 				Network Booting: Default
 				Additional BOOTP/DHCP Options: Default
-		Save
+		<Save>
 
 Quarta etapa: Configuração do DHCP Client nos Desktop GNU/Linux e Microsoft Windows
 
 Linux Mint Gráfico: NetworkManager - Ícone da Placa de Rede
 
-Linux Mint Terminal: Ctrl+Alt+T
+Linux Mint Terminal: (Ctrl + Alt + T)
 	sudo NetworkManager --print-config (network management daemon)
 	sudo nmcli device status (command-line tool for controlling NetworkManager)
 	sudo nmcli device show enp0s3 (command-line tool for controlling NetworkManager)
@@ -159,7 +166,7 @@ Status
 		Default
 			Settings
 				Left Axis: Category: DHCP - Graph: LAN
-		Update Graphs
+		<Update Graphs>
 
 Diagnostics
 	ARP Table

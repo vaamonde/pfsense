@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 21/09/2022
-Data de atualização: 26/09/2022
-Versão: 0.05
+Data de atualização: 27/09/2022
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -35,6 +35,13 @@ Link de verificação em duas etapas do Google: https://support.google.com/accou
 Link de senhas de aplicativos do Google: https://support.google.com/accounts/answer/185833
 Link Microsoft Office365: https://learn.microsoft.com/en-us/Exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Habilitando a autenticação de duas etapas do Google.
 	#01_ se autenticar no gmail.com com a sua conta e senha;
 	#02_ clicar no ícone do seu usuário do Gmail e selecionar: Gerenciar sua Conta do Google;
@@ -42,7 +49,7 @@ Primeira etapa: Habilitando a autenticação de duas etapas do Google.
 	#04_ na opção: Como fazer login no Google ative: Verificação em duas etapas.
 		a) siga os procedimentos que serão passados pelo Google para ativar o recurso.
 
-Segunda etapa: Habilitando a senha de Aplicativo do Google.
+Segunda etapa: Habilitando a senha de aplicativo do Google.
 	#01_ se autenticar no gmail.com com a sua conta e senha;
 	#02_ clicar no ícone do seu usuário do Gmail e selecionar: Gerenciar sua Conta do Google;
 	#03_ clicar no lado esquerdo em: Segurança;
@@ -50,7 +57,7 @@ Segunda etapa: Habilitando a senha de Aplicativo do Google.
 		a) será necessário se autenticar novamente com a sua conta e senha.
 	#05_ na tela de Senha de app, no campo: selecionar app selecione a opção: Outro nome personalizado;
 	#06_ criar com o nome: ptispo01fw01 clicar em: <Gerar>
-	#07_ copiar a senha de 16 caracteres criadas pela Gmail e colar nas configurações do pfSense.
+	#07_ copiar a senha de 16 caracteres criada pelo Gmail e colar nas configurações do pfSense.
 
 Terceira etapa: Configurando as Notificações por Email do pfSense
 System
@@ -59,10 +66,10 @@ System
 			E-Mail
 				#Bloco de Configuração das Notificações por Email do Gmail no pfSense
 				Disable SMTP: OFF (Default)
-				E-Mail server: smtp.gmail.com
-				SMTP Port fo E-Mail server: 465
+				E-Mail server: smtp.gmail.com (Enable)
+				SMTP Port fo E-Mail server: 465 (Enable)
 				Connection timeout to E-Mail server: 20s (Default)
-				Secure SMTP Connection: ON
+				Secure SMTP Connection: ON (Enable)
 				Validate SSL/TLS: ON (Default)
 				From e-mail address: seu_email_de_envio@gmail.com
 				Notification E-Mail address: seu_email_de_notificação@gmail.com
@@ -100,11 +107,11 @@ Status
 					Skip If No Content: OFF (Default)
 				Schedule
 					Frequency: Daily (Default)
-					Day of the Week:
+					Day of the Week: (Remove)
 					Day of the Month: (Default)
 					Time of Quarter: (Default)
 					Month of the Year: (Default)
-					Hour of Day: 8
+					Hour of Day: 8 (Enable)
 					Minute of Day: 0 (Default)
 			<Save>
 
@@ -117,8 +124,8 @@ Status
 					<+Add New Log>
 						Log Settings
 							Log: Authentication (General)
-							Rows: 20
-							Filter: sshd
+							Rows: 20 (Enable)
+							Filter: sshd (Enable)
 						<Save>
 			<Save>
 
@@ -131,7 +138,7 @@ Status
 					<+Add New Command>
 						Command Settings
 							Name: Espaco Utilizado em Hard Disk
-							Command: df -Th
+							Command: df -Th (Enable)
 						<Save>
 			<Save>
 
@@ -162,6 +169,6 @@ Décima Primeira etapa: Testando o envio de Notificações por Email do pfSense
 Diagnostic
 	Reboot
 		Select reboot method
-			Boot Environment: default (Active)
-			Reboot method: Normal Reboot
+			Boot Environment: default (Active) (Default)
+			Reboot method: Normal Reboot (Default)
 		<Submit>

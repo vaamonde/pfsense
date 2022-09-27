@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/09/2022
-Data de atualização: 11/09/2022
-Versão: 0.01
+Data de atualização: 27/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -28,6 +28,13 @@ Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/moni
 Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
 Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configurações Gerais do DNS Resolver do pfSense
 System
 	General Setup
@@ -37,39 +44,39 @@ System
 		DNS Server Settings
 			DNS Server 01: 8.8.8.8
 			DNS Server 02: 8.8.4.4
-			DNS Server Override: OFF
-			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers
-	Save
+			DNS Server Override: OFF (Disable)
+			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers (Default)
+	<Save>
 
 Segunda etapa: Configuração do DNS Resolver do pfSense
 Service
 	DNS Resolver
 		General Settings
 			General DNS Resolver Options
-				Enable: ON
+				Enable: ON (Default)
 				Listen Port: 53 (Default)
-				Enable SSL/TLS Service: OFF
+				Enable SSL/TLS Service: OFF (Default)
 				SSL/TLS Certificate: Default
 				SSL/TLS Listen Port: 853 (Default)
-				Network Interfaces: (Ctrl)
+				Network Interfaces: (Ctrl) (Enable)
 					LAN
 					LAN IPv6 Link-Local
 					Localhost
-				Outgoing Network Interface
+				Outgoing Network Interface (Enable)
 					WAN
 					WAN IPv6 Link-Local
 					Localhost
-				Strict Outgoing Network Interface Binding: OFF
+				Strict Outgoing Network Interface Binding: OFF (Default)
 				System Domain Local Zone Type: Transparent (Default)
-				DNSSEC: ON
-				Python Module: OFF
-				DNS Query Forwarding: OFF
-				DHCP Registration: ON
-				Static DHCP: ON
-				OpenVPN Clients: OFF
+				DNSSEC: ON (Default)
+				Python Module: OFF (Default)
+				DNS Query Forwarding: OFF (Default)
+				DHCP Registration: ON (Enable)
+				Static DHCP: ON (Enable)
+				OpenVPN Clients: OFF (Default)
 				Display Custom Options: Default
-		Save
-		Apply Changes
+		<Save>
+	<Apply Changes>
 
 		Host Overrides: +ADD
 			Host Override Options
@@ -80,31 +87,31 @@ Service
 			Additional Names for this Host
 				Hostname: firewall - Domain: pti.intra - Description: CNAME do pfSense - +Add Host Name
 				Hostname: fw - Domain: pti.intra - Description: CNAME do pfSense
-		Save
-		Apply Changes
+		<Save>
+	<Apply Changes>
 
 		Domain Override: +ADD
 			Domains to Override with Custom Lookup Servers
 				Domain: pti.intra
 				IP Address: 172.16.1.254
-				TLS Queries: OFF
+				TLS Queries: OFF (Default)
 				TLS Hostname: Default
 				Description: Dominio pti.intra no pfSense
-		Save
-		Apply Changes
+		<Save>
+	<Apply Changes>
 
 		Advanced Settings
 			Advanced Privacy Options
-				Hide Identify: ON
-				Hide Version: ON
-				Query Name Minimization: OFF
-				Strict Query Name Minimization: OFF
+				Hide Identify: ON (Default)
+				Hide Version: ON (Default)
+				Query Name Minimization: OFF (Default)
+				Strict Query Name Minimization: OFF (Default)
 			Advanced Resolver Options
-				Prefetch Support: OFF
-				Prefetch DNS Key Support: OFF
-				Harden DNSSEC Data: ON
-				Server Expired: OFF
-				Aggressive NSEC: OFF
+				Prefetch Support: OFF (Default)
+				Prefetch DNS Key Support: OFF (Default)
+				Harden DNSSEC Data: ON (Default)
+				Server Expired: OFF (Default)
+				Aggressive NSEC: OFF (Default)
 				Message Cache Size: 4MB (Default)
 				Outgoing TCP Buffers: 10 (Default)
 				Incoming TCP Buffers: 10 (Default)
@@ -113,24 +120,24 @@ Service
 				Jostle Timeout: 200 (Default)
 				Maximum TTL for RRsets and Messages: 86400 (Default)
 				Minimum TTL for RRsets and Messages: 0 (Default)
-				Keep Probing: ON
+				Keep Probing: ON (Default)
 				TTL for Host Cache Entries: 15 minutes (Default)
 				Number of Hosts to Cache: 10000 (Default)
 				Unwanted Reply Threshold: Disable (Default)
 				Log Level: Level 1: Base operational information (Default)
-				Disable Auto-added Access Control: OFF
-				Disable Auto-added Host Entries: OFF
-				Experimental Bit 0x20 Support: OFF
-				DNS64 Support: OFF
-		Save
-		Apply Changes
+				Disable Auto-added Access Control: OFF (Default)
+				Disable Auto-added Host Entries: OFF (Default)
+				Experimental Bit 0x20 Support: OFF (Default)
+				DNS64 Support: OFF (Default)
+		<Save>
+	<Apply Changes>
 
 		Access Lists
 			Default
 
 Terceira etapa: Configuração do DNS Client nos Desktop GNU/Linux e Microsoft Windows
 
-Linux Mint Terminal: Ctrl+Alt+T
+Linux Mint Terminal: (Ctrl + Alt + T)
 	nslookup ptispo01fw01 (query Internet name servers interactively)
 		nslookup ptispo01fw01.pti.intra
 		nslookup firewall.pti.intra
@@ -149,11 +156,11 @@ Microsoft Windows Powershell:
 	Resolve-DnsName ptispo01fw01.pti.intra
 	Test-Connection ptispo01fw01.pti.intra
 
-Quarta etapa: Configuração das Proteções de Religação do DNS
+Quarta etapa: Configuração das Proteções de Religação do DNS do pfSense
 System
 	Advanced
 		Alternate Hostnames: firewall.pti.intra fw.pti.intra
-	Save
+	<Save>
 
 Quarta etapa: Monitoramento do DNS Resolver no pfSense
 Status

@@ -25,6 +25,13 @@ Configurações do Dashboard do pfSense: https://docs.netgate.com/pfsense/en/lat
 Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
 Configurações de Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configurações Gerais do Dashboard do pfSense
 System
 	General Setup
@@ -33,24 +40,24 @@ System
 			Top Navigation: Fixed (Remains visible at top page)
 			Hostname in Menu: Fully Qualified Domain Name
 			Dashboard Columns: 3
-			Interfaces Sort: ON
+			Interfaces Sort: ON (Enable)
 			Associated Panels Show/Hide
-				Available Widgets: ON
-				Log Filter: ON
-				Manage Log: ON
-				Monitoring Settings: ON
+				Available Widgets: ON (Enable)
+				Log Filter: ON (Enable)
+				Manage Log: ON (Enable)
+				Monitoring Settings: ON (Enable)
 			Login page color: Dark Blue
-			Login hostname: ON
-	Save
-Logout
+			Login hostname: ON (Enable)
+	<Save>
+<Logout>
 
 Segunda etapa: Desativar verificação de atualização no Dashboard
 System
 	Update
 		Update Settings
 			Updates
-				Dashboard check: ON
-		Save
+				Dashboard check: ON (Enable)
+		<Save>
 
 Terceira etapa: Configuração do Dashboard do pfSense
 Dashboard
@@ -58,7 +65,7 @@ Dashboard
 		#Configuração dos Widgets Lado Esquerdo
 		New pictures: image.png
 			(OBSERVAÇÃO: Caso a imagem não seja compatível, um erro de restaure será apresentado)
-			Save
+			<Save>
 		System Information: ON - Left-02
 		Disks: ON - Left-03
 		ZFS: ON - Left-04
@@ -68,7 +75,7 @@ Dashboard
 		Gateways: ON - Center-02
 			Edit
 				Display: Both
-			Save
+			<Save>
 		Interface Statistics: ON - Center-03
 		Traffic Graphs: ON - Center-04
 		Service Status: ON - Center-05
@@ -85,5 +92,5 @@ Dashboard
 				Filter actions: ON Pass, ON Block and ON Reject
 				Filter interface: ALL 
 				Update interval: 1 Seconds
-			Save
-	Save
+			<Save>
+	<Save>

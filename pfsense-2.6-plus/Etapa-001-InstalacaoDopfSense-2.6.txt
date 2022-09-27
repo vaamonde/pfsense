@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 16/08/2022
-Versão: 0.02
+Data de atualização: 27/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -50,7 +50,7 @@ Segunda etapa: Criação e Configuração da Máquina Virtual no Oracle VirtualB
 Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 
 01. Ferramentas;
-		Novo
+		<Novo>
 02. Nome e Sistema Operacional:
 		Nome: pfSense
 		Pasta da Máquina: (deixar o padrão do sistema) 
@@ -143,4 +143,4 @@ Terceira etapa: Instalação do pfSense (localizar a ISO descompactada)
 		<Reboot> - <Enter>
 
 Observação: No Oracle VirtualBOX existe uma falha onde o CD-Room do pfSense não é ejetado 
-no final da Instalação, sendo necessário desmontar o CD-Room e rebotar a máquina virtual.
+no final da Instalação, sendo necessário desmontar o CD-Room e rebootar a máquina virtual.

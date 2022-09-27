@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/09/2022
-Data de atualização: 15/09/2022
-Versão: 0.03
+Data de atualização: 27/09/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -30,50 +30,57 @@ Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/moni
 Log dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/index.html#logs
 Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/graphs/index.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Configurações Gerais do NTP Server do pfSense
 System
 	General Setup
 		Localization
 			Timezone: America/Sao_Paulo
 			Timeservers: a.st1.ntp.br
-	Save
+	<Save>
 
 Segunda etapa: Configuração do NTP Server do pfSense
 Services
 	NTP
 		Settings
 			NTP Server configuration
-				Enable: ON
-				Interface (Ctrl): LAN and Localhost
-				Time Servers: a.st1.ntp.br - Prefer: ON - No Select: OFF - Type: Server 
-				Time Servers: a.ntp.br - Prefer: ON - No Select: OFF - Type: Server
-				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server
+				Enable: ON (Enable)
+				Interface (Ctrl): LAN and Localhost (Enable)
+				Time Servers: a.st1.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable) 
+				Time Servers: a.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable)
+				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable)
 				Max candidate pool peers: 5 (Default)
 				Orphan Mode: 12 (Default)
 				Minimum Poll Interval: Default
 				Maximum Poll Interval: Default
-				NTP Graphs: ON
-				Logging: Log peer messages: ON - Log system messages: ON
+				NTP Graphs: ON (Enable)
+				Logging: Log peer messages: ON - Log system messages: ON (Enable)
 				Statistics Logging: Display Advanced
-					Log reference clock statistics: ON
-					Log clock discipline statistics: ON
-					Log NTP peer statistics: ON
+					Log reference clock statistics: ON (Enable)
+					Log clock discipline statistics: ON (Enable)
+					Log NTP peer statistics: ON (Enable)
 				Leap seconds: Default
-				DNS Resolution: Auto
-				Enable NTP Server Authentication: OFF
-		Save
+				DNS Resolution: Auto (Default)
+				Enable NTP Server Authentication: OFF (Default)
+		<Save>
 		
 		ACLs
 			Default Access Restrictions
-				Kiss-o'-death: ON
-				Modifications: ON
-				Queries: OFF
-				Service: OFF
-				Peer Association: ON
-				Trap Service: ON
+				Kiss-o'-death: ON (Default)
+				Modifications: ON (Default)
+				Queries: OFF (Default)
+				Service: OFF (Default)
+				Peer Association: ON (Default)
+				Trap Service: ON (Default)
 			Custom Access Restrictions
 				Network: Default
-		Save
+		<Save>
 
 		Serial GPS (Global Positioning System)
 			NTP Serial GPS Configuration
@@ -86,17 +93,17 @@ Services
 				Minimum Poll Interval: Default
 				Maximum Poll Interval: Default
 				Flags:
-					Prefer this clock: ON
-					Do not use this clock, display for reference only: OFF
-					Enable PPS signal processing: ON
-					Enable falling edge PPS signal processing: OFF
-					Enable kernel PPS clock discipline: ON
-					Obscure location in timestamp: OFF
-					Log the sub-second fraction of the received time stamp: OFF
-					Display extended GPS status: OFF
+					Prefer this clock: ON (Default)
+					Do not use this clock, display for reference only: OFF (Default)
+					Enable PPS signal processing: ON (Default)
+					Enable falling edge PPS signal processing: OFF (Default)
+					Enable kernel PPS clock discipline: ON (Default)
+					Obscure location in timestamp: OFF (Default)
+					Log the sub-second fraction of the received time stamp: OFF (Default)
+					Display extended GPS status: OFF (Default)
 				Clock ID: Default
 				GPS Initialization: Default
-		Save
+		<Save>
 
 		PPS (Pulse Per Second)
 			NTP Serial PPS Configuration
@@ -106,15 +113,15 @@ Services
 				Minimum Poll Interval: Default
 				Maximum Poll Interval: Default
 				Flags:
-					Enable falling edge PPS signal processing: OFF
-					Enable kernel PPS clock discipline: OFF
-					Record a timestamp once for each second, useful for construction Allan deviation plots: OFF
+					Enable falling edge PPS signal processing: OFF (Default)
+					Enable kernel PPS clock discipline: OFF (Default)
+					Record a timestamp once for each second, useful for construction Allan deviation plots: OFF (Default)
 				Clock ID: Default
-		Save
+		<Save>
 
 Terceira etapa: Configuração do NTP Client nos Desktop GNU/Linux e Microsoft Windows
 
-Linux Mint Terminal: Ctrl+Alt+T
+Linux Mint Terminal: (Ctrl + Alt + T)
 	sudo apt install ntpdate ntpstat vim
  	sudo ntpdate -s 172.16.1.254 (set the date and time via NTP: -s (standard))
 	sudo ntpdate -dquv 172.16.1.254 (update date and time via NTP: -d (debug), -q (query), -u (unprivileged), -v (verbose))
@@ -164,4 +171,4 @@ Status
 		Default
 			Settings
 				Left Axis: Category: NTP - Graph: NTP
-		Update Graphs
+		<Update Graphs>

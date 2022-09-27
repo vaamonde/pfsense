@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 12/09/2022
-Versão: 0.01
+Data de atualização: 27/09/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -30,6 +30,13 @@ Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
 Primeira etapa: Criando Grupos no pfSense
 System
 	User Manager
@@ -37,18 +44,18 @@ System
 			+ADD
 				Group Properties
 					Group name: boraparapratica
-					Scope: Local
+					Scope: Local (Default)
 					Description: Grupo de Usuários Admin do pfSense
 					Group membership: Default
-			Save
+			<Save>
 			
 			+ADD
 				Group Properties
 					Group name: openvpn
-					Scope: Local
+					Scope: Local (Default)
 					Description: Grupo de Usuários do OpenVPN do pfSense
 					Group membership: Default
-			Save
+			<Save>
 
 Segunda etapa: Criando Usuários no pfSense
 System
@@ -56,41 +63,41 @@ System
 		Users
 			+ADD
 				User Properties
-					Defined USER 
-					Disable: OFF
+					Defined USER (Default)
+					Disable: OFF (Default)
 					Username: vaamonde
 					Password: pti@2018
 					Confirm Password: pti@2018
 					Full name: Robson Vaamonde
-					Expiration date: OFF
-					Custom Settings: OFF
+					Expiration date: OFF (Default)
+					Custom Settings: OFF (Default)
 					Group membership: Member of: boraparapratica <Move to "Member of" list>
-					Certificate: OFF
+					Certificate: OFF (Default)
 				Keys
 					Authorized SSH Keys: Default
 					IPsec Pre-Shared Key: Default
 				Shell Behavior
-					Keep Command History: ON
-			Save
+					Keep Command History: ON (Enable)
+			<Save>
 			
 			+ADD
 				User Properties
-					Defined USER 
-					Disable: OFF
+					Defined USER (Default) 
+					Disable: OFF (Default)
 					Username: testevpn
 					Password: pti@2018
 					Confirm Password: pti@2018
 					Full name: Usuário de Teste OpenVPN
-					Expiration date: OFF
-					Custom Settings: OFF
+					Expiration date: OFF (Default)
+					Custom Settings: OFF (Default)
 					Group membership: Member of: openvpn <Move to "Member of" list>
-					Certificate: OFF
+					Certificate: OFF (Default)
 				Keys
 					Authorized SSH Keys: Default
 					IPsec Pre-Shared Key: Default
 				Shell Behavior
-					Keep Command History: OFF
-			Save
+					Keep Command History: OFF (Default)
+			<Save>
 
 Terceira etapa: Configurando os Privilégios e Atribuídos dos Grupos e Usuários do pfSense
 System
@@ -104,8 +111,8 @@ System
 								Assigned privileges
 									WebCfg - All pages
 								Filter: Default
-							Save
-				Save
+							<Save>
+				<Save>
 			
 			OpenVPN
 				Edit Group
@@ -120,8 +127,8 @@ System
 									 WebCfg - OpenVPN: Clients Edit Advanced
 									 WebCfg - Status: OpenVPN
 									 WebCfg - Status: System Logs: OpenVPN
-							Save
-				Save
+							<Save>
+				<Save>
 
 System
 	User Manager
@@ -133,8 +140,8 @@ System
 							User - System: Copy files (scp)
 							User - System: Copy files to home directory (chrooted scp)
 							User - System: Shell account access
-						Save
-				Save
+						<Save>
+				<Save>
 
 Quarta etapa: Configurando os Grupos e Usuários do pfSense com direito ao SUDO (su “do”)
 System
@@ -145,7 +152,7 @@ System
 			+Install
 		 Confirmation Required to install package pfSense-pkg-sudo. 
 		 	<Confirm>
-		Installed Packages
+	Installed Packages
 
 System
 	sudo
@@ -155,27 +162,28 @@ System
 				User: vaamonde         - User: root - Command List: ALL
 		Advanced Settings
 			Custom Configuration: Do Not Include (Default)
-		Save
+	<Save>
 
-Quinta etapa: Testando a autenticando do usuário: vaamonde no Console do pfSense
+Quinta etapa: Testando a autenticação do usuário: vaamonde no Console do pfSense
 Login: vaamonde
 Password: pti@2018
-	Executando o script de menu do console: sudo /etc/./rc.initial
+	Executando o script de menu do console: sudo /etc/./rc.initial <Enter>
 		Password: pti@2018
 
 Sexta etapa: Geração da Chave Pública/Privada do SSH para autenticação remota no pfSense
 Terminal (Ctrl + Alt + T)
-	ssh-keygen
+	ssh-keygen <enter>
 		Enter file in which to save the key (/home/vaamonde/.ssh/id_rsa): /home/vaamonde/.ssh/vaamondefw <Enter>
 		Enter passphrase (empty for no passphrase): <Enter>
 		Enter same passphrase again: <Enter>
 
 	Localização padrão das Chaves Públicas e Privadas do SSH
-	cd /home/vaamonde/.ssh/
-		ls -lh
+	cd /home/vaamonde/.ssh/ <Enter>
+		ls -lh <Enter>
 
 	Verificando o conteúdo da Chave Pública do SSH
-	cat vaamondefw.pub
+	cat vaamondefw.pub <Enter>
+		Copiar o conteúdo da cache pública de sha até o = (igual)
 
 Sétima etapa: Configuração da Chave Pública do SSH no usuário: vaamonde do pfSense
 System
@@ -185,18 +193,18 @@ System
 				Edit Users
 					Keys
 						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
-				Save
+				<Save>
 
 Oitava etapa: Testando o acesso remoto via SSH do pfSense
 Terminal (Ctrl + Alt + T)
-	ssh vaamonde@172.16.1.254
+	ssh vaamonde@172.16.1.254 <Enter>
 	Are you sure want to continue connecting? yes <Enter>
 	Password: pti@2018
 	Criando o script de inicialização do menu do console para o usuário: vaamonde 
-		echo "sudo /etc/./rc.initial" > .login
+		echo "sudo /etc/./rc.initial" > .login <Enter>
 	Desabilitando o Usuário padrão: admin do pfSense se logar via console:
-		sudo pw user show admin
-		sudo pw lock admin
+		sudo pw user show admin <Enter>
+		sudo pw lock admin <Enter>
 
 Nona etapa: Desabilitando o Usuário padrão: admin do pfSense se logar via WebGUI
 System
@@ -205,8 +213,8 @@ System
 			admin: 
 				Edit User
 					User Properties
-						Disabled: ON
-				Save
+						Disabled: ON (Enable)
+				<Save>
 
 Décima etapa: Monitoramento do SSH Server no pfSense
 Status
@@ -214,7 +222,7 @@ Status
 		General
 			Advanced Log Filter
 				Process: sshd 
-			Apply Filter
+			<Apply Filter>
 
 Status
 	System Logs
