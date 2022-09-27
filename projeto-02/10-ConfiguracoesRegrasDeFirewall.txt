@@ -38,6 +38,7 @@ Firewall
                         Advanced Options
                             Gateway: HA_LB_Internet
                     save
+					
                     ADD
                         Edit File Rule
                             Action: Pass

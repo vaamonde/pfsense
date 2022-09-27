@@ -1,0 +1,96 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 27/09/2022
+Data de atualização: 27/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Introdução à tela Regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Diferenças das Interfaces LAN e WAN: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
+Configuração das Interfaces: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Desativar as Regras de Firewall Padrão da LAN no pfSense
+Firewall
+	Rules
+		LAN
+			Edit
+
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Regras de Firewall Padrão Desativadas - Color: Red - <Save>
+		<Save>
+
+Segunda etapa: Levantamento dos Protocolos e Portas de Saída Liberadas no pfSense
+	Protocolo: ICMP	Serviço: Echo Reply/Request  Porta: Sem Porta  Target pfSense: ICMP
+	Protocolo: UDP	Serviço: DNS Server          Porta: 53         Target pfSense: DNS
+	Protocolo: TCP	Serviço: HTTP Server         Porta: 80         Target pfSense: HTTP
+	Protocolo: TCP	Serviço: HTTPS Server        Porta: 443        Target pfSense: HTTPS
+	Protocolo: TCP	Serviço: FTP Server          Porta: 21         Target pfSense: FTP
+
+Terceira etapa: Criando as Regras de Liberação da LAN no pfSense
+
+
+
+Quinta etapa: Monitoramento do Log do Firewall no pfSense
+Status
+	System Logs
+		Firewall
+			Normal View
+
+Status
+	System Logs
+		Firewall
+			Dynamic View
+
+Status
+	System Logs
+		Firewall
+			Summary View
+
+Diagnostics
+	pfInfo
+
+Diagnostics
+	pfTop
+
+Diagnostics
+	Sockets
+		<Show all socket connections>
+
+Diagnostics
+	States
+
+Diagnostics
+	States Summary
