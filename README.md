@@ -259,7 +259,7 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-018-ConfigurandoRegrasDeFirewall-LAN.txt
 
-# **COMO instalar o SPEEDTEST Widget Dashboard no pfSENSE PLUS+ 22.05**
+# **COMO INSTALAR o SpeedTest Widget Dashboard no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para instalar e configurar o Widget (Mini-aplicativo) do SpeedTest (Teste de Conexão com a Internet) no pfSENSE PLUS+ 22.05.
 
@@ -270,3 +270,15 @@ O speedtest ou speedtest-cli é uma interface de linha de comando de código abe
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt
+
+# **COMO ADICIONAR uma Nova Interface WAN no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos adicionar uma nova Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
+
+A interface recém-atribuída será mostrada na lista de Interfaces. A nova interface terá um nome padrão alocado pelo firewall como OPT1 ou OPT2, com o número aumentando conforme sua ordem de atribuição. As duas primeiras interfaces têm como padrão os nomes WAN e LAN, mas podem ser renomeadas.
+
+[![Interface WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Interface WAN pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-020-AdicionarNovaInterface-WAN.txt
