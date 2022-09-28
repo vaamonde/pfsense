@@ -26,10 +26,11 @@ Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsen
 
 Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
 Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
-Introdução à tela Regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Introdução à tela Regras de firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Básico de Regras de Firewall no pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/example-basic-configuration.html
 Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
-Diferenças das Interfaces LAN e WAN: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
-Configuração das Interfaces: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Diferenças das Interfaces LAN e WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 
 Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP

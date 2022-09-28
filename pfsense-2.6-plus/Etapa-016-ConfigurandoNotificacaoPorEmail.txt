@@ -22,7 +22,8 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Configuração das Notificações do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-notifications.html
-Lista de Pacotes: https://docs.netgate.com/pfsense/en/latest/packages/list.html
+Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
+Prompt de Comando do pfSense: https://docs.netgate.com/pfsense/en/latest/diagnostics/command-prompt.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
 Status dos Serviços do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/status/services.html
 

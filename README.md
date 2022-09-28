@@ -246,3 +246,27 @@ Em redes de computadores, Network Address Translation (NAT), também conhecido c
 Link da vídeo aula: https://www.youtube.com/watch?v=05RS1mWlcRk
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-017-ConfigurandoNAT-PortForward.txt
+
+# **COMO CONFIGURAR a Regras de FIREWALL na Interface LAN no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar as regras de Firewall na Interface LAN (Local Area Network) do pfSENSE PLUS+ 22.05.
+
+As regras nas guias de interface são aplicadas por interface, sempre na direção de entrada nessa interface. Isso significa que o tráfego iniciado de hosts conectados à LAN é filtrado usando as regras de interface da LAN. O tráfego iniciado de hosts na Internet é filtrado com as regras da interface WAN. Como todas as regras no software pfSense são stateful por padrão, uma entrada de tabela de estado é criada quando o tráfego corresponde a uma regra de permissão. Todo o tráfego de resposta é permitido automaticamente por esta entrada da tabela de estado.
+
+[![Firewall LAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Firewall LAN pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-018-ConfigurandoRegrasDeFirewall-LAN.txt
+
+# **COMO instalar o SPEEDTEST Widget Dashboard no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para instalar e configurar o Widget (Mini-aplicativo) do SpeedTest (Teste de Conexão com a Internet) no pfSENSE PLUS+ 22.05.
+
+O speedtest ou speedtest-cli é uma interface de linha de comando de código aberto para testar a largura de banda da Internet que também pode ser utilizado diretamente pelo navegador. É uma pequena ferramenta rápida para verificar a velocidade de download e upload.
+
+[![SpeedTest pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "SpeedTest pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt

@@ -1,0 +1,69 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 28/09/2021
+Data de atualização: 28/09/2022
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configurações do Dashboard do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/dashboard.html
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Configurações de Atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
+
+Link do projeto do Widget do SpeedTest para o pfSense: https://github.com/jacobdjwilson/pfsense-speedtest-widget
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Instalando o software SpeedTest no pfSense
+Diagnostic
+	Command Prompt
+		Execute Shell Command
+			Command: pkg update ; pkg install -y $( pkg search speedtest-cli | awk '{ print $1 }' )
+		<Execute>
+
+Segunda etapa: Instalando o Widget (Mini-aplicativo) do SpeedTest no pfSense
+Diagnostic
+	Command Prompt
+		Execute Shell Command
+			Command: curl -LJ https://raw.githubusercontent.com/jacobdjwilson/pfsense-speedtest-widget/master/speedtest.widget.php -o /usr/local/www/widgets/widgets/speedtest.widget.php
+		<Execute>
+
+Terceira etapa: Executando o software SpeedTest no pfSense
+Diagnostic
+	Command Prompt
+		Execute Shell Command
+			Command: speedtest ou speedtest-cli
+		<Execute>
+
+Quarta etapa: Configurando o Widget do SpeedTest no Dashboard do pfSense
+Dashboard
+	Available Widgets
+		#Configuração dos Widgets Lado Direito
+		SpeedTest: ON - Right-01
+	<Save>
+
+Quinta etapa: Atualizando os dados do SpeedTest no pfSense
+Dashboard
+	Available Widgets
+		SpeedTest
+			<Running>
