@@ -80,7 +80,7 @@ Segunda etapa: Levantamento dos Protocolos e Portas de Saída Liberadas no pfSen
 	Protocolo: TCP	 Serviço: HTTP Server    Porta: 80          Source: LAN Net   Destination: any           Port: HTTP (80)
 	Protocolo: TCP	 Serviço: HTTPS Server   Porta: 443         Source: LAN Net   Destination: any           Port: HTTPS (443)
 	Protocolo: TCP	 Serviço: FTP Server     Porta: 21          Source: LAN Net   Destination: any           Port: FTP (21)
-		OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode é utiliza portas altas para
+		OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele utiliza portas altas para
 		para o envio e recebimento de dados do cliente, no exemplo do ftp.unicamp.br trabalha na faixa de: 1024 até 10000 
 	Protocolo: UDP	 Serviço: NTP Server     Porta: 123         Source: LAN Net   Destination: LAN address   Port: NTP (123)
 	Protocolo: UDP	 Serviço: SNMP v2c       Porta: 161         Source: LAN Net   Destination: LAN address   Port: SNMP (161)
