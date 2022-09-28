@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 27/09/2022
 Data de atualização: 27/09/2022
-Versão: 0.01
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -43,27 +43,97 @@ Primeira etapa: Desativar as Regras de Firewall Padrão da LAN no pfSense
 Firewall
 	Rules
 		LAN
-			Edit
+			Default allow LAN to any rule
+				Edit
+					Edit Firewall Rule
+						Disable: ON (Enable)
+						OBSERVAÇÃO IMPORTANTE: após desabilitar a regra padrão do IPv4 do pfSense,
+						todos os serviços de rede vão parar de funcionar, como por exemplo o DNS
+						Resolver, NTP Server, SNMP v2c, etc.
+				<Save>
 
-			<Save>
+			Default allow LAN IPv6 to any rule
+				Edit
+					Edit Firewall Rule
+						Disable: ON (Enable)
+						OBSERVAÇÃO IMPORTANTE: após desabilitar a regra padrão do IPv6 do pfSense,
+						todos os serviços de rede vão parar de funcionar, como por exemplo o DNS
+						Resolver, NTP Server, SNMP v2c, etc.
+				<Save>
 		<Apply Changes>
 
 		+Separator
 			Enter a description: Regras de Firewall Padrão Desativadas - Color: Red - <Save>
 		<Save>
 
+Terminal (Ctrl + Alt + T)
+	sudo apt install nmap
+	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)
+	nslookup google.com (query Internet name servers interactively)
+	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
+		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
+		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+
 Segunda etapa: Levantamento dos Protocolos e Portas de Saída Liberadas no pfSense
-	Protocolo: ICMP	Serviço: Echo Reply/Request  Porta: Sem Porta  Target pfSense: ICMP
-	Protocolo: UDP	Serviço: DNS Server          Porta: 53         Target pfSense: DNS
-	Protocolo: TCP	Serviço: HTTP Server         Porta: 80         Target pfSense: HTTP
-	Protocolo: TCP	Serviço: HTTPS Server        Porta: 443        Target pfSense: HTTPS
-	Protocolo: TCP	Serviço: FTP Server          Porta: 21         Target pfSense: FTP
+	Protocolo: UDP	 Serviço: DNS Server     Porta: 53          Source: LAN Net   Destination: LAN address   Port: DNS (53)
+	Protocolo: ICMP	 Serviço: Any            Porta: Sem Porta   Source: LAN Net   Destination: any           ICMP Subtypes: any
+	Protocolo: TCP	 Serviço: HTTP Server    Porta: 80          Source: LAN Net   Destination: any           Port: HTTP (80)
+	Protocolo: TCP	 Serviço: HTTPS Server   Porta: 443         Source: LAN Net   Destination: any           Port: HTTPS (443)
+	Protocolo: TCP	 Serviço: FTP Server     Porta: 21          Source: LAN Net   Destination: any           Port: FTP (21)
+		OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode é utiliza portas altas para
+		para o envio e recebimento de dados do cliente, no exemplo do ftp.unicamp.br trabalha na faixa de: 1024 até 10000 
+	Protocolo: UDP	 Serviço: NTP Server     Porta: 123         Source: LAN Net   Destination: LAN address   Port: NTP (123)
+	Protocolo: UDP	 Serviço: SNMP v2c       Porta: 161         Source: LAN Net   Destination: LAN address   Port: SNMP (161)
 
-Terceira etapa: Criando as Regras de Liberação da LAN no pfSense
+Terceira etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede LAN no pfSense
+Firewall
+	Rules
+		LAN
+			+ADD
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: LAN (Default)
+					Address Family: IPv4 (Default)
+					Protocol: UDP (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) - LAN net (Enable)
+					Display Advanced: (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - LAN address (Default)
+					Destination Port Range:
+						From: DNS (53) (Enable)
+						To: DNS (53) (Enable)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do Protocolo DNS na Interface LAN
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
 
+		+Separator
+			Enter a description: Liberação dos Protocolos Básicos de Rede - Color: Blue - <Save>
+		<Save>
 
+		<Add a new NAT based on this one>
+			OBSERVAÇÃO IMPORTANTE: alterar o endereço de rede e porta conforme a sua necessidade
+			<Save>
+		<Apply Changes>
 
-Quinta etapa: Monitoramento do Log do Firewall no pfSense
+Terminal (Ctrl + Alt + T)
+	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)
+	nslookup google.com (query Internet name servers interactively)
+	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
+		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
+		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	sudo apt update (Search for and install software packages)
+	ftp ftp.unicamp.br (Internet file transfer program)
+	firefox professorramos.com
+	firefox vaamonde.com.br
+
+Quarta etapa: Monitoramento do Log do Firewall no pfSense
 Status
 	System Logs
 		Firewall
@@ -78,6 +148,10 @@ Status
 	System Logs
 		Firewall
 			Summary View
+
+Status
+	Filter Reload
+		Related Status
 
 Diagnostics
 	pfInfo
