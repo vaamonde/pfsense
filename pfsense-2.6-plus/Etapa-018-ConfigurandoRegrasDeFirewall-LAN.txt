@@ -73,8 +73,8 @@ Terminal (Ctrl + Alt + T)
 	sudo apt install nmap traceroute
 	nslookup google.com (query Internet name servers interactively)
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
-	tracepath google.com (traces path to a network host discovering MTU along this path)
-	traceroute google.com (print the route packets trace to network host)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path)
+	traceroute -n google.com (print the route packets trace to network host)
 	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
 		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
 		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
@@ -137,8 +137,8 @@ Firewall
 Terminal (Ctrl + Alt + T)
 	nslookup google.com (query Internet name servers interactively)
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
-	tracepath google.com (traces path to a network host discovering MTU along this path)
-	traceroute google.com (print the route packets trace to network host)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path)
+	traceroute -n google.com (print the route packets trace to network host)
 	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
 		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
 		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
