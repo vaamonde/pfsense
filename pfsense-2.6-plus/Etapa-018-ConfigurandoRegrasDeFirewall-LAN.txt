@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 27/09/2022
-Data de atualização: 27/09/2022
-Versão: 0.02
+Data de atualização: 28/09/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -31,6 +31,9 @@ Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://do
 Diferenças das Interfaces LAN e WAN: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
 Configuração das Interfaces: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
 Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
+ICMP (Internet Control Message Protocol): https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
@@ -67,23 +70,32 @@ Firewall
 		<Save>
 
 Terminal (Ctrl + Alt + T)
-	sudo apt install nmap
-	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)
+	sudo apt install nmap traceroute
 	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath google.com (traces path to a network host discovering MTU along this path)
+	traceroute google.com (print the route packets trace to network host)
 	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
 		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
 		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	ftp unicamp.br (Internet file transfer program)
 
 Segunda etapa: Levantamento dos Protocolos e Portas de Saída Liberadas no pfSense
 	Protocolo: UDP	 Serviço: DNS Server     Porta: 53          Source: LAN Net   Destination: LAN address   Port: DNS (53)
-	Protocolo: ICMP	 Serviço: Any            Porta: Sem Porta   Source: LAN Net   Destination: any           ICMP Subtypes: any
+	Protocolo: ICMP	 Serviço: Any            Porta: Sem Porta   Source: LAN Net   Destination: any           ICMP Subtypes: Echo Reply/Request
+		OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 
+		até 33534, o comando tracepath utilizada o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644
 	Protocolo: TCP	 Serviço: HTTP Server    Porta: 80          Source: LAN Net   Destination: any           Port: HTTP (80)
 	Protocolo: TCP	 Serviço: HTTPS Server   Porta: 443         Source: LAN Net   Destination: any           Port: HTTPS (443)
 	Protocolo: TCP	 Serviço: FTP Server     Porta: 21          Source: LAN Net   Destination: any           Port: FTP (21)
 		OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele utiliza portas altas para
-		para o envio e recebimento de dados do cliente, no exemplo do ftp.unicamp.br trabalha na faixa de: 1024 até 10000 
+		para o envio e recebimento de dados do cliente, no exemplo do ftp.unicamp.br trabalha na faixa de: 1024 até 10000,
+		em alguns cenário também e necessário liberar a porta 20 (conexão de dados) junto com a 21 (conexão de controle). 
 	Protocolo: UDP	 Serviço: NTP Server     Porta: 123         Source: LAN Net   Destination: LAN address   Port: NTP (123)
 	Protocolo: UDP	 Serviço: SNMP v2c       Porta: 161         Source: LAN Net   Destination: LAN address   Port: SNMP (161)
+	Protocolo: UDP	 Serviço: DHCP Server    Porta: 67          Source: LAN Net   Destination: LAN address   Port: Other (67)
+		OBSERVAÇÃO IMPORTANTE: mesmo removendo todas as regras de firewall da interface LAN do pfSense a porta de comunicação 
+		do DHCP Server 67 continua permitida na rede, não sendo necessário fazer regras para a sua liberação.
 
 Terceira etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede LAN no pfSense
 Firewall
@@ -117,19 +129,23 @@ Firewall
 			Enter a description: Liberação dos Protocolos Básicos de Rede - Color: Blue - <Save>
 		<Save>
 
-		<Add a new NAT based on this one>
+		<Copy>
 			OBSERVAÇÃO IMPORTANTE: alterar o endereço de rede e porta conforme a sua necessidade
 			<Save>
 		<Apply Changes>
 
 Terminal (Ctrl + Alt + T)
-	ping 172.16.1.254 (send ICMP ECHO_REQUEST to network hosts)
 	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath google.com (traces path to a network host discovering MTU along this path)
+	traceroute google.com (print the route packets trace to network host)
 	sudo nmap -sU -sT -p- 172.16.1.254 (utility for network discovery and security auditing)
 		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas as portas
 		UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
 	sudo apt update (Search for and install software packages)
 	ftp ftp.unicamp.br (Internet file transfer program)
+		Username: anonymous
+		Password: guest
 	firefox professorramos.com
 	firefox vaamonde.com.br
 
