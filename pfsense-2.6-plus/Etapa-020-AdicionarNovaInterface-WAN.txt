@@ -85,6 +85,7 @@ Status
 	Dashboard
 
 Quinta etapa: Verificando a saída da Interface WAN padrão do pfSense
+Terminal (Ctrl + Alt + T)
 	traceroute -n google.com
 
 Sexta etapa: Alterando o Gateway Padrão do pfSense
@@ -97,7 +98,8 @@ System
 			<Save>
 		<Apply Changes>
 
-traceroute -n google.com
+Terminal (Ctrl + Alt + T)
+	traceroute -n google.com
 
 Sétima etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
