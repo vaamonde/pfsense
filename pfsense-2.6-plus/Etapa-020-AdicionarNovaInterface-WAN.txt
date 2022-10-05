@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 28/09/2022
-Versão: 0.01
+Data de atualização: 05/10/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -22,8 +22,8 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
-Configurações das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
-Configuração da Interface LAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
+Tipos de Interfaces e Configurações do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
+Diferenças das Interfaces LAN e WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
 Conexões Multi-WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/multiwan/index.html
 Roteamento no pfSense: https://docs.netgate.com/pfsense/en/latest/routing/index.html
 
@@ -77,18 +77,25 @@ Interfaces
 		<Save>
 	<Apply Changes>
 
-Quarta etapa: Verificando o Status das Interfaces no pfSense
+Quarta etapa: Alterando o nome da Interface WAN Padrão do pfSense
+Interfaces
+	WAN
+		General Configuration
+			Description: WAN_VIVO
+		<Save>
+
+Quinta etapa: Verificando o Status das Interfaces no pfSense
 Status
 	Interfaces
 
 Status
 	Dashboard
 
-Quinta etapa: Verificando a saída da Interface WAN padrão do pfSense
+Sexta etapa: Verificando a saída da Interface WAN padrão do pfSense
 Terminal (Ctrl + Alt + T)
 	traceroute -n google.com
 
-Sexta etapa: Alterando o Gateway Padrão do pfSense
+Sétima etapa: Alterando o Gateway Padrão do pfSense
 System
 	Routing
 		Gateways
@@ -101,7 +108,7 @@ System
 Terminal (Ctrl + Alt + T)
 	traceroute -n google.com
 
-Sétima etapa: Monitoramento das Interfaces e Gateways do pfSense
+Oitava etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
 	Interfaces
 
@@ -115,3 +122,6 @@ Status
 
 Status
 	Traffic Graph
+
+Diagnostics
+	Routes
