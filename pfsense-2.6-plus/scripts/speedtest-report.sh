@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Autor: Robson Vaamonde
 # Site: www.procedimentosemti.com.br
 # Facebook: facebook.com/ProcedimentosEmTI
@@ -30,9 +30,10 @@ PAGEREPORT="index.html"
 # opção do comando if: [ ] = testa uma expressão, -d = testa se o diretório existe
 if [ -d "$DIRECTORYREPORT" ]
 	then
-		echo -e "OK"
+		echo -e "Diretório: $DIRECTORYREPORT - OK"
 	else
 		mkdir $DIRECTORYREPORT
+		echo -e "Diretório: $DIRECTORYREPORT criado com sucesso!!!"
 fi
 #
 # Criando o arquivo do Relatório do SpeedTest
@@ -41,12 +42,14 @@ fi
 # opção do comando speedtest: --csv-header (Print CSV headers)
 if [ -f "$DIRECTORYREPORT/$PAGEREPORT" ]
 	then
-		echo -e "OK"
+		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT - OK"
 	else
 		speedtest --csv-header > $DIRECTORYREPORT/$PAGEREPORT
+		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT criado com sucesso!!!"
 fi
 #
 # Gerando o Relatório do SpeedTest
 # opção do comando speedtest: --source (Source IP address to bind to), --csv (Suppress 
 # verbose output, only show basic information)
 speedtest --source=$SOURCE --csv >> $DIRECTORYREPORT/$PAGEREPORT
+echo -e "Relatório do SpeedTest gerado com sucesso em: $DIRECTORYREPORT/$PAGEREPORT"
