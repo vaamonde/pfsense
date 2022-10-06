@@ -45,6 +45,7 @@ if [ -f "$DIRECTORYREPORT/$PAGEREPORT" ]
 		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT - OK"
 	else
 		speedtest --csv-header > $DIRECTORYREPORT/$PAGEREPORT
+		echo >> $DIRECTORYREPORT/$PAGEREPORT
 		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT criado com sucesso!!!"
 fi
 #
