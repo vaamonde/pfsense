@@ -25,6 +25,7 @@ Configurações do Dashboard do pfSense: https://docs.netgate.com/pfsense/en/lat
 Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
 Configurações de Atualização do pfSense: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html
 Prompt de Comando do pfSense: https://docs.netgate.com/pfsense/en/latest/diagnostics/command-prompt.html
+Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
 
 Link do projeto do Widget do SpeedTest para o pfSense: https://github.com/jacobdjwilson/pfsense-speedtest-widget
 
@@ -70,3 +71,21 @@ Dashboard
 	Available Widgets
 		SpeedTest
 			<Running>
+
+Sexta etapa: Instalando o Agendador de Tarefas CRON no pfSense
+System
+	Package Manager
+		Available Packages
+			Search
+				Search term: cron - Both <Search>
+			cron - <+Install>
+				<Confirm>
+
+Sétima etapa: "EM DESENVOLVIMENTO" Agendando o Relatório do SpeedTest no pfSense
+#Os resultados serão exibidos como uma saída separada por vírgulas com três valores 
+#(PING em milissegundos, DOWNLOAD em Mbps e UPLOAD em Mbps):
+speedtest | awk -v FS="(: | ms| Mbit/s)" '{print $2}' | tr '\n' ',' | sed 's/^.....//' | sed 's/.\{2\}$//' | sed 's/,\{2,\}/,/g'
+speedtest --interface=eth1
+speedtest --source=
+speedtest-cli --source `ifconfig vmx0 | grep "inet " | awk '{print $2}' | sed 's/addr://g'`
+speedtest --csv-header; speedtest --csv
