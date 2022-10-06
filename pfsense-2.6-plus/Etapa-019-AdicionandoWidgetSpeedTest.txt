@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 03/10/2022
-Versão: 0.02
+Data de atualização: 06/10/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -81,11 +81,23 @@ System
 			cron - <+Install>
 				<Confirm>
 
-Sétima etapa: "EM DESENVOLVIMENTO" Agendando o Relatório do SpeedTest no pfSense
-#Os resultados serão exibidos como uma saída separada por vírgulas com três valores 
-#(PING em milissegundos, DOWNLOAD em Mbps e UPLOAD em Mbps):
-speedtest | awk -v FS="(: | ms| Mbit/s)" '{print $2}' | tr '\n' ',' | sed 's/^.....//' | sed 's/.\{2\}$//' | sed 's/,\{2,\}/,/g'
-speedtest --interface=eth1
-speedtest --source=
-speedtest-cli --source `ifconfig vmx0 | grep "inet " | awk '{print $2}' | sed 's/addr://g'`
-speedtest --csv-header; speedtest --csv
+Sétima etapa: Agendando o Relatório do SpeedTest no pfSense
+Diagnostic
+	Command Prompt
+		Execute Shell Command
+			#opção do comando curl: -L (location), -J (remote-header-name), -o (output)
+			Command: curl -LJ https://raw.githubusercontent.com/ -o /usr/local/bin/speedtest-report.sh
+		<Execute>
+
+		Execute Shell Command
+			#opção do comando chmod: -v (verbose), 755 (user=RWX, group=R-X, other=R-X)
+			Command: chmod -v 755 /usr/local/bin/speedtest-report.sh
+		<Execute>
+
+		Execute Shell Command
+			Command: speedtest-report.sh
+		<Execute>
+
+Service
+	Cron
+		
