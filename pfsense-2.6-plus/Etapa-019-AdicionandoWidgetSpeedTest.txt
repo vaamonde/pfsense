@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
 Data de atualização: 06/10/2022
-Versão: 0.04
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -81,7 +81,7 @@ System
 			cron - <+Install>
 				<Confirm>
 
-Sétima etapa: Agendando o Relatório do SpeedTest no pfSense
+Sétima etapa: Criando o Relatório do SpeedTest no pfSense
 Diagnostic
 	Command Prompt
 		Execute Shell Command
@@ -101,6 +101,29 @@ Diagnostic
 Firefox
 	https://firewall.pti.intra:10443/speedtest/
 
+Oitava etapa: Agendando a Geração do Relatório do SpeedTest no pfSense
 Service
 	Cron
 		Add
+			Add A Cron Schedule
+				Minute: 10
+				Hour: *
+				Day of the Month: *
+				Month of the Year: *
+				Day of the Week: *
+				User: root
+				Command: /usr/local/bin/speedtest-report.sh
+			<Save>
+
+Nona etapa: Monitorando os Logs do Cron do SpeedTest no pfSense
+Status
+	System Logs
+		System
+			General
+				Advanced Log Filter
+					Message: cron
+				<Apply Filter>
+
+
+Firefox
+	https://firewall.pti.intra:10443/speedtest/
