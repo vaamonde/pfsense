@@ -8,8 +8,8 @@
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Github: https://github.com/vaamonde
 # Data de criação: 06/10/2022
-# Data de atualização: 06/10/2022
-# Versão: 0.02
+# Data de atualização: 07/10/2022
+# Versão: 0.03
 # Testado e homologado para a versão do pfSense 2.6.x e Plus 22.x
 # Testado e homologado para a versão do SpeedTest 2.1.x
 #
@@ -44,7 +44,7 @@ if [ -f "$DIRECTORYREPORT/$PAGEREPORT" ]
 	then
 		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT - OK"
 	else
-		speedtest --csv-header > $DIRECTORYREPORT/$PAGEREPORT
+		speedtest-cli --csv-header > $DIRECTORYREPORT/$PAGEREPORT
 		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT criado com sucesso!!!"
 fi
 #
@@ -52,5 +52,5 @@ fi
 # opção do comando speedtest: --secure (Use HTTPS instead of HTTP when communicating with
 # speedtest.net operated servers), --source (Source IP address to bind to), --csv (Suppress 
 # verbose output, only show basic information)
-speedtest --secure --source=$SOURCE --csv >> $DIRECTORYREPORT/$PAGEREPORT
+speedtest-cli --secure --source=$SOURCE --csv >> $DIRECTORYREPORT/$PAGEREPORT
 echo -e "Relatório do SpeedTest gerado com sucesso em: $DIRECTORYREPORT/$PAGEREPORT"
