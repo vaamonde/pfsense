@@ -21,7 +21,8 @@
 # qualquer quantidade).
 # opção do comando cut: -d (delimiter), -f (fields)
 INTERFACE="em0"
-SOURCE=$(ifconfig $INTERFACE | grep -w inet | sed -e 's/^[[:space:]]*//' | cut -d ' ' -f2)
+#SOURCE=$(ifconfig $INTERFACE | grep -w inet | sed -e 's/^[[:space:]]*//' | cut -d ' ' -f2)
+SOURCE="192.168.0.125"
 DIRECTORYREPORT="/usr/local/www/speedtest"
 PAGEREPORT="index.html"
 #
