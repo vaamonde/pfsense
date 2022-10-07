@@ -13,6 +13,10 @@
 # Testado e homologado para a versão do pfSense 2.6.x e Plus 22.x
 # Testado e homologado para a versão do SpeedTest 2.1.x
 #
+# OBSERVAÇÃO IMPORTANTE: para os script em Shell funcionar corretamente no agendamento do CRON
+# é recomendado que todos os comandos sejam declarados utilizando o caminho absoluto, com isso
+# o agendamento no pfSense funciona corretamente.
+#
 # Variáveis da Interface de Origem (Source) dos Testes do SpeedTest
 # opção do comando grep: -w (word-regexp)
 # opção do comando sed: -e (script), 
