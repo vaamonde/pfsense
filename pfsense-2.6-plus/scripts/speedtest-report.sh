@@ -9,7 +9,7 @@
 # Github: https://github.com/vaamonde
 # Data de criação: 06/10/2022
 # Data de atualização: 07/10/2022
-# Versão: 0.03
+# Versão: 0.04
 # Testado e homologado para a versão do pfSense 2.6.x e Plus 22.x
 # Testado e homologado para a versão do SpeedTest 2.1.x
 #
@@ -21,8 +21,7 @@
 # qualquer quantidade).
 # opção do comando cut: -d (delimiter), -f (fields)
 INTERFACE="em0"
-#SOURCE=$(ifconfig $INTERFACE | grep -w inet | sed -e 's/^[[:space:]]*//' | cut -d ' ' -f2)
-SOURCE="192.168.0.125"
+SOURCE=$(/sbin/ifconfig $INTERFACE | /usr/bin/grep -w inet | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
 DIRECTORYREPORT="/usr/local/www/speedtest"
 PAGEREPORT="index.html"
 #

@@ -106,13 +106,14 @@ Service
 	Cron
 		Add
 			Add A Cron Schedule
-				Minute: 10
+				Minute: */10
 				Hour: *
 				Day of the Month: *
 				Month of the Year: *
 				Day of the Week: *
 				User: root
-				Command: /usr/local/bin/speedtest-report.sh
+				#opções do comando nice: -n (adjustment)
+				Command: /usr/bin/nice -n20 /usr/local/bin/speedtest-report.sh
 			<Save>
 
 Nona etapa: Monitorando os Logs do Cron do SpeedTest no pfSense
@@ -124,6 +125,8 @@ Status
 					Message: cron
 				<Apply Filter>
 
+Diagnostics
+	System Activity
 
 Firefox
 	https://firewall.pti.intra:10443/speedtest/
