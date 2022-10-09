@@ -139,6 +139,7 @@ Status
 					<+Add New Command>
 						Command Settings
 							Name: Espaco Utilizado em Hard Disk
+							#opção do comando df: -T (print-type), -h (human-readable)
 							Command: df -Th (Enable)
 						<Save>
 			<Save>
@@ -163,6 +164,7 @@ Décima Primeira etapa: Executando comandos no pfSense
 Diagnostic
 	Command Prompt
 		Execute Shell Command
+			#opção do comando df: -T (print-type), -h (human-readable)
 			Command: df -Th
 		<Execute>
 
