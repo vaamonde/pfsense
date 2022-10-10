@@ -247,7 +247,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=05RS1mWlcRk
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-017-ConfigurandoNAT-PortForward.txt
 
-# **COMO CONFIGURAR a Regras de FIREWALL na Interface LAN no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR a Regras de FIREWALL na Interface LAN no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar as regras de Firewall na Interface LAN (Local Area Network) do pfSENSE PLUS+ 22.05.
 
@@ -259,7 +259,7 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-018-ConfigurandoRegrasDeFirewall-LAN.txt
 
-# **COMO INSTALAR o SpeedTest Widget Dashboard no pfSENSE PLUS+ 22.05**
+## **COMO INSTALAR o SpeedTest Widget Dashboard no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para instalar e configurar o Widget (Mini-aplicativo) do SpeedTest (Teste de Conexão com a Internet) no pfSENSE PLUS+ 22.05.
 
@@ -271,7 +271,7 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt
 
-# **COMO ADICIONAR uma Nova Interface WAN no pfSENSE PLUS+ 22.05**
+## **COMO ADICIONAR uma Nova Interface WAN no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos adicionar uma nova Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
 
