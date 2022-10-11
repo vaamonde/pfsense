@@ -51,7 +51,7 @@ System
 			DNS Server 01: 8.8.8.8
 			DNS Server 02: 8.8.4.4
 			DNS Server Override: OFF
-			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers
+			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers (Default)
 		Localization
 			Timezone: America/Sao_Paulo
 			Timeservers: a.st1.ntp.br
@@ -99,8 +99,8 @@ Services
 				Maximum lease time: 43200 (12 horas)
 				Failover peer IP: Default
 				Static ARP: OFF (Default)
-				Time format change: ON
-				Statistics graphs: ON
+				Time format change: ON (Enable)
+				Statistics graphs: ON (Enable)
 				Ping check: OFF (Default)
 				Dynamic DNS: Default
 				MAC address control: Default

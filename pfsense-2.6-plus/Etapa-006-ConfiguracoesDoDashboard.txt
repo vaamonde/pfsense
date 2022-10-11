@@ -37,16 +37,16 @@ System
 	General Setup
 		webConfigurator
 			Theme: pfsense-dark
-			Top Navigation: Fixed (Remains visible at top page)
-			Hostname in Menu: Fully Qualified Domain Name
-			Dashboard Columns: 3
+			Top Navigation: Fixed (Remains visible at top page) (Enable)
+			Hostname in Menu: Fully Qualified Domain Name (Enable) 
+			Dashboard Columns: 3 (Enable)
 			Interfaces Sort: ON (Enable)
 			Associated Panels Show/Hide
 				Available Widgets: ON (Enable)
 				Log Filter: ON (Enable)
 				Manage Log: ON (Enable)
 				Monitoring Settings: ON (Enable)
-			Login page color: Dark Blue
+			Login page color: Dark Blue (Default)
 			Login hostname: ON (Enable)
 	<Save>
 <Logout>
