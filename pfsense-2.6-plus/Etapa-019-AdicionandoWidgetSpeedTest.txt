@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 07/10/2022
-Versão: 0.06
+Data de atualização: 17/10/2022
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -27,6 +27,7 @@ Configurações de Atualização do pfSense: https://docs.netgate.com/pfsense/en
 Prompt de Comando do pfSense: https://docs.netgate.com/pfsense/en/latest/diagnostics/command-prompt.html
 Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
 
+Site Oficial do SpeedTest: https://www.speedtest.net/pt
 Link do projeto do Widget do SpeedTest para o pfSense: https://github.com/jacobdjwilson/pfsense-speedtest-widget
 
 Observações das configurações utilizadas nessa documentação
@@ -49,14 +50,15 @@ Diagnostic
 	Command Prompt
 		Execute Shell Command
 			#opção do comando curl: -L (location), -J (remote-header-name), -o (output)
-			Command: curl -LJ https://raw.githubusercontent.com/jacobdjwilson/pfsense-speedtest-widget/master/speedtest.widget.php -o /usr/local/www/widgets/widgets/speedtest.widget.php
+			Command: curl -LJ https://raw.githubusercontent.com/vaamonde/pfsense/master/pfsense-2.6-plus/scripts/speedtest.widget.php -o /usr/local/www/widgets/widgets/speedtest.widget.php
 		<Execute>
 
 Terceira etapa: Executando o software SpeedTest no pfSense
 Diagnostic
 	Command Prompt
 		Execute Shell Command
-			Command: speedtest ou speedtest-cli
+			#opção do comando speedtest: --secure (Run a speed test using HTTPS, instead of HTTP)
+			Command: speedtest --secure ou speedtest-cli --secure
 		<Execute>
 
 Quarta etapa: Configurando o Widget do SpeedTest no Dashboard do pfSense

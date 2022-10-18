@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 27/09/2022
-Versão: 0.04
+Data de atualização: 17/10/2022
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -50,8 +50,8 @@ Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navega
 	Netgate® Global Support is available 24/7
 		<Next>
 	General Information
-		Hostname: ptispo01fw01
-		Domain: pti.intra
+		Hostname: ptispo01fw01 (alterar conforme a sua necessidade)
+		Domain: pti.intra (alterar conforme a sua necessidade)
 		Primary DNS Server: 8.8.8.8
 		Secondary DNS Server: 8.8.4.4
 		Override DNS: OFF (Disable)
@@ -75,8 +75,8 @@ Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navega
 		Subnet Mask: 24
 		<Next>
 	Set Admin WebGUI Password
-		Admin Password: pti@2018
-		Admin Password AGAIN: pti@2018
+		Admin Password: pti@2018 (alterar conforme a sua necessidade)
+		Admin Password AGAIN: pti@2018 (alterar conforme a sua necessidade)
 		<Next>
 	Reload configuration
 		<Reload>
