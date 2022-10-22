@@ -115,29 +115,26 @@ Quarta etapa: Levantamento dos Protocolos e Portas de Saída Liberadas da Rede L
 	Protocolo: UDP	 Serviço: DNS Server    Porta: 53         Source: LAN Net  Destination: LAN address  Port: DNS (53)
 
 	Protocolo: ICMP	 Serviço: Any           Porta: Sem Porta  Source: LAN Net  Destination: any          ICMP Subtypes: Echo Reply/Request
-		OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range 
-		de Portas UDP de: 33434 até 33534, o comando tracepath utiliza o Protocolo ICMP e o Range de 
-		Portas UDP de: 44444 até 44644.
+	OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 
+	até 33534, o comando tracepath utiliza o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644.
 
 	Protocolo: TCP	 Serviço: HTTP Server   Porta: 80         Source: LAN Net  Destination: any          Port: HTTP (80)
 
 	Protocolo: TCP	 Serviço: HTTPS Server  Porta: 443        Source: LAN Net  Destination: any          Port: HTTPS (443)
 
 	Protocolo: TCP	 Serviço: FTP Server    Porta: 21         Source: LAN Net  Destination: any          Port: FTP (21)
-		OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele 
-		utiliza portas altas para o envio e recebimento de dados do cliente, no exemplo do FTP
-		ftp.unicamp.br ele trabalha na faixa de: 1024 até 10000, em alguns cenário também e 
-		necessário liberar a porta 20 (conexão de dados) junto com a 21 (conexão de controle).
-		A comunidade do pfSense recomenda utilizar o recurso do FTP Client Proxy. 
+	OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele utiliza portas altas para o 
+	envio e recebimento de dados do cliente, no exemplo do FTP ftp.unicamp.br ele trabalha na faixa de: 1024 até 10000, 
+	em alguns cenário também é necessário liberar a porta 20 (conexão de dados) junto com a 21 (conexão de controle). A 
+	comunidade do pfSense recomenda utilizar o recurso do FTP Client Proxy. 
 
 	Protocolo: UDP	 Serviço: NTP Server    Porta: 123        Source: LAN Net  Destination: LAN address  Port: NTP (123)
 
 	Protocolo: UDP	 Serviço: SNMP v2c      Porta: 161        Source: LAN Net  Destination: LAN address  Port: SNMP (161)
 
 	Protocolo: UDP	 Serviço: DHCP Server   Porta: 67         Source: LAN Net  Destination: LAN address  Port: Other (67)
-		OBSERVAÇÃO IMPORTANTE: mesmo removendo todas as regras de firewall da interface LAN do 
-		pfSense a porta de comunicação do DHCP Server 67 continua permitida na rede, não sendo 
-		necessário fazer regras de firewall na LAN para a sua liberação.
+	OBSERVAÇÃO IMPORTANTE: mesmo removendo todas as regras de firewall da interface LAN do pfSense a porta de comunicação 
+	do DHCP Server 67 continua permitida na rede, não sendo necessário fazer regras de firewall na LAN para a sua liberação.
 
 Quinta etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede LAN no pfSense
 Firewall
