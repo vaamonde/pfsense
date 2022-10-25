@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 27/09/2022
-Data de atualização: 22/10/2022
-Versão: 0.07
+Data de atualização: 25/10/2022
+Versão: 0.08
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -62,6 +62,15 @@ Terminal (Ctrl + Alt + T)
 		Password: guest
 		Command: dir
 		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+		OBSERVAÇÃO IMPORTANTE: servidores FTP podem ser configurados de Modo Passivo ou Ativo, dependendo
+		da forma que é configurado o Servidor FTP com Segurança ou Não as regras de Firewall muda, sendo
+		necessário criar regras personalizadas para cada situação.
+	firefox pr
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
@@ -110,6 +119,11 @@ Terminal (Ctrl + Alt + T)
 		Password: guest
 		Command: dir
 		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
@@ -123,7 +137,7 @@ Quarta etapa: Levantamento dos Protocolos e Portas de Saída Liberadas da Rede L
 
 	Protocolo: ICMP	 Serviço: Any           Porta: Sem Porta  Source: LAN Net  Destination: any          ICMP Subtypes: Echo Reply/Request
 	OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 
-	até 33534, o comando tracepath utiliza o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644.
+	até 33564, o comando tracepath utiliza o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644.
 
 	Protocolo: TCP	 Serviço: HTTP Server   Porta: 80         Source: LAN Net  Destination: any          Port: HTTP (80)
 	Protocolo: TCP	 Serviço: HTTPS Server  Porta: 443        Source: LAN Net  Destination: any          Port: HTTPS (443)
