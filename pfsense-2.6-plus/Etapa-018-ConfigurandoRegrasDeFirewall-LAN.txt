@@ -70,7 +70,6 @@ Terminal (Ctrl + Alt + T)
 		OBSERVAÇÃO IMPORTANTE: servidores FTP podem ser configurados de Modo Passivo ou Ativo, dependendo
 		da forma que é configurado o Servidor FTP com Segurança ou Não as regras de Firewall muda, sendo
 		necessário criar regras personalizadas para cada situação.
-	firefox pr
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
