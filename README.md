@@ -253,9 +253,9 @@ Vídeo mostrando os procedimentos básicos para configurar as regras de Firewall
 
 As regras nas guias de interface são aplicadas por interface, sempre na direção de entrada nessa interface. Isso significa que o tráfego iniciado de hosts conectados à LAN é filtrado usando as regras de interface da LAN. O tráfego iniciado de hosts na Internet é filtrado com as regras da interface WAN. Como todas as regras no software pfSense são stateful por padrão, uma entrada de tabela de estado é criada quando o tráfego corresponde a uma regra de permissão. Todo o tráfego de resposta é permitido automaticamente por esta entrada da tabela de estado.
 
-[![Firewall LAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Firewall LAN pfSense Plus")
+[![Firewall LAN pfSense Plus](http://img.youtube.com/vi/C5bg-Ec2jb4/0.jpg)](https://www.youtube.com/watch?v=C5bg-Ec2jb4 "Firewall LAN pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=C5bg-Ec2jb4
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-018-ConfigurandoRegrasDeFirewall-LAN.txt
 
