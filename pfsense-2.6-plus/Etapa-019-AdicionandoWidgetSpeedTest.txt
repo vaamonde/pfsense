@@ -108,7 +108,7 @@ Service
 	Cron
 		Add
 			Add A Cron Schedule
-				Minute: */10
+				Minute: */10 (cada dez minutos)
 				Hour: *
 				Day of the Month: *
 				Month of the Year: *

@@ -97,7 +97,8 @@ Status
 
 Sexta etapa: Verificando a saída da Interface WAN padrão do pfSense
 Terminal (Ctrl + Alt + T)
-	traceroute -n google.com
+	sudo apt install nmap traceroute (install software packages)
+	traceroute -n google.com (print the route packets trace to network host)
 
 Sétima etapa: Alterando o Gateway Padrão do pfSense
 System
