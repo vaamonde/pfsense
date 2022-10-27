@@ -109,7 +109,7 @@ Service
 	Cron
 		Add
 			Add A Cron Schedule
-				Minute: */10 (cada dez minutos)
+				Minute: */10 (a cada dez minutos)
 				Hour: *
 				Day of the Month: *
 				Month of the Year: *
@@ -132,4 +132,5 @@ Diagnostics
 	System Activity
 
 Firefox
+	#OBSERVAÇÃO IMPORTANTE: verificar o nome da Interface WAN para acessar a página do relatório
 	https://firewall.pti.intra:10443/speedtest/
