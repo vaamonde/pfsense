@@ -101,6 +101,7 @@ Diagnostic
 		<Execute>
 
 Firefox
+	#OBSERVAÇÃO IMPORTANTE: verificar o nome da Interface WAN para acessar a página do relatório
 	https://firewall.pti.intra:10443/speedtest/
 
 Oitava etapa: Agendando a Geração do Relatório do SpeedTest no pfSense
