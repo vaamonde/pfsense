@@ -8,7 +8,7 @@
  * Atualizado pelo: Robson Vaamonde (BoraParaPrática) em: 17/10/2022
  * Adicionado a opção: --secure no comando: speedtest
  * 
- * Download o arquivo original feito da URL:
+ * Download do arquivo original feito da URL:
  * https://github/jacobdjwilson/pfsense-speedtest-widget/master/speedtest.widget.php
  * 
  * Licensed under the GPL, Version 3.0 (the "License");
