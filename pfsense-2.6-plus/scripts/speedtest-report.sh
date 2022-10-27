@@ -8,8 +8,8 @@
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Github: https://github.com/vaamonde
 # Data de criação: 06/10/2022
-# Data de atualização: 07/10/2022
-# Versão: 0.04
+# Data de atualização: 26/10/2022
+# Versão: 0.05
 # Testado e homologado para a versão do pfSense 2.6.x e Plus 22.x
 # Testado e homologado para a versão do SpeedTest 2.1.x
 #
@@ -24,10 +24,10 @@
 # exceto os listados), [[:space:]] (Espaço em branco), *// (O item anterior pode aparecer em 
 # qualquer quantidade).
 # opção do comando cut: -d (delimiter), -f (fields)
-INTERFACE="em0"
-SOURCE=$(/sbin/ifconfig $INTERFACE | /usr/bin/grep -w inet | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
 DIRECTORYREPORT="/usr/local/www/speedtest"
-PAGEREPORT="index.html"
+INTERFACE01="em0"
+SOURCE01=$(/sbin/ifconfig $INTERFACE01 | /usr/bin/grep -w inet | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
+PAGEREPORT01="wan01.html"
 #
 # Criando o diretório do Relatório do SpeedTest
 # opção do comando: echo: -e (interpretador de escapes de barra invertida)
@@ -44,17 +44,17 @@ fi
 # opção do comando: echo: -e (interpretador de escapes de barra invertida)
 # opção do comando if: [ ] = testa uma expressão, -f = testa se o arquivo existe
 # opção do comando speedtest: --csv-header (Print CSV headers)
-if [ -f "$DIRECTORYREPORT/$PAGEREPORT" ]
+if [ -f "$DIRECTORYREPORT/$PAGEREPORT01" ]
 	then
-		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT - OK"
+		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT01 - OK"
 	else
-		/usr/local/bin/speedtest-cli --csv-header > $DIRECTORYREPORT/$PAGEREPORT
-		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT criado com sucesso!!!"
+		/usr/local/bin/speedtest-cli --csv-header > $DIRECTORYREPORT/$PAGEREPORT01
+		echo -e "Arquivo $DIRECTORYREPORT/$PAGEREPORT01 criado com sucesso!!!"
 fi
 #
 # Gerando o Relatório do SpeedTest
 # opção do comando speedtest: --secure (Use HTTPS instead of HTTP when communicating with
 # speedtest.net operated servers), --source (Source IP address to bind to), --csv (Suppress 
 # verbose output, only show basic information)
-/usr/local/bin/speedtest-cli --secure --source=$SOURCE --csv >> $DIRECTORYREPORT/$PAGEREPORT
-echo -e "Relatório do SpeedTest gerado com sucesso em: $DIRECTORYREPORT/$PAGEREPORT"
+/usr/local/bin/speedtest-cli --secure --source=$SOURCE01 --csv >> $DIRECTORYREPORT/$PAGEREPORT01
+echo -e "Relatório do SpeedTest gerado com sucesso em: $DIRECTORYREPORT/$PAGEREPORT01"
