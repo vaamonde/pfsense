@@ -247,7 +247,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=05RS1mWlcRk
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-017-ConfigurandoNAT-PortForward.txt
 
-## **COMO CONFIGURAR a Regras de FIREWALL na Interface LAN no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR as Regras de FIREWALL na Interface LAN no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar as regras de Firewall na Interface LAN (Local Area Network) do pfSENSE PLUS+ 22.05.
 
@@ -259,7 +259,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=C5bg-Ec2jb4
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-018-ConfigurandoRegrasDeFirewall-LAN.txt
 
-## **COMO INSTALAR o SpeedTest Widget Dashboard no pfSENSE PLUS+ 22.05**
+## **COMO INSTALAR o SpeedTest Widget Dashboard e Report no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para instalar e configurar o Widget (Mini-aplicativo) do SpeedTest (Teste de Conexão com a Internet) no pfSENSE PLUS+ 22.05.
 
@@ -271,14 +271,28 @@ Link da vídeo aula:
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt
 
-## **COMO ADICIONAR uma Nova Interface WAN no pfSENSE PLUS+ 22.05**
+## **COMO ADICIONAR uma Nova Interface WAN (Multi-WAN) no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos adicionar uma nova Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para adicionar uma nova Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
 
-A interface recém-atribuída será mostrada na lista de Interfaces. A nova interface terá um nome padrão alocado pelo firewall como OPT1 ou OPT2, com o número aumentando conforme sua ordem de atribuição. As duas primeiras interfaces têm como padrão os nomes WAN e LAN, mas podem ser renomeadas.
+Os recursos de várias WANs (multi-WAN) do pfSense permitem que um firewall utilize várias conexões de Internet para obter conectividade mais confiável e maior capacidade de taxa de transferência.
 
-[![Interface WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Interface WAN pfSense Plus")
+O software pfSense é capaz de lidar com várias interfaces WAN, com várias implantações usando mais de 10 WANs em produção.
+
+[![Multi-WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Multi-WAN pfSense Plus")
 
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-020-AdicionarNovaInterface-WAN.txt
+
+## **COMO CONFIGURAR o Failover HA (High Availability - Alta Disponibilidade) das Interface WAN (Internet) no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o Failover HA (High Availability) das Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
+
+Failover refere-se à capacidade de alternar de uma ou mais WANs para um conjunto alternativo de WANs se as conexões preferenciais falharem. Isso é útil para situações em que o tráfego deve utilizar uma conexão WAN específica, a menos que ela não esteja disponível.
+
+[![Failover WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Failover WAN pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula:
