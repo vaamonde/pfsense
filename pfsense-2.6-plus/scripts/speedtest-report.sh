@@ -8,8 +8,8 @@
 # Instagram: https://www.instagram.com/procedimentoem/?hl=pt-br
 # Github: https://github.com/vaamonde
 # Data de criação: 06/10/2022
-# Data de atualização: 27/10/2022
-# Versão: 0.06
+# Data de atualização: 03/10/2022
+# Versão: 0.07
 # Testado e homologado para a versão do pfSense 2.6.x e Plus 22.x
 # Testado e homologado para a versão do SpeedTest 2.1.x
 #
@@ -31,14 +31,14 @@ DIRECTORYREPORT="/usr/local/www/speedtest"
 INTERFACE01="em0"
 SOURCE01=$(/sbin/ifconfig $INTERFACE01 | /usr/bin/grep -w inet | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
 DESCRIPTION01=$(/sbin/ifconfig $INTERFACE01 | /usr/bin/grep -w description | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
-PAGEREPORT01=$DESCRIPTION01.html
+PAGEREPORT01=$INTERFACE01.html
 #
 # Exemplo da Segunda Interface WAN de Monitoramento do SpeedTest, só descomentar e alterar o
 # valor da variável Interface com o nome correto que o pfSense atribuiu a Interface
 #INTERFACE02="em1"
 #SOURCE02=$(/sbin/ifconfig $INTERFACE02 | /usr/bin/grep -w inet | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
 #DESCRIPTION02=$(/sbin/ifconfig $INTERFACE02 | /usr/bin/grep -w description | /usr/bin/sed -e 's/^[[:space:]]*//' | /usr/bin/cut -d ' ' -f2)
-#PAGEREPORT02="$DESCRIPTION02.html"
+#PAGEREPORT02="$INTERFACE02.html"
 #
 # Criando o diretório dos Relatórios do SpeedTest
 # opção do comando: echo: -e (interpretador de escapes de barra invertida)
