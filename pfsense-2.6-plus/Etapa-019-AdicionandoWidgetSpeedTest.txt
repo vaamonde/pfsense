@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 17/10/2022
-Versão: 0.07
+Data de atualização: 03/11/2022
+Versão: 0.08
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -45,20 +45,20 @@ Diagnostic
 			Command: pkg update ; pkg install -y $( pkg search speedtest-cli | awk '{ print $1 }' )
 		<Execute>
 
-Segunda etapa: Instalando o Widget (Mini-aplicativo) do SpeedTest no pfSense
-Diagnostic
-	Command Prompt
-		Execute Shell Command
-			#opção do comando curl: -L (location), -J (remote-header-name), -o (output)
-			Command: curl -LJ https://raw.githubusercontent.com/vaamonde/pfsense/master/pfsense-2.6-plus/scripts/speedtest.widget.php -o /usr/local/www/widgets/widgets/speedtest.widget.php
-		<Execute>
-
-Terceira etapa: Executando o software SpeedTest no pfSense
+Segunda etapa: Executando o software SpeedTest no pfSense
 Diagnostic
 	Command Prompt
 		Execute Shell Command
 			#opção do comando speedtest: --secure (Run a speed test using HTTPS, instead of HTTP)
 			Command: speedtest --secure ou speedtest-cli --secure
+		<Execute>
+
+Terceira etapa: Instalando o Widget (Mini-aplicativo) do SpeedTest no pfSense
+Diagnostic
+	Command Prompt
+		Execute Shell Command
+			#opção do comando curl: -L (location), -J (remote-header-name), -o (output)
+			Command: curl -LJ https://raw.githubusercontent.com/vaamonde/pfsense/master/pfsense-2.6-plus/scripts/speedtest.widget.php -o /usr/local/www/widgets/widgets/speedtest.widget.php
 		<Execute>
 
 Quarta etapa: Configurando o Widget do SpeedTest no Dashboard do pfSense
@@ -74,16 +74,7 @@ Dashboard
 		SpeedTest
 			<Running>
 
-Sexta etapa: Instalando o Agendador de Tarefas CRON no pfSense
-System
-	Package Manager
-		Available Packages
-			Search
-				Search term: cron - Both <Search>
-			cron - <+Install>
-				<Confirm>
-
-Sétima etapa: Criando o Relatório do SpeedTest no pfSense
+Sexta etapa: Instalando o Relatório do SpeedTest no pfSense
 Diagnostic
 	Command Prompt
 		Execute Shell Command
@@ -103,6 +94,15 @@ Diagnostic
 Firefox
 	#OBSERVAÇÃO IMPORTANTE: verificar o nome da Interface WAN para acessar a página do relatório
 	https://firewall.pti.intra:10443/speedtest/
+
+Sétima etapa: Instalando o Agendador de Tarefas CRON no pfSense
+System
+	Package Manager
+		Available Packages
+			Search
+				Search term: cron - Both <Search>
+			cron - <+Install>
+				<Confirm>
 
 Oitava etapa: Agendando a Geração do Relatório do SpeedTest no pfSense
 Service
