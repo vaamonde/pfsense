@@ -22,7 +22,7 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
-Documentação do NTopNG do pfSense: 
+Documentação do NTopNG do pfSense: https://www.ntop.org/guides/ntopng/third_party_integrations/pfsense.html
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
