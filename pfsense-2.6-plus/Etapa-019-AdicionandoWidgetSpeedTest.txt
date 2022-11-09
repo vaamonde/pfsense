@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 03/11/2022
-Versão: 0.08
+Data de atualização: 09/11/2022
+Versão: 0.09
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -29,6 +29,10 @@ Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages
 
 Site Oficial do SpeedTest: https://www.speedtest.net/pt
 Link do projeto do Widget do SpeedTest para o pfSense: https://github.com/jacobdjwilson/pfsense-speedtest-widget
+
+Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
+Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
+Teste de velocidade da Internet Fast: https://fast.com/pt/
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value

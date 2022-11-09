@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 28/09/2021
-Data de atualização: 28/10/2022
-Versão: 0.03
+Data de atualização: 09/11/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -28,9 +28,9 @@ Conexões Multi-WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/multi
 Terminologia e Conceitos de Multi-WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/multiwan/concepts.html
 Roteamento no pfSense: https://docs.netgate.com/pfsense/en/latest/routing/index.html
 
-Teste de velocidade da Internet da Netflix: https://fast.com
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
+Teste de velocidade da Internet Fast: https://fast.com/pt/
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
@@ -104,6 +104,7 @@ Terminal (Ctrl + Alt + T)
 	firefox files00.netgate.com/ip
 	firefox files01.netgate.com/ip
 	firefox pfsense.org/ip
+	firefox whatismyip.com.br/
 
 Sétima etapa: Alterando o Gateway Padrão do pfSense
 System

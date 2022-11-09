@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 04/11/2022
-Data de atualização: 04/11/2022
-Versão: 0.03
+Data de atualização: 09/11/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -23,6 +23,10 @@ Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manua
 
 Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
 Documentação do NTopNG do pfSense: https://www.ntop.org/guides/ntopng/third_party_integrations/pfsense.html
+
+Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
+Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
+Teste de velocidade da Internet Fast: https://fast.com/pt/
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
