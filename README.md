@@ -265,9 +265,9 @@ Vídeo mostrando os procedimentos básicos para instalar e configurar o Widget (
 
 O speedtest ou speedtest-cli é uma interface de linha de comando de código aberto para testar a largura de banda da Internet que também pode ser utilizado diretamente pelo navegador. É uma pequena ferramenta rápida para verificar a velocidade de download e upload.
 
-[![SpeedTest pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "SpeedTest pfSense Plus")
+[![SpeedTest pfSense Plus](http://img.youtube.com/vi/hPhRwLGs79U/0.jpg)](https://www.youtube.com/watch?v=hPhRwLGs79U "SpeedTest pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=hPhRwLGs79U
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt
 
@@ -284,6 +284,30 @@ O software pfSense é capaz de lidar com várias interfaces WAN, com várias imp
 Link da vídeo aula: 
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-020-AdicionarNovaInterface-WAN.txt
+
+## **COMO CONFIGURAR o NTopNG no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para instalar e configurar o software de monitoramento de tráfego NTopNG no pfSENSE PLUS+ 22.05.
+
+NTop-NG é um software de computador para monitorar o tráfego em uma rede de computadores. Ele foi projetado para ser um substituto de alto desempenho e baixo recurso para o ntop. O nome é derivado de ntop de próxima geração.
+
+[![NTopNG pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTopNG pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula:
+
+## **COMO CONFIGURAR o iPerf3 no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para instalar e configurar o software de medição de largura de banda iPerf3 no pfSENSE PLUS+ 22.05.
+
+iPerf3 é uma ferramenta para medição e ajuste de desempenho de rede. É uma ferramenta multiplataforma que pode produzir medições de desempenho padronizadas para qualquer rede.
+
+[![NTopNG pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTopNG pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: 
 
 ## **COMO CONFIGURAR o Failover HA (High Availability - Alta Disponibilidade) das Interface WAN (Internet) no pfSENSE PLUS+ 22.05**
 
