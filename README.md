@@ -295,7 +295,7 @@ NTop-NG é um software de computador para monitorar o tráfego em uma rede de co
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula:
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-021-MonitoramentoDeRede-NTopNG.txt
 
 ## **COMO CONFIGURAR o iPerf3 no pfSENSE PLUS+ 22.05**
 
@@ -307,7 +307,7 @@ iPerf3 é uma ferramenta para medição e ajuste de desempenho de rede. É uma f
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: 
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-022-TesteDeLarguraDeBanda-IPerf3.txt
 
 ## **COMO CONFIGURAR o Failover HA (High Availability - Alta Disponibilidade) das Interface WAN (Internet) no pfSENSE PLUS+ 22.05**
 
