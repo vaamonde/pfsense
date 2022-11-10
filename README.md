@@ -279,9 +279,9 @@ Os recursos de várias WANs (multi-WAN) do pfSense permitem que um firewall util
 
 O software pfSense é capaz de lidar com várias interfaces WAN, com várias implantações usando mais de 10 WANs em produção.
 
-[![Multi-WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Multi-WAN pfSense Plus")
+[![Multi-WAN pfSense Plus](http://img.youtube.com/vi/S_CHo4Wk5Bg/0.jpg)](https://www.youtube.com/watch?v=S_CHo4Wk5Bg "Multi-WAN pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=S_CHo4Wk5Bg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-020-AdicionarNovaInterface-WAN.txt
 
