@@ -61,7 +61,6 @@ Terceira etapa: Testando a Largura de Banda (throughput) da Rede
 #opção do comando iperf: -s (server), -p (port)
 iperf3 -s -p 5001
 
-
 #Iniciando o Client IPerf3
 #opção do comando iperf: -c (client), -p (port), -d (dualtest/debug)
 iperf3 -c IPv4 ou Hostname ou FQDN

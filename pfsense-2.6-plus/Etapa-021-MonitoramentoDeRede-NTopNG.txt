@@ -65,6 +65,19 @@ Diagnostics
 			Delete ntopng Data: (Default)
 	<Save>
 
+Terceira etapa: Cadastramento Gratuito do GeoLite2 Database
+Link: https://www.maxmind.com/en/geolite2/signup
+
+Diagnostics
+	NTopNG Settings
+		Utilities
+			GeoLite2 DB License Key: (Copiar e Colar a Chave do Maxmind)
+	<Save>
+
+		Utilities
+			Update GeoLite2 DB
+	<Save>
+
 Terceira etapa: Liberando o acesso a Porta do NTopNG no pfSense
 Firewall
 	Rules
