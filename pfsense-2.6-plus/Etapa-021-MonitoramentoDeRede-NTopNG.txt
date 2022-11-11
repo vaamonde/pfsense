@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 04/11/2022
-Data de atualização: 09/11/2022
-Versão: 0.04
+Data de atualização: 11/11/2022
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -65,20 +65,36 @@ Diagnostics
 			Delete ntopng Data: (Default)
 	<Save>
 
-Terceira etapa: Cadastramento Gratuito do GeoLite2 Database
+Terceira etapa: Cadastramento Gratuito do Maxmind GeoLite2 Database
 Link: https://www.maxmind.com/en/geolite2/signup
+
+OBSERVAÇÃO: após o cadastramento será enviado para o seu email os procedimentos para a criação
+da senha e acesso a sua conta do Maxmind.
+
+Quarta etapa: Gerando uma Chave de Licença do Maxmind GeoLite2 Database
+Se logar com a sua conta no link: https://www.maxmind.com/en/account/login
+	Account
+		Manage License Keys
+			<Generate new license key>
+				License key description: boraparapratica
+				GeoIP Update: No (Enable)
+			<Confirm>
+	OBSERVAÇÃO: copiar a Chave de Licença na linha: License key
+
+Quinta etapa: Ativar e Atualizar a Chave de Licença do Maxmind GeoLite2 no pfSense
+Diagnostics
+	NTopNG Settings
+		Utilities
+			GeoLite2 DB License Key: (Copiar e Colar a Chave de Licença do Maxmind)
+	<Save>
 
 Diagnostics
 	NTopNG Settings
 		Utilities
-			GeoLite2 DB License Key: (Copiar e Colar a Chave do Maxmind)
-	<Save>
-
-		Utilities
 			Update GeoLite2 DB
 	<Save>
 
-Terceira etapa: Liberando o acesso a Porta do NTopNG no pfSense
+Terceira etapa: Liberando o acesso da Porta do NTopNG na Interface LAN no pfSense
 Firewall
 	Rules
 		LAN
