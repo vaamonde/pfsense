@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 03/11/2022
 Data de atualização: 15/11/2022
-Versão: 0.03
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -56,17 +56,66 @@ Microsoft Windows:
 		Link: https://iperf.fr/download/windows/iperf-3.1.3-win64.zip
 
 Terceira etapa: Configurando o Servidor do IPerfv3 no pfSense
+Diagnostics
+	iperf Server
+		General Options
+			Port: 5001 (Enable)
+			Output format: bytes/sec (Enable)
+			Interval: (Default)
+			Other Options: (Default)
+	<Run iperf server>
 
-Quarta etapa: Configurando o Cliente do IPerfv3 no pfSense
+Quarta etapa: Liberando a Porta de Conexão do IPerfv3 Server no pfSense
+Firewall
+	Rules
+		LAN
+			+ADD
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: LAN (Default)
+					Address Family: IPv4 (Default)
+					Protocol: TCP/UDP (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) - LAN net (Enable)
+					Display Advanced: (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - LAN address (Enable)
+					Destination Port Range:
+						From: (other) - Custom: 5001 (Enable)
+						To: (other) - Custom: 5001 (Enable)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do Servidor IPerfv3 na Interface LAN
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
 
-Terceira etapa: Testando a Largura de Banda (throughput) da Rede
+Quinta etapa: Testando a Largura de Banda (throughput) da Rede LAN do pfSense
+Terminal: Ctrl + Alt + T
+	#opção do comando iperf3: -c (client), -p (port), -d (dualtest/debug)
+	iperf3 -c IPv4 ou Hostname ou FQDN
+	iperf3 -c IPv4 ou Hostname ou FQDN -p 5001
+	iperf3 -c IPv4 ou Hostname ou FQDN -p 5001 -d
 
-#Iniciando o Servidor IPerf3
-#opção do comando iperf: -s (server), -p (port)
-iperf3 -s -p 5001
+Sexta etapa: Iniciando o IPerfv3 Server no Linux Mint Remoto
+Terminal: Ctrl + Alt + T
+	#opção do comando iperf: -s (server), -p (port)
+	iperf3 -s -p 5001
 
-#Iniciando o Client IPerf3
-#opção do comando iperf: -c (client), -p (port), -d (dualtest/debug)
-iperf3 -c IPv4 ou Hostname ou FQDN
-iperf3 -c IPv4 ou Hostname ou FQDN -p 5001
-iperf3 -c IPv4 ou Hostname ou FQDN -p 5001 -d
+Sétima etapa: Testando a Largura de Banda (throughput) da Rede WAN do pfSense
+Diagnostics
+	iperf Client
+		General Options
+			Server: 192.168.0.110 (Enable)
+			Port: 5001 (Enable)
+			Protocol: TCP (Default)
+			Output format: bytes/sec (Enable)
+			Interval: (Default)
+			Buffer length: (Default)
+			Socket buffer size: (Default)
+			UDP Bandwidth: (Default)
+			Verbose output: OFF (Default)
+		<Run iperf client>
