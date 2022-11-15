@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 04/11/2022
-Data de atualização: 11/11/2022
-Versão: 0.05
+Data de atualização: 15/11/2022
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -52,7 +52,7 @@ Diagnostics
 			Keep Data/Settings: On (Default)
 			ntopng Admin Password: pti@2018
 			Confirm ntopng Admin Password pti@2018
-			Interface (utilizar o Shift para selecionar todos os Ctrl para selecionar separadamente)
+			Interface (utilizar o Shift para selecionar todas as Interfaces ou Ctrl para selecionar individualmente)
 				LAN
 				WAN_NET
 				WAN_VIVO

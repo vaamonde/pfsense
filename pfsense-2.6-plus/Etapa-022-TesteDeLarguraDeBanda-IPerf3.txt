@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 03/11/2022
-Data de atualização: 09/11/2022
-Versão: 0.02
+Data de atualização: 15/11/2022
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -54,6 +54,10 @@ Linux Mint: Terminal (Ctrl + Alt + T)
 Microsoft Windows:
 	Download: https://iperf.fr/iperf-download.php
 		Link: https://iperf.fr/download/windows/iperf-3.1.3-win64.zip
+
+Terceira etapa: Configurando o Servidor do IPerfv3 no pfSense
+
+Quarta etapa: Configurando o Cliente do IPerfv3 no pfSense
 
 Terceira etapa: Testando a Largura de Banda (throughput) da Rede
 
