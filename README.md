@@ -271,7 +271,7 @@ Link da vídeo aula: https://www.youtube.com/watch?v=hPhRwLGs79U
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-019-AdicionandoWidgetSpeedTest.txt
 
-## **COMO ADICIONAR uma Nova Interface WAN (Multi-WAN) no pfSENSE PLUS+ 22.05**
+## **COMO ADICIONAR uma Nova Interface WAN (Multi-WAN ou Dual-WAN) no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para adicionar uma nova Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
 
@@ -285,6 +285,18 @@ Link da vídeo aula: https://www.youtube.com/watch?v=S_CHo4Wk5Bg
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-020-AdicionarNovaInterface-WAN.txt
 
+## **COMO CONFIGURAR o iPerf3 Server e Client no pfSENSE PLUS+ 22.05**
+
+Vídeo mostrando os procedimentos básicos para instalar e configurar o software de medição de largura de banda iPerf3 no pfSENSE PLUS+ 22.05.
+
+iPerf3 é uma ferramenta para medição e ajuste de desempenho de rede. É uma ferramenta multiplataforma que pode produzir medições de desempenho padronizadas para qualquer rede.
+
+[![iPerf3 pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "iPerf3 pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-021-TesteDeLarguraDeBanda-IPerf3.txt
+
 ## **COMO CONFIGURAR o NTopNG no pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para instalar e configurar o software de monitoramento de tráfego NTopNG no pfSENSE PLUS+ 22.05.
@@ -295,19 +307,7 @@ NTop-NG é um software de computador para monitorar o tráfego em uma rede de co
 
 Link da vídeo aula: 
 
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-021-MonitoramentoDeRede-NTopNG.txt
-
-## **COMO CONFIGURAR o iPerf3 no pfSENSE PLUS+ 22.05**
-
-Vídeo mostrando os procedimentos básicos para instalar e configurar o software de medição de largura de banda iPerf3 no pfSENSE PLUS+ 22.05.
-
-iPerf3 é uma ferramenta para medição e ajuste de desempenho de rede. É uma ferramenta multiplataforma que pode produzir medições de desempenho padronizadas para qualquer rede.
-
-[![NTopNG pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTopNG pfSense Plus")
-
-Link da vídeo aula: 
-
-Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-022-TesteDeLarguraDeBanda-IPerf3.txt
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-022-MonitoramentoDeRede-NTopNG.txt
 
 ## **COMO CONFIGURAR o Failover HA (High Availability - Alta Disponibilidade) das Interface WAN (Internet) no pfSENSE PLUS+ 22.05**
 

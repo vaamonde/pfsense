@@ -141,7 +141,7 @@ https://firewall.pti.intra:3000/
 		Username: admin (Default)
 		Password: pti@2018
 
-Quinta etapa: Monitorando o pfSense utilizando o NTopNG
+Quinta etapa: Monitorando o Tráfego de Rede do pfSense utilizando o NTopNG
 Interfaces:
 	em0 = Link de WAN_VIVO
 	em1 = Link de LAN
