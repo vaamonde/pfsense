@@ -9,7 +9,7 @@ YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 03/11/2022
 Data de atualização: 15/11/2022
-Versão: 0.04
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -119,3 +119,27 @@ Diagnostics
 			UDP Bandwidth: (Default)
 			Verbose output: OFF (Default)
 		<Run iperf client>
+
+Oitava etapa: Editando o Script do Relatório do SpeedTest no pfSense
+Diagnostics
+	Command Prompt
+		Execute Shell Command:
+			Command: ifconfig
+		<Execute>
+
+Diagnostics
+	Edit Files
+		Path to file to be edited: /usr/local/bin/speedtest-report.sh
+	<Load>
+		OBSERVAÇÃO: alterar os valores das variáveis e descomentar as linhas da segunda interface WAN
+	<Save>
+
+Diagnostics
+	Command Prompt
+		Execute Shell Command:
+			Command: speedtest-report.sh
+		<Execute>
+
+Firefox
+	#OBSERVAÇÃO IMPORTANTE: verificar o nome da Interface WAN para acessar a página do relatório
+	https://firewall.pti.intra:10443/speedtest/
