@@ -291,9 +291,9 @@ Vídeo mostrando os procedimentos básicos para instalar e configurar o software
 
 iPerf3 é uma ferramenta para medição e ajuste de desempenho de rede. É uma ferramenta multiplataforma que pode produzir medições de desempenho padronizadas para qualquer rede.
 
-[![iPerf3 pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "iPerf3 pfSense Plus")
+[![iPerf3 pfSense Plus](http://img.youtube.com/vi/MX3BfW-8DP8/0.jpg)](https://www.youtube.com/watch?v=MX3BfW-8DP8 "iPerf3 pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=MX3BfW-8DP8
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-021-TesteDeLarguraDeBanda-IPerf3.txt
 
