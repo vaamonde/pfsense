@@ -22,13 +22,14 @@ Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releas
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
-Pacote do iPerfv3 do pfsense: https://docs.netgate.com/pfsense/en/latest/packages/iperf.html
+Pacote do iPerfv3 do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/iperf.html
+
+Documentação Oficial do iPerf3: https://iperf.fr/iperf-doc.php#3doc
+Servidores Públicos do iPerf3: https://iperf.fr/iperf-servers.php#public-servers
 
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
 Teste de velocidade da Internet Fast: https://fast.com/pt/
-
-Servidores Públicos do IPerf: https://iperf.fr/iperf-servers.php#public-servers
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value

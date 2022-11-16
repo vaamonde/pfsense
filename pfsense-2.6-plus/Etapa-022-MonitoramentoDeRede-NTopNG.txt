@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 04/11/2022
-Data de atualização: 15/11/2022
-Versão: 0.06
+Data de atualização: 16/11/2022
+Versão: 0.07
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -113,8 +113,8 @@ Firewall
 					Destination: 
 						Invert match: OFF (Default) - LAN address (Enable)
 					Destination Port Range:
-						From: (other) Custom: 3000 (Enable)
-						To: (other) Custom: 3000 (Enable)
+						From: (other) - Custom: 3000 (Enable)
+						To: (other) - Custom: 3000 (Enable)
 				Extra Options
 					Log: ON (Enable)
 					Description: Liberação do Serviço do NTopNG na Interface LAN
@@ -146,3 +146,4 @@ Interfaces:
 	em0 = Link de WAN_VIVO
 	em1 = Link de LAN
 	em2 = Link de WAN_NET
+
