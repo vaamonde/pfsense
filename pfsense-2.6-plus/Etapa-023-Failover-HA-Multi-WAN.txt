@@ -34,6 +34,7 @@ Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/co
 Guia Diversos do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-misc.html
 Grupo de Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-groups.html
 Configurações do Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
+Log dos Gateways: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/gateway.html
 
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
