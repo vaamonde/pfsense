@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 16/11/2021
-Data de atualização: 16/11/2022
-Versão: 0.01
+Data de atualização: 17/11/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -50,9 +50,11 @@ Observações das configurações utilizadas nessa documentação
 Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense
 System
 	Advanced
-		Gateway Monitoring
-			State Killing on Gateway Failure: ON (Default)
-			Skip rules when gateway is down: ON (Default)
+		Miscellaneous
+			Gateway Monitoring
+				State Killing on Gateway Failure: Do not kill states on gateway failure (Default)
+				Skip rules when gateway is down: OFF (Default)
+				Static routes: OFF (Default)
 	<Save>
 
 Segunda etapa: Configuração do Grupo de Gateways de Failover (Falha) e Failback (Retorno da Falha) no pfSense
@@ -63,8 +65,8 @@ System
 				Edit Gateway Group Entry
 					Group Name: HA_WAN
 					Gateway Priority
-						WAN_VIVO_DHCP  Tier 1  Interface Address  Interface WAN_VIVO_DHCP
-						WAN_NET_DHCP   Tier 2  Interface Address  Interface WAN_NET_DHCP
+						WAN_VIVO_DHCP  Tier 1 (Enable)  Interface Address  Interface WAN_VIVO_DHCP
+						WAN_NET_DHCP   Tier 2 (Enable)  Interface Address  Interface WAN_NET_DHCP
 					Trigger Level: Packet Loss or High Latency (Enable)
 					Description: Grupo de Gateways HA das Interfaces WAN Vivo e Net
 				<Save>
@@ -74,27 +76,76 @@ Terceira etapa: Alterando o Gateway padrão do pfSense
 System
 	Routing
 		Gateways
-			Default Gateways
+			Default gateway
 				Default gateway IPv4: HA_WAN (Grupo de Gateways HA das Interfaces WAN Vivo e Net) (Enable)
 			<Save>
 		<Apply Changes>
 
 Quarta etapa: Verificando a saída da Interface WAN padrão do pfSense
 Terminal (Ctrl + Alt + T)
+	sudo apt install traceroute mtr nmap
 	ping google.com
 	traceroute -n google.com (print the route packets trace to network host)
+	mtr google -nbte (network diagnostic tool)
 
 	firefox files00.netgate.com/ip
 	firefox files01.netgate.com/ip
 	firefox pfsense.org/ip
 	firefox whatismyip.com.br/
 
-Quinta etapa: Monitoramento das Interfaces e Gateways do pfSense
+Quinta etapa: Configuração das Opções Avançadas dos Gateways do pfSense
+
+RTT...: Round Trip Time = Latência, média de tempo em ms (mile-segundos) de ida e volta dos pacotes
+RTTsd.: Round Trip Time Standard Deviation = desvio padrão do tempo em ms (mile-segundos) de ida e volta dos pacotes
+Loss..: Packet Loss = Perda de Pacote, percentual de perda de pacotes
+Tier..: Nível/Camada = nível de prioridade para a escolha do Gateway
+
+System
+	Routing
+		Gateways
+			WAN_VIVO_DHCP <Edit>
+				Edit Gateway
+					Monitor IP: 8.8.8.8 (Enable)
+					<Display Advanced>
+						Advanced
+							Weight: 1 (Default)
+							Data Payload: 1 (Default)
+							Latency thresholds: 400 - 600 (alterar conforme necessidade)
+							Packet Loss thresholds: 20% - 40% (alterar conforme necessidade)
+							Probe Interval: 500 (Default)
+							Loss Interval: 2000 (Default)
+							Time Period: 60000 (Default)
+							Alert interval: 1000 (Default)
+							Use non-local gateway: OFF (Default)
+				<Save>
+
+			WAN_NET_DHCP <Edit>
+				Edit Gateway
+					Monitor IP: 1.1.1.1 (Enable)
+					<Display Advanced>
+						Advanced
+							Weight: 1 (Default)
+							Data Payload: 1 (Default)
+							Latency thresholds: 400 - 600 (alterar conforme necessidade)
+							Packet Loss thresholds: 20% - 40% (alterar conforme necessidade)
+							Probe Interval: 500 (Default)
+							Loss Interval: 2000 (Default)
+							Time Period: 60000 (Default)
+							Alert interval: 1000 (Default)
+							Use non-local gateway: OFF (Default)
+				<Save>
+			<Apply Changes>
+
+Sexta etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
 	Interfaces
 
 Status
 	Gateways
+
+Status
+	Gateways
+		Gateways Groups
 
 Status
 	System Logs
