@@ -119,7 +119,7 @@ System
 			Default Gateways
 				Default gateway IPv4: HA_WAN (Grupo de Gateways HA das Interfaces WAN Vivo e Net)
 			Save
-Apply Changes
+		Apply Changes
 
 Verificando o Status de Serviço dos Gateways e Diagnósticos de Conexão
 Status
