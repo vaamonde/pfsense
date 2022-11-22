@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 11/09/2022
-Data de atualização: 27/09/2022
-Versão: 0.04
+Data de atualização: 22/11/2022
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -41,8 +41,8 @@ Primeira etapa: Configurações Gerais do NTP Server do pfSense
 System
 	General Setup
 		Localization
-			Timezone: America/Sao_Paulo
-			Timeservers: a.st1.ntp.br
+			Timezone: America/Sao_Paulo (alterar conforme a sua necessidade)
+			Timeservers: a.st1.ntp.br (alterar conforme a sua necessidade)
 	<Save>
 
 Segunda etapa: Configuração do NTP Server do pfSense
@@ -57,15 +57,15 @@ Services
 				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable)
 				Max candidate pool peers: 5 (Default)
 				Orphan Mode: 12 (Default)
-				Minimum Poll Interval: Default
-				Maximum Poll Interval: Default
+				Minimum Poll Interval: Default (Default)
+				Maximum Poll Interval: Default (Default)
 				NTP Graphs: ON (Enable)
 				Logging: Log peer messages: ON - Log system messages: ON (Enable)
 				Statistics Logging: Display Advanced
 					Log reference clock statistics: ON (Enable)
 					Log clock discipline statistics: ON (Enable)
 					Log NTP peer statistics: ON (Enable)
-				Leap seconds: Default
+				Leap seconds: Default (Default)
 				DNS Resolution: Auto (Default)
 				Enable NTP Server Authentication: OFF (Default)
 		<Save>
@@ -79,19 +79,19 @@ Services
 				Peer Association: ON (Default)
 				Trap Service: ON (Default)
 			Custom Access Restrictions
-				Network: Default
+				Network: Default (Default)
 		<Save>
 
 		Serial GPS (Global Positioning System)
 			NTP Serial GPS Configuration
-				GPS Type: Default
+				GPS Type: Default (Default)
 				Serial Port: None (Default) - 4800 (Default) - Check baud rate: OFF (Default)
 				NMEA Sentences: All (Default)
 				Fudge Time 1: 0.155 (Default)
 				Fudge Time 2: 0 (Default)
 				Stratum (0 - 16): Default
-				Minimum Poll Interval: Default
-				Maximum Poll Interval: Default
+				Minimum Poll Interval: Default (Default)
+				Maximum Poll Interval: Default (Default)
 				Flags:
 					Prefer this clock: ON (Default)
 					Do not use this clock, display for reference only: OFF (Default)
@@ -101,8 +101,8 @@ Services
 					Obscure location in timestamp: OFF (Default)
 					Log the sub-second fraction of the received time stamp: OFF (Default)
 					Display extended GPS status: OFF (Default)
-				Clock ID: Default
-				GPS Initialization: Default
+				Clock ID: Default (Default)
+				GPS Initialization: Default (Default)
 		<Save>
 
 		PPS (Pulse Per Second)
@@ -110,13 +110,13 @@ Services
 				Serial Port: None (Default)
 				Fudge Time: 0 (Default)
 				Stratum: 0 (Default)
-				Minimum Poll Interval: Default
-				Maximum Poll Interval: Default
+				Minimum Poll Interval: Default (Default)
+				Maximum Poll Interval: Default (Default)
 				Flags:
 					Enable falling edge PPS signal processing: OFF (Default)
 					Enable kernel PPS clock discipline: OFF (Default)
 					Record a timestamp once for each second, useful for construction Allan deviation plots: OFF (Default)
-				Clock ID: Default
+				Clock ID: Default (Default)
 		<Save>
 
 Terceira etapa: Configuração do NTP Client nos Desktop GNU/Linux e Microsoft Windows

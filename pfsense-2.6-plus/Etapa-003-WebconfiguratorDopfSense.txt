@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
-Data de atualização: 17/10/2022
-Versão: 0.05
+Data de atualização: 22/11/2022
+Versão: 0.06
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -24,6 +24,11 @@ OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220
 OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
 CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
 CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+UltraDNS Neustar........: Preferencial: 64.6.64.6 - Secundário: 64.6.65.6 
+UltraDNS Malware........: Preferencial: 156.154.70.2 - Secundário: 156.154.71.2
+UltraDNS FamilyShield...: Preferencial: 156.154.70.3 - Secundário: 156.154.71.3
+Quad9 IBM...............: Preferencial: 9.9.9.9 - Secundário: 149.112.112.112
+Quad9 Malware...........: Preferencial: 9.9.9.11 - Secundário: 149.112.112.11
 
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
@@ -52,16 +57,16 @@ Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navega
 	General Information
 		Hostname: ptispo01fw01 (alterar conforme a sua necessidade)
 		Domain: pti.intra (alterar conforme a sua necessidade)
-		Primary DNS Server: 8.8.8.8
-		Secondary DNS Server: 8.8.4.4
+		Primary DNS Server: 8.8.8.8 (alterar conforme a tabela de servidores DNS)
+		Secondary DNS Server: 8.8.4.4 (alterar conforme a tabela de servidores DNS)
 		Override DNS: OFF (Disable)
 		<Next>
 	Time Server Information
-		Time server hostname: a.st1.ntp.br
-		Timezone: America/Sao_Paulo
+		Time server hostname: a.st1.ntp.br (alterar conforme a sua necessidade)
+		Timezone: America/Sao_Paulo  (alterar conforme a sua necessidade)
 		<Next>
 	Configure WAN Interface
-		SelectedType: DHCP
+		SelectedType: DHCP (Default)
 		General configuration
 			MAC Address: (Default)
 			MTU: (Default)
@@ -71,8 +76,8 @@ Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navega
 			Block bogon networks: OFF (Disable)
 		<Next>
 	Configure LAN Interface
-		LAN IP Address: 172.16.1.254
-		Subnet Mask: 24
+		LAN IP Address: 172.16.1.254 (alterar conforme a sua necessidade)
+		Subnet Mask: 24 (alterar conforme a sua necessidade)
 		<Next>
 	Set Admin WebGUI Password
 		Admin Password: pti@2018 (alterar conforme a sua necessidade)

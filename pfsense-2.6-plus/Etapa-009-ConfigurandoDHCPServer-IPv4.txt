@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/09/2022
-Data de atualização: 27/09/2022
-Versão: 0.07
+Data de atualização: 22/11/2022
+Versão: 0.08
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -34,6 +34,18 @@ Monitoramento Gráfico do pfSense: https://docs.netgate.com/pfsense/en/latest/mo
 
 Parâmetros do DHCP e BOOTP: https://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xhtml
 
+Servidores de DNS recomendados para serem utilizados no pfSense
+DNS Google..............: Preferencial: 8.8.8.8 - Secundário: 8.8.4.4
+OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220.220
+OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
+CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
+CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+UltraDNS Neustar........: Preferencial: 64.6.64.6 - Secundário: 64.6.65.6 
+UltraDNS Malware........: Preferencial: 156.154.70.2 - Secundário: 156.154.71.2
+UltraDNS FamilyShield...: Preferencial: 156.154.70.3 - Secundário: 156.154.71.3
+Quad9 IBM...............: Preferencial: 9.9.9.9 - Secundário: 149.112.112.112
+Quad9 Malware...........: Preferencial: 9.9.9.11 - Secundário: 149.112.112.11
+
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
 (Disable) = Desabilitado nessa configuração = OFF
@@ -45,16 +57,16 @@ Primeira etapa: Configurações Gerais do DHCP Server do pfSense
 System
 	General Setup
 		System
-			Hostname: ptispo01fw01
-			Domain: pti.intra
+			Hostname: ptispo01fw01 (alterar conforme a sua necessidade)
+			Domain: pti.intra (alterar conforme a sua necessidade)
 		DNS Server Settings
-			DNS Server 01: 8.8.8.8
-			DNS Server 02: 8.8.4.4
-			DNS Server Override: OFF
+			DNS Server 01: 8.8.8.8 (alterar conforme a tabela de servidores DNS)
+			DNS Server 02: 8.8.4.4 (alterar conforme a tabela de servidores DNS)
+			DNS Server Override: OFF (Disable)
 			DNS Resolution Behavior: User local DNS (127.0.0.1), fall back to remote DNS Servers (Default)
 		Localization
-			Timezone: America/Sao_Paulo
-			Timeservers: a.st1.ntp.br
+			Timezone: America/Sao_Paulo (alterar conforme a sua necessidade)
+			Timeservers: a.st1.ntp.br (alterar conforme a sua necessidade)
 	<Save>
 
 Segunda etapa: Configurações da Placa de Rede LAN do pfSense
@@ -64,7 +76,7 @@ Interface
 			Enable: ON (Default)
 			IPv4 Configuration Type: Static IPv4 (Default)
 		Static IPv4 Configuration
-			IPv4 Address: 172.16.1.254/24
+			IPv4 Address: 172.16.1.254/24 (alterar conforme a sua necessidade)
 			IPv4 Upstream Gateway: None (Default)
 	<Save>
 
@@ -81,23 +93,23 @@ Services
 				Subnet: 172.16.1.0
 				Subnet mask: 255.255.255.0
 				Available range: 172.16.1.1 - 172.16.1.254
-				Range: From: 172.16.1.100 - To: 172.16.1.200
+				Range: From: 172.16.1.100 - To: 172.16.1.200 (alterar conforme a sua necessidade)
 			Additional Pools
 				OFF (Default)
 			Servers
-				WINS server: 172.16.1.10
-				DNS servers: 172.16.1.254
+				WINS server: 172.16.1.10 (alterar conforme a sua necessidade)
+				DNS servers: 172.16.1.254 (alterar conforme a sua necessidade)
 			OMAPI (Object Management Application Programming Interface)
 				OMAPI Port: (Default)
 				OMAPI Key: (Default) - Generate New Key: OFF (Default)
 				Key Algorithm: HMAC-SHA256 (current bind9 default) (Default)
 			Other Options
 				Gateway: 172.16.1.254
-				Domain name: pti.intra
-				Domain search list: pti.intra
+				Domain name: pti.intra (alterar conforme a sua necessidade)
+				Domain search list: pti.intra (alterar conforme a sua necessidade)
 				Default lease time: 28800 (8 horas)
 				Maximum lease time: 43200 (12 horas)
-				Failover peer IP: Default
+				Failover peer IP: Default (Default)
 				Static ARP: OFF (Default)
 				Time format change: ON (Enable)
 				Statistics graphs: ON (Enable)
@@ -105,7 +117,7 @@ Services
 				Dynamic DNS: Default
 				MAC address control: Default
 				NTP: Display Advanced
-					NTP Server 1: 172.16.1.254
+					NTP Server 1: 172.16.1.254 (alterar conforme a sua necessidade)
 				TFTP Server: Default
 				LDAP: Default
 				Network Booting: Default
