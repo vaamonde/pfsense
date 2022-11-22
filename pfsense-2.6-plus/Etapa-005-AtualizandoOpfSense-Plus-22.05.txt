@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 17/08/2022
-Data de atualização: 27/09/2022
-Versão: 0.03
+Data de atualização: 22/11/2022
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -52,3 +52,17 @@ System
 		System Update
 			Branch: Latest stable version (22.05)
 			Confirm Update: <Confirm>
+
+Terceira etapa: UTILIZAR SOMENTE SE OS PROCEDIMENTOS DE ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
+Console
+	8) Shell
+		#pkg - a utility for manipulating packages - pkg-static manipulate packages
+		#opções do comando pkg: info (List installed packages) -x ()
+		#opções do comando pkg-static: update (Update the available remote repositories as listed in), 
+		#upgrade (Upgrade a package to a newer version), -f (flag an attempt will be made to reinstall
+		#pkg from remote repository)
+		#opções do comando pfSense-upgrade: -d (Turn on debug)
+		pkg info -x pfSense 
+		pkg-static update -f
+		pkg-static upgrade -f
+		pfSense-upgrade -d
