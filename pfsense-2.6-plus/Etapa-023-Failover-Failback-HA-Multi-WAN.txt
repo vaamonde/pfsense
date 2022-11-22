@@ -148,10 +148,11 @@ System
 Sexta etapa: Simulação da Falha de Link de Internet no VirtualBOX
 
 #01_ Retirar do Cabo de Rede ou Desativar a Placa do Computador Hospedeiro;
-#02_ Desconectar o Cabo de Rede do VirtualBOX
-	 Botão direito do mouse no Ícone do Adaptador de Rede VirtualBOX
-	 Selecionar: Desconectar Placa de rede
-#03_ Desligar o Roteador de Internet
+#02_ Desconectar o Cabo de Rede do VirtualBOX;
+	 Botão direito do mouse no Ícone do Adaptador de Rede VirtualBOX;
+	 Selecionar: Desconectar Placa de rede.
+#03_ Desligar o Roteador de Internet;
+#04_ Remover o Cabo do Link de Internet do Roteador.
 
 Sétima etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
