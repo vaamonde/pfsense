@@ -74,7 +74,7 @@ Dashboard
 		Interfaces: ON - Center-01
 		Gateways: ON - Center-02
 			Edit
-				Display: Both
+				Display: Both (Enable)
 			<Save>
 		Interface Statistics: ON - Center-03
 		Traffic Graphs: ON - Center-04
@@ -88,9 +88,9 @@ Dashboard
 		Firewall Logs: ON - Right-05
 			Edit
 				Widget: Firewall Logs 
-				Number of entries: 20
-				Filter actions: ON Pass, ON Block and ON Reject
-				Filter interface: ALL 
-				Update interval: 1 Seconds
+				Number of entries: 20 (Enable)
+				Filter actions: ON Pass, ON Block and ON Reject (Enable)
+				Filter interface: ALL (Enable)
+				Update interval: 1 Seconds (Enable)
 			<Save>
 	<Save>
