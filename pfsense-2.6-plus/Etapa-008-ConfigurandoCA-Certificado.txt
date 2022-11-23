@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 23/01/2021
-Data de atualização: 27/09/2022
-Versão: 0.11
+Data de atualização: 23/11/2022
+Versão: 0.12
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -38,8 +38,8 @@ System
 		CAs
 			+ADD
 				Create / Edit CA
-					Descriptive name: BoraParaPratica
-					Method: Create an internal Certificate Authority
+					Descriptive name: BoraParaPratica (alterar conforme a sua necessidade)
+					Method: Create an internal Certificate Authority (Default)
 					Trust Store: ON (Enable)
 					Randomize Serial: OFF (Default)
 				Internal Certificate Authority
@@ -47,12 +47,12 @@ System
 					Key length (bits): 2048 (Default)
 					Digest Algorithm: sha256 (Default)
 					Lifetime (days): 3650 (Default)
-					Common Name: ca-pfsense
-					Country Code: BR
-					Sate or Province: Sao Paulo
-					City: Guarulhos
-					Organization: Bora para Pratica
-					Organizational Unit: Matriz Bora para Pratica
+					Common Name: ca-pfsense (alterar conforme a sua necessidade)
+					Country Code: BR (alterar conforme a sua necessidade)
+					Sate or Province: Sao Paulo (alterar conforme a sua necessidade)
+					City: Guarulhos (alterar conforme a sua necessidade)
+					Organization: Bora para Pratica (alterar conforme a sua necessidade)
+					Organizational Unit: Matriz Bora para Pratica (alterar conforme a sua necessidade)
 			<Save>
 
 Segunda etapa: Exportando a CA do BoraParaPratica do pfSense
@@ -70,27 +70,27 @@ System
 			+Add/Sign
 				Add/Sign a New Certificate
 					Method: Create an internal Certificate (Default)
-					Descriptive name: Certificado do pfSense
+					Descriptive name: Certificado do pfSense (alterar conforme a sua necessidade)
 				Internal Certificate 
-					Certificate authority: BoraParaPratica
+					Certificate authority: BoraParaPratica (Enable)
 					Key type: RSA (Default)
 					Key length: 2048 (Default)
 					Digest Algorithm: sha256 (Default)
 					Lifetime (days): 3650 (Default)
-					Common Name: ptispo01fw01.pti.intra 
-					Country Code: BR
-					State or Province: Sao Paulo
-					City: Guarulhos
-					Organization: Bora para Pratica
-					Organization Unit: Matriz de Bora para Pratica
+					Common Name: ptispo01fw01.pti.intra (alterar conforme a sua necessidade)
+					Country Code: BR (alterar conforme a sua necessidade)
+					State or Province: Sao Paulo (alterar conforme a sua necessidade)
+					City: Guarulhos (alterar conforme a sua necessidade)
+					Organization: Bora para Pratica (alterar conforme a sua necessidade)
+					Organization Unit: Matriz de Bora para Pratica (alterar conforme a sua necessidade)
 				Certificate Attributes
-					Certificate Type: Server Certificate
+					Certificate Type: Server Certificate (Enable)
 					Alternative Names:
-						IP Address: 172.16.1.254 +Add
-						FQDN or Hostname: ptispo01fw01 +Add
-						FQDN or Hostname: ptispo01fw01.pti.intra +Add
-						FQDN or Hostname: fw.pti.intra +Add
-						FQDN or Hostname: firewall.pti.intra
+						IP Address: 172.16.1.254 +Add (alterar conforme a sua necessidade)
+						FQDN or Hostname: ptispo01fw01 +Add (alterar conforme a sua necessidade)
+						FQDN or Hostname: ptispo01fw01.pti.intra +Add (alterar conforme a sua necessidade)
+						FQDN or Hostname: fw.pti.intra +Add (alterar conforme a sua necessidade)
+						FQDN or Hostname: firewall.pti.intra (alterar conforme a sua necessidade)
 			<Save>
 
 Quarta etapa: Configurando o Suporte ao HTTPS do pfSense
@@ -154,5 +154,5 @@ Acessar o diretório de Download do certificado BoraParaPratica.crt
 	Botão direito do mouse e selecionar: Abrir como Root 
 		Copiar o certificado: BoraParaPratica.crt
 		Colar no diretório: /usr/local/share/ca-certificates
-	Botão direito do nouse e selecionar: Abrir no Terminal
+	Botão direito do mouse, selecionar: Abrir no Terminal
 		update-ca-certificates <Enter>

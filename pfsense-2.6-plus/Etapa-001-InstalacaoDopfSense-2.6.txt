@@ -70,7 +70,7 @@ Link de download do Oracle VirtualBOX: https://www.virtualbox.org/wiki/Downloads
 		Versão: FreeBSD (64-bit)
 		<Próximo>
 03. Tamanho da memória:
-		Tamanho: 1024MB
+		Tamanho: 1024MB (indicado 4096MB)
 		<Próximo>
 04. Disco Rígido:
 		Criar um novo disco rígido virtual agora
