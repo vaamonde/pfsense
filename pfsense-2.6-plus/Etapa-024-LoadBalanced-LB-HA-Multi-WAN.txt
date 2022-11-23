@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 18/11/2021
-Data de atualização: 18/11/2022
-Versão: 0.01
+Data de atualização: 23/11/2022
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -87,6 +87,11 @@ OpenDNS Cisco...........: Preferencial: 208.67.222.222 - Secundário: 208.67.220
 OpenDNS FamilyShield....: Preferencial: 208.67.222.123 - Secundário: 208.67.220.123
 CloudFlare..............: Preferencial: 1.1.1.1 - Secundário: 1.0.0.1
 CloudFlare FamilyShield.: Preferencial: 1.1.1.3 - Secundário: 1.0.0.3
+UltraDNS Neustar........: Preferencial: 64.6.64.6 - Secundário: 64.6.65.6 
+UltraDNS Malware........: Preferencial: 156.154.70.2 - Secundário: 156.154.71.2
+UltraDNS FamilyShield...: Preferencial: 156.154.70.3 - Secundário: 156.154.71.3
+Quad9 IBM...............: Preferencial: 9.9.9.9 - Secundário: 149.112.112.112
+Quad9 Malware...........: Preferencial: 9.9.9.11 - Secundário: 149.112.112.11
 
 System
 	Routing
