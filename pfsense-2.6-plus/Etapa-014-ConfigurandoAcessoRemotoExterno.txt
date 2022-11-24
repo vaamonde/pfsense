@@ -143,7 +143,7 @@ Sétima etapa: Testando o acesso remoto externo do pfSense
 	SSH: ssh -p 10222 usuário@Endereço_IPv4_WAN
 		OBSERVAÇÃO: Vai acontecer o erro da Chave Pública
 
-	Copiar as chaves públicas/privadas para enviar para um host remoto
+	Copiar as chaves públicas/privadas e enviar para um host remoto
 		Arquivos
 			Pasta Pessoal
 				Botão direito do mouse, selecionar: Exibir arquivos ocultos

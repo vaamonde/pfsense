@@ -202,7 +202,7 @@ Terminal (Ctrl + Alt + T)
 	Password: pti@2018
 	Criando o script de inicialização do menu do console para o usuário: vaamonde 
 		echo "sudo /etc/./rc.initial" > .login <Enter>
-	Desabilitando o Usuário padrão: admin do pfSense se logar via console:
+	Bloqueando o Usuário padrão: admin do pfSense se logar via console:
 		sudo pw user show admin <Enter>
 		sudo pw lock admin <Enter>
 

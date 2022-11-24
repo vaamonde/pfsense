@@ -77,8 +77,8 @@ Terceira etapa: Configuração do Endereço de Rede Local e DHCP Server
 		Enter the new LAN IPv6 address.
 			> <Enter>
 		Do you want to enable the DHCP server on LAN? (y/n): y <Enter> (habilitar somente se necessário)
-		Enter the start address of the IPv4 client address range: 172.16.1.100 <Enter> 
-		Enter the end address fo the IPv4 client address range: 172.16.1.150 <Enter>
+		Enter the start address of the IPv4 client address range: 172.16.1.100 <Enter> (alterar conforme a sua necessidade)
+		Enter the end address fo the IPv4 client address range: 172.16.1.150 <Enter> (alterar conforme a sua necessidade)
 		Do you want to revert to HTTP as the WebConfigurator protocol? (y/n): y <Enter>	
 		Press <Enter> to continue.
 

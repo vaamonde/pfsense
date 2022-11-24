@@ -63,7 +63,7 @@ Primeira etapa: Acessando o pfSense via Navegador (recomendado utilizar o Navega
 		<Next>
 	Time Server Information
 		Time server hostname: a.st1.ntp.br (alterar conforme a sua necessidade)
-		Timezone: America/Sao_Paulo  (alterar conforme a sua necessidade)
+		Timezone: America/Sao_Paulo (alterar conforme a sua necessidade)
 		<Next>
 	Configure WAN Interface
 		SelectedType: DHCP (Default)

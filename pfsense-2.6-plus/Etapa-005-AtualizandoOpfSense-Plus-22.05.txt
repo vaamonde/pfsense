@@ -53,7 +53,7 @@ System
 			Branch: Latest stable version (22.05)
 			Confirm Update: <Confirm>
 
-Terceira etapa: UTILIZAR SOMENTE SE OS PROCEDIMENTOS DE ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
+Terceira etapa: UTILIZAR ESSES PROCEDIMENTOS SOMENTE SE A ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
 Console
 	8) Shell
 		#pkg - a utility for manipulating packages - pkg-static manipulate packages
