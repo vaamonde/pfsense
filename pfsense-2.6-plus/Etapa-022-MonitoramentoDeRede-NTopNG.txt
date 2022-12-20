@@ -94,7 +94,7 @@ Diagnostics
 			Update GeoLite2 DB
 	<Save>
 
-Terceira etapa: Liberando o acesso da Porta do NTopNG na Interface LAN no pfSense
+Sexta etapa: Liberando o acesso da Porta do NTopNG na Interface LAN no pfSense
 Firewall
 	Rules
 		LAN
@@ -122,7 +122,7 @@ Firewall
 			<Save>
 		<Apply Changes>
 
-Quarta etapa: Acessando o Serviço do NTopNG do pfSense
+Sétima etapa: Acessando o Serviço do NTopNG do pfSense
 Diagnostics
 	NTopNG Settings
 		Access ntopng
@@ -141,9 +141,8 @@ https://firewall.pti.intra:3000/
 		Username: admin (Default)
 		Password: pti@2018
 
-Quinta etapa: Monitorando o Tráfego de Rede do pfSense utilizando o NTopNG
+Oitava etapa: Monitorando o Tráfego de Rede do pfSense utilizando o NTopNG
 Interfaces:
 	em0 = Link de WAN_VIVO
 	em1 = Link de LAN
 	em2 = Link de WAN_NET
-

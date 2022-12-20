@@ -303,15 +303,15 @@ Vídeo mostrando os procedimentos básicos para instalar e configurar o software
 
 NTop-NG é um software de computador para monitorar o tráfego em uma rede de computadores. Ele foi projetado para ser um substituto de alto desempenho e baixo recurso para o ntop. O nome é derivado de ntop de próxima geração.
 
-[![NTopNG pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "NTopNG pfSense Plus")
+[![NTopNG pfSense Plus](http://img.youtube.com/vi/hWy0mG-_NqE/0.jpg)](https://www.youtube.com/watch?v=hWy0mG-_NqE "NTopNG pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=hWy0mG-_NqE
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-022-MonitoramentoDeRede-NTopNG.txt
 
-## **COMO CONFIGURAR o Failover HA (High Availability - Alta Disponibilidade) das Interface WAN (Internet) no pfSENSE PLUS+ 22.05**
+## **COMO CONFIGURAR o Failover e Failback HA (High Availability) das Interface WAN no pfSENSE PLUS+ 22.05**
 
-Vídeo mostrando os procedimentos básicos para configurar o Failover HA (High Availability) das Interface WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o Grupo de Gateways de Failover (Falha) e Failback (Retorno da Falha) para suportar o HA (High Availability) das Interface de Internet WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
 
 Failover refere-se à capacidade de alternar de uma ou mais WANs para um conjunto alternativo de WANs se as conexões preferenciais falharem. Isso é útil para situações em que o tráfego deve utilizar uma conexão WAN específica, a menos que ela não esteja disponível.
 
