@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 04/11/2022
-Data de atualização: 23/11/2022
-Versão: 0.08
+Data de atualização: 21/12/2022
+Versão: 0.09
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -76,7 +76,7 @@ Se logar com a sua conta no link: https://www.maxmind.com/en/account/login
 	Account
 		Manage License Keys
 			<Generate new license key>
-				License key description: boraparapratica
+				License key description: pfsense
 				GeoIP Update: No (Enable)
 			<Confirm>
 	OBSERVAÇÃO: copiar a Chave de Licença na linha: License key
@@ -146,3 +146,5 @@ Interfaces:
 	em0 = Link de WAN_VIVO
 	em1 = Link de LAN
 	em2 = Link de WAN_NET
+
+Nona etapa: Configurações Básicas do Endpoint e Recipients do NTopNG no pfSense
