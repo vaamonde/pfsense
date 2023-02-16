@@ -7,10 +7,10 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
-Data de criação: 17/08/2022
-Data de atualização: 22/11/2022
-Versão: 0.04
-Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+Data de criação: 16/02/2023
+Data de atualização: 16/02/2023
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
 Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
@@ -34,6 +34,9 @@ Guia de atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrad
 Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
 Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
 
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
 (Disable) = Desabilitado nessa configuração = OFF
@@ -50,7 +53,7 @@ Segunda etapa: Atualizando o pfSense pelo WebConfigurator (Recomendado)
 System
 	Update
 		System Update
-			Branch: Latest stable version (22.05)
+			Branch: Latest stable version (23.01)
 			Confirm Update: <Confirm>
 
 Terceira etapa: UTILIZAR ESSE PROCEDIMENTO SOMENTE SE A ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
