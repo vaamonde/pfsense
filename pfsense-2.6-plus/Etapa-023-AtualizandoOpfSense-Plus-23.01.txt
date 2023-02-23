@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 16/02/2023
-Data de atualização: 16/02/2023
-Versão: 0.01
+Data de atualização: 23/02/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -33,6 +33,8 @@ Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manua
 Guia de atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html?highlight=update
 Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
 Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
+
+Release da versão do pfSense Plus 22.05/22.05.1: https://docs.netgate.com/pfsense/en/latest/releases/22-05.html
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
 Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
