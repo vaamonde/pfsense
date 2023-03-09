@@ -47,12 +47,21 @@ Observações das configurações utilizadas nessa documentação
 (Remove)  = Removido dessa configuração = Sem valor ou opção
 <***>     = Botão de confirmação ou de aplicar as configurações
 
+OBSERVAÇÃO IMPORTANTE: após a migração da versão do pfSense Plus 23.01 o comportamento padrão do roteamento
+dos Gateways do pfSense não está funcionando de forma correta, por exemplo: quando o Gateway padrão sofre
+uma falha de conexão, o segundo Gateway não assumo como padrão, sendo necessário criar os Grupos de Gateway
+para o correto funcionamento do Firewall, em versões anteriores essa falha não acontecia.
+
 Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense
 System
 	Advanced
 		Miscellaneous
+			Load Balancing
+				Load Balancing
+					Use sticky connections: ON
+					Set the source tracking timeout for sticky connections in seconds: 0 (Default)
 			Gateway Monitoring
-				State Killing on Gateway Failure: Do not kill states on gateway failure (Default)
+				State Killing on Gateway Failure: Flush all states on gateway failure
 				Skip rules when gateway is down: OFF (Default)
 				Static routes: OFF (Default)
 	<Save>
