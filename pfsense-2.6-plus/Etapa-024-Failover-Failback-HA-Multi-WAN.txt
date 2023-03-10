@@ -36,6 +36,9 @@ Grupo de Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/
 Configurações do Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
 Log dos Gateways: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/gateway.html
 
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
 Teste de velocidade da Internet Fast: https://fast.com/pt/
@@ -98,7 +101,7 @@ Terminal (Ctrl + Alt + T)
 	sudo apt install traceroute mtr nmap
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
 	traceroute -n google.com (print the route packets trace to network host, -n numeric IP address)
-	mtr google -nbte (network diagnostic tool, -n no DNS, -b show IPS, -t curses, -e MPLS)
+	mtr google.com -nbte (network diagnostic tool, -n no DNS, -b show IPS, -t curses, -e MPLS)
 
 	firefox files00.netgate.com/ip
 	firefox files01.netgate.com/ip

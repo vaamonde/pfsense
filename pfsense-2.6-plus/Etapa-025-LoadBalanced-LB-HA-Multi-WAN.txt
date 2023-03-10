@@ -36,6 +36,9 @@ Grupo de Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/
 Configurações do Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
 Log dos Gateways: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/gateway.html
 
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
 Teste de velocidade da Internet Fast: https://fast.com/pt/
@@ -47,17 +50,26 @@ Observações das configurações utilizadas nessa documentação
 (Remove)  = Removido dessa configuração = Sem valor ou opção
 <***>     = Botão de confirmação ou de aplicar as configurações
 
+OBSERVAÇÃO IMPORTANTE: após a migração da versão do pfSense Plus 23.01 o comportamento padrão do roteamento
+dos Gateways do pfSense não está funcionando de forma correta, por exemplo: quando o Gateway padrão sofre
+uma falha de conexão, o segundo Gateway não assumo como padrão, sendo necessário criar os Grupos de Gateway
+para o correto funcionamento do Firewall, em versões anteriores essa falha não acontecia.
+
 Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense
 System
 	Advanced
 		Miscellaneous
+			Load Balancing
+				Load Balancing
+					Use sticky connections: ON
+					Set the source tracking timeout for sticky connections in seconds: 0 (Default)
 			Gateway Monitoring
-				State Killing on Gateway Failure: Do not kill states on gateway failure (Default)
+				State Killing on Gateway Failure: Flush all states on gateway failure
 				Skip rules when gateway is down: OFF (Default)
 				Static routes: OFF (Default)
 	<Save>
 
-Segunda etapa: Configuração do Grupo de Gateways de Failover (Falha) e Failback (Retorno da Falha) no pfSense
+Segunda etapa: Configuração do Grupo de Gateways de Load Balanced no pfSense
 
 Tier..: Nível/Camada = nível de prioridade para a escolha do Gateway
 
@@ -129,25 +141,20 @@ System
 				<Save>
 			<Apply Changes>
 
+
+
+
 Quarta etapa: Verificando a saída da Interface WAN padrão do pfSense
 Terminal (Ctrl + Alt + T)
 	sudo apt install traceroute mtr nmap
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
-	traceroute -n google.com (print the route packets trace to network host)
-	mtr google -nbte (network diagnostic tool)
+	traceroute -n google.com (print the route packets trace to network host, -n numeric IP address)
+	mtr google.com -nbte (network diagnostic tool, -n no DNS, -b show IPS, -t curses, -e MPLS)
 
 	firefox files00.netgate.com/ip
 	firefox files01.netgate.com/ip
 	firefox pfsense.org/ip
 	firefox whatismyip.com.br/
-
-Sexta etapa: Simulação da Falha de Link de Internet no VirtualBOX
-
-#01_ Retirar do Cabo de Rede ou Desativar a Placa do Computador Hospedeiro;
-#02_ Desconectar o Cabo de Rede do VirtualBOX
-	 Botão direito do mouse no Ícone do Adaptador de Rede VirtualBOX
-	 Selecionar: Desconectar Placa de rede
-#03_ Desligar o Roteador de Internet
 
 Sétima etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
