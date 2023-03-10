@@ -87,7 +87,7 @@ System
 				<Save>
 			<Apply Changes>
 
-Quinta etapa: Configuração das Opções Avançadas dos Gateways do pfSense
+Terceira etapa: Configuração das Opções Avançadas dos Gateways do pfSense
 
 RTT...: Round Trip Time = Latência, média de tempo em ms (mile-segundos) de ida e volta dos pacotes
 RTTsd.: Round Trip Time Standard Deviation = desvio padrão do tempo em ms (mile-segundos) de ida e volta dos pacotes
@@ -141,10 +141,15 @@ System
 				<Save>
 			<Apply Changes>
 
+Quarta etapa:
+Firewall
+	Rules
+		LAN
 
+			<Save>
+		<Apply Changes>
 
-
-Quarta etapa: Verificando a saída da Interface WAN padrão do pfSense
+Quinta etapa: Verificando a saída da Interface WAN padrão do pfSense
 Terminal (Ctrl + Alt + T)
 	sudo apt install traceroute mtr nmap
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
@@ -156,7 +161,7 @@ Terminal (Ctrl + Alt + T)
 	firefox pfsense.org/ip
 	firefox whatismyip.com.br/
 
-Sétima etapa: Monitoramento das Interfaces e Gateways do pfSense
+Sexta etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
 	Interfaces
 

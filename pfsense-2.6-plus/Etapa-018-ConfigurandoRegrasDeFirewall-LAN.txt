@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 27/09/2022
-Data de atualização: 25/10/2022
-Versão: 0.08
+Data de atualização: 10/03/2023
+Versão: 0.09
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -55,8 +55,10 @@ Terminal (Ctrl + Alt + T)
 	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing)
 	sudo nmap -sU -p-172.16.1.254
 	sudo nmap -sU -sT -p- 172.16.1.254
-		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
-		as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
 	ftp ftp.unicamp.br (Internet file transfer program)
 		Username: anonymous
 		Password: guest
@@ -67,9 +69,11 @@ Terminal (Ctrl + Alt + T)
 		Password: guest
 		Command: dir
 		exit
-		OBSERVAÇÃO IMPORTANTE: servidores FTP podem ser configurados de Modo Passivo ou Ativo, dependendo
-		da forma que é configurado o Servidor FTP com Segurança ou Não as regras de Firewall muda, sendo
-		necessário criar regras personalizadas para cada situação.
+	
+	OBSERVAÇÃO IMPORTANTE: servidores FTP podem ser configurados de Modo Passivo ou Ativo, dependendo
+	da forma que é configurado o Servidor FTP com Segurança ou Não as regras de Firewall muda, sendo
+	necessário criar regras personalizadas para cada situação.
+	
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
@@ -106,13 +110,15 @@ Terminal (Ctrl + Alt + T)
 	sudo apt install nmap traceroute (install software packages)
 	nslookup google.com (query Internet name servers interactively)
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
-	tracepath -n google.com (traces path to a network host discovering MTU along this path)
-	traceroute -n google.com (print the route packets trace to network host)
-	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing)
-	sudo nmap -sU -p-172.16.1.254
-	sudo nmap -sU -sT -p- 172.16.1.254
-		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
-		as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path, -n IP addresses numerically)
+	traceroute -n google.com (print the route packets trace to network host, -n IP addresses numerically)
+	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing, -p- port range all)
+	sudo nmap -sU -p- 172.16.1.254 (-sU scan UDP, -p- port range all)
+	sudo nmap -sU -sT -p- 172.16.1.254 (-SU scan UDP, -sT scan TCP connect, -p- port range all)
+
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
 	ftp ftp.unicamp.br (Internet file transfer program)
 		Username: anonymous
 		Password: guest
@@ -123,6 +129,7 @@ Terminal (Ctrl + Alt + T)
 		Password: guest
 		Command: dir
 		exit
+	
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
@@ -199,19 +206,26 @@ Terminal (Ctrl + Alt + T)
 	sudo apt install nmap traceroute (install software packages)
 	nslookup google.com (query Internet name servers interactively)
 	ping google.com (send ICMP ECHO_REQUEST to network hosts)
-	tracepath -n google.com (traces path to a network host discovering MTU along this path)
-	traceroute -n google.com (print the route packets trace to network host)
-	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing)
-	sudo nmap -sS -sU -p- 172.16.1.254 <-- indicado
-	sudo nmap -sU -sT -p- 172.16.1.254 <-- demorado
-		OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
-		as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All),
-		utilizando a opção -sS (TCP SYN) o escaneamento se tornar mais rápido.
+	tracepath -n google.com (traces path to a network host discovering MTU along this path, -n IP addresses numerically)
+	traceroute -n google.com (print the route packets trace to network host, -n IP addresses numerically)
+	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing, -p- port range all)
+	sudo nmap -sU -p- 172.16.1.254 (-sU scan UDP, -p- port range all)
+	sudo nmap -sU -sT -p- 172.16.1.254 (-SU scan UDP, -sT scan TCP connect, -p- port range all)
+
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
 	ftp ftp.unicamp.br (Internet file transfer program)
 		Username: anonymous
 		Password: guest
 		Command: dir
 		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	
 	firefox professorramos.com
 	firefox vaamonde.com.br
 	firefox joseassis.com.br
