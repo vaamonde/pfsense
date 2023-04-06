@@ -19,6 +19,9 @@ Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/re
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
 Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
 
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
 Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
@@ -36,8 +39,8 @@ Grupo de Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/
 Configurações do Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
 Log dos Gateways: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/gateway.html
 
-Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
-Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+Roteamento de políticas, balanceamento de carga e estratégias de failover: https://docs.netgate.com/pfsense/en/latest/multiwan/strategies.html#policy-routing-load-balancing-and-failover-strategies
+Balanceamento de carga e failover com grupos de gateway: https://docs.netgate.com/pfsense/en/latest/multiwan/load-balance-and-failover.html
 
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
@@ -52,7 +55,7 @@ Observações das configurações utilizadas nessa documentação
 
 OBSERVAÇÃO IMPORTANTE: após a migração da versão do pfSense Plus 23.01 o comportamento padrão do roteamento
 dos Gateways do pfSense não está funcionando de forma correta, por exemplo: quando o Gateway padrão sofre
-uma falha de conexão, o segundo Gateway não assumo como padrão, sendo necessário criar os Grupos de Gateway
+uma falha de conexão, o segundo Gateway não assume como padrão, sendo necessário criar os Grupos de Gateway
 para o correto funcionamento do Firewall, em versões anteriores essa falha não acontecia.
 
 Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense

@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 18/11/2021
-Data de atualização: 16/03/2023
-Versão: 0.03
+Data de atualização: 06/04/2023
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -18,6 +18,9 @@ Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/l
 Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
 Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
 Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
 
 Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
 
@@ -36,8 +39,8 @@ Grupo de Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/
 Configurações do Gateway do pfSense: https://docs.netgate.com/pfsense/en/latest/routing/gateway-configure.html
 Log dos Gateways: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/gateway.html
 
-Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
-Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+Roteamento de políticas, balanceamento de carga e estratégias de failover: https://docs.netgate.com/pfsense/en/latest/multiwan/strategies.html#policy-routing-load-balancing-and-failover-strategies
+Balanceamento de carga e failover com grupos de gateway: https://docs.netgate.com/pfsense/en/latest/multiwan/load-balance-and-failover.html
 
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
@@ -52,7 +55,7 @@ Observações das configurações utilizadas nessa documentação
 
 OBSERVAÇÃO IMPORTANTE: após a migração da versão do pfSense Plus 23.01 o comportamento padrão do roteamento
 dos Gateways do pfSense não está funcionando de forma correta, por exemplo: quando o Gateway padrão sofre
-uma falha de conexão, o segundo Gateway não assumo como padrão, sendo necessário criar os Grupos de Gateway
+uma falha de conexão, o segundo Gateway não assume como padrão, sendo necessário criar os Grupos de Gateway
 para o correto funcionamento do Firewall, em versões anteriores essa falha não acontecia.
 
 Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense
@@ -141,12 +144,41 @@ System
 				<Save>
 			<Apply Changes>
 
-Quarta etapa:
+Quarta etapa: Configuração das Regras de Firewall para entender o Load Balanced do pfSense
+
+OBSERVAÇÃO IMPORTANTE: Para o correto funcionamento do Load Balanced de Link de Internet no pfSense
+é recomendado fazer a configuração na Regra de Firewall de Saída (LAN) da sua rede para cada tipo de
+protocolo, como por exemplo: HTTP, HTTPS, SMTP, FTP, etc... Diferente do Failover/Failback que pode
+ser utilizado para todos os protocolos ao mesmo tempo nas configurações de Gateway Padrão, o recurso
+do Load Balanced também funciona mudando o Gateway Padrão mais não é indicado essa configuração.
+
 Firewall
 	Rules
 		LAN
-
+			IPv4 ICMP (Liberação Protocolo ICMP na Interface LAN)
+			<Edit>
+				Extra Options
+					Advanced Options: <Display Advanced>
+						Advanced Options
+							Gateway: LB_WAN (Enable)
 			<Save>
+
+			IPv4 UDP (Liberação Protocolo UDP Traceroute na Interface LAN)
+			<Edit>
+				Extra Options
+					Advanced Options: <Display Advanced>
+						Advanced Options
+							Gateway: LB_WAN (Enable)
+			<Save>
+
+			IPv4 UDP (Liberação Protocolo UDP Tracepath na Interface LAN)
+			<Edit>
+				Extra Options
+					Advanced Options: <Display Advanced>
+						Advanced Options
+							Gateway: LB_WAN (Enable)
+			<Save>
+		
 		<Apply Changes>
 
 Quinta etapa: Verificando a saída da Interface WAN padrão do pfSense
