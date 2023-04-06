@@ -335,15 +335,14 @@ Link da vídeo aula: https://www.youtube.com/watch?v=7O4THjghiN8
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-024-Failover-Failback-HA-Multi-WAN.txt
 
+## **COMO CONFIGURAR o Load Balance de Gateways de Internet (Multi-WAN Dual-WAN HA) no pfSENSE PLUS+ 23.01**
 
-## **COMO CONFIGURAR o Load Balanced de Gateways de Internet (Multi-WAN Dual-WAN HA) no pfSENSE PLUS+ 23.01**
-
-Vídeo mostrando os procedimentos básicos para configurar o Grupo de Gateways para suportar o LB (Load Balanced) das Interface de Internet WAN (Wide Area Network) no pfSENSE PLUS+ 22.05.
+Vídeo mostrando os procedimentos básicos para configurar o Grupo de Gateways para suportar o LB (Load Balance) das Interface de Internet WAN (Wide Area Network) no pfSENSE PLUS+ 23.01.
 
 O Load Balancing, ou repartição de carga, é uma tecnologia concebida para distribuir a carga de trabalho entre diferentes servidores,  aplicações ou serviços de rede. O objetivo consiste em otimizar o desempenho global da infraestrutura, o seu rendimento e a sua capacidade.
 
-[![Load Balanced WAN pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Load Balanced WAN pfSense Plus")
+[![Load Balance WAN pfSense Plus](http://img.youtube.com/vi/Ees2Y1eBIiI/0.jpg)](https://www.youtube.com/watch?v=Ees2Y1eBIiI "Load Balance WAN pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=Ees2Y1eBIiI
 
-Documentação da vídeo aula:
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-025-LoadBalanced-LB-HA-Multi-WAN.txt

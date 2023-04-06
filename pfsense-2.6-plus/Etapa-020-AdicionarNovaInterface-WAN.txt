@@ -35,6 +35,7 @@ Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/co
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
 Teste de velocidade da Internet Fast: https://fast.com/pt/
+Teste de velocidade da Internet NPerf: https://www.nperf.com/pt/
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value

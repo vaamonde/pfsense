@@ -28,8 +28,8 @@ DNS Dinâmico: https://docs.netgate.com/pfsense/en/latest/services/dyndns/index.
 Configuração do Cliente de DNS Dinâmico: https://docs.netgate.com/pfsense/en/latest/services/dyndns/client.html
 
 Servidor de DDNS Dinâmico suportados no pfSense
-ClouDNS     - https://www.cloudns.net/
-No-IP       - https://www.noip.com/
+ClouDNS     - https://www.cloudns.net/       <-- INDICADO
+No-IP       - https://www.noip.com/          <-- INDICADO
 OpenDNS     - https://www.opendns.com/
 Winco DDNS  - https://ddns.winco.com.br/
 
@@ -40,20 +40,47 @@ Observações das configurações utilizadas nessa documentação
 (Remove)  = Removido dessa configuração = Sem valor ou opção
 <***>     = Botão de confirmação ou de aplicar as configurações
 
-Primeira etapa: Configuração do Monitoramento dos Gateways no pfSense
-System
-	Advanced
-		Miscellaneous
-			Load Balancing
-				Load Balancing
-					Use sticky connections: ON
-					Set the source tracking timeout for sticky connections in seconds: 0 (Default)
-			Gateway Monitoring
-				State Killing on Gateway Failure: Flush all states on gateway failure
-				Skip rules when gateway is down: OFF (Default)
-				Static routes: OFF (Default)
-	<Save>
+Primeira etapa: Criando uma conta no No-IP e no ClouDNS
 
+Criando uma conta no No-IP
+#01_ acesse a URL: https://www.noip.com/pt-BR/sign-up
+#02_ email: seu_email@seu_dominio.com
+#03_ senha: sua_senha_noip
+#04_ marque a opção: Criar meu hostname mais tarde
+#05_ marque a opção: I agree to the Terms of Service and Privacy Policy. I also agree that I will only create one free account.
+#06_ desmarque a opção: Envie-me newsletters e ofertas especiais
+#07_ clique em: <Free Sign Up>
+#08_ clique no link: <Ative sua Conta> que será enviado para o seu email
+
+Criando uma conta no ClouDNS
+#01_ acesse a URL: https://www.cloudns.net/
+#02_ clique em: <Criar Conta> na opção: DNS Grátis (Gratuito para Sempre)
+#03_ primeiro e último nome: digite o seu nome completo
+#04_ email: seu_email@seu_dominio.com
+#05_ senha: sua_senha_noip
+#06_ marque a opção: Concordo com os Termos de Serviço. 
+#07_ clique em: <Criar Conta>
+#08_ clique no link: <Ative sua Conta> que será enviado para o seu email
+
+Segunda etapa: Criando um nome de Host Dinâmico no No-IP e no ClouDNS
+
+Criando um host no No-IP
+#01_ com a sua conta logada, clique em: DNS Dinâmico
+#02_ clique em: <Comece com DNS Dinâmico>
+#03_ no Painel do No-IP clique em: DNS Dinâmico depois: No-IP Hostname
+#04_ clique em: <Criar Hostname>
+	#A_ Nome de Host: firewall (CUIDADO: utilizar nomes que não exista no No-IP)
+	#B_ Domínio: ddns.net (Recomendado)
+	#C_ Tipo de Registro: DNS Host A
+	#D_ IPv4 Endereço: Endereço IPv4 da WAN (Já deve está preenchido automaticamente)
+	#E_ clique em: <Criar Hostname>
+
+Criando um Domínio e host no ClouDNS
+#01_ com a sua conta logada, clique em: <Create Zone> em: DNS Hosting
+#02_ clique na opção: <Free Zone>
+	#A_ subdomínio domain name: seu_dominio (CUIDADO: utilizar nomes que não exista no ClouDNS)
+	#B_ domain name: .cloudns.ph (Recomendado)
+	#C_ clique em: <Create>
 
 Sexta etapa: Monitoramento das Interfaces e Gateways do pfSense
 Status
