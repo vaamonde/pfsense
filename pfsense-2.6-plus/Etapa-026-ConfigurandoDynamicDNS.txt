@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 13/03/2023
-Data de atualização: 13/03/2023
-Versão: 0.01
+Data de atualização: 07/04/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -62,7 +62,7 @@ Criando uma conta no ClouDNS
 #07_ clique em: <Criar Conta>
 #08_ clique no link: <Ative sua Conta> que será enviado para o seu email
 
-Segunda etapa: Criando um nome de Host Dinâmico no No-IP e no ClouDNS
+Segunda etapa: Criando um nome de Host Dinâmico no No-IP e criando um Domínio no ClouDNS
 
 Criando um host no No-IP
 #01_ com a sua conta logada, clique em: DNS Dinâmico
@@ -81,10 +81,59 @@ Criando um Domínio e host no ClouDNS
 	#A_ subdomínio domain name: seu_dominio (CUIDADO: utilizar nomes que não exista no ClouDNS)
 	#B_ domain name: .cloudns.ph (Recomendado)
 	#C_ clique em: <Create>
+#03_ clique na opção: A (hostname)
+	#A_ clique em: <+ Add new record>
+	#B_ Type: A (Default)
+	#C_ TTL: 1 Hour (Default)
+	#D_ Host: firewall
+	#E_ Points to: 8.8.8.8 (criar inicialmente com um endereço IPv4 qualquer, depois será habilitado o DDNS)
+	#F_ clique em: <Save>
+#04_ clique na opção: <Inactive Dynamic DDNS>
+	#A_ clique em: <Activate it>
+	#B_ copiar a chave de atualização dinâmica do host.
 
-Sexta etapa: Monitoramento das Interfaces e Gateways do pfSense
-Status
-	Interfaces
+Terceira etapa: Configurando o Dynamic DNS no pfSense
+Services
+	Dynamic DNS
+		Dynamic DNS Client
+			<ADD>
+				Dynamic DNS Client
+					Disable: Off (Default)
+					Service Type: No-IP (free) (Enable)
+					Interfaces to monitor: WAN_VIVO (Enable)
+					Hostname: firewall.ddns.net (Enable) - OBSERVAÇÃO DEVE SER EXATAMENTE IGUAL NO NO-IP.
+					MX: Off (Default)
+					Wildcards: Off (Default)
+					Verbose logging: On (Enable)
+					Username: username_noip
+					Password: password_noip   Confirm: password_noip
+					Description: WAN_VIVO atualização dinâmica No-IP
+				<Save>
+
+Services
+	Dynamic DNS
+		Dynamic DNS Client
+			<ADD>
+				Dynamic DNS Client
+					Disable: Off (Default)
+					Service Type: Custom (Enable)
+					Interface to monitor: GW Group HA_WAN
+					Interface to send update from: GW Group HA_WAN
+					Verbose logging: On (Enable)
+					HTTP API DNS Options: Off (Default)
+					HTTP API SSL/TLS Options: Off (Default)
+					Username: Off (Default)
+					Password: Off (Default)
+					Update URL: https://ipv4.cloudns.net/api/dynamicURL/URL_DO_HOST_DO_CLIENTE
+					Result Match: Off (Default)
+					Max Cache Age: Off (Default)
+					Description: WAN_VIVO atualização dinâmica ClouDNS
+				<Save>
+
+Quarta etapa: Monitoramento das atualizações dinâmicas do DDNS no pfSense
+Services
+	Dynamic DNS
+		Dynamic DNS Client
 
 Status
 	Gateways
@@ -94,12 +143,4 @@ Status
 		Gateways Groups
 
 Status
-	System Logs
-		System
-			Gateways
-
-Status
-	Traffic Graph
-
-Diagnostics
-	Routes
+	Interfaces
