@@ -346,3 +346,15 @@ O Load Balancing, ou repartição de carga, é uma tecnologia concebida para dis
 Link da vídeo aula: https://www.youtube.com/watch?v=Ees2Y1eBIiI
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-025-LoadBalanced-LB-HA-Multi-WAN.txt
+
+## **COMO CONFIGURAR o Dynamic DNS (DDNS - DNS Dinâmico) no pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar Dynamic DNS (DDNS - DNS Dinâmico) no pfSENSE PLUS+ 23.01.
+
+O DNS dinâmico é um método para atualização automática de um servidor de nomes no Domain Name System, em tempo real, com a configuração ativa de DDNS dos nomes de host configurados, endereços ou outras informações. Ele é padronizado pelo RFC 2136. O termo é utilizado para descrever dois conceitos diferentes.
+
+[![Dynamic DNS pfSense Plus](http://img.youtube.com/vi/SR7l2x0XATI/0.jpg)](https://www.youtube.com/watch?v=SR7l2x0XATI "Dynamic DNS  pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=SR7l2x0XATI
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-026-ConfigurandoDynamicDNS.txt

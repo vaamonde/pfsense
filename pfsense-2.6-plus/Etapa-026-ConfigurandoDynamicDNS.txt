@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 13/03/2023
-Data de atualização: 07/04/2023
-Versão: 0.02
+Data de atualização: 08/04/2023
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -51,6 +51,11 @@ Criando uma conta no No-IP
 #06_ desmarque a opção: Envie-me newsletters e ofertas especiais
 #07_ clique em: <Free Sign Up>
 #08_ clique no link: <Ative sua Conta> que será enviado para o seu email
+#### OBSERVAÇÃO IMPORTANTE: para funcionar a autenticação do No-IP no pfSense recomendo fazer a criação de um usuário no No-IP
+#09_ no seu Dashboard, clique no canto superior direito no mome do seu Login;
+#10_ selecione no menu: Conta
+#11_ em Informações básica, clique em: <Change Username>
+#12_ em Novo Nome de Usuário, digite o: seu_usuário_noip, clique em: <Salvar>
 
 Criando uma conta no ClouDNS
 #01_ acesse a URL: https://www.cloudns.net/
@@ -75,7 +80,7 @@ Criando um host no No-IP
 	#D_ IPv4 Endereço: Endereço IPv4 da WAN (Já deve está preenchido automaticamente)
 	#E_ clique em: <Criar Hostname>
 
-Criando um Domínio e host no ClouDNS
+Criando uma Zona Free e host no ClouDNS
 #01_ com a sua conta logada, clique em: <Create Zone> em: DNS Hosting
 #02_ clique na opção: <Free Zone>
 	#A_ subdomínio domain name: seu_dominio (CUIDADO: utilizar nomes que não exista no ClouDNS)
@@ -127,7 +132,7 @@ Services
 					Update URL: https://ipv4.cloudns.net/api/dynamicURL/URL_DO_HOST_DO_CLIENTE
 					Result Match: Off (Default)
 					Max Cache Age: Off (Default)
-					Description: WAN_VIVO atualização dinâmica ClouDNS
+					Description: HA_WAN atualização dinâmica ClouDNS
 				<Save>
 
 Quarta etapa: Monitoramento das atualizações dinâmicas do DDNS no pfSense
