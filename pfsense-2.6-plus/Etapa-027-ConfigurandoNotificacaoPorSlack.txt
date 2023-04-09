@@ -1,0 +1,82 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 09/04/2023
+Data de atualização: 09/04/2023
+Versão: 0.01
+estado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configuração das Notificações do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-notifications.html
+
+Suporte nativo do Netgate/pfSense de notificações:
+Telegram: https://telegram.org/
+Pushover: https://pushover.net/
+Slack...: https://slack.com/
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Criando uma conta no Slack e um Workspace
+OBSERVAÇÃO: recomendo utilizar a autenticação do Google ou fazer a criação de uma 
+conta manualmente.
+#01_ acessar a URL: https://slack.com/get-started#/createnew
+#02_ após a autenticação, clique em: <Criar um Workspace>
+#03_ Qual é o nome da sua empresa ou equipe: pfsense <Próximo>
+#04_ Quem mais está na equipe pfsense? <Ignorar esta etapa>, <Pular etapa>
+#05_ Em que sua equipe está trabalhando agora? Monitoramento do pfSense <Próximo>
+
+Segunda etapa: Fazer a criação do API Key Token do Slack para o envio de mensagens no pfSense
+#01_ acessar a URL: https://api.slack.com/apps?new_app=1
+#02_ clicar em: <Create an App>
+#03_ selecione: From scratch
+#04_ em App Name digite: pfsense, em Pick a Workspace to develop your app in selecione: pfsense clique em: <Create App>
+#05_ clique em: Permissions
+#06_ em User Token Scopes, clique em: <Add OAuth Scope>
+	#A_ adicione: chat:write
+	              users:read
+#07_ em OAuth Tokens for Your Workspace clique em: <Install to Workspace>
+#08_ clique em: <Permitir>
+#09_ copiar o Token gerado no campo: User OAuth Token.
+
+Terceira etapa: Configurando as Notificações por Slack do pfSense
+System
+	Advanced
+		Notification
+			Slack
+				Enable Slack: On (Enable)
+				API Key: COLAR_SEU_TOKEN (Enable - copiar e colar o Token OAuth criado no Slack)
+				Slack Channel: monitoramento-do-pfsense (Enable - copiar a descrição do canal do slack)
+				<Test Slack Settings>
+		<Save>
+
+Quarta etapa: Verificando a mensagem enviado do pfSense para o Slack
+Acessando via Web:
+#01_ link para acesso remoto: https://slack.com/signin#/signin
+
+Instalação do cliente no GNU/Linux
+#01_ link para download: https://slack.com/intl/pt-br/downloads/linux
+#02_ clique na opção: Baixar app .DEB
+#03_ na pasta de download clique duas vezes nno arquivo: slack-desktop-*-amd64.deb
+#04_ no Gdebi clique em: <Instalar o Pacote>
