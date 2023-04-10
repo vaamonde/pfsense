@@ -10,7 +10,7 @@ LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 09/04/2023
 Data de atualização: 09/04/2023
 Versão: 0.01
-estado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
 Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
@@ -28,7 +28,7 @@ Configuração das Notificações do pfSense: https://docs.netgate.com/pfsense/e
 
 Suporte nativo do Netgate/pfSense de notificações:
 Telegram: https://telegram.org/
-Pushover: https://pushover.net/
+Pushover: https://pushover.net/	<-- CLIENTE PAGO
 Slack...: https://slack.com/
 
 Observações das configurações utilizadas nessa documentação
