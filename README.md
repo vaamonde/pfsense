@@ -353,8 +353,36 @@ Vídeo mostrando os procedimentos básicos para configurar Dynamic DNS (DDNS - D
 
 O DNS dinâmico é um método para atualização automática de um servidor de nomes no Domain Name System, em tempo real, com a configuração ativa de DDNS dos nomes de host configurados, endereços ou outras informações. Ele é padronizado pelo RFC 2136. O termo é utilizado para descrever dois conceitos diferentes.
 
-[![Dynamic DNS pfSense Plus](http://img.youtube.com/vi/SR7l2x0XATI/0.jpg)](https://www.youtube.com/watch?v=SR7l2x0XATI "Dynamic DNS  pfSense Plus")
+[![Dynamic DNS pfSense Plus](http://img.youtube.com/vi/SR7l2x0XATI/0.jpg)](https://www.youtube.com/watch?v=SR7l2x0XATI "Dynamic DNS pfSense Plus")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=SR7l2x0XATI
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-026-ConfigurandoDynamicDNS.txt
+
+## **COMO CONFIGURAR a Notificação por SLACK no pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar as Notificações por Slack no pfSENSE PLUS+ 23.01.
+
+O firewall pode notificar os administradores sobre eventos e erros importantes, exibindo um alerta na barra de menus, indicado pelo ícone de sino. Além das notificações da GUI, o firewall também suporta os seguintes métodos de notificação remota.
+
+Slack é um programa de mensagens instantâneas desenvolvido pela Slack Technologies e de propriedade da Salesforce. Embora o Slack tenha sido desenvolvido para comunicações profissionais e organizacionais, ele também foi adotado como uma plataforma comunitária.
+
+[![Notifications Slack pfSense Plus](http://img.youtube.com/vi/f-5-QiYxX3k/0.jpg)](https://www.youtube.com/watch?v=f-5-QiYxX3k "Notifications Slack pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=f-5-QiYxX3k
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-027-ConfigurandoNotificacaoPorSlack.txt
+
+## **COMO CONFIGURAR a Notificação por TELEGRAM no pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar as Notificações por Telegram no pfSENSE PLUS+ 23.01.
+
+O firewall pode notificar os administradores sobre eventos e erros importantes, exibindo um alerta na barra de menus, indicado pelo ícone de sino. Além das notificações da GUI, o firewall também suporta os seguintes métodos de notificação remota.
+
+O Telegram é um serviço de mensagens instantâneas baseado na nuvem. O Telegram está disponível para smartphones ou tablets, computadores e também como Aplicação web. Os usuários podem fazer chamadas com vídeo, enviar mensagens e trocar fotos, vídeos, autocolantes e arquivos de qualquer tipo.
+
+[![Notifications Telegram pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Notifications Telegram pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-028-ConfigurandoNotificacaoPorTelegram.txt
