@@ -38,16 +38,20 @@ Observações das configurações utilizadas nessa documentação
 (Remove)  = Removido dessa configuração = Sem valor ou opção
 <***>     = Botão de confirmação ou de aplicar as configurações
 
-Primeira etapa: Criando uma conta no Telegram
-
+Primeira etapa: Instalando o Telegram no Celular (Android ou iPhone)
+#01_ Link de download para Android: https://play.google.com/store/search?q=telegram&c=apps
+#02_ Link de download para iPhone: https://apps.apple.com/app/telegram-messenger/id686449807
+#03_ Link do Web Telegram: https://web.telegram.org/
+#04_ Link do Desktop Telegram: https://desktop.telegram.org/
 
 Segunda etapa: Fazer a criação do API Key Token do Telegram para o envio de mensagens no pfSense
-
+#01_ acesse o link: https://my.telegram.org/auth?to=apps
 
 Terceira etapa: Configurando as Notificações por Telegram do pfSense
 System
 	Advanced
 		Notification
-			
+			Enable Telegram: On (Enable)
+			API Key: 
+			Chat ID: @
 		<Save>
-
