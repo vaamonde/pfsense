@@ -89,3 +89,12 @@ System
 
 Sexta etapa: Verificando a mensagem enviado do pfSense para o Telegram
 #01_ link para acesso remoto via web: https://web.telegram.org/
+
+Sétima etapa: Verificando o Log de Erro do envio da mensagem do Telegram do pfSense
+Status
+	System Logs
+		System
+			General
+				Advanced Log Filter
+					Message: Telegram
+				<Apply Filter>

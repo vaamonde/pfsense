@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 09/04/2023
-Data de atualização: 09/04/2023
-Versão: 0.01
+Data de atualização: 16/04/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -79,3 +79,12 @@ Instalação do cliente no GNU/Linux
 #02_ clique na opção: Baixar app .DEB
 #03_ na pasta de download clique duas vezes nno arquivo: slack-desktop-*-amd64.deb
 #04_ no Gdebi clique em: <Instalar o Pacote>
+
+Quinta etapa: Verificando o Log de Erro do envio da mensagem do Slack do pfSense
+Status
+	System Logs
+		System
+			General
+				Advanced Log Filter
+					Message: Slack
+				<Apply Filter>
