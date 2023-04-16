@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 09/04/2023
-Data de atualização: 09/04/2023
-Versão: 0.01
+Data de atualização: 16/04/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -43,15 +43,49 @@ Primeira etapa: Instalando o Telegram no Celular (Android ou iPhone)
 #02_ Link de download para iPhone: https://apps.apple.com/app/telegram-messenger/id686449807
 #03_ Link do Web Telegram: https://web.telegram.org/
 #04_ Link do Desktop Telegram: https://desktop.telegram.org/
+#05_ Link do Bot Father Telegram API: https://telegram.me/botfather
 
-Segunda etapa: Fazer a criação do API Key Token do Telegram para o envio de mensagens no pfSense
-#01_ acesse o link: https://my.telegram.org/auth?to=apps
+Segunda etapa: Instalando o Telegram Desktop no Linux Mint (Windows ou MacOS)
+#01_ Link do Desktop Telegram: https://desktop.telegram.org/
+#02_ Clique no link: Get Telegram for Linux x64
+#03_ Na pasta de Download clique com o botão direito do mouse no arquivo: tsetup.*.tar.xz
+#04_ No menu selecione: <Extrair aqui>
+#05_ Acesse o diretório: Telegram
+#06_ Clique duas vezes no arquivo: Telegram
 
-Terceira etapa: Configurando as Notificações por Telegram do pfSense
+Terceira etapa: Iniciando a sessão no Telegram Desktop
+#01_ No Telegram Desktop clique em: <Comece a Conversar>
+#02_ No se celular acesse: Configurações, Dispositivos e clique em: <Conectar Desktop>
+#03_ Com o seu celular escaneia o QR da tela para se autenticar.
+
+Quarta etapa: Fazer a criação do API Key Token do Telegram para o envio de mensagens no pfSense
+OBSERVAÇÃO: para facilitar a criação do API Key Token do Telegram recomendo utilizar o BotFather
+OBSERVAÇÃO IMPORTANTE: para o BotFather funcionar o Telegram Desktop deve está instalado no seu
+computador, se não você deverá utilizar o seu Celular para essa criação.
+#01_ Acesse o link: https://telegram.me/botfather
+#02_ Na tela de: Permitir que esse site abra o link do tipo tg com Telegram Desktop clique em: <Abrir Link>
+#03_ Deverá aparecer um Chat do BotFather no Telegram Desktop, agora vamos criar o Token
+	#A_ clique em: <Iniciar> para ver a lista de comandos;
+	#B_ digite ou clique no comando: /newbot para criar um novo Bot;
+	#C_ digite o nome do Bot: pfsense
+	#D_ digite o nome do usuário do Bot terminado com o nome bot: pfsensebot
+	#E_ copiar o Token criado pelo BotFather: COPIAR_O_SEU_TOKEN
+#04_ Acessando informando detalhadas do seu Bot
+	#A_ copie e cole esse link no navegador: https://api.telegram.org/botCOLAR_SEU_TOKEN_AQUI/getUpdates
+	#B_ copiar o Chat ID de: chat e ID: COPIAR_O_ID_DO_CHAT
+OBSERVAÇÃO IMPORTANTE: depois de criar o Bot você deve adicionar o mesmo no Grupo que você criou 
+para ele poder enviar as mensagens.
+
+Quinta etapa: Configurando as Notificações por Telegram do pfSense
 System
 	Advanced
 		Notification
-			Enable Telegram: On (Enable)
-			API Key: 
-			Chat ID: @
+			Telegram
+				Enable Telegram: On (Enable)
+				API Key: COLAR_O_SEU_TOKEN
+				Chat ID: COLAR_O_ID_DO_CHAT
+				<Test Telegram Settings>
 		<Save>
+
+Sexta etapa: Verificando a mensagem enviado do pfSense para o Telegram
+#01_ link para acesso remoto via web: https://web.telegram.org/

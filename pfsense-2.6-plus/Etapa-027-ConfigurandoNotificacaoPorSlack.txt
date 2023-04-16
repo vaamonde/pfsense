@@ -72,8 +72,7 @@ System
 		<Save>
 
 Quarta etapa: Verificando a mensagem enviado do pfSense para o Slack
-Acessando via Web:
-#01_ link para acesso remoto: https://slack.com/signin#/signin
+#01_ link para acesso remoto via web: https://slack.com/signin#/signin
 
 Instalação do cliente no GNU/Linux
 #01_ link para download: https://slack.com/intl/pt-br/downloads/linux
