@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 09/04/2023
-Data de atualização: 16/04/2023
-Versão: 0.02
+Data de atualização: 25/04/2023
+Versão: 0.04
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -55,28 +55,44 @@ Segunda etapa: Instalando o Telegram Desktop no Linux Mint (Windows ou MacOS)
 
 Terceira etapa: Iniciando a sessão no Telegram Desktop
 #01_ No Telegram Desktop clique em: <Comece a Conversar>
-#02_ No se celular acesse: Configurações, Dispositivos e clique em: <Conectar Desktop>
-#03_ Com o seu celular escaneia o QR da tela para se autenticar.
+#02_ No seu celular acesse: Configurações, Dispositivos e clique em: <Conectar Desktop>
+#03_ Com o seu celular escaneia o QR Code da tela para se autenticar.
 
-Quarta etapa: Fazer a criação do API Key Token do Telegram para o envio de mensagens no pfSense
+Quarta etapa: Criação de um Grupo para o Monitoramento do pfSense
+OBSERVAÇÃO: você pode utilizar o seu celular ou Telegram Desktop
+#01_ Acesse o Perfil do seu usuário
+#02_ Clique em: Novo Grupo
+#03_ Novo Grupo: ptispo01fw01 <Próximo>
+#04_ Não adicionar membros <Criar>
+
+Quinta etapa: Fazer a criação do API Key Token do Telegram para o envio de mensagens no pfSense
 OBSERVAÇÃO: para facilitar a criação do API Key Token do Telegram recomendo utilizar o BotFather
-OBSERVAÇÃO IMPORTANTE: para o BotFather funcionar o Telegram Desktop deve está instalado no seu
+OBSERVAÇÃO IMPORTANTE: para o BotFather funcionar no Telegram Desktop deve está instalado no seu
 computador, se não você deverá utilizar o seu Celular para essa criação.
 #01_ Acesse o link: https://telegram.me/botfather
 #02_ Na tela de: Permitir que esse site abra o link do tipo tg com Telegram Desktop clique em: <Abrir Link>
 #03_ Deverá aparecer um Chat do BotFather no Telegram Desktop, agora vamos criar o Token
 	#A_ clique em: <Iniciar> para ver a lista de comandos;
 	#B_ digite ou clique no comando: /newbot para criar um novo Bot;
-	#C_ digite o nome do Bot: pfsense
-	#D_ digite o nome do usuário do Bot terminado com o nome bot: pfsensebot
+	#C_ digite o nome do Bot: ptispo01fw01 (não mode existir no Telegram)
+	#D_ digite o nome do usuário do Bot terminado com o nome bot: ptispo01fw01bot (precisa terminar com a palavra bot no final)
 	#E_ copiar o Token criado pelo BotFather: COPIAR_O_SEU_TOKEN
-#04_ Acessando informando detalhadas do seu Bot
+#04_ Adicionando o Bot no Grupo do Telegram ptispo01fw01
+	#A_ clique no grupo: ptispo01fw01
+	#B_ clique em: Informações do Grupo
+	#C_ clique em: <Adicionar Membros>
+	#D_ na pesquisa digite: ptispo01fw01bot
+	#E_ clique em: <Adicionar>
+#05_ Acessando informando detalhadas do seu Bot do Telegram
 	#A_ copie e cole esse link no navegador: https://api.telegram.org/botCOLAR_SEU_TOKEN_AQUI/getUpdates
-	#B_ copiar o Chat ID de: chat e ID: COPIAR_O_ID_DO_CHAT
+	#B_ copiar o Chat ID de: chat e ID: -COPIAR_O_ID_DO_CHAT
+			my_chat_member:
+				chat:
+					id: -123456789 (sempre iniciando com um traço/menos)
 OBSERVAÇÃO IMPORTANTE: depois de criar o Bot você deve adicionar o mesmo no Grupo que você criou 
-para ele poder enviar as mensagens.
+no Telegram para ele possa enviar as mensagens.
 
-Quinta etapa: Configurando as Notificações por Telegram do pfSense
+Sexta etapa: Configurando as Notificações por Telegram do pfSense
 System
 	Advanced
 		Notification
@@ -87,10 +103,10 @@ System
 				<Test Telegram Settings>
 		<Save>
 
-Sexta etapa: Verificando a mensagem enviado do pfSense para o Telegram
+Sétima etapa: Verificando a mensagem enviado do pfSense para o Telegram
 #01_ link para acesso remoto via web: https://web.telegram.org/
 
-Sétima etapa: Verificando o Log de Erro do envio da mensagem do Telegram do pfSense
+Oitiva etapa: Verificando o Log de Erro do envio da mensagem do Telegram do pfSense
 Status
 	System Logs
 		System
