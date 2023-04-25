@@ -381,8 +381,8 @@ O firewall pode notificar os administradores sobre eventos e erros importantes, 
 
 O Telegram é um serviço de mensagens instantâneas baseado na nuvem. O Telegram está disponível para smartphones ou tablets, computadores e também como Aplicação web. Os usuários podem fazer chamadas com vídeo, enviar mensagens e trocar fotos, vídeos, autocolantes e arquivos de qualquer tipo.
 
-[![Notifications Telegram pfSense Plus](http://img.youtube.com/vi//0.jpg)]( "Notifications Telegram pfSense Plus")
+[![Notifications Telegram pfSense Plus](http://img.youtube.com/vi/t1otiEo4LOA/0.jpg)](https://www.youtube.com/watch?v=t1otiEo4LOA "Notifications Telegram pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=t1otiEo4LOA
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-028-ConfigurandoNotificacaoPorTelegram.txt
