@@ -1,0 +1,280 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 29/04/2023
+Data de atualização: 29/04/2023
+Versão: 0.02
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Configurações Gerais do pfSense: https://docs.netgate.com/pfsense/en/latest/config/general.html
+Tipos de Interfaces e Configurações do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/index.html
+Diferenças das Interfaces LAN e WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html#lan-type-interface
+Roteamento no pfSense: https://docs.netgate.com/pfsense/en/latest/routing/index.html
+Opções do Console do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html
+Atribuição de Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#assign-interfaces
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#set-interface-s-ip-address
+Teste de conectividade do pfSense: https://docs.netgate.com/pfsense/en/latest/config/console-menu.html#ping-host
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Introdução à tela Regras de firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Básico de Regras de Firewall no pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/example-basic-configuration.html
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/resolver.html
+Configuração das Proteções de religação de DNS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/rebinding.html
+
+NTP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/index.html
+Configuração do NTP Server do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/server.html
+Configuração do Serial GPS do pfSense: https://docs.netgate.com/pfsense/en/latest/services/ntpd/gps.html
+
+Metodologia das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-methodology.html
+
+Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
+ICMP (Internet Control Message Protocol): https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+
+Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
+Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
+Teste de velocidade da Internet Fast: https://fast.com/pt/
+Teste de velocidade da Internet NPerf: https://www.nperf.com/pt/
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Adicionar uma nova Interface no VirtualBOX
+VirtualBOX
+	Firewall-pfSense-2.6
+		Configurações
+			Rede
+				Adaptador 4
+					Habilitar Placa de Rede: ON (Enable)
+					Conectado a: Rede Interna (Enable)
+					Nome: intnet-dmz
+					Avançado: (Default)
+		<OK>
+	<Iniciar>
+
+Segunda etapa: Atribuição de Interfaces no pfSense
+Interfaces
+	Assignments
+		Available network ports: em3 (MAC-ADDRESS) <Add>
+	<Save>
+
+Terceira etapa: Configurando a nova Interface DMZ no pfSense
+Interfaces
+	OPT2
+		General Configuration
+			Enable: ON (Enable)
+			Description: DMZ
+			IPv4 Configuration Type: Static IPv4 (Enable)
+			IPv6 Configuration Type: None (Default)
+			MAC Address: (Default)
+			MTU: (Default)
+			MSS: (Default)
+			Speed and Duplex: Default (no preference, typically autoselect) (Default)
+		Static IPv4 Configuration
+			IPv4 Address: 172.16.100.254/24 (Enable)
+			IPv4 Upstream gateway: None (Default)
+		Reserved Networks
+			Block private networks and loopback addresses: OFF (Default)
+			Block bogon networks: OFF (Default)
+		<Save>
+	<Apply Changes>
+
+Quarta etapa: Verificando o Status das Interfaces no pfSense
+Status
+	Interfaces
+
+Status
+	Dashboard
+
+Quinta etapa: Testando o Ping e DNS da nova Interface de DMZ do pfSense
+Terminal (Cltr + Alt + T)
+	ping 172.16.100.254
+	nslookup google.com
+
+Sexta etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede DMZ no pfSense
+
+	Protocolo: UDP	 Serviço: DNS Server    Porta: 53         Source: DMZ Net  Destination: DMZ address  Port: DNS (53)
+	OBSERVAÇÃO IMPORTANTE: nesse cenário estamos utilizando o Serviço do DNS Resolver para a resoluções internas do
+	DNS, caso não esteja utilizando o DNS Resolver você pode alterar o Destination para: Any. O protocolo TCP do DNS
+	Server é utilizado para consulta e sincronismo entre servidores DNS, não sendo necessário fazer a sua liberação.
+
+	Protocolo: ICMP	 Serviço: Any           Porta: Sem Porta  Source: DMZ Net  Destination: any          ICMP Subtypes: Echo Reply/Request
+	OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 
+	até 33564, o comando tracepath utiliza o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644.
+
+	Protocolo: TCP	 Serviço: HTTP Server   Porta: 80         Source: DMZ Net  Destination: any          Port: HTTP (80)
+	Protocolo: TCP	 Serviço: HTTPS Server  Porta: 443        Source: DMZ Net  Destination: any          Port: HTTPS (443)
+
+	Protocolo: TCP	 Serviço: FTP Server    Porta: 21         Source: DMZ Net  Destination: any          Port: FTP (21)
+	OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele utiliza portas altas para o 
+	envio e recebimento de dados do cliente, no exemplo do FTP ftp.unicamp.br ele trabalha na faixa de: 1024 até 10000, 
+	em alguns cenário também é necessário liberar a porta 20 (conexão de dados) junto com a 21 (conexão de controle). A 
+	comunidade do pfSense recomenda utilizar o recurso do FTP Client Proxy. 
+
+	Protocolo: UDP	 Serviço: NTP Server    Porta: 123        Source: DMZ Net  Destination: DMZ address  Port: NTP (123)
+
+Sétima etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede DMZ no pfSense
+Firewall
+	Rules
+		DMZ
+			+ADD
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: DMZ (Default)
+					Address Family: IPv4 (Default)
+					Protocol: UDP (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) - DMZ net (Enable)
+					Display Advanced: (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - DMZ address (Enable)
+					Destination Port Range:
+						From: DNS (53) (Enable)
+						To: DNS (53) (Enable)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do Protocolo DNS na Interface DMZ
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Liberação dos Protocolos Básicos de Rede - Color: Blue - <Save>
+		<Save>
+
+		<Copy>
+			OBSERVAÇÃO IMPORTANTE: alterar o endereço de rede e porta conforme a sua necessidade
+			<Save>
+		<Apply Changes>
+
+Oitava etapa: Configuração do DNS Resolver do pfSense
+Service
+	DNS Resolver
+		General Settings
+			General DNS Resolver Options
+				Network Interfaces: (Ctrl) (Enable)
+					DMZ
+					LAN
+					LAN IPv6 Link-Local
+					Localhost
+			<Save>
+		<Apply Changes>
+
+Nona etapa: Configuração do NTP Server do pfSense
+Service
+	NTP
+		Settings
+			NTP Server Configuration
+				Interface (Ctrl): (Enable)
+					DMZ
+					LAN
+					Localhost
+		<Save>
+
+Décima etapa: Testando novamente o acesso aos Serviços e Protocolos de Rede Externo no pfSense
+Terminal (Ctrl + Alt + T)
+	sudo apt install nmap traceroute (install software packages)
+	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path, -n IP addresses numerically)
+	traceroute -n google.com (print the route packets trace to network host, -n IP addresses numerically)
+	sudo nmap -p- 172.16.100.254 (utility for network discovery and security auditing, -p- port range all)
+	sudo nmap -sU -p- 172.16.100.254 (-sU scan UDP, -p- port range all)
+	sudo nmap -sU -sT -p- 172.16.100.254 (-SU scan UDP, -sT scan TCP connect, -p- port range all)
+
+Décima primeira etapa: Criando as Regras de Acesso a Rede da DMZ na Interface LAN do pfSense
+Firewall
+	Rules
+		LAN
+			+ADD
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: LAN (Default)
+					Address Family: IPv4 (Default)
+					Protocol: Any (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) - LAN net (Enable)
+					Display Advanced: (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - DMZ net (Enable)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do acesso da Rede LAN para a DMZ
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Liberação do Acessoa a Rede DMZ da Interface LAN - Color: Green - <Save>
+		<Save>
+
+Décima segunda etapa: Monitoramento das Interfaces e Gateways do pfSense
+Status
+	System Logs
+		Firewall
+			Normal View
+
+Status
+	System Logs
+		Firewall
+			Dynamic View
+
+Status
+	System Logs
+		Firewall
+			Summary View
+
+Status
+	Filter Reload
+		Related Status
+
+Diagnostics
+	pfInfo
+
+Diagnostics
+	pfTop
+
+Diagnostics
+	Sockets
+		<Show all socket connections>
+
+Diagnostics
+	States
+
+Diagnostics
+	States Summary

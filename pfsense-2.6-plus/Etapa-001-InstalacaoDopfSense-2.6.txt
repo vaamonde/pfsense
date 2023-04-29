@@ -10,7 +10,7 @@ LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 15/02/2022
 Data de atualização: 22/11/2022
 Versão: 0.04
-Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
 Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html

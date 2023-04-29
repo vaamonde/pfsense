@@ -51,7 +51,9 @@ Services
 		Settings
 			NTP Server configuration
 				Enable: ON (Enable)
-				Interface (Ctrl): LAN and Localhost (Enable)
+				Interface (Ctrl): (Enable)
+					LAN
+					Localhost
 				Time Servers: a.st1.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable) 
 				Time Servers: a.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable)
 				Time Servers: gps.ntp.br - Prefer: ON - No Select: OFF - Type: Server (Enable)
