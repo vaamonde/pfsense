@@ -386,3 +386,15 @@ O Telegram é um serviço de mensagens instantâneas baseado na nuvem. O Telegra
 Link da vídeo aula: https://www.youtube.com/watch?v=t1otiEo4LOA
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-028-ConfigurandoNotificacaoPorTelegram.txt
+
+## **COMO CONFIGURAR a Interface DMZ (Demilitarized Zone) no pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar uma nova Interface DMZ (Demilitarized Zone -  Zona Desmilitarizada) no pfSENSE PLUS+ 23.01.
+
+Em segurança de computadores, uma DMZ ou zona desmilitarizada, também conhecida como rede de perímetro, é uma sub-rede física ou lógica que contém e expõe serviços de fronteira externa de uma organização a uma rede maior e não confiável, normalmente a Internet.
+
+[![Interface DMZ pfSense Plus](http://img.youtube.com/vi/K-fg-5d5niM/0.jpg)](https://www.youtube.com/watch?v=K-fg-5d5niM "Interface DMZ pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=K-fg-5d5niM
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-029-ConfigurandoInterface-DMZ.txt

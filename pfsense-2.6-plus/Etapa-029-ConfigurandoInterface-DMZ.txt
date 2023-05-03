@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 29/04/2023
-Data de atualização: 29/04/2023
-Versão: 0.02
+Data de atualização: 03/05/2023
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -76,7 +76,7 @@ VirtualBOX
 				Adaptador 4
 					Habilitar Placa de Rede: ON (Enable)
 					Conectado a: Rede Interna (Enable)
-					Nome: intnet-dmz
+					Nome: intnet-dmz (Enable)
 					Avançado: (Default)
 		<OK>
 	<Iniciar>
@@ -185,7 +185,7 @@ Service
 		General Settings
 			General DNS Resolver Options
 				Network Interfaces: (Ctrl) (Enable)
-					DMZ
+					DMZ (Enable)
 					LAN
 					LAN IPv6 Link-Local
 					Localhost
@@ -198,7 +198,7 @@ Service
 		Settings
 			NTP Server Configuration
 				Interface (Ctrl): (Enable)
-					DMZ
+					DMZ (Enable)
 					LAN
 					Localhost
 		<Save>
