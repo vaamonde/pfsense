@@ -398,3 +398,15 @@ Em segurança de computadores, uma DMZ ou zona desmilitarizada, também conhecid
 Link da vídeo aula: https://www.youtube.com/watch?v=K-fg-5d5niM
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-029-ConfigurandoInterface-DMZ.txt
+
+## **COMO CONFIGURAR o Uptime Robot para Monitorar o pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar o Serviço On-Line do Uptime Robot para monitorar o pfSENSE PLUS+ 23.01.
+
+Uptime Robot é uma ferramenta gratuita usada para monitorar sites, portas, serviços, etc.... Ele monitora seus sites a cada 5 minutos e avisa se eles estão fora do ar. Você pode receber alertas por e-mail, SMS, Twitter, push, Slack, HipChat e agora OnPage por meio de WebHooks..
+
+[![Uptime Robot pfSense Plus](http://img.youtube.com/vi//0.jpg)]("Uptime Robot pfSense Plus")
+
+Link da vídeo aula: 
+
+Documentação da vídeo aula:
