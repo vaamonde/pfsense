@@ -1,0 +1,117 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 06/05/2023
+Data de atualização: 06/05/2023
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+DNS Dinâmico: https://docs.netgate.com/pfsense/en/latest/services/dyndns/index.html
+Configuração do Cliente de DNS Dinâmico: https://docs.netgate.com/pfsense/en/latest/services/dyndns/client.html
+
+Servidor de DDNS Dinâmico suportados no pfSense
+ClouDNS     - https://www.cloudns.net/       <-- INDICADO
+No-IP       - https://www.noip.com/          <-- INDICADO
+OpenDNS     - https://www.opendns.com/
+Winco DDNS  - https://ddns.winco.com.br/
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Criação da Conta FREE no Site do UptimeRobot
+URL do site: https://uptimerobot.com/
+	Register for FREE
+		Create your FREE account
+			Your full name: SEU NOME COMPLETO
+			Your e-mail: SEU EMAIL DE AUTENTICAÇÃO E ENVIO DE ALERTAS
+			Enter your password (Min 6 characters): SUA SENHA
+			How did you find out about UptimeRobot? (optional): Online community (e.g. Github, Reddit, Stack Overflow, etc...)
+			Off Inform me about new features and updates (max. twice a month)
+		<Register now>
+OBSERVAÇÃO IMPORTANTE: <Ative sua Conta> que será enviado para o seu email
+
+Segunda etapa: Criando um monitoramento utilizando o Ping do UptimeRobot
+No Dashboard do UptimeRobot clique em: <+ Add New Monitor>
+	New Monitor
+		Monitor Information
+			Monitor Type: Ping
+			Friendly Name: pfSenseping
+			IP (or Host): CNAME do NoIP ou ClouDNS 
+			Monitoring Interval: every 5 minutes
+		Select "Alert Contacts To Notify"
+			Type / Alert Contacts: On Seu Contato / Seu Email
+	<Create Monitor>
+
+Terceira etapa: Criando um monitoramento utilizando o Port do UptimeRobot
+No Dashboard do UptimeRobot clique em: <+ Add New Monitor>
+	New Monitor
+		Monitor Information
+			Monitor Type: Port
+			Friendly Name: pfSenseport
+			IP (or Host): CNAME do NoIP ou ClouDNS
+			Port: HTTP (80)
+			Monitoring Interval: every 5 minutes
+			Monitor Timeout: in 10 seconds
+		Select "Alert Contacts To Notify"
+			Type / Alert Contacts: On Seu Contato / Seu Email
+	<Create Monitor>
+
+Quarta etapa: Criando um Status Pages do UptimeRobot
+Status Pages
+	<+ Add Status Pages>
+		New Public Status Page
+			Public Status Page Information
+				Friendly Name: pfSensepage
+				Logo: SELECIONAR A IMAGEM DO LOGO DA SUA EMPRESA
+				Robots meta tag: noindex
+		<Create Public Status Page>
+
+Status page for "pfSensepage
+	Monitors
+		<Add all monitors>
+	<Save>
+
+Appearance
+	Page settings
+		Theme: Dark
+	<Save>
+
+Global settings
+	URL: Standard URL (COPIAR ENDEREÇO DA URL DO MONITORAMENTO DO UPTIMEROBOT)
+
+Quarta etapa: Monitoramento das atualizações dinâmicas do DDNS no pfSense
+Services
+	Dynamic DNS
+		Dynamic DNS Client
+
+Status
+	Gateways
+
+Status
+	Gateways
+		Gateways Groups
+
+Status
+	Interfaces
