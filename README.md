@@ -407,6 +407,6 @@ Uptime Robot é uma ferramenta gratuita usada para monitorar sites, portas, serv
 
 [![Uptime Robot pfSense Plus](http://img.youtube.com/vi//0.jpg)]("Uptime Robot pfSense Plus")
 
-Link da vídeo aula: 
+Link da vídeo aula: https://www.youtube.com/watch?v=tsLvtHaO4l8
 
-Documentação da vídeo aula:
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-030-ConfigurandoUptimeRobot.txt
