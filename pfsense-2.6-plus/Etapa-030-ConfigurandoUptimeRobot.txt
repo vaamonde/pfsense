@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 06/05/2023
-Data de atualização: 06/05/2023
-Versão: 0.01
+Data de atualização: 09/05/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -78,6 +78,22 @@ No Dashboard do UptimeRobot clique em: <+ Add New Monitor>
 			Type / Alert Contacts: On Seu Contato / Seu Email
 	<Create Monitor>
 
+Quarta etapa: Criando um monitoramento utilizando o HTTP(s) do UptimeRobot
+No Dashboard do UptimeRobot clique em: <+ Add New Monitor>
+	New Monitor
+		Monitor Information
+			Monitor Type: HTTP(s)
+			Friendly Name: pfSensehttp
+			URL (or IP): CNAME do NoIP ou ClouDNS
+			Monitoring Interval: every 5 minutes
+			Monitor Timeout: in 30 seconds
+			Monitor SSL erros: Off
+			Enable SSL expiry reminders: Off
+			HTTP Method: HEAD
+		Select "Alert Contacts To Notify"
+			Type / Alert Contacts: On Seu Contato / Seu Email
+	<Create Monitor>
+			
 Quarta etapa: Criando um Status Pages do UptimeRobot
 Status Pages
 	<+ Add Status Pages>
