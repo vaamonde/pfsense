@@ -30,6 +30,8 @@ Lista de Pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/packages
 Site Oficial do SpeedTest: https://www.speedtest.net/pt
 Link do projeto do Widget do SpeedTest para o pfSense: https://github.com/jacobdjwilson/pfsense-speedtest-widget
 
+Lista de pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/development/package-port-list.html
+
 Teste de velocidade da Internet do NIC.br: https://beta.simet.nic.br
 Teste de velocidade da Internet SpeedTest: https://www.speedttest.net
 Teste de velocidade da Internet Fast: https://fast.com/pt/

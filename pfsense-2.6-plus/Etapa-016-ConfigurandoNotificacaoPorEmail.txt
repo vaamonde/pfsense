@@ -36,6 +36,8 @@ Link de verificação em duas etapas do Google: https://support.google.com/accou
 Link de senhas de aplicativos do Google: https://support.google.com/accounts/answer/185833
 Link Microsoft Office365: https://learn.microsoft.com/en-us/Exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365
 
+Lista de pacotes do pfSense: https://docs.netgate.com/pfsense/en/latest/development/package-port-list.html
+
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value
 (Disable) = Desabilitado nessa configuração = OFF
