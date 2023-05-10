@@ -146,7 +146,7 @@ Sétima etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede 
 Firewall
 	Rules
 		DMZ
-			+ADD
+			<+Add>
 				Edit Firewall Rule
 					Action: Pass (Default)
 					Disable: OFF (Default)
