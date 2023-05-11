@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 10/05/2023
-Data de atualização: 10/05/2023
-Versão: 0.01
+Data de atualização: 11/05/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -65,7 +65,14 @@ Filial: Rede Local: 172.16.2.0/24 - Gateway: 172.16.2.254
 Segunda etapa: Teste de Ping nas Interfaces WAN da Matriz e Filial
 Terminal (Ctrl + Alt + T)
 	ping ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL
+		ping 192.168.0.120 
 	ping ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ
+		ping 192.168.0.100
+
+Diagnostics
+	Ping
+		Hostname: ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL
+		Hostname: ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ
 
 OBSERVAÇÃO IMPORTANTE: MUITO CUIDADO COM OPERADORAS DE INTERNET QUE FORNECE ENDEREÇAMENTO 
 WAN (INTERNET) UTILIZANDO CGNAT (Carrier Grade Network Address Translation), NESSE CENÁRIO
@@ -95,11 +102,13 @@ VPN
 					Internet Protocol: IPv4 (Default)
 					Interface: WAN_VIVO (Enable)
 					Remote Gateway: ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL (Enable)
+					                192.168.0.120
 				Phase 1 Proposal (Authentication)
 					Authentication Method: Mutual PSK (Default)
 					My identifier: My IP address (Default)
 					Peer identifier: Peer IP address (Default)
 					Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC (Enable)
+					                pti@2018
 				Phase 1 Proposal (Encryption Algorithm)
 					Encryption Algorithm
 						Algorithm: AES (Default)
@@ -145,6 +154,7 @@ VPN
 					Remote Network
 						Type: Network (Default)
 						Address: SUB_REDE_DA_FILIAL/CIDR (Enable)
+						         172.16.2.0/24
 				Phase 2 Proposal (SA/Key Exchange)
 					Protocol: ESP
 					Encryption Algorithms
@@ -166,6 +176,7 @@ VPN
 					Rand Time: 360 (Default)
 				Keep Alive
 					Automatically ping host: IPV4_DE_MONITORAMENTO_FIREWALL_FILIAL (Enable)
+					                         172.16.2.254
 					Keep Alive: On (Enable)
 			<Save>
 		<Apply Changes>
@@ -182,13 +193,15 @@ VPN
 				IKE Endpoint Configuration
 					Key Exchange version: IKEv2 (Default)
 					Internet Protocol: IPv4 (Default)
-					Interface: WAN_VIVO (Enable)
+					Interface: WAN (Enable)
 					Remote Gateway: ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ (Enable)
+					                192.168.0.100
 				Phase 1 Proposal (Authentication)
 					Authentication Method: Mutual PSK (Default)
 					My identifier: My IP address (Default)
 					Peer identifier: Peer IP address (Default)
 					Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC (Enable)
+					                pti@2018
 				Phase 1 Proposal (Encryption Algorithm)
 					Encryption Algorithm
 						Algorithm: AES (Default)
@@ -234,6 +247,7 @@ VPN
 					Remote Network
 						Type: Network (Default)
 						Address: SUB_REDE_DA_MATRIZ/CIDR (Enable)
+						         172.16.1.0/24
 				Phase 2 Proposal (SA/Key Exchange)
 					Protocol: ESP
 					Encryption Algorithms
@@ -255,11 +269,12 @@ VPN
 					Rand Time: 360 (Default)
 				Keep Alive
 					Automatically ping host: IPV4_DE_MONITORAMENTO_FIREWALL_MATRIZ (Enable)
+					                         172.16.1.254
 					Keep Alive: On (Enable)
 			<Save>
 		<Apply Changes>
 
-Quinta etapa: Criando a Regra de Liberação de Todos os Protocolos da Rede VPN IPSec no pfSense
+Quinta etapa: Criando a Regra de Liberação de Todos os Protocolos da Rede VPN IPSec Matriz e Filial no pfSense
 Firewall
 	Rules
 		IPsec
@@ -286,3 +301,34 @@ Firewall
 		+Separator
 			Enter a description: Liberação do Acessoa a Rede IPSec - Color: Green - <Save>
 		<Save>
+
+Sexta etapa: Monitoramento do IPSec no pfSense
+Status
+	IPsec
+		Overview
+		SADs
+		SPDs
+
+Status
+	Monitoring
+		Settings
+			Left Axis: Traffic, Packets, 
+			Graph: IPsec
+
+Status
+	Dashboard
+		IPsec
+			Overview
+			Tunnels
+Status
+	System Logs
+		IPsec
+
+Diagnostics
+	Ping
+		Hostname: 172.16.2.254
+		IP Protocol: IPv4
+		Source address: LAN
+		Maximum number of pings: 3
+		Seconds between pings: 1
+	<Ping>
