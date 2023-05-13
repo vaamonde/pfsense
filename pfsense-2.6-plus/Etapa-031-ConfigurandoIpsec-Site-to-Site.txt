@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 10/05/2023
-Data de atualização: 11/05/2023
-Versão: 0.02
+Data de atualização: 13/05/2023
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -158,7 +158,7 @@ VPN
 				Phase 2 Proposal (SA/Key Exchange)
 					Protocol: ESP
 					Encryption Algorithms
-						AES         On (Default)	128 bits (Default)
+						AES         On (Default)	256 bits (Enable)
 						AES128-GCM  On (Default)	128 bits (Default)
 						AES192-GCM  Off (Default)	Auto (Default)
 						AES256-GCM  Off (Default)	Auto (Default)
@@ -251,7 +251,7 @@ VPN
 				Phase 2 Proposal (SA/Key Exchange)
 					Protocol: ESP
 					Encryption Algorithms
-						AES         On (Default)	128 bits (Default)
+						AES         On (Default)	256 bits (Enable)
 						AES128-GCM  On (Default)	128 bits (Default)
 						AES192-GCM  Off (Default)	Auto (Default)
 						AES256-GCM  Off (Default)	Auto (Default)

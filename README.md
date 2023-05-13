@@ -403,10 +403,24 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 Vídeo mostrando os procedimentos básicos para configurar o Serviço On-Line do Uptime Robot para monitorar o pfSENSE PLUS+ 23.01.
 
-Uptime Robot é uma ferramenta gratuita usada para monitorar sites, portas, serviços, etc.... Ele monitora seus sites a cada 5 minutos e avisa se eles estão fora do ar. Você pode receber alertas por e-mail, SMS, Twitter, push, Slack, HipChat e agora OnPage por meio de WebHooks..
+Uptime Robot é uma ferramenta gratuita usada para monitorar sites, portas, serviços, etc.... Ele monitora seus sites a cada 5 minutos e avisa se eles estão fora do ar. Você pode receber alertas por e-mail, SMS, Twitter, push, Slack, HipChat e agora OnPage por meio de WebHooks.
 
-[![Uptime Robot pfSense Plus](http://img.youtube.com/vi//0.jpg)]("Uptime Robot pfSense Plus")
+[![Uptime Robot pfSense Plus](http://img.youtube.com/vi/tsLvtHaO4l8/0.jpg)](https://www.youtube.com/watch?v=tsLvtHaO4l8 "Uptime Robot pfSense Plus")
 
 Link da vídeo aula: https://www.youtube.com/watch?v=tsLvtHaO4l8
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-030-ConfigurandoUptimeRobot.txt
+
+## **COMO CONFIGURAR a VPN utilizando o IPSec Site-to-Site no pfSENSE PLUS+ 23.01**
+
+Vídeo mostrando os procedimentos básicos para configurar o Serviço de VPN Site-to-Site utilizando o IPSec no pfSENSE PLUS+ 23.01.
+
+Rede privada virtual, do inglês virtual private network, é uma rede de comunicações privada construída sobre uma rede de comunicações pública. O tráfego de dados é levado pela rede pública utilizando protocolos padrões, não necessariamente seguros.
+
+Protocolo de Segurança IP é uma extensão do protocolo IP que visa a ser o método padrão para o fornecimento de privacidade do usuário, integridade dos dados e autenticidade das informações ou prevenção de identity spoofing, quando se transferem informações através de redes IP pela internet.
+
+[![IPsec Site-to-Site pfSense Plus](http://img.youtube.com/vi/6IKcNG_eGfI/0.jpg)](https://www.youtube.com/watch?v=6IKcNG_eGfI "IPsec Site-to-Site pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=6IKcNG_eGfI
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-031-ConfigurandoIpsec-Site-to-Site.txt
