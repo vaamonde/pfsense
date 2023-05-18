@@ -8,9 +8,9 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 12/09/2022
-Data de atualização: 27/09/2022
-Versão: 0.02
-Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x e Plus 22.x
+Data de atualização: 18/05/2023
+Versão: 0.03
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
 Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
@@ -228,3 +228,12 @@ Status
 	System Logs
 		Authentication
 			Geral
+
+Diagnostics
+	Authentication
+		Authentication Test
+			Authentication Server: Local Database (Default)
+			Username: vaamonde
+			Password: pti@2018
+			Debug: On (Enable)
+		<Test>
