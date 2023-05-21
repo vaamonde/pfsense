@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 18/05/2023
-Data de atualização: 18/05/2023
-Versão: 0.01
+Data de atualização: 21/05/2023
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -132,6 +132,7 @@ VPN
 					Verbosity level: default (Default)
 			<Save>
 
+Quarta etapa: Copiar a Chave Criptografada Compartilhada do OpenVPN na Matriz
 VPN
 	OpenVPN
 		Servers
@@ -141,7 +142,7 @@ VPN
 						Shared Key: SELECIONAR TODO O CONTEÚDO E COPIAR
 				<Save>
 
-Quarta etapa: Liberando a Porta do OpenVPN Server na Interface WAN
+Quinta etapa: Liberando a Porta do OpenVPN Server na Interface WAN
 Firewall
 	Rules
 		WAN_VIVO
@@ -167,7 +168,7 @@ Firewall
 			Enter a description: Liberação da Porta do OpenVPN Server - Color: Green - <Save>
 		<Save>
 
-Quinta etapa: Configuração do Túnel VPN OpenVPN na Filial
+Sexta etapa: Configuração do Túnel VPN OpenVPN na Filial
 VPN
 	OpenVPN
 		Clients
@@ -223,7 +224,7 @@ VPN
 					Verbosity level: default (Default)
 			<Save>
 
-Quinta etapa: Criando a Regra de Liberação de Todos os Protocolos da Rede VPN OpenVPN Matriz e Filial no pfSense
+Sétima etapa: Criando a Regra de Liberação de Todos os Protocolos da Rede VPN OpenVPN Matriz e Filial no pfSense
 Firewall
 	Rules
 		OpenVPN
@@ -251,7 +252,7 @@ Firewall
 			Enter a description: Liberação do Acessoa a Rede OpenVPN - Color: Green - <Save>
 		<Save>
 
-Sexta etapa: Monitoramento do OpenVPN no pfSense
+Oitava etapa: Monitoramento do OpenVPN no pfSense
 Status
 	OpenVPN
 
