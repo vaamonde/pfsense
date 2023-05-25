@@ -1,0 +1,81 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 24/05/2023
+Data de atualização: 24/05/2023
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Lançamento da versão do pfSense Plus 23.05: https://www.netgate.com/blog/pfsense-plus-software-version-23.05-now-available
+Novidades da versão do pfSense Plus 23.05: https://docs.netgate.com/pfsense/en/latest/releases/23-05.html
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
+Release da versão do pfSense Plus 22.05/22.05.1: https://docs.netgate.com/pfsense/en/latest/releases/22-05.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Hardware Mínimo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
+Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
+Orientação de Dimensionamento de Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/size.html
+Sistema de Arquivos e Particionamento UFS: https://docs.netgate.com/pfsense/en/latest/install/install-ufs.html
+Sistema de Arquivos e Particionamento ZFS: https://docs.netgate.com/pfsense/en/latest/install/install-zfs.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Guia de atualização: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide.html?highlight=update
+Atualizando usando o Console: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-console
+Atualizando usando a GUI: https://docs.netgate.com/pfsense/en/latest/install/upgrade-guide-update.html#upgrading-using-the-gui
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Atualizando o pfSense pelo Console (Não recomendado)
+
+13) Update from console
+	Proceed with upgrade? (y/N): y
+	
+Segunda etapa: Atualizando o pfSense pelo WebConfigurator (Recomendado)
+System
+	Update
+		System Update
+			Branch: Latest stable version (23.05)
+			Confirm Update: <Confirm>
+
+OBSERVAÇÃO IMPORTANTE: caso não esteja aparecendo na Guia Firmware Branch a versão do pfSense Plus
+23.05 (sem opção para selecionar o Branch) a falha está associada ao Registro da versão Plus no site
+do Netgate, recomendado fazer um novo registro e ativação da licença Plus, esse procedimento resolve
+o problema do Branch.
+
+Terceira etapa: UTILIZAR ESSE PROCEDIMENTO SOMENTE SE A ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
+Console
+	8) Shell
+		#pkg - a utility for manipulating packages - pkg-static manipulate packages
+		#opções do comando pkg: info (List installed packages) -x (filter package)
+		#opções do comando pkg-static: update (Update the available remote repositories as listed in), 
+		#upgrade (Upgrade a package to a newer version), -f (flag an attempt will be made to reinstall
+		#pkg from remote repository)
+		#opções do comando pfSense-upgrade: -d (Turn on debug)
+		sudo pkg info -x pfSense 
+		sudo pkg-static update -f
+		sudo pkg-static upgrade -f
+		sudo pfSense-upgrade -d
