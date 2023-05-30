@@ -142,7 +142,7 @@ VPN
 						Shared Key: SELECIONAR TODO O CONTEÚDO E COPIAR
 				<Save>
 
-Quinta etapa: Liberando a Porta do OpenVPN Server na Interface WAN
+Quinta etapa: Liberando a Porta do OpenVPN Server na Interface WAN na Matriz
 Firewall
 	Rules
 		WAN_VIVO

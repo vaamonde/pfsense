@@ -14,6 +14,7 @@ Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.05: https://www.netgate.com/blog/pfsense-plus-software-version-23.05-now-available
 Novidades da versão do pfSense Plus 23.05: https://docs.netgate.com/pfsense/en/latest/releases/23-05.html
+Planejamento de versões do Netgate pfSense: https://redmine.pfsense.org/projects/pfsense/roadmap
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
 Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
