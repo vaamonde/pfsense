@@ -103,6 +103,22 @@ Link da vídeo aula: https://www.youtube.com/watch?v=_hxdQG-3GGI
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-023-AtualizandoOpfSense-Plus-23.01.txt
 
+## **COMO ATUALIZAR a versão do pfSENSE PLUS+ 23.01 para NOVA versão 23.05**
+
+Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 23.01 para a nova versão 23.05 lançada em Maio/2023
+
+Lançamento da versão do pfSense Plus 23.05: https://www.netgate.com/blog/pfsense-plus-software-version-23.05-now-available
+
+Novidades da versão do pfSense Plus 23.05: https://docs.netgate.com/pfsense/en/latest/releases/23-05.html
+
+Planejamento de versões do Netgate pfSense: https://redmine.pfsense.org/projects/pfsense/roadmap
+
+[![Upgrade 23.05](http://img.youtube.com/vi/aI3ut8o9LeU/0.jpg)](https://www.youtube.com/watch?v=aI3ut8o9LeU "Upgrade 23.05")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=aI3ut8o9LeU
+
+Documentação dessa vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-032-AtualizandoOpfSense-Plus-23.05.txt
+
 ## **COMO CONFIGURAR o Dashboard do pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar e utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do pfSENSE PLUS+ 22.05.
@@ -424,3 +440,17 @@ Protocolo de Segurança IP é uma extensão do protocolo IP que visa a ser o mé
 Link da vídeo aula: https://www.youtube.com/watch?v=6IKcNG_eGfI
 
 Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-031-ConfigurandoIpsec-Site-to-Site.txt
+
+## **COMO CONFIGURAR a VPN utilizando o OpenVPN Site-to-Site no pfSENSE PLUS+ 23.05**
+
+Vídeo mostrando os procedimentos básicos para configurar o Serviço de VPN Site-to-Site utilizando o OpenVPN no pfSENSE PLUS+ 23.05.
+
+Rede privada virtual, do inglês virtual private network, é uma rede de comunicações privada construída sobre uma rede de comunicações pública. O tráfego de dados é levado pela rede pública utilizando protocolos padrões, não necessariamente seguros.
+
+O OpenVPN é um software livre e open-source para criar redes privadas virtuais do tipo ponto-a-ponto ou server-to-multiclient através de túneis criptografados entre computadores.
+
+[![OpenVPN Site-to-Site pfSense Plus](http://img.youtube.com/vi/txXq8xfrRmg/0.jpg)](https://www.youtube.com/watch?v=txXq8xfrRmg "OpenVPN Site-to-Site pfSense Plus")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=txXq8xfrRmg
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-033-ConfigurandoOpenVPN-Site-to-Site.txt
