@@ -7,9 +7,9 @@ Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
 Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
-Data de criação: 18/05/2023
-Data de atualização: 21/05/2023
-Versão: 0.02
+Data de criação: 05/06/2023
+Data de atualização: 05/06/2023
+Versão: 0.01
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.05: https://www.netgate.com/blog/pfsense-plus-software-version-23.05-now-available
@@ -50,6 +50,7 @@ Opções de Configurações do OpenVPN: https://docs.netgate.com/pfsense/en/late
 OpenVPN em Multi-WAN: https://docs.netgate.com/pfsense/en/latest/vpn/openvpn/multi-wan.html
 Exemplo de configuração OpenVPN Site-to-Site com chave compartilhada: https://docs.netgate.com/pfsense/en/latest/recipes/openvpn-s2s-psk.html
 Solução de problemas do OpenVPN: https://docs.netgate.com/pfsense/en/latest/troubleshooting/openvpn.html
+Exemplo de configuração site a site OpenVPN com SSL/TLS: https://docs.netgate.com/pfsense/en/latest/recipes/openvpn-s2s-tls.html
 
 Observações das configurações utilizadas nessa documentação
 (Default) = Configuração padrão do pfSense = ON ou OFF ou Value

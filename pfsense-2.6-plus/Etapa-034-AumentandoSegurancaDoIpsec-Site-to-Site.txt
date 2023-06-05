@@ -1,0 +1,344 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 05/06/2023
+Data de atualização: 05/06/2023
+Versão: 0.01
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Lançamento da versão do pfSense Plus 23.05: https://www.netgate.com/blog/pfsense-plus-software-version-23.05-now-available
+Novidades da versão do pfSense Plus 23.05: https://docs.netgate.com/pfsense/en/latest/releases/23-05.html
+Planejamento de versões do Netgate pfSense: https://redmine.pfsense.org/projects/pfsense/roadmap
+
+Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
+Novidades da versão do pfSense Plus 23.01: https://docs.netgate.com/pfsense/en/latest/releases/23-01.html
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Introdução à tela Regras de firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Básico de Regras de Firewall no pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/example-basic-configuration.html
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Diferenças das Interfaces LAN e WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Metodologia das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-methodology.html
+
+Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
+ICMP (Internet Control Message Protocol): https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+
+IPsec Netgate pfSense: https://docs.netgate.com/pfsense/en/latest/vpn/ipsec/index.html
+IPsec Terminologia: https://docs.netgate.com/pfsense/en/latest/vpn/ipsec/terms.html
+IPsec Configuração: https://docs.netgate.com/pfsense/en/latest/vpn/ipsec/configure.html
+IPsec Estilo Móvel: https://docs.netgate.com/pfsense/en/latest/vpn/ipsec/mobile-choices.html
+Exemplo de VPN site a site IPsec com chaves pré-compartilhadas: https://docs.netgate.com/pfsense/en/latest/recipes/ipsec-s2s-psk.html
+Exemplo de VPN site a site IPsec com autenticação de certificado:https://docs.netgate.com/pfsense/en/latest/recipes/ipsec-s2s-tls.html
+IPsec Logs: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/ipsec.html
+IPsec Status: https://docs.netgate.com/pfsense/en/latest/monitoring/status/ipsec.html
+Exemplo de VPN de acesso remoto IPsec usando IKEv2 com EAP-TLS: https://docs.netgate.com/pfsense/en/latest/recipes/ipsec-mobile-ikev2-eap-tls.html
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Determinação da Topologia e Endereçamento IPv4 da Rede da Matriz e Filial
+
+Matriz: Rede Local: 172.16.1.0/24 - Gateway: 172.16.1.254
+Filial: Rede Local: 172.16.2.0/24 - Gateway: 172.16.2.254
+
+Segunda etapa: Teste de Ping nas Interfaces WAN da Matriz e Filial
+Terminal (Ctrl + Alt + T)
+	ping ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL
+		ping 192.168.0.120 
+	ping ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ
+		ping 192.168.0.100
+
+Diagnostics
+	Ping
+		Hostname: ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL
+		Hostname: ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ
+
+OBSERVAÇÃO IMPORTANTE: MUITO CUIDADO COM OPERADORAS DE INTERNET QUE FORNECE ENDEREÇAMENTO 
+WAN (INTERNET) UTILIZANDO CGNAT (Carrier Grade Network Address Translation), NESSE CENÁRIO
+MUITAS VEZES NÃO É POSSÍVEL FECHAR O TÚNEL VPN IPSEC OU OPENVPN POIS O ENDEREÇO IPv4 DA WAN
+NÃO É O ENDEREÇO QUENTE (PÚBLICO) DE INTERNET.
+
+Mais informações acesse: https://nic.br/noticia/na-midia/o-que-e-cgnat-e-como-isso-pode-afetar-sua-conexao-de-internet/
+Mais informações acesse: https://tecnoblog.net/responde/o-que-e-cgnat/
+
+OBSERVAÇÃO IMPORTANTE: OUTRO DETALHE E DEIXAR CONFIGURADO O ROUTER DA OPERADORA DE INTERNET
+EM MODO BRIDGE, PARA QUE O PFSENSE OBTENHA O ENDEREÇO QUENTE (PÚBLICO) DE INTERNET E CONSIGA
+FECHAR O TÚNEL VPN UTILIZANDO O IPSEC OU OPENVPN.
+
+Mais informações acesse: https://tecnoblog.net/responde/modo-bridge-ou-router-qual-a-diferenca-e-por-que-usar/
+
+Terceira etapa: Configuração do Túnel VPN IPsec na Matriz
+VPN
+	IPSec
+		Tunnels
+			#Configuração da Primeira Fase do IPSec
+			<Add P1>
+				General Information
+					Description: Fase 1 VPN Site-to-Site Matriz-Filial
+					Disabled: Off (Default)
+				IKE Endpoint Configuration
+					Key Exchange version: IKEv2 (Default)
+					Internet Protocol: IPv4 (Default)
+					Interface: WAN_VIVO (Enable)
+					Remote Gateway: ENDEREÇO_IPV4_WAN_FILIAL ou DDNS_INTERFACE_WAN_FILIAL (Enable)
+					                192.168.0.120
+				Phase 1 Proposal (Authentication)
+					Authentication Method: Mutual PSK (Default)
+					My identifier: My IP address (Default)
+					Peer identifier: Peer IP address (Default)
+					Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC (Enable)
+					                pti@2018
+				Phase 1 Proposal (Encryption Algorithm)
+					Encryption Algorithm
+						Algorithm: AES (Default)
+						Key length: 256 bits (Enable)
+						Hash: SHA256 (Default)
+						DH Group: 14 (2048 bit) (Default)
+				Expiration and Replacement
+					Life Time: 28800 (Default)
+					Rekey Time: 25920 (Default)
+					Reauth Time: 0 (Default)
+					Rand Time: 2880 (Default)
+				Advanced Options
+					Child SA Start Action: Default (Default)
+					Child SA Close Action: Default (Default)
+					NAT Traversal: Auto (Default)
+					MOBIKE: Disable (Default)
+					Gateway duplicates: Off (Default)
+					Split connections: Off (Default)
+					PRF Selection: Off (Default)
+					Custom IKE/NAT-T Ports
+						UDP port for IKE on the remote gateway: Remote IKE Port (Default)
+						UDP port for NAT-T on the remote gateway: Remote NAT-T Port (Default)
+					Dead Peer Detection:
+						Enable DPD: On (Default)
+					Delay: 10 (Default)
+					Max failures: 5 (Default)
+			<Save>
+
+		#Configuração da Segunda Fase do IPSec
+		<Show Phase 2 Entries (0)>
+			<Add P2>
+				General Information
+					Description: Fase 2 VPN Site-to-Site Matriz-Filial
+					Disabled: Off (Default)
+					Mode: Tunnel IPv4
+				Networks
+					Local Network 
+						Type: LAN subnet (Enable)
+						Address: Off (Default)
+					NAT/BINAT translation
+						Type: None (Default)
+						Address: Off (Default)
+					Remote Network
+						Type: Network (Default)
+						Address: SUB_REDE_DA_FILIAL/CIDR (Enable)
+						         172.16.2.0/24
+				Phase 2 Proposal (SA/Key Exchange)
+					Protocol: ESP
+					Encryption Algorithms
+						AES         On (Default)	256 bits (Enable)
+						AES128-GCM  On (Default)	128 bits (Default)
+						AES192-GCM  Off (Default)	Auto (Default)
+						AES256-GCM  Off (Default)	Auto (Default)
+						CHACHA20-POLY1305  Off (Default)
+					Hash Algorithms
+						SHA1      Off (Default)
+						SHA256    On (Default)
+						SHA384    Off (Default)
+						SHA512    Off (Default)
+						AES-XCBC  Off (Default)
+					PFS key group: 14 (2048 bit) (Default)
+				Expiration and Replacement
+					Life Time: 3600 (Default)
+					Rekey Time: 3240 (Default)
+					Rand Time: 360 (Default)
+				Keep Alive
+					Automatically ping host: IPV4_DE_MONITORAMENTO_FIREWALL_FILIAL (Enable)
+					                         172.16.2.254
+					Keep Alive: On (Enable)
+			<Save>
+		<Apply Changes>
+
+Quarta etapa: Configuração do Túnel VPN IPsec na Filial
+VPN
+	IPSec
+		Tunnels
+			#Configuração da Primeira Fase do IPSec
+			<Add P1>
+				General Information
+					Description: Fase 1 VPN Site-to-Site Filial-Matriz
+					Disabled: Off (Default)
+				IKE Endpoint Configuration
+					Key Exchange version: IKEv2 (Default)
+					Internet Protocol: IPv4 (Default)
+					Interface: WAN (Enable)
+					Remote Gateway: ENDEREÇO_IPV4_WAN_MATRIZ ou DDNS_INTERFACE_WAN_MATRIZ (Enable)
+					                192.168.0.100
+				Phase 1 Proposal (Authentication)
+					Authentication Method: Mutual PSK (Default)
+					My identifier: My IP address (Default)
+					Peer identifier: Peer IP address (Default)
+					Pre-Shared Key: CHAVE_DE_AUTENTICAÇÃO_IPSEC (Enable)
+					                pti@2018
+				Phase 1 Proposal (Encryption Algorithm)
+					Encryption Algorithm
+						Algorithm: AES (Default)
+						Key length: 256 bits (Enable)
+						Hash: SHA256 (Default)
+						DH Group: 14 (2048 bit) (Default)
+				Expiration and Replacement
+					Life Time: 28800 (Default)
+					Rekey Time: 25920 (Default)
+					Reauth Time: 0 (Default)
+					Rand Time: 2880 (Default)
+				Advanced Options
+					Child SA Start Action: Default (Default)
+					Child SA Close Action: Default (Default)
+					NAT Traversal: Auto (Default)
+					MOBIKE: Disable (Default)
+					Gateway duplicates: Off (Default)
+					Split connections: Off (Default)
+					PRF Selection: Off (Default)
+					Custom IKE/NAT-T Ports
+						UDP port for IKE on the remote gateway: Remote IKE Port (Default)
+						UDP port for NAT-T on the remote gateway: Remote NAT-T Port (Default)
+					Dead Peer Detection:
+						Enable DPD: On (Default)
+					Delay: 10 (Default)
+					Max failures: 5 (Default)
+			<Save>
+
+		#Configuração da Segunda Fase do IPSec
+		<Show Phase 2 Entries (0)>
+			<Add P2>
+				General Information
+					Description: Fase 2 VPN Site-to-Site Filial-Matriz
+					Disabled: Off (Default)
+					Mode: Tunnel IPv4
+				Networks
+					Local Network 
+						Type: LAN subnet (Enable)
+						Address: Off (Default)
+					NAT/BINAT translation
+						Type: None (Default)
+						Address: Off (Default)
+					Remote Network
+						Type: Network (Default)
+						Address: SUB_REDE_DA_MATRIZ/CIDR (Enable)
+						         172.16.1.0/24
+				Phase 2 Proposal (SA/Key Exchange)
+					Protocol: ESP
+					Encryption Algorithms
+						AES         On (Default)	256 bits (Enable)
+						AES128-GCM  On (Default)	128 bits (Default)
+						AES192-GCM  Off (Default)	Auto (Default)
+						AES256-GCM  Off (Default)	Auto (Default)
+						CHACHA20-POLY1305  Off (Default)
+					Hash Algorithms
+						SHA1      Off (Default)
+						SHA256    On (Default)
+						SHA384    Off (Default)
+						SHA512    Off (Default)
+						AES-XCBC  Off (Default)
+					PFS key group: 14 (2048 bit) (Default)
+				Expiration and Replacement
+					Life Time: 3600 (Default)
+					Rekey Time: 3240 (Default)
+					Rand Time: 360 (Default)
+				Keep Alive
+					Automatically ping host: IPV4_DE_MONITORAMENTO_FIREWALL_MATRIZ (Enable)
+					                         172.16.1.254
+					Keep Alive: On (Enable)
+			<Save>
+		<Apply Changes>
+
+Quinta etapa: Criando a Regra de Liberação de Todos os Protocolos da Rede VPN IPSec Matriz e Filial no pfSense
+Firewall
+	Rules
+		IPsec
+			<Add>
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: IPsec (Default)
+					Address Family: IPv4 (Default)
+					Protocol: Any (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) -any (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - any (Default)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do acesso da Rede VPN IPSec
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Liberação do Acessoa a Rede IPSec - Color: Green - <Save>
+		<Save>
+
+Sexta etapa: Monitoramento do IPSec no pfSense
+Status
+	IPsec
+		Overview
+		SADs
+		SPDs
+
+Status
+	Monitoring
+		Settings
+			Left Axis: Traffic, Packets, 
+			Graph: IPsec
+
+Status
+	Dashboard
+		IPsec
+			Overview
+			Tunnels
+Status
+	System Logs
+		IPsec
+
+Status
+	Traffic Graph
+		Graph Settings
+			Traffic Graph: IPsec
+
+Diagnostics
+	Ping
+		Hostname: 172.16.2.254
+		IP Protocol: IPv4
+		Source address: LAN
+		Maximum number of pings: 3
+		Seconds between pings: 1
+	<Ping>
