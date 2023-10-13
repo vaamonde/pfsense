@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 10/05/2023
-Data de atualização: 18/05/2023
-Versão: 0.04
+Data de atualização: 13/10/2023
+Versão: 0.05
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
 
 Lançamento da versão do pfSense Plus 23.01: https://www.netgate.com/blog/23.01-release-now-available
@@ -87,6 +87,8 @@ EM MODO BRIDGE, PARA QUE O PFSENSE OBTENHA O ENDEREÇO QUENTE (PÚBLICO) DE INTE
 FECHAR O TÚNEL VPN UTILIZANDO O IPSEC OU OPENVPN.
 
 Mais informações acesse: https://tecnoblog.net/responde/modo-bridge-ou-router-qual-a-diferenca-e-por-que-usar/
+
+OBSERVAÇÃO IMPORTANTE: portas padrão do IPSec: UDP 500, 4500, 4510 e 4511
 
 Terceira etapa: Configuração do Túnel VPN IPsec na Matriz
 VPN
