@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 20/01/2024
-Data de atualização: 20/01/2024
-Versão: 0.01
+Data de atualização: 23/01/2024
+Versão: 0.02
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.7.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -17,13 +17,13 @@ Novos recurso e mudanças da versão 2.7.2: https://docs.netgate.com/pfsense/en/
 Novos recurso e mudanças da versão 2.7.1: https://docs.netgate.com/pfsense/en/latest/releases/2-7-1.html
 Novos recurso e mudanças da versão 2.7.0: https://docs.netgate.com/pfsense/en/latest/releases/2-7-0.html
 
-Lançamento da Versão 2.7.2: https://www.netgate.com/blog/netgate-releases-pfsense-plus-software-version-23.09.1-and-pfsense-ce-software-version-2.7.2
-Lançamento da Versão 2.7.1: https://www.netgate.com/blog/netgate-releases-pfsense-ce-software-version-2.7.1
-Lançamento da Versão 2.7.0: https://www.netgate.com/blog/pfsense-2.7.0-and-23.05
-Lançamento da Versão BETA 2.7.0: https://www.netgate.com/blog/pfsense-ce-software-version-2.7.0-beta-available
+07/12/2023 Lançamento da Versão 2.7.2: https://www.netgate.com/blog/netgate-releases-pfsense-plus-software-version-23.09.1-and-pfsense-ce-software-version-2.7.2
+16/11/2023 Lançamento da Versão 2.7.1: https://www.netgate.com/blog/netgate-releases-pfsense-ce-software-version-2.7.1
+29/06/2023 Lançamento da Versão 2.7.0: https://www.netgate.com/blog/pfsense-2.7.0-and-23.05
+16/06/2023 Lançamento da Versão BETA 2.7.0: https://www.netgate.com/blog/pfsense-ce-software-version-2.7.0-beta-available
 
-Descontinuação do pacote complementar Squid para software pfSense: https://www.netgate.com/blog/deprecation-of-squid-add-on-package-for-pfsense-software
-Release Squid Proxy: http://www.squid-cache.org/Versions/
+10/11/2023 Descontinuação do pacote complementar Squid para software pfSense: https://www.netgate.com/blog/deprecation-of-squid-add-on-package-for-pfsense-software
+Release Squid Proxy: http://www.squid-cache.org/Versions/ (v6.6 07/12/2023)
 
 Hardware Mínimo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
 Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
