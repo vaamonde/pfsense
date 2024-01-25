@@ -8,8 +8,8 @@ Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
 YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
 LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
 Data de criação: 20/01/2024
-Data de atualização: 23/01/2024
-Versão: 0.02
+Data de atualização: 25/01/2024
+Versão: 0.03
 Testado e homologado no Firewall NG UTM Netgate pfSense 2.7.x
 
 Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
@@ -24,6 +24,14 @@ Novos recurso e mudanças da versão 2.7.0: https://docs.netgate.com/pfsense/en/
 
 10/11/2023 Descontinuação do pacote complementar Squid para software pfSense: https://www.netgate.com/blog/deprecation-of-squid-add-on-package-for-pfsense-software
 Release Squid Proxy: http://www.squid-cache.org/Versions/ (v6.6 07/12/2023)
+
+Lista de Aplicativos do pfSense: https://docs.netgate.com/pfsense/en/latest/packages/list.html
+
+OBSERVAÇÃO IMPORTANTE: INFORMAÇÃO SOBRE OS PACOTES: SQUID, LIGHTSQUID E SQUIDGUARD.
+Os pacotes complementares Squid, SquidGuard e Lightsquid estão obsoletos nos softwares pfSense Plus e pfSense CE
+devido a um grande número de vulnerabilidades de segurança upstream não corrigidas. A Netgate recomenda FORTEMENTE 
+que os usuários desinstalem esses pacotes. Os pacotes não funcionarão mais na próxima versão principal dos softwares 
+pfSense Plus e pfSense CE.
 
 Hardware Mínimo do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/minimum-requirements.html
 Seleção do Hardware do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/selection.html
@@ -53,7 +61,7 @@ Observações das configurações utilizadas nessa documentação
 Primeira etapa: Download da ISO do Netgate UTM pfSense
 
 01. Link de download do pfSense: https://www.pfsense.org/download/
-02. Versão do download pfSense: 2.6.0 (25/08/2022)
+02. Versão do download pfSense: 2.7.2 (23/01/2024)
 03. Arquitetura do pfSense: AMD64 (64-bit)
 04. Tipo de instalação: DVD Image (ISO) Installer
 05. Mirror padrão do download: Austin, TX USA

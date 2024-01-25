@@ -1,4 +1,4 @@
-# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.6.x e Plus 22.x
+# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.6.x, 2.7.X e Plus 22.x e 23.x
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos e materiais gratuitos para o Canal do YouTUBE
 ## 💰 Chave PIX do projeto: robsonvaamonde@gmail.com
@@ -42,6 +42,35 @@ Oracle VirtualBOX: https://www.virtualbox.org/
 
 ## **Playlist do YouTUBE com todos os Vídeos do pfSense:**
 Link da Playlist: https://www.youtube.com/playlist?list=PLozhsZB1lLUOnT2ROgDFGuTq69tqOK36s
+
+## ** pfSENSE CE 2.7.2 Instalação no VirtualBOX e Fim do Proxy Squid nas Próximas Versões **
+
+Vídeo mostrando os procedimentos básicos para baixar a nova versão do Firewall/Proxy pfSense v2.7.2, criar a máquina virtual no VirtualBOX e fazer as configurações básicas para o seu uso em rede Residencial ou Empresarial.
+
+Esta é uma versão agendada regularmente do software pfSense CE e pfSense Plus, incluindo novos recursos, suporte adicional de hardware e correções de bugs.
+
+O UTM/NGFW pfSENSE é uma das melhores soluções Open Source de Firewall, Proxy, Router, etc do momento, licenciado sob BSD license, baseado no sistema operacional FreeBSD e adaptado para assumir o papel de um firewall e/ou roteador de redes. Ele possui recursos que muitas vezes, só encontrada em Firewall comerciais caros, já que podemos realizar com o pfSense a imensa maioria das atividades que esperamos de sistemas com este título.
+
+Hoje o pfSense também pode ser considerado um UTM (Unified Threat Management) e NGFW (Next Generation Firewall), possibilitando a integração de serviços como: Firewall, Proxy, Antivírus, IDS/IPS, Balanceamento de Carga, Relatórios e Inspeção Profunda de Pacotes (DPI).
+
+[![pfSense 2.7](http://img.youtube.com/vi/3bGrz25cxKM/0.jpg)](https://www.youtube.com/watch?v=3bGrz25cxKM "pfSense 2.7")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=3bGrz25cxKM
+
+Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.7/Etapa-001-InstalacaoDopfSense-2.7.txt
+
+## ** ESTOU TRISTE!!!!! FIM DA LICENÇA do pfSENSE PLUS+ HOME e LAB no Site da Netgate **
+
+
+Vídeo mostrando os comentários e o Fim da Licença do Netgate pfSense Plus Home e Lab.
+
+Conforme comentário no vídeo de Habilitando a Licença Plus+ Home ou Lab no pfSense CE 2.6, fui verificar o que realmente aconteceu com a subscrição da licença gratuita, infelizmente ela foi retirada do site, sendo substituída pela versão TAC Lite paga.
+
+O software pfSense® Plus é o firewall mais confiável do mundo. O software conquistou o respeito e a adoração de usuários em todo o mundo - instalado mais de três milhões de vezes. Tornado possível pela tecnologia de código aberto. Transformado em um produto robusto, confiável e confiável pela Netgate.
+
+[![pfSense Plus FIM](http://img.youtube.com/vi/GbEvqjiH9gY/0.jpg)](https://www.youtube.com/watch?v=GbEvqjiH9gY "pfSense Plus FIM")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=GbEvqjiH9gY
 
 ## ** COMO INSTALAR a nova VERSÃO do pfSENSE FIREWALL v2.6.0 no Oracle VirtualBOX **
 
