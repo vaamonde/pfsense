@@ -61,12 +61,17 @@ Documentação da vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfs
 
 ## ** ESTOU TRISTE!!!!! FIM DA LICENÇA do pfSENSE PLUS+ HOME e LAB no Site da Netgate **
 
-
 Vídeo mostrando os comentários e o Fim da Licença do Netgate pfSense Plus Home e Lab.
 
 Conforme comentário no vídeo de Habilitando a Licença Plus+ Home ou Lab no pfSense CE 2.6, fui verificar o que realmente aconteceu com a subscrição da licença gratuita, infelizmente ela foi retirada do site, sendo substituída pela versão TAC Lite paga.
 
 O software pfSense® Plus é o firewall mais confiável do mundo. O software conquistou o respeito e a adoração de usuários em todo o mundo - instalado mais de três milhões de vezes. Tornado possível pela tecnologia de código aberto. Transformado em um produto robusto, confiável e confiável pela Netgate.
+
+Comentários no Reddit: https://www.reddit.com/r/PFSENSE/comments/17fvtvv/pfsense_plus_homelab_is_no_longer_available_as_a/
+
+Subscrição do Netgate pfSense Plus+: https://shop.netgate.com/products/pfsense-software-subscription-tac-lite-support
+
+Releases do Netgate pfSense: https://docs.netgate.com/pfsense/en/latest/releases/versions.html
 
 [![pfSense Plus FIM](http://img.youtube.com/vi/GbEvqjiH9gY/0.jpg)](https://www.youtube.com/watch?v=GbEvqjiH9gY "pfSense Plus FIM")
 
