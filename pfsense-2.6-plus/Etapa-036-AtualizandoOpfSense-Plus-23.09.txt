@@ -67,9 +67,9 @@ System
 			Confirm Update: <Confirm>
 
 OBSERVAÇÃO IMPORTANTE: caso não esteja aparecendo na Guia Firmware Branch a versão do pfSense Plus
-23.09 (sem opção para selecionar o Branch) a falha está associada ao Registro da versão Plus no site
-do Netgate, recomendado fazer um novo registro e ativação da licença Plus, esse procedimento resolve
-o problema do Branch.
+23.09.1 (sem opção para selecionar o Branch) a falha está associada ao Registro da versão Plus no 
+site do Netgate, recomendado fazer um novo registro e ativação da licença Plus, esse procedimento 
+resolve o problema do Branch.
 
 Terceira etapa: UTILIZAR ESSE PROCEDIMENTO SOMENTE SE A ATUALIZAÇÃO VIA WEBCONFIGURATOR FALHAR
 Console

@@ -153,6 +153,24 @@ Link da vídeo aula: https://www.youtube.com/watch?v=aI3ut8o9LeU
 
 Documentação dessa vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-032-AtualizandoOpfSense-Plus-23.05.txt
 
+## **COMO ATUALIZAR a versão do pfSENSE PLUS+ 23.05 para NOVA versão 23.09.1**
+
+Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 23.01 para a nova versão 23.05 lançada em Maio/2023
+
+Vídeo mostrando os procedimentos básicos para fazer o Upgrade da versão do Firewall pfSense PLUS+ 23.05 para a nova versão 23.09.1 lançada em Dezembro/2023
+
+Lançamento da versão do pfSense Plus 23.09.1: https://www.netgate.com/blog/netgate-releases-pfsense-plus-software-version-23.09.1-and-pfsense-ce-software-version-2.7.2
+
+Novidades da versão do pfSense Plus 23.09.1: https://docs.netgate.com/pfsense/en/latest/releases/23-09-1.html
+
+Planejamento de versões do Netgate pfSense: https://redmine.pfsense.org/projects/pfsense/roadmap
+
+[![Upgrade 23.09](http://img.youtube.com/vi/QkmvTXQaLUw/0.jpg)](https://www.youtube.com/watch?v=QkmvTXQaLUw "Upgrade 23.09")
+
+Link da vídeo aula: https://www.youtube.com/watch?v=QkmvTXQaLUw
+
+Documentação dessa vídeo aula: https://github.com/vaamonde/pfsense/blob/main/pfsense-2.6-plus/Etapa-036-AtualizandoOpfSense-Plus-23.09.txt
+
 ## **COMO CONFIGURAR o Dashboard do pfSENSE PLUS+ 22.05**
 
 Vídeo mostrando os procedimentos básicos para configurar e utilizar o Dashboard (Painel de Instrumentos) do WebGUI (Graphics User Interface) WebConfigurator do pfSENSE PLUS+ 22.05.
