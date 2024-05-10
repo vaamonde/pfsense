@@ -1,0 +1,267 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 27/09/2022
+Data de atualização: 10/03/2023
+Versão: 0.09
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Introdução à tela Regras de firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Básico de Regras de Firewall no pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/example-basic-configuration.html
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Diferenças das Interfaces LAN e WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/wanvslan.html
+Configuração das Interfaces do pfSense: https://docs.netgate.com/pfsense/en/latest/interfaces/configure.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Metodologia das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/rule-methodology.html
+
+Lista de todas as Portas TCP e UDP: https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP
+ICMP (Internet Control Message Protocol): https://pt.wikipedia.org/wiki/Internet_Control_Message_Protocol
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Testando o acesso aos Serviços e Protocolos de Rede Externo no pfSense
+Terminal (Ctrl + Alt + T)
+	sudo apt install nmap traceroute (install software packages)
+	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path)
+	traceroute -n google.com (print the route packets trace to network host)
+	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing)
+	sudo nmap -sU -p-172.16.1.254
+	sudo nmap -sU -sT -p- 172.16.1.254
+	
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
+	ftp ftp.unicamp.br (Internet file transfer program)
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	
+	OBSERVAÇÃO IMPORTANTE: servidores FTP podem ser configurados de Modo Passivo ou Ativo, dependendo
+	da forma que é configurado o Servidor FTP com Segurança ou Não as regras de Firewall muda, sendo
+	necessário criar regras personalizadas para cada situação.
+	
+	firefox professorramos.com
+	firefox vaamonde.com.br
+	firefox joseassis.com.br
+
+Segunda etapa: Desativar as Regras de Firewall Padrão da LAN no pfSense
+Firewall
+	Rules
+		LAN
+			Default allow LAN to any rule
+				Edit
+					Edit Firewall Rule
+						Disable: ON (Enable)
+						OBSERVAÇÃO IMPORTANTE: após desabilitar a regra padrão do IPv4 do pfSense,
+						todos os serviços de rede vão parar de funcionar, como por exemplo o DNS
+						Resolver, NTP Server, SNMP v2c, etc.
+				<Save>
+
+			Default allow LAN IPv6 to any rule
+				Edit
+					Edit Firewall Rule
+						Disable: ON (Enable)
+						OBSERVAÇÃO IMPORTANTE: após desabilitar a regra padrão do IPv6 do pfSense,
+						todos os serviços de rede vão parar de funcionar, como por exemplo o DNS
+						Resolver, NTP Server, SNMP v2c, etc.
+				<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Regras de Firewall Padrão Desativadas - Color: Red - <Save>
+		<Save>
+
+Terceira etapa: Testando novamente o acesso aos Serviços e Protocolos de Rede Externo no pfSense
+Terminal (Ctrl + Alt + T)
+	sudo apt install nmap traceroute (install software packages)
+	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path, -n IP addresses numerically)
+	traceroute -n google.com (print the route packets trace to network host, -n IP addresses numerically)
+	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing, -p- port range all)
+	sudo nmap -sU -p- 172.16.1.254 (-sU scan UDP, -p- port range all)
+	sudo nmap -sU -sT -p- 172.16.1.254 (-SU scan UDP, -sT scan TCP connect, -p- port range all)
+
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
+	ftp ftp.unicamp.br (Internet file transfer program)
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	
+	firefox professorramos.com
+	firefox vaamonde.com.br
+	firefox joseassis.com.br
+
+Quarta etapa: Levantamento dos Protocolos e Portas de Saída Liberadas da Rede LAN no pfSense
+
+	Protocolo: UDP	 Serviço: DNS Server    Porta: 53         Source: LAN Net  Destination: LAN address  Port: DNS (53)
+	OBSERVAÇÃO IMPORTANTE: nesse cenário estamos utilizando o Serviço do DNS Resolver para a resoluções internas do
+	DNS, caso não esteja utilizando o DNS Resolver você pode alterar o Destination para: Any. O protocolo TCP do DNS
+	Server é utilizado para consulta e sincronismo entre servidores DNS, não sendo necessário fazer a sua liberação.
+
+	Protocolo: ICMP	 Serviço: Any           Porta: Sem Porta  Source: LAN Net  Destination: any          ICMP Subtypes: Echo Reply/Request
+	OBSERVAÇÃO IMPORTANTE: o comando traceroute no GNU/Linux utiliza o Protocolo ICMP e o Range de Portas UDP de: 33434 
+	até 33564, o comando tracepath utiliza o Protocolo ICMP e o Range de Portas UDP de: 44444 até 44644.
+
+	Protocolo: TCP	 Serviço: HTTP Server   Porta: 80         Source: LAN Net  Destination: any          Port: HTTP (80)
+	Protocolo: TCP	 Serviço: HTTPS Server  Porta: 443        Source: LAN Net  Destination: any          Port: HTTPS (443)
+
+	Protocolo: TCP	 Serviço: FTP Server    Porta: 21         Source: LAN Net  Destination: any          Port: FTP (21)
+	OBSERVAÇÃO IMPORTANTE: cuidado com servidores FTP que trabalha no Modo: Passive Mode ele utiliza portas altas para o 
+	envio e recebimento de dados do cliente, no exemplo do FTP ftp.unicamp.br ele trabalha na faixa de: 1024 até 10000, 
+	em alguns cenário também é necessário liberar a porta 20 (conexão de dados) junto com a 21 (conexão de controle). A 
+	comunidade do pfSense recomenda utilizar o recurso do FTP Client Proxy. 
+
+	Protocolo: UDP	 Serviço: NTP Server    Porta: 123        Source: LAN Net  Destination: LAN address  Port: NTP (123)
+	Protocolo: UDP	 Serviço: SNMP v2c      Porta: 161        Source: LAN Net  Destination: LAN address  Port: SNMP (161)
+	OBSERVAÇÃO IMPORTANTE: caso não esteja utilizando os Serviços de Rede NTP Server e SNMP não é necessário fazer a
+	liberação dessas portas, apenas tomar muito cuidado na Porta 123 do NTP Server, se você utiliza sincronismo com
+	servidores externos fazer a liberação na opção do Destination para: Any
+
+	Protocolo: UDP	 Serviço: DHCP Server   Porta: 67         Source: LAN Net  Destination: LAN address  Port: Other (67)
+	OBSERVAÇÃO IMPORTANTE: mesmo removendo todas as regras de Firewall da interface LAN do pfSense a porta de comunicação 
+	do DHCP Server 67 continua permitida na rede, não sendo necessário fazer regras de firewall na LAN para a sua liberação.
+
+Quinta etapa: Criando as Regras de Liberação dos Protocolos Básicos da Rede LAN no pfSense
+Firewall
+	Rules
+		LAN
+			+ADD
+				Edit Firewall Rule
+					Action: Pass (Default)
+					Disable: OFF (Default)
+					Interface: LAN (Default)
+					Address Family: IPv4 (Default)
+					Protocol: UDP (Enable)
+				Source
+					Source: 
+						Invert match: OFF (Default) - LAN net (Enable)
+					Display Advanced: (Default)
+				Destination
+					Destination: 
+						Invert match: OFF (Default) - LAN address (Enable)
+					Destination Port Range:
+						From: DNS (53) (Enable)
+						To: DNS (53) (Enable)
+				Extra Options
+					Log: ON (Enable)
+					Description: Liberação do Protocolo DNS na Interface LAN
+					Advanced Options: (Default)
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Liberação dos Protocolos Básicos de Rede - Color: Blue - <Save>
+		<Save>
+
+		<Copy>
+			OBSERVAÇÃO IMPORTANTE: alterar o endereço de rede e porta conforme a sua necessidade
+			<Save>
+		<Apply Changes>
+
+Sexta etapa: Testando novamente o acesso aos Serviços e Protocolos de Rede Externo no pfSense
+Terminal (Ctrl + Alt + T)
+	sudo apt install nmap traceroute (install software packages)
+	nslookup google.com (query Internet name servers interactively)
+	ping google.com (send ICMP ECHO_REQUEST to network hosts)
+	tracepath -n google.com (traces path to a network host discovering MTU along this path, -n IP addresses numerically)
+	traceroute -n google.com (print the route packets trace to network host, -n IP addresses numerically)
+	sudo nmap -p- 172.16.1.254 (utility for network discovery and security auditing, -p- port range all)
+	sudo nmap -sU -p- 172.16.1.254 (-sU scan UDP, -p- port range all)
+	sudo nmap -sU -sT -p- 172.16.1.254 (-SU scan UDP, -sT scan TCP connect, -p- port range all)
+
+	OBSERVAÇÃO IMPORTANTE: esse scan demora um pouco para ser concluído pois irá verificar todas 
+	as portas UDP (sU 0 até 65535) e TCP (sT 0 até 65535) quando utilizado a opção: -p- (Port All)
+	
+	ftp ftp.unicamp.br (Internet file transfer program)
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	ftp ftp.datasus.gov.br
+		Username: anonymous
+		Password: guest
+		Command: dir
+		exit
+	
+	firefox professorramos.com
+	firefox vaamonde.com.br
+	firefox joseassis.com.br
+
+Sétima etapa: Monitoramento do Log do Firewall no pfSense
+Status
+	System Logs
+		Firewall
+			Normal View
+
+Status
+	System Logs
+		Firewall
+			Dynamic View
+
+Status
+	System Logs
+		Firewall
+			Summary View
+
+Status
+	Filter Reload
+		Related Status
+
+Diagnostics
+	pfInfo
+
+Diagnostics
+	pfTop
+
+Diagnostics
+	Sockets
+		<Show all socket connections>
+
+Diagnostics
+	States
+
+Diagnostics
+	States Summary
