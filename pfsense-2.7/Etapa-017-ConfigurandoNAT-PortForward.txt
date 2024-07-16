@@ -1,0 +1,167 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 12/09/2022
+Data de atualização: 27/09/2022
+Versão: 0.04
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.6.x, Plus 22.x e 23.x
+
+Versões do software pfSense e FreeBSD: https://docs.netgate.com/pfsense/en/latest/releases/versions.html#x
+Migração para o pfSense Plus+ 22.x: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Documentação Oficial do Netgate/pfSense em PDF: https://docs.netgate.com/manuals/pfsense/en/latest/the-pfsense-documentation.pdf
+
+Introdução à Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Criação de Apelidos do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/aliases.html
+NAT Encaminhamento de Portas do pfSense: https://docs.netgate.com/pfsense/en/latest/nat/port-forwards.html
+Configuração das Regras de Firewall do pfSense: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+Solução de problemas de encaminhamento de porta NAT: https://docs.netgate.com/pfsense/en/latest/troubleshooting/nat-port-forwards.html#port-forward-troubleshooting
+Introdução à tela Regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/rule-list-intro.html#figure-firewall-rule-time-stamps
+Evitando que o tráfego RFC1918 saia de uma interface WAN do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Configurações do DNS Resolver do pfSense: https://docs.netgate.com/pfsense/en/latest/services/dns/resolver.html
+Logs do Sistema do pfSense: https://docs.netgate.com/pfsense/en/latest/monitoring/logs/index.html
+
+Observações das configurações utilizadas nessa documentação
+(Default) = Configuração padrão do pfSense = ON ou OFF ou Value
+(Disable) = Desabilitado nessa configuração = OFF
+(Enable)  = Habilitado nessa configuração = ON
+(Remove)  = Removido dessa configuração = Sem valor ou opção
+<***>     = Botão de confirmação ou de aplicar as configurações
+
+Primeira etapa: Criando os apelidos no pfSense
+Firewall
+	Aliases
+		IP
+			+ADD
+				Properties
+					Name: ptispo01ws01
+					Description: Servidor de Web Site Ubuntu Server
+					Type: Host(s)
+				Host(s)
+					IP or FQDN: 172.16.1.20 - Description: IP Web Site Ubuntu Server
+					IP or FQDN: ptispo01ws01 - Description: Hostname Web Site Ubuntu Server
+					IP or FQDN: ptispo01ws01.pti.intra - Description: FQDN Web Site Ubuntu Server
+			<Save>
+		<Apply Changes>
+
+Segunda etapa: Levantamento dos Protocolos e Portas para serem redirecionadas no pfSense
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 21       Target pfSense: FTP
+	Protocolo: TCP	Serviço: OpenSSH SSH        Porta: 22       Target pfSense: SSH
+	Protocolo: TCP	Serviço: Apache HTTP        Porta: 80       Target pfSense: HTTP
+	Protocolo: TCP	Serviço: Apache HTTPS       Porta: 443      Target pfSense: HTTPS
+	Protocolo: TCP	Serviço: VSFTPd FTP         Porta: 990      Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: MySQL              Porta: 3306     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Windows 10 RDP     Porta: 3389     Target pfSense: MS RDP 
+	Protocolo: TCP	Serviço: ShellInBox HTTPS   Porta: 4200     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: TomCAT HTTP        Porta: 8080     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: TomCAT HTTPS       Porta: 8443     Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Webmin HTTPS       Porta: 10000    Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Usermin HTTPS      Porta: 20000    Target pfSense: Other (Custom)
+	Protocolo: TCP	Serviço: Netdata HTTPS      Porta: 19999    Target pfSense: Other (Custom)
+
+Terceira etapa: Criando as regras de Redirecionamento de Portas NAT no pfSense
+Firewall
+	NAT
+		Port Forward
+			+ADD
+				Edit Redirect Entry
+					Disabled: OFF (Default)
+					No RDR(NOT): OFF (Default)
+					Interface: WAN (Default)
+					Address Family: IPv4 (Enable)
+					Protocol: TCP (Default)
+					Source: Default
+					Destination
+						Invert match: OFF (Default)
+						WAN Address (Default)
+					Destination port range: 
+						From port: SSH (Enable)
+						Custom: Default
+						To port: SSH (Enable)
+						Custom: Default
+					Redirect target IP:
+						Type: Single host (Default)
+						Address: ptispo01ws01
+					Redirect target port: 
+						Port: SSH (Enable)
+						Custom: Default
+					Description: Redirecionamento da Porta 22 SSH do Web Site Ubuntu Server
+					No XMLRPC Sync: Off (Default)
+					NAT reflection: Use system default (Default)
+					Filter rule association: Add association filter rule (Default)
+			<Save>
+		<Apply Changes>
+
+		+Separator
+			Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Red - <Save>
+		<Save>
+
+		<Add a new NAT based on this one>
+			OBSERVAÇÃO IMPORTANTE: alterar o endereço do serviço de destino e porta conforme a sua necessidade
+			<Save>
+		<Apply Changes>
+
+Quarta etapa: Habilitando os Logs das regras de Firewall do NAT na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			Edit
+				Extra Options
+					Log: ON (Enable)
+					Description: NAT Redirecionamento da Porta 22 SSH do Web Site Ubuntu Server
+			<Save>
+		<Apply Changes>
+		
+		+Separator
+				Enter a description: Regras de NAT do Servidor Web Site Ubuntu Server - Color: Red - <Save>
+		<Save>
+
+Quinta etapa: Monitoramento do Log do Firewall no pfSense
+Status
+	System Logs
+		Firewall
+			Normal View
+				Advanced Log Filter
+					Destination IP Address: 172.16.1.20
+				<Apply Filter>
+
+Status
+	System Logs
+		Firewall
+			Dynamic View
+				Advanced Log Filter
+					Destination IP Address: 172.16.1.20
+				<Apply Filter>
+
+Status
+	System Logs
+		Firewall
+			Summary View
+
+Diagnostics
+	pfInfo
+
+Diagnostics
+	pfTop
+
+Diagnostics
+	Sockets
+		<Show all socket connections>
+
+Diagnostics
+	States
+
+Diagnostics
+	States Summary
