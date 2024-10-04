@@ -1,4 +1,4 @@
-# Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.6.x, 2.7.X e Plus 22.x e 23.x
+# REPOSITÓRIO CONGELADO: Curso GRÁTIS de Firewall e Proxy Netgate pfSense UTM/NGFW 2.6.x, 2.7.X e Plus 22.x e 23.x
 
 ## 💰 Ajude o projeto Bora para Prática a continuar fazendo vídeos e materiais gratuitos para o Canal do YouTUBE
 ## 💰 Chave PIX do projeto: robsonvaamonde@gmail.com
