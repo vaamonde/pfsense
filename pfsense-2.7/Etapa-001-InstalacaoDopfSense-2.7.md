@@ -55,11 +55,11 @@ Quad9 Malware | 9.9.9.11 | 149.112.112.11 |
 
 **OBSERVAÇÕES:** das configurações utilizadas nessa documentação:
 
-**(Default)** = Configuração padrão do pfSense = *ON ou OFF ou Value*
-**(Disable)** = Desabilitado nessa configuração = *OFF*
-**(Enable)**  = Habilitado nessa configuração = *ON*
-**(Remove)**  = Removido dessa configuração = *Sem valor ou opção*
-**<***>**     = Botão de confirmação ou de aplicar as configurações
+**(Default)** = Configuração padrão do pfSense = *ON ou OFF ou Value*<br>
+**(Disable)** = Desabilitado nessa configuração = *OFF*<br>
+**(Enable)**  = Habilitado nessa configuração = *ON*<br>
+**(Remove)**  = Removido dessa configuração = *Sem valor ou opção*<br>
+**<***>**     = Botão de confirmação ou de aplicar as configurações<br>
 
 ### PRIMEIRA ETAPA: Download da ISO do Netgate UTM pfSense Firewall do Site Oficial
 
